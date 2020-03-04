@@ -11,6 +11,6 @@
         <Label x:Name="lblName" Content="BFBC2 Toolkit 1.0.0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
         <Label x:Name="lblSummary" Content="By Nico Hellmund" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
         <Label x:Name="lblAuthor" Content="Aka Heico" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
-        <Label x:Name="lblVersion" Content="Copyright 2019" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
+        <Label x:Name="lblVersion" Content="Copyright 2020" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
     </Grid>
 </Controls:MetroWindow>

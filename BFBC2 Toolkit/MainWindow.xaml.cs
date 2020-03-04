@@ -31,7 +31,7 @@ using ICSharpCode.AvalonEdit.Highlighting.Xshd;
 /// BFBC2 Toolkit 
 /// By Nico Hellmund 
 /// Aka Heico
-/// Copyright 2019
+/// Copyright 2020
 /// </summary>
 
 namespace BFBC2_Toolkit
