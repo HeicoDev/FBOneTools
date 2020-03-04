@@ -12,10 +12,11 @@
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button x:Name="btnInfo" Content="Info" Padding="8,-1,8,0" Click="BtnInfo_Click" />
+            <Button x:Name="btnInfo" Content="Info" Padding="8,-1,8,0" Click="BtnInfo_Click" ToolTip="Show information about this application" />
             <!--Button x:Name="btnNews" Content="News" Padding="8,-1,8,0" Click="BtnNews_Click" /-->
-            <Button x:Name="btnJoinDiscord" Content="Join Discord" Padding="8,-1,8,0" Click="BtnJoinDiscord_Click" />
-            <Button x:Name="btnVisitHeico" Content="Visit Heico on Nexus Mods" Padding="8,-1,8,0" Click="BtnVisitHeico_Click" />
+            <Button x:Name="btnReportBug" Content="Report Bug" Padding="8,-1,8,0" Click="BtnReportBug_Click" ToolTip="Report a bug on Nexus Mods" />
+            <Button x:Name="btnJoinDiscord" Content="Join Discord" Padding="8,-1,8,0" Click="BtnJoinDiscord_Click" ToolTip="Join our Discord server" />
+            <Button x:Name="btnVisitHeico" Content="Visit Heico" Padding="8,-1,8,0" Click="BtnVisitHeico_Click" ToolTip="Visit Heico's profile on Nexus Mods" />
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
 

@@ -1422,9 +1422,9 @@ namespace BFBC2_Toolkit
             Process.Start("https://discord.me/battlefieldmodding");
         }
 
-        private void BtnNews_Click(object sender, RoutedEventArgs e)
+        private void BtnReportBug_Click(object sender, RoutedEventArgs e)
         {
-
+            //Process.Start("https://www.nexusmods.com/battlefieldbadcompany2/mods/4?tab=bugs");
         }
 
         private void BtnInfo_Click(object sender, RoutedEventArgs e)
