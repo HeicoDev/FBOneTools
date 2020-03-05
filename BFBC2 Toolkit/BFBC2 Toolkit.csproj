@@ -118,6 +118,7 @@
     </ApplicationDefinition>
     <Compile Include="Data\Bindings.cs" />
     <Compile Include="Data\Elements.cs" />
+    <Compile Include="Data\MediaStream.cs" />
     <Compile Include="Data\Vars.cs" />
     <Compile Include="Functions\Profile.cs" />
     <Compile Include="Helpers\TreeViewItemHelper.cs" />

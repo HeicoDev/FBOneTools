@@ -96,7 +96,7 @@ namespace BFBC2_Toolkit
 
         private async void BtnCreateMod_Click(object sender, RoutedEventArgs e)
         {
-            await DisposeMediaStream();
+            await MediaStream.Dispose();
 
             var createModWindow = new CreateModWindow(treeViewModExplorer);
             createModWindow.Owner = this;
@@ -119,7 +119,7 @@ namespace BFBC2_Toolkit
                 {
                     Write.ToEventLog("Loading mod files...", "");
 
-                    await DisposeMediaStream();
+                    await MediaStream.Dispose();
 
                     Dirs.filesPathMod = ofd.FileName.Replace(@"\ModInfo.ini", "");
 
@@ -148,7 +148,7 @@ namespace BFBC2_Toolkit
             {
                 Write.ToEventLog("Extracting mod archive...", "");
 
-                await DisposeMediaStream();
+                await MediaStream.Dispose();
 
                 using (var fileStream = new FileStream(ofd.FileName, FileMode.Open))
                 {
@@ -218,7 +218,7 @@ namespace BFBC2_Toolkit
         {
             Write.ToEventLog("Archiving mod...", "");
 
-            await DisposeMediaStream();
+            await MediaStream.Dispose();
 
             string zipFile = Dirs.outputMods + @"\" + Dirs.modName + ".zip",
                    projectPath = Dirs.projects + @"\" + Dirs.modName;
@@ -245,7 +245,7 @@ namespace BFBC2_Toolkit
             {
                 Write.ToEventLog("This may take a while. Extracting fbrb archive, please wait...", "");
 
-                await DisposeMediaStream();
+                await MediaStream.Dispose();
 
                 if (Directory.Exists(Dirs.filesPathData) && Vars.isGameProfile == false)
                     await Task.Run(() => Directory.Delete(Dirs.filesPathData, true));
@@ -273,7 +273,7 @@ namespace BFBC2_Toolkit
         {
             Write.ToEventLog("This may take a while. Archiving fbrb archive, please wait...", "");
 
-            await DisposeMediaStream();
+            await MediaStream.Dispose();
 
             var process = Process.Start(Dirs.scriptArchive, "\"" + Dirs.filesPathData.Replace(@"\", @"\\"));
             await Task.Run(() => process.WaitForExit());
@@ -287,7 +287,7 @@ namespace BFBC2_Toolkit
             {
                 Write.ToEventLog("Copying file...", "");
 
-                await DisposeMediaStream();
+                await MediaStream.Dispose();
 
                 await Task.Run(() => CleanUp.FilesAndDirs(Dirs.filesPathMod));
 
@@ -389,7 +389,7 @@ namespace BFBC2_Toolkit
 
         private async void BtnImport_Click(object sender, RoutedEventArgs e)
         {
-            await DisposeMediaStream();
+            await MediaStream.Dispose();
 
             string selectedFilePath = "";
 
@@ -448,11 +448,11 @@ namespace BFBC2_Toolkit
                     try
                     {
                         var bitmap = new BitmapImage();
-                        mediaStream = new FileStream(path, FileMode.Open);
+                        MediaStream.stream = new FileStream(path, FileMode.Open);
 
                         bitmap.BeginInit();
                         bitmap.CacheOption = BitmapCacheOption.None;
-                        bitmap.StreamSource = mediaStream;
+                        bitmap.StreamSource = MediaStream.stream;
                         bitmap.EndInit();
 
                         bitmap.Freeze();
@@ -608,11 +608,11 @@ namespace BFBC2_Toolkit
                         try
                         {
                             var bitmap = new BitmapImage();
-                            mediaStream = new FileStream(Dirs.selectedFilePathData.Replace(".itexture", ".dds"), FileMode.Open);
+                            MediaStream.stream = new FileStream(Dirs.selectedFilePathData.Replace(".itexture", ".dds"), FileMode.Open);
 
                             bitmap.BeginInit();
                             bitmap.CacheOption = BitmapCacheOption.None;
-                            bitmap.StreamSource = mediaStream;
+                            bitmap.StreamSource = MediaStream.stream;
                             bitmap.EndInit();
 
                             bitmap.Freeze();
@@ -639,11 +639,11 @@ namespace BFBC2_Toolkit
                         try
                         {
                             var bitmap = new BitmapImage();
-                            mediaStream = new FileStream(Dirs.selectedFilePathData.Replace(".ps3texture", ".dds"), FileMode.Open);
+                            MediaStream.stream = new FileStream(Dirs.selectedFilePathData.Replace(".ps3texture", ".dds"), FileMode.Open);
 
                             bitmap.BeginInit();
                             bitmap.CacheOption = BitmapCacheOption.None;
-                            bitmap.StreamSource = mediaStream;
+                            bitmap.StreamSource = MediaStream.stream;
                             bitmap.EndInit();
 
                             bitmap.Freeze();
@@ -670,11 +670,11 @@ namespace BFBC2_Toolkit
                         try
                         {
                             var bitmap = new BitmapImage();
-                            mediaStream = new FileStream(Dirs.selectedFilePathData.Replace(".xenontexture", ".dds"), FileMode.Open);
+                            MediaStream.stream = new FileStream(Dirs.selectedFilePathData.Replace(".xenontexture", ".dds"), FileMode.Open);
 
                             bitmap.BeginInit();
                             bitmap.CacheOption = BitmapCacheOption.None;
-                            bitmap.StreamSource = mediaStream;
+                            bitmap.StreamSource = MediaStream.stream;
                             bitmap.EndInit();
 
                             bitmap.Freeze();
@@ -806,11 +806,11 @@ namespace BFBC2_Toolkit
                         try
                         {
                             var bitmap = new BitmapImage();
-                            mediaStream = new FileStream(Dirs.selectedFilePathMod.Replace(".itexture", ".dds"), FileMode.Open);
+                            MediaStream.stream = new FileStream(Dirs.selectedFilePathMod.Replace(".itexture", ".dds"), FileMode.Open);
 
                             bitmap.BeginInit();
                             bitmap.CacheOption = BitmapCacheOption.None;
-                            bitmap.StreamSource = mediaStream;
+                            bitmap.StreamSource = MediaStream.stream;
                             bitmap.EndInit();
 
                             bitmap.Freeze();
@@ -837,11 +837,11 @@ namespace BFBC2_Toolkit
                         try
                         {
                             var bitmap = new BitmapImage();
-                            mediaStream = new FileStream(Dirs.selectedFilePathMod.Replace(".ps3texture", ".dds"), FileMode.Open);
+                            MediaStream.stream = new FileStream(Dirs.selectedFilePathMod.Replace(".ps3texture", ".dds"), FileMode.Open);
 
                             bitmap.BeginInit();
                             bitmap.CacheOption = BitmapCacheOption.None;
-                            bitmap.StreamSource = mediaStream;
+                            bitmap.StreamSource = MediaStream.stream;
                             bitmap.EndInit();
 
                             bitmap.Freeze();
@@ -868,11 +868,11 @@ namespace BFBC2_Toolkit
                         try
                         {
                             var bitmap = new BitmapImage();
-                            mediaStream = new FileStream(Dirs.selectedFilePathMod.Replace(".xenontexture", ".dds"), FileMode.Open);
+                            MediaStream.stream = new FileStream(Dirs.selectedFilePathMod.Replace(".xenontexture", ".dds"), FileMode.Open);
 
                             bitmap.BeginInit();
                             bitmap.CacheOption = BitmapCacheOption.None;
-                            bitmap.StreamSource = mediaStream;
+                            bitmap.StreamSource = MediaStream.stream;
                             bitmap.EndInit();
 
                             bitmap.Freeze();
@@ -990,7 +990,7 @@ namespace BFBC2_Toolkit
             catch
             {
                 await ChangeInterface("");
-                Write.ToEventLog("Unable to load video preview! Exporting and importing should still work fine.", "error");
+                Write.ToEventLog("Unable to load video preview! Exporting and importing should still work fine.", "warning");
             }
         }
 
@@ -1167,19 +1167,6 @@ namespace BFBC2_Toolkit
             infoWindow.ShowDialog();
         }
 
-        Stream mediaStream;
-
-        private async Task DisposeMediaStream()
-        {
-            if (mediaStream != null)
-            {
-                mediaStream.Close();
-                mediaStream.Dispose();
-                mediaStream = null;
-                await Task.Run(() => GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, true));
-            }
-        }
-
         private void XMLEditor_TextChanged(object sender, EventArgs e)
         {
             /*if (Vars.isDataTreeView == false || Vars.isGame == false)
@@ -1192,11 +1179,11 @@ namespace BFBC2_Toolkit
         {
             if (format == "dbx" || format == "ini" || format == "txt")
             {
-                if (mediaStream != null)
+                if (MediaStream.stream != null)
                 {
-                    mediaStream.Close();
-                    mediaStream.Dispose();
-                    mediaStream = null;
+                    MediaStream.stream.Close();
+                    MediaStream.stream.Dispose();
+                    MediaStream.stream = null;
                 }
 
                 mediaElement.Stop();
@@ -1219,11 +1206,11 @@ namespace BFBC2_Toolkit
             }
             else if (format == "texture" || format == "ps3texture" || format == "xenontexture")
             {
-                if (mediaStream != null)
+                if (MediaStream.stream != null)
                 {
-                    mediaStream.Close();
-                    mediaStream.Dispose();
-                    mediaStream = null;
+                    MediaStream.stream.Close();
+                    MediaStream.stream.Dispose();
+                    MediaStream.stream = null;
                 }
 
                 mediaElement.Stop();
@@ -1247,11 +1234,11 @@ namespace BFBC2_Toolkit
             }
             else if (format == "video")
             {
-                if (mediaStream != null)
+                if (MediaStream.stream != null)
                 {
-                    mediaStream.Close();
-                    mediaStream.Dispose();
-                    mediaStream = null;
+                    MediaStream.stream.Close();
+                    MediaStream.stream.Dispose();
+                    MediaStream.stream = null;
                 }
 
                 textEditor.Text = "";
@@ -1272,11 +1259,11 @@ namespace BFBC2_Toolkit
             }
             else
             {
-                if (mediaStream != null)
+                if (MediaStream.stream != null)
                 {
-                    mediaStream.Close();
-                    mediaStream.Dispose();
-                    mediaStream = null;
+                    MediaStream.stream.Close();
+                    MediaStream.stream.Dispose();
+                    MediaStream.stream = null;
                 }
 
                 mediaElement.Stop();
