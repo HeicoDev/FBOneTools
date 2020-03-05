@@ -734,52 +734,34 @@ namespace BFBC2_Toolkit
         {
             try
             {
-                /*
                 Vars.isDataTreeView = false;
 
                 if (treeViewDataExplorer.SelectedItem != null)
-                    (treeViewDataExplorer.SelectedItem as TreeViewItem).IsSelected = false;
+                    (treeViewDataExplorer.SelectedItem as CustomTreeViewItem).IsSelected = false;
 
                 treeViewModExplorer.Focus();
 
                 if (Dirs.selectedFilePathMod.EndsWith(".binkmemory"))
                     await RenameToBik();
 
-                var tvi = treeViewModExplorer.SelectedItem as TreeViewItem;
+                var tvi = treeViewModExplorer.SelectedItem as CustomTreeViewItem;
 
                 if (tvi != null)
                 {
-                    string path = tvi.Header.ToString(),
-                           header = "";
+                    Dirs.selectedFileNameMod = tvi.Name;
+                    Dirs.selectedFilePathMod = tvi.Path;
 
-                    Dirs.selectedFileNameMod = path;
+                    if (Dirs.selectedFilePathMod.Contains(Dirs.filesPathMod))
+                        Dirs.filePath = Dirs.selectedFilePathMod.Replace(Dirs.filesPathMod, "");
 
-                    for (int i = 0; i < 1000; i++)
-                    {
-                        tvi = tvi.Parent as TreeViewItem;
-
-                        if (tvi == null)
-                            break;
-
-                        header = tvi.Header.ToString();
-                        path = header + @"\" + path;
-                    }
-
-                    if (header.Length != 0)
-                        path = path.Replace(header, "");
-
-                    Dirs.filePath = path;
-
-                    Dirs.selectedFilePathMod = Dirs.filesPathMod + path;
-
-                    if (path.EndsWith(".dbx"))
+                    if (Dirs.selectedFileNameMod.EndsWith(".dbx"))
                     {
                         await ChangeInterface("dbx");
-                        Write.ToInfoBox(Dirs.selectedFileNameMod);
+                        Write.ToInfoBox(tvi);
 
                         if (!File.Exists(Dirs.selectedFilePathMod.Replace(".dbx", ".xml")))
                         {
-                            var process = Process.Start(Dirs.scriptDBX, "\"" + Dirs.filesPathMod + path);
+                            var process = Process.Start(Dirs.scriptDBX, "\"" + Dirs.selectedFilePathMod);
                             await Task.Run(() => process.WaitForExit());
                         }
 
@@ -790,29 +772,29 @@ namespace BFBC2_Toolkit
                         textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.selectedFilePathMod.Replace(".dbx", ".xml")));
                         textEditor.ScrollToHome();
                     }
-                    else if (path.EndsWith(".ini"))
+                    else if (Dirs.selectedFileNameMod.EndsWith(".ini"))
                     {
                         await ChangeInterface("ini");
-                        Write.ToInfoBox(Dirs.selectedFileNameMod);
+                        Write.ToInfoBox(tvi);
 
                         var reader = new XmlTextReader(Dirs.syntaxINI);
                         textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
                         reader.Close();
 
-                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.filesPathMod + path));
+                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.selectedFilePathMod));
                         textEditor.ScrollToHome();
                     }
-                    else if (path.EndsWith(".txt"))
+                    else if (Dirs.selectedFileNameMod.EndsWith(".txt"))
                     {
                         await ChangeInterface("txt");
-                        Write.ToInfoBox(Dirs.selectedFileNameMod);
+                        Write.ToInfoBox(tvi);
 
                         textEditor.SyntaxHighlighting = null;
 
-                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.filesPathMod + path));
+                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.selectedFilePathMod));
                         textEditor.ScrollToHome();
                     }
-                    else if (path.EndsWith(".itexture"))
+                    else if (Dirs.selectedFileNameMod.EndsWith(".itexture"))
                     {
                         await ChangeInterface("texture");
 
@@ -841,9 +823,9 @@ namespace BFBC2_Toolkit
                             Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "error");
                         }
 
-                        Write.ToInfoBox(Dirs.selectedFileNameData);
+                        Write.ToInfoBox(tvi);
                     }
-                    else if (path.EndsWith(".ps3texture"))
+                    else if (Dirs.selectedFileNameMod.EndsWith(".ps3texture"))
                     {
                         await ChangeInterface("ps3texture");
 
@@ -872,9 +854,9 @@ namespace BFBC2_Toolkit
                             Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "error");
                         }
 
-                        Write.ToInfoBox(Dirs.selectedFileNameData);
+                        Write.ToInfoBox(tvi);
                     }
-                    else if (path.EndsWith(".xenontexture"))
+                    else if (Dirs.selectedFileNameMod.EndsWith(".xenontexture"))
                     {
                         await ChangeInterface("xenontexture");
 
@@ -903,22 +885,22 @@ namespace BFBC2_Toolkit
                             Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "error");
                         }
 
-                        Write.ToInfoBox(Dirs.selectedFileNameData);
+                        Write.ToInfoBox(tvi);
                     }
-                    else if (path.EndsWith(".terrainheightfield"))
+                    else if (Dirs.selectedFileNameMod.EndsWith(".terrainheightfield"))
                     {
                         await ChangeInterface("heightmap");
-                        Write.ToInfoBox(Dirs.selectedFileNameMod);
+                        Write.ToInfoBox(tvi);
 
                         string[] file = { Dirs.selectedFilePathMod };
 
                         if (!File.Exists(Dirs.selectedFilePathMod.Replace(".terrainheightfield", ".raw")))
                             await Task.Run(() => TextureConverter.ConvertFile(file, false));
                     }
-                    else if (path.EndsWith(".binkmemory"))
+                    else if (Dirs.selectedFileNameMod.EndsWith(".binkmemory"))
                     {
                         await ChangeInterface("video");
-                        Write.ToInfoBox(Dirs.selectedFileNameMod);
+                        Write.ToInfoBox(tvi);
 
                         string mp4 = Dirs.selectedFilePathMod.Replace(".binkmemory", ".mp4"),
                                bik = Dirs.selectedFilePathMod.Replace(".binkmemory", ".bik");
@@ -936,10 +918,9 @@ namespace BFBC2_Toolkit
                     else
                     {
                         await ChangeInterface("");
-                        Write.ToInfoBox(Dirs.selectedFileNameMod);
+                        Write.ToInfoBox(tvi);
                     }
                 }
-                */
             }
             catch (Exception ex)
             {
@@ -1066,6 +1047,124 @@ namespace BFBC2_Toolkit
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             mediaElement.Volume = slider.Value;
+        }        
+
+        private void BtnDataDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (Vars.isGameProfile == false)
+            {
+                if (treeViewDataExplorer.SelectedItem != null)
+                {
+                    File.Delete(Dirs.selectedFilePathData);
+
+                    var item = treeViewDataExplorer.SelectedItem as TreeViewItem;
+                    var parent = (treeViewDataExplorer.SelectedItem as TreeViewItem).Parent as TreeViewItem;
+
+                    parent.Items.Remove(item);
+                }
+            }
+            else
+            {
+                Write.ToEventLog("You can't delete a file from a game profile!", "warning");
+            }
+        }
+
+        private void BtnDataRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            if (treeViewDataExplorer.HasItems == true)
+                Tree.Populate(treeViewDataExplorer, Dirs.filesPathData);
+        }
+
+        private void BtnModDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (treeViewModExplorer.SelectedItem != null)
+            {
+                File.Delete(Dirs.selectedFilePathMod);
+
+                var item = treeViewModExplorer.SelectedItem as TreeViewItem;
+                var parent = (treeViewModExplorer.SelectedItem as TreeViewItem).Parent as TreeViewItem;
+
+                parent.Items.Remove(item);
+            }
+        }
+
+        private async void BtnModRestore_Click(object sender, RoutedEventArgs e)
+        {
+            if (treeViewModExplorer.SelectedItem != null)
+            {
+                Write.ToEventLog("Restoring original file...", "");
+
+                await ChangeInterface("");
+
+                await Task.Run(() => CleanUp.FilesAndDirs(Dirs.filesPathMod));
+
+                string filePathData = "";
+
+                if (Vars.isGameProfile == false)
+                {
+                    foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
+                    {
+                        if (Dirs.filePath.Contains(kvp.Value))
+                        {
+                            filePathData = Dirs.filePath.Replace(kvp.Value + @"\", "");
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    filePathData = Dirs.filePath;
+                }
+
+                filePathData = Dirs.filesPathData + filePathData;
+
+                if (File.Exists(filePathData))
+                {
+                    if (File.Exists(Dirs.selectedFilePathMod))
+                        await Task.Run(() => File.Delete(Dirs.selectedFilePathMod));
+
+                    await Task.Run(() => File.Copy(filePathData, Dirs.selectedFilePathMod));
+                }
+                else
+                {
+                    MessageBox.Show("Unable to locate the original file!\nOpen the correct game profile or fbrb archive.", "Error!");
+                }
+
+                var item = treeViewModExplorer.SelectedItem as TreeViewItem;
+
+                item.IsSelected = false;
+                item.IsSelected = true;
+
+                Write.ToEventLog("", "done");
+            }
+        }
+
+        private void BtnModRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            if (treeViewModExplorer.HasItems == true)
+                Tree.Populate(treeViewModExplorer, Dirs.filesPathMod);
+        }
+
+        private void BtnVisitHeico_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://www.nexusmods.com/battlefieldbadcompany2/users/45260312");
+        }
+
+        private void BtnJoinDiscord_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://discord.me/battlefieldmodding");
+        }
+
+        private void BtnReportBug_Click(object sender, RoutedEventArgs e)
+        {
+            //Process.Start("https://www.nexusmods.com/battlefieldbadcompany2/mods/4?tab=bugs");
+        }
+
+        private void BtnInfo_Click(object sender, RoutedEventArgs e)
+        {
+            InfoWindow infoWindow = new InfoWindow();
+            infoWindow.Owner = this;
+            infoWindow.ShowDialog();
         }
 
         Stream mediaStream;
@@ -1089,7 +1188,7 @@ namespace BFBC2_Toolkit
                 btnSave.IsEnabled = false;*/
         }
 
-        private async Task ChangeInterface (string format)
+        private async Task ChangeInterface(string format)
         {
             if (format == "dbx" || format == "ini" || format == "txt")
             {
@@ -1232,7 +1331,7 @@ namespace BFBC2_Toolkit
                 else
                     if (format == "texture")
                     btnImport.IsEnabled = true;
-                    else
+                else
                     btnImport.IsEnabled = false;
 
                 btnExport.IsEnabled = true;
@@ -1273,7 +1372,7 @@ namespace BFBC2_Toolkit
         }
 
         private void InitializeStartup()
-        {            
+        {
             Elements.SetElements(txtBoxEventLog, txtBoxInformation);
             Vars.SetFbrbFiles();
 
@@ -1314,124 +1413,6 @@ namespace BFBC2_Toolkit
             textEditor.Options.EnableEmailHyperlinks = false;
             textEditor.Options.EnableHyperlinks = false;
             //textEditor.Options.HighlightCurrentLine = true;
-        }
-
-        private void BtnDataDelete_Click(object sender, RoutedEventArgs e)
-        {
-            if (Vars.isGameProfile == false)
-            {
-                if (treeViewDataExplorer.SelectedItem != null)
-                {
-                    File.Delete(Dirs.selectedFilePathData);
-
-                    var item = treeViewDataExplorer.SelectedItem as TreeViewItem;
-                    var parent = (treeViewDataExplorer.SelectedItem as TreeViewItem).Parent as TreeViewItem;
-
-                    parent.Items.Remove(item);
-                }
-            }
-            else
-            {
-                Write.ToEventLog("You can't delete a file from a game profile!", "warning");
-            }
-        }
-
-        private void BtnDataRefresh_Click(object sender, RoutedEventArgs e)
-        {
-            if (treeViewDataExplorer.HasItems == true)
-                Tree.Populate(treeViewDataExplorer, Dirs.filesPathData);
-        }
-
-        private void BtnModDelete_Click(object sender, RoutedEventArgs e)
-        {
-            if (treeViewModExplorer.SelectedItem != null)
-            {
-                File.Delete(Dirs.selectedFilePathMod);
-
-                var item = treeViewModExplorer.SelectedItem as TreeViewItem;
-                var parent = (treeViewModExplorer.SelectedItem as TreeViewItem).Parent as TreeViewItem;
-
-                parent.Items.Remove(item);
-            }
-        }
-
-        private async void BtnModRestore_Click(object sender, RoutedEventArgs e)
-        {
-            if (treeViewModExplorer.SelectedItem != null)
-            {
-                Write.ToEventLog("Restoring original file...", "");
-
-                await ChangeInterface("");
-
-                await Task.Run(() => CleanUp.FilesAndDirs(Dirs.filesPathMod));
-
-                string filePathData = "";
-
-                if (Vars.isGameProfile == false)
-                {
-                    foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
-                    {
-                        if (Dirs.filePath.Contains(kvp.Value))
-                        {
-                            filePathData = Dirs.filePath.Replace(kvp.Value + @"\", "");
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    filePathData = Dirs.filePath;
-                }
-
-                filePathData = Dirs.filesPathData + filePathData;
-
-                if (File.Exists(filePathData))
-                {
-                    if (File.Exists(Dirs.selectedFilePathMod))
-                        await Task.Run(() => File.Delete(Dirs.selectedFilePathMod));
-
-                    await Task.Run(() => File.Copy(filePathData, Dirs.selectedFilePathMod));
-                }
-                else
-                {
-                    MessageBox.Show("Unable to locate the original file!\nOpen the correct game profile or fbrb archive.", "Error!");
-                }
-
-                var item = treeViewModExplorer.SelectedItem as TreeViewItem;
-
-                item.IsSelected = false;
-                item.IsSelected = true;
-
-                Write.ToEventLog("", "done");
-            }
-        }
-
-        private void BtnModRefresh_Click(object sender, RoutedEventArgs e)
-        {
-            if (treeViewModExplorer.HasItems == true)
-                Tree.Populate(treeViewModExplorer, Dirs.filesPathMod);
-        }
-
-        private void BtnVisitHeico_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start("https://www.nexusmods.com/battlefieldbadcompany2/users/45260312");
-        }
-
-        private void BtnJoinDiscord_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start("https://discord.me/battlefieldmodding");
-        }
-
-        private void BtnReportBug_Click(object sender, RoutedEventArgs e)
-        {
-            //Process.Start("https://www.nexusmods.com/battlefieldbadcompany2/mods/4?tab=bugs");
-        }
-
-        private void BtnInfo_Click(object sender, RoutedEventArgs e)
-        {
-            InfoWindow infoWindow = new InfoWindow();
-            infoWindow.Owner = this;
-            infoWindow.ShowDialog();
         }
     }
 }
