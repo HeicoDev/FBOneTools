@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using BFBC2_Toolkit.Functions;
 
 namespace BFBC2_Toolkit.Data
 {
@@ -13,12 +11,20 @@ namespace BFBC2_Toolkit.Data
 
         public static async Task Dispose()
         {
-            if (stream != null)
+            try
             {
-                stream.Close();
-                stream.Dispose();
-                stream = null;
-                await Task.Run(() => GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, true));
+                if (stream != null)
+                {
+                    stream.Close();
+                    stream.Dispose();
+                    stream = null;
+                    await Task.Run(() => GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, true));
+                }
+            }
+            catch (Exception ex)
+            {
+                Write.ToErrorLog(ex);
+                Write.ToEventLog("Ops, something went wrong! See error.log", "error");
             }
         }
     }

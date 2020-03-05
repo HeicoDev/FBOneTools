@@ -120,7 +120,12 @@
     <Compile Include="Data\Elements.cs" />
     <Compile Include="Data\MediaStream.cs" />
     <Compile Include="Data\Vars.cs" />
+    <Compile Include="Functions\Fbrb.cs" />
+    <Compile Include="Functions\Mod.cs" />
+    <Compile Include="Functions\Play.cs" />
     <Compile Include="Functions\Profile.cs" />
+    <Compile Include="Functions\Save.cs" />
+    <Compile Include="Functions\SelectedFile.cs" />
     <Compile Include="Helpers\TreeViewItemHelper.cs" />
     <Compile Include="Windows\CreateModWindow.xaml.cs">
       <DependentUpon>CreateModWindow.xaml</DependentUpon>

@@ -2,14 +2,14 @@
 using System.Data;
 using System.Linq;
 using System.IO;
-using BFBC2_Toolkit.Data;
 using System.Windows;
+using BFBC2_Toolkit.Data;
 
 /// <summary>
 /// BFBC2 Texture Converter
 /// By Nico Hellmund 
 /// Aka Heico
-/// Copyright 2019
+/// Copyright 2020
 /// </summary>
 
 namespace BFBC2_Toolkit.Tools

@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BFBC2_Toolkit.Data
 {
     public class Bindings
     {
 
+    }
+
+    public class GameProfile
+    {
+        public string Name { get; set; }
+        public string Platform { get; set; }
     }
 
     public class CustomTreeViewItem : INotifyPropertyChanged

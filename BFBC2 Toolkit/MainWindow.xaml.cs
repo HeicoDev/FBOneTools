@@ -1,21 +1,10 @@
 ﻿using System;
 using System.IO;
-using System.IO.Compression;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-//using System.Windows.Shapes;
 using System.Diagnostics;
-using System.Xml.Linq;
 using System.Xml;
 using Microsoft.Win32;
 using Microsoft.VisualBasic.FileIO;
@@ -56,7 +45,7 @@ namespace BFBC2_Toolkit
                     FindAndReplaceWindow.ShowForReplace(textEditor);
 
                 if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.KeyboardDevice.IsKeyDown(Key.S))
-                    await SaveTextEditor();
+                    await Save.TextEditorChanges();
             }
         }
 
@@ -86,7 +75,7 @@ namespace BFBC2_Toolkit
 
         private void BtnSelectGame_Click(object sender, RoutedEventArgs e)
         {
-            SelectGameWindow selectGameWindow = new SelectGameWindow(treeViewDataExplorer);
+            var selectGameWindow = new SelectGameWindow();
             selectGameWindow.Owner = this;
             selectGameWindow.ShowDialog();
 
@@ -98,7 +87,7 @@ namespace BFBC2_Toolkit
         {
             await MediaStream.Dispose();
 
-            var createModWindow = new CreateModWindow(treeViewModExplorer);
+            var createModWindow = new CreateModWindow();
             createModWindow.Owner = this;
             createModWindow.ShowDialog();
 
@@ -119,17 +108,7 @@ namespace BFBC2_Toolkit
                 {
                     Write.ToEventLog("Loading mod files...", "");
 
-                    await MediaStream.Dispose();
-
-                    Dirs.filesPathMod = ofd.FileName.Replace(@"\ModInfo.ini", "");
-
-                    var iniFile = new IniFile(ofd.FileName);
-
-                    Dirs.modName = iniFile.Read("Name", "ModInfo");
-
-                    Tree.Populate(treeViewModExplorer, Dirs.filesPathMod);
-
-                    Vars.isModAvailable = true;
+                    await Mod.OpenProject(ofd);
 
                     btnArchiveMod.IsEnabled = true;
 
@@ -148,69 +127,11 @@ namespace BFBC2_Toolkit
             {
                 Write.ToEventLog("Extracting mod archive...", "");
 
-                await MediaStream.Dispose();
+                await Mod.Extract(ofd);
 
-                using (var fileStream = new FileStream(ofd.FileName, FileMode.Open))
-                {
-                    using (var zipArchive = new ZipArchive(fileStream, ZipArchiveMode.Read))
-                    {
-                        var entry = await Task.Run(() => zipArchive.GetEntry("ModInfo.ini"));
+                btnArchiveMod.IsEnabled = true;
 
-                        if (entry != null)
-                        {
-                            string tempFile = Path.GetTempFileName();
-
-                            await Task.Run(() => entry.ExtractToFile(tempFile, true));
-
-                            var iniFile = new IniFile(tempFile);
-
-                            string name = iniFile.Read("Name", "ModInfo"),
-                                   path = Dirs.projects + @"\" + name;
-
-                            if (Directory.Exists(path))
-                            {
-                                var result = MessageBox.Show("A mod with the same name exists already.\nThe old mod must be overwritten to continue.\nDo you want to continue?", "Overwrite existing mod?", MessageBoxButton.YesNo);
-
-                                if (result == MessageBoxResult.Yes)
-                                {
-                                    await Task.Run(() => Directory.Delete(path, true));
-
-                                    await Task.Run(() => zipArchive.ExtractToDirectory(path));
-                                }
-                                else
-                                {
-                                    if (File.Exists(tempFile))
-                                        await Task.Run(() => File.Delete(tempFile));
-
-                                    Write.ToEventLog("Extraction aborted.", "");
-
-                                    return;
-                                }
-                            }
-                            else
-                            {
-                                if (Directory.Exists(path))
-                                    await Task.Run(() => Directory.Delete(path, true));
-
-                                await Task.Run(() => zipArchive.ExtractToDirectory(path));
-                            }
-
-                            if (File.Exists(tempFile))
-                                await Task.Run(() => File.Delete(tempFile));
-
-                            Tree.Populate(treeViewModExplorer, path);
-
-                            Dirs.filesPathMod = path;
-                            Dirs.modName = name;
-
-                            Vars.isModAvailable = true;
-
-                            btnArchiveMod.IsEnabled = true;
-
-                            Write.ToEventLog("", "done");
-                        }
-                    }
-                }
+                Write.ToEventLog("", "done");
             }
         }
 
@@ -218,19 +139,7 @@ namespace BFBC2_Toolkit
         {
             Write.ToEventLog("Archiving mod...", "");
 
-            await MediaStream.Dispose();
-
-            string zipFile = Dirs.outputMods + @"\" + Dirs.modName + ".zip",
-                   projectPath = Dirs.projects + @"\" + Dirs.modName;
-
-            if (File.Exists(zipFile))
-                await Task.Run(() => File.Delete(zipFile));
-
-            Write.ToEventLog("Cleaning up files...", "");
-
-            await Task.Run(() => CleanUp.FilesAndDirs(projectPath));
-
-            await Task.Run(() => ZipFile.CreateFromDirectory(projectPath, zipFile));
+            await Mod.Archive();
 
             Write.ToEventLog("", "done");
         }
@@ -245,23 +154,7 @@ namespace BFBC2_Toolkit
             {
                 Write.ToEventLog("This may take a while. Extracting fbrb archive, please wait...", "");
 
-                await MediaStream.Dispose();
-
-                if (Directory.Exists(Dirs.filesPathData) && Vars.isGameProfile == false)
-                    await Task.Run(() => Directory.Delete(Dirs.filesPathData, true));
-
-                var process = Process.Start(Dirs.scriptArchive, "\"" + ofd.FileName.Replace(@"\", @"\\"));
-                await Task.Run(() => process.WaitForExit());
-
-                Dirs.filesPathData = ofd.FileName.Replace(".fbrb", " FbRB");
-
-                Write.ToEventLog("Cleaning up files, please wait...", "");
-
-                await Task.Run(() => CleanUp.FilesAndDirs(Dirs.filesPathData));
-
-                Tree.Populate(treeViewDataExplorer, Dirs.filesPathData);
-
-                Vars.isGameProfile = false;
+                await Fbrb.Extract(ofd);
 
                 btnArchiveFbrb.IsEnabled = true;
 
@@ -273,10 +166,7 @@ namespace BFBC2_Toolkit
         {
             Write.ToEventLog("This may take a while. Archiving fbrb archive, please wait...", "");
 
-            await MediaStream.Dispose();
-
-            var process = Process.Start(Dirs.scriptArchive, "\"" + Dirs.filesPathData.Replace(@"\", @"\\"));
-            await Task.Run(() => process.WaitForExit());
+            await Fbrb.Archive();
 
             Write.ToEventLog("", "done");
         }
@@ -287,30 +177,7 @@ namespace BFBC2_Toolkit
             {
                 Write.ToEventLog("Copying file...", "");
 
-                await MediaStream.Dispose();
-
-                await Task.Run(() => CleanUp.FilesAndDirs(Dirs.filesPathMod));
-
-                string filePathMod = Dirs.filesPathMod + @"\" + Dirs.filePath;
-
-                foreach (string gameId in Vars.gameIds)
-                {
-                    if (filePathMod.Contains(gameId))
-                    {
-                        filePathMod = filePathMod.Replace(gameId + @"\", "");
-                        break;
-                    }
-                }
-
-                if (File.Exists(filePathMod))
-                    await Task.Run(() => File.Delete(filePathMod));
-
-                var fileInfo = new FileInfo(filePathMod);
-                await Task.Run(() => fileInfo.Directory.Create());
-
-                await Task.Run(() => File.Copy(Dirs.selectedFilePathData, filePathMod));
-
-                Tree.Populate(treeViewModExplorer, Dirs.filesPathMod);
+                await SelectedFile.CopyToMod();
 
                 Write.ToEventLog("", "done");
             }
@@ -320,198 +187,19 @@ namespace BFBC2_Toolkit
         {
             Write.ToEventLog("Exporting file...", "");
 
-            string selectedFilePath = "",
-                   selectedFileName = "";
-
-            if (Vars.isDataTreeView == true)
-            {
-                selectedFilePath = Dirs.selectedFilePathData;
-                selectedFileName = Dirs.selectedFileNameData;
-            }
-            else
-            {
-                selectedFilePath = Dirs.selectedFilePathMod;
-                selectedFileName = Dirs.selectedFileNameMod;
-            }
-
-            if (selectedFilePath.EndsWith(".dbx"))
-            {
-                string path = selectedFilePath.Replace(".dbx", ".xml"),
-                       name = selectedFileName.Replace(".dbx", ".xml");
-
-                if (File.Exists(Dirs.outputXML + @"\" + name))
-                    await Task.Run(() => File.Delete(Dirs.outputXML + @"\" + name));
-
-                await Task.Run(() => File.Copy(path, Dirs.outputXML + @"\" + name));
-            }
-            else if (selectedFilePath.EndsWith(".itexture"))
-            {
-                string path = selectedFilePath.Replace(".itexture", ".dds"),
-                       name = selectedFileName.Replace(".itexture", ".dds");
-
-                if (File.Exists(Dirs.outputDDS + @"\" + name))
-                    await Task.Run(() => File.Delete(Dirs.outputDDS + @"\" + name));
-
-                await Task.Run(() => File.Copy(path, Dirs.outputDDS + @"\" + name));
-            }
-            else if (selectedFilePath.EndsWith(".ps3texture"))
-            {
-                string path = selectedFilePath.Replace(".ps3texture", ".dds"),
-                       name = selectedFileName.Replace(".ps3texture", ".dds");
-
-                if (File.Exists(Dirs.outputDDS + @"\" + name))
-                    await Task.Run(() => File.Delete(Dirs.outputDDS + @"\" + name));
-
-                await Task.Run(() => File.Copy(path, Dirs.outputDDS + @"\" + name));
-            }
-            else if (selectedFilePath.EndsWith(".terrainheightfield"))
-            {
-                string path = selectedFilePath.Replace(".terrainheightfield", ".raw"),
-                       name = selectedFileName.Replace(".terrainheightfield", ".raw");
-
-                if (File.Exists(Dirs.outputHeightmap + @"\" + name))
-                    await Task.Run(() => File.Delete(Dirs.outputHeightmap + @"\" + name));
-
-                await Task.Run(() => File.Copy(path, Dirs.outputHeightmap + @"\" + name));
-            }
-            else if (selectedFilePath.EndsWith(".binkmemory"))
-            {
-                string name = selectedFileName.Replace(".binkmemory", ".bik");
-
-                if (File.Exists(Dirs.outputVideo + @"\" + name))
-                    await Task.Run(() => File.Delete(Dirs.outputVideo + @"\" + name));
-
-                await Task.Run(() => File.Copy(selectedFilePath, Dirs.outputVideo + @"\" + name));
-            }
+            await SelectedFile.Export();
 
             Write.ToEventLog("Exported file to output folder.", "done");
         }
 
         private async void BtnImport_Click(object sender, RoutedEventArgs e)
         {
-            await MediaStream.Dispose();
-
-            string selectedFilePath = "";
-
-            if (Vars.isDataTreeView == true)
-                selectedFilePath = Dirs.selectedFilePathData;
-            else
-                selectedFilePath = Dirs.selectedFilePathMod;
-
-            if (selectedFilePath.EndsWith(".dbx"))
-            {
-                var ofd = new OpenFileDialog();
-                ofd.Filter = "xml file (.xml)|*.xml";
-                ofd.Title = "Select xml file...";
-
-                if (ofd.ShowDialog() == true)
-                {
-                    Write.ToEventLog("Importing file...", "");
-
-                    string path = selectedFilePath.Replace(".dbx", ".xml");
-
-                    if (File.Exists(path))
-                        await Task.Run(() => File.Delete(path));
-
-                    await Task.Run(() => File.Copy(ofd.FileName, path));
-
-                    var process = Process.Start(Dirs.scriptDBX, "\"" + path.Replace(@"\", @"\\"));
-                    await Task.Run(() => process.WaitForExit());
-
-                    textEditor.Text = await Task.Run(() => File.ReadAllText(path));
-                    textEditor.ScrollToHome();
-
-                    Write.ToEventLog("", "done");
-                }
-            }
-            else if (selectedFilePath.EndsWith(".itexture"))
-            {
-                var ofd = new OpenFileDialog();
-                ofd.Filter = "dds file (.dds)|*.dds";
-                ofd.Title = "Select dds file...";
-
-                if (ofd.ShowDialog() == true)
-                {
-                    Write.ToEventLog("Importing file...", "");
-
-                    string path = selectedFilePath.Replace(".itexture", ".dds");
-
-                    if (File.Exists(path))
-                        await Task.Run(() => File.Delete(path));
-
-                    await Task.Run(() => File.Copy(ofd.FileName, path));
-
-                    string[] file = { path };
-
-                    await Task.Run(() => TextureConverter.ConvertFile(file, false));
-
-                    try
-                    {
-                        var bitmap = new BitmapImage();
-                        MediaStream.stream = new FileStream(path, FileMode.Open);
-
-                        bitmap.BeginInit();
-                        bitmap.CacheOption = BitmapCacheOption.None;
-                        bitmap.StreamSource = MediaStream.stream;
-                        bitmap.EndInit();
-
-                        bitmap.Freeze();
-                        image.Source = bitmap;
-                    }
-                    catch
-                    {
-                        image.Visibility = Visibility.Hidden;
-
-                        Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "error");
-                    }
-
-                    Write.ToEventLog("", "done");
-                }
-            }
-            else if (selectedFilePath.EndsWith(".bik"))
-            {
-                var ofd = new OpenFileDialog();
-                ofd.Filter = "bik file (.bik)|*.bik";
-                ofd.Title = "Select bik file...";
-
-                if (ofd.ShowDialog() == true)
-                {
-                    Write.ToEventLog("Importing file...", "");
-
-                    await RenameToBik();
-
-                    string path = selectedFilePath.Replace(".binkmemory", ".mp4");
-
-                    if (File.Exists(path))
-                        await Task.Run(() => File.Delete(path));
-
-                    if (File.Exists(selectedFilePath.Replace(".binkmemory", ".bik")))
-                        await Task.Run(() => File.Delete(selectedFilePath.Replace(".binkmemory", ".bik")));
-
-                    await Task.Run(() => File.Copy(ofd.FileName, path));
-
-                    if (File.Exists(selectedFilePath))
-                        await Task.Run(() => File.Delete(selectedFilePath));
-
-                    await Task.Run(() => File.Copy(ofd.FileName, selectedFilePath));
-
-                    await PlayVideo(path);
-
-                    Write.ToEventLog("", "done");
-                }
-            }
+            await SelectedFile.Import();
         }
 
         private void BtnOpenFileLocation_Click(object sender, RoutedEventArgs e)
         {
-            string selectedFilePath = "";
-
-            if (Vars.isDataTreeView == true)
-                selectedFilePath = Dirs.selectedFilePathData;
-            else
-                selectedFilePath = Dirs.selectedFilePathMod;
-
-            Process.Start("explorer.exe", "/select, " + selectedFilePath);
+            SelectedFile.OpenFileLocation();
         }
 
         private async void DataExplorer_ItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
@@ -526,7 +214,7 @@ namespace BFBC2_Toolkit
                 treeViewDataExplorer.Focus();
 
                 if (Dirs.selectedFilePathData.EndsWith(".binkmemory"))
-                    await RenameToBik();
+                    await SelectedFile.RenameToBik();
 
                 var tvi = treeViewDataExplorer.SelectedItem as CustomTreeViewItem;
 
@@ -622,7 +310,7 @@ namespace BFBC2_Toolkit
                         {
                             image.Visibility = Visibility.Hidden;
 
-                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "error");
+                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
                         }
 
                         Write.ToInfoBox(tvi);
@@ -653,7 +341,7 @@ namespace BFBC2_Toolkit
                         {
                             image.Visibility = Visibility.Hidden;
 
-                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "error");
+                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
                         }
 
                         Write.ToInfoBox(tvi);
@@ -684,7 +372,7 @@ namespace BFBC2_Toolkit
                         {
                             image.Visibility = Visibility.Hidden;
 
-                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "error");
+                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
                         }
 
                         Write.ToInfoBox(tvi);
@@ -715,7 +403,7 @@ namespace BFBC2_Toolkit
 
                         await Task.Run(() => FileSystem.RenameFile(bik, Dirs.selectedFileNameData.Replace(".binkmemory", ".mp4")));
 
-                        await PlayVideo(mp4);
+                        Play.Video(mp4);                   
                     }
                     else
                     {
@@ -742,7 +430,7 @@ namespace BFBC2_Toolkit
                 treeViewModExplorer.Focus();
 
                 if (Dirs.selectedFilePathMod.EndsWith(".binkmemory"))
-                    await RenameToBik();
+                    await SelectedFile.RenameToBik();
 
                 var tvi = treeViewModExplorer.SelectedItem as CustomTreeViewItem;
 
@@ -820,7 +508,7 @@ namespace BFBC2_Toolkit
                         {
                             image.Visibility = Visibility.Hidden;
 
-                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "error");
+                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
                         }
 
                         Write.ToInfoBox(tvi);
@@ -851,7 +539,7 @@ namespace BFBC2_Toolkit
                         {
                             image.Visibility = Visibility.Hidden;
 
-                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "error");
+                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
                         }
 
                         Write.ToInfoBox(tvi);
@@ -882,7 +570,7 @@ namespace BFBC2_Toolkit
                         {
                             image.Visibility = Visibility.Hidden;
 
-                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "error");
+                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
                         }
 
                         Write.ToInfoBox(tvi);
@@ -913,7 +601,7 @@ namespace BFBC2_Toolkit
 
                         await Task.Run(() => FileSystem.RenameFile(bik, Dirs.selectedFileNameMod.Replace(".binkmemory", ".mp4")));
 
-                        await PlayVideo(mp4);
+                        Play.Video(mp4);
                     }
                     else
                     {
@@ -930,35 +618,9 @@ namespace BFBC2_Toolkit
 
         private async void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            await SaveTextEditor();
-        }
-
-        private async Task SaveTextEditor()
-        {
             Write.ToEventLog("Saving file...", "");
 
-            string selectedFilePath = "";
-
-            if (Vars.isDataTreeView == true)
-                selectedFilePath = Dirs.selectedFilePathData;
-            else
-                selectedFilePath = Dirs.selectedFilePathMod;
-
-            string textEditorText = textEditor.Text;
-
-            if (selectedFilePath.EndsWith(".dbx"))
-            {
-                string path = selectedFilePath.Replace(".dbx", ".xml");
-
-                await Task.Run(() => File.WriteAllText(path, textEditorText));
-
-                var process = Process.Start(Dirs.scriptDBX, "\"" + path.Replace(@"\", @"\\"));
-                await Task.Run(() => process.WaitForExit());
-            }
-            else if (selectedFilePath.EndsWith(".ini") || selectedFilePath.EndsWith(".txt"))
-            {
-                await Task.Run(() => File.WriteAllText(selectedFilePath, textEditorText));
-            }
+            await Save.TextEditorChanges();
 
             Write.ToEventLog("", "done");
         }
@@ -976,51 +638,7 @@ namespace BFBC2_Toolkit
         private void BtnUndo_Click(object sender, RoutedEventArgs e)
         {
             textEditor.Undo();
-        }
-
-        private async Task PlayVideo(string path)
-        {
-            try
-            {
-                mediaElement.Stop();
-                mediaElement.Close();
-                mediaElement.Source = new Uri(path);
-                mediaElement.Play();
-            }
-            catch
-            {
-                await ChangeInterface("");
-                Write.ToEventLog("Unable to load video preview! Exporting and importing should still work fine.", "warning");
-            }
-        }
-
-        private async Task RenameToBik()
-        {
-            string selectedFilePath = "",
-                   selectedFileName = "";
-
-            mediaElement.Stop();
-            mediaElement.Close();
-            mediaElement.Source = null;
-
-            if (Vars.isDataTreeView == true)
-            {
-                selectedFilePath = Dirs.selectedFilePathData;
-                selectedFileName = Dirs.selectedFileNameData;
-            }
-            else
-            {
-                selectedFilePath = Dirs.selectedFilePathMod;
-                selectedFileName = Dirs.selectedFileNameMod;
-            }
-
-            await Task.Run(() => GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, true));
-
-            await Task.Delay(500);
-
-            if (File.Exists(selectedFilePath.Replace(".binkmemory", ".mp4")))
-                await Task.Run(() => FileSystem.RenameFile(selectedFilePath.Replace(".binkmemory", ".mp4"), selectedFileName.Replace(".binkmemory", ".bik")));
-        }
+        }    
 
         private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
         {
@@ -1047,27 +665,7 @@ namespace BFBC2_Toolkit
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             mediaElement.Volume = slider.Value;
-        }        
-
-        private void BtnDataDelete_Click(object sender, RoutedEventArgs e)
-        {
-            if (Vars.isGameProfile == false)
-            {
-                if (treeViewDataExplorer.SelectedItem != null)
-                {
-                    File.Delete(Dirs.selectedFilePathData);
-
-                    var item = treeViewDataExplorer.SelectedItem as CustomTreeViewItem;
-                    var parent = item.ParentItem;
-
-                    parent.Items.Remove(item);
-                }
-            }
-            else
-            {
-                Write.ToEventLog("You can't delete a file from a game profile!", "warning");
-            }
-        }
+        }                
 
         private void BtnDataRefresh_Click(object sender, RoutedEventArgs e)
         {
@@ -1075,17 +673,14 @@ namespace BFBC2_Toolkit
                 Tree.Populate(treeViewDataExplorer, Dirs.filesPathData);
         }
 
-        private void BtnModDelete_Click(object sender, RoutedEventArgs e)
+        private async void BtnDataDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (treeViewModExplorer.SelectedItem != null)
-            {
-                File.Delete(Dirs.selectedFilePathMod);
+            await SelectedFile.DeleteFile("data");
+        }
 
-                var item = treeViewModExplorer.SelectedItem as CustomTreeViewItem;
-                var parent = item.ParentItem;
-
-                parent.Items.Remove(item);
-            }
+        private async void BtnModDelete_Click(object sender, RoutedEventArgs e)
+        {
+            await SelectedFile.DeleteFile("mod");
         }
 
         private async void BtnModRestore_Click(object sender, RoutedEventArgs e)
@@ -1096,44 +691,7 @@ namespace BFBC2_Toolkit
 
                 await ChangeInterface("");
 
-                await Task.Run(() => CleanUp.FilesAndDirs(Dirs.filesPathMod));
-
-                string filePathData = "";
-
-                if (Vars.isGameProfile == false)
-                {
-                    foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
-                    {
-                        if (Dirs.filePath.Contains(kvp.Value))
-                        {
-                            filePathData = Dirs.filePath.Replace(kvp.Value + @"\", "");
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    filePathData = Dirs.filePath;
-                }
-
-                filePathData = Dirs.filesPathData + filePathData;
-
-                if (File.Exists(filePathData))
-                {
-                    if (File.Exists(Dirs.selectedFilePathMod))
-                        await Task.Run(() => File.Delete(Dirs.selectedFilePathMod));
-
-                    await Task.Run(() => File.Copy(filePathData, Dirs.selectedFilePathMod));
-                }
-                else
-                {
-                    MessageBox.Show("Unable to locate the original file!\nOpen the correct game profile or fbrb archive.", "Error!");
-                }
-
-                var item = treeViewModExplorer.SelectedItem as CustomTreeViewItem;
-
-                item.IsSelected = false;
-                item.IsSelected = true;
+                await SelectedFile.RestoreFile();
 
                 Write.ToEventLog("", "done");
             }
@@ -1162,7 +720,7 @@ namespace BFBC2_Toolkit
 
         private void BtnInfo_Click(object sender, RoutedEventArgs e)
         {
-            InfoWindow infoWindow = new InfoWindow();
+            var infoWindow = new InfoWindow();
             infoWindow.Owner = this;
             infoWindow.ShowDialog();
         }
@@ -1360,7 +918,14 @@ namespace BFBC2_Toolkit
 
         private void InitializeStartup()
         {
-            Elements.SetElements(txtBoxEventLog, txtBoxInformation);
+            Elements.TxtBoxEventLog = txtBoxEventLog;
+            Elements.TxtBoxInformation = txtBoxInformation;
+            Elements.TextEditor = textEditor;
+            Elements.TreeViewDataExplorer = treeViewDataExplorer;
+            Elements.TreeViewModExplorer = treeViewModExplorer;
+            Elements.MediaElement = mediaElement;
+            Elements.ImageElement = image;
+
             Vars.SetFbrbFiles();
 
             image.Margin = new Thickness(235, 57, 187, 151);
