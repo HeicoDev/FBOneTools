@@ -43,6 +43,7 @@
                         <TextBlock Text="{Binding Path}" Visibility="Collapsed" />
                         <TextBlock Text="{Binding Archive}" Visibility="Collapsed" />
                         <TextBlock Text="{Binding TreeViewPath}" Visibility="Collapsed" />
+                        <TextBlock Text="{Binding ParentItem}" Visibility="Collapsed" />
                     </StackPanel>
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
@@ -59,6 +60,7 @@
                         <TextBlock Text="{Binding Path}" Visibility="Collapsed" />
                         <TextBlock Text="{Binding Archive}" Visibility="Collapsed" />
                         <TextBlock Text="{Binding TreeViewPath}" Visibility="Collapsed" />
+                        <TextBlock Text="{Binding ParentItem}" Visibility="Collapsed" />
                     </StackPanel>
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>

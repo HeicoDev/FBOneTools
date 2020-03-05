@@ -27,6 +27,7 @@ namespace BFBC2_Toolkit.Data
         public string Path { get; set; }
         public string Archive { get; set; }
         public string TreeViewPath { get; set; }
+        public CustomTreeViewItem ParentItem { get; set; }
 
         public ObservableCollection<CustomTreeViewItem> Items { get; set; }
 

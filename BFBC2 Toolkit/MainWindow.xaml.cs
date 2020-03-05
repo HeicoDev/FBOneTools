@@ -1057,8 +1057,8 @@ namespace BFBC2_Toolkit
                 {
                     File.Delete(Dirs.selectedFilePathData);
 
-                    var item = treeViewDataExplorer.SelectedItem as TreeViewItem;
-                    var parent = (treeViewDataExplorer.SelectedItem as TreeViewItem).Parent as TreeViewItem;
+                    var item = treeViewDataExplorer.SelectedItem as CustomTreeViewItem;
+                    var parent = item.ParentItem;
 
                     parent.Items.Remove(item);
                 }
@@ -1081,8 +1081,8 @@ namespace BFBC2_Toolkit
             {
                 File.Delete(Dirs.selectedFilePathMod);
 
-                var item = treeViewModExplorer.SelectedItem as TreeViewItem;
-                var parent = (treeViewModExplorer.SelectedItem as TreeViewItem).Parent as TreeViewItem;
+                var item = treeViewModExplorer.SelectedItem as CustomTreeViewItem;
+                var parent = item.ParentItem;
 
                 parent.Items.Remove(item);
             }
@@ -1130,7 +1130,7 @@ namespace BFBC2_Toolkit
                     MessageBox.Show("Unable to locate the original file!\nOpen the correct game profile or fbrb archive.", "Error!");
                 }
 
-                var item = treeViewModExplorer.SelectedItem as TreeViewItem;
+                var item = treeViewModExplorer.SelectedItem as CustomTreeViewItem;
 
                 item.IsSelected = false;
                 item.IsSelected = true;

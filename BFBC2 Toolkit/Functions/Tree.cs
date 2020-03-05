@@ -42,7 +42,7 @@ namespace BFBC2_Toolkit.Functions
                     {
                         GetFileInfo(file.Name, file.FullName);
 
-                        treeViewfolder.Items.Add(new CustomTreeViewItem { Name = file.Name, Path = file.FullName, Type = fileType, Format = fileFormat, Supported = fileSupported, Archive = fileArchive });
+                        treeViewfolder.Items.Add(new CustomTreeViewItem { Name = file.Name, Path = file.FullName, Type = fileType, Format = fileFormat, Supported = fileSupported, Archive = fileArchive, ParentItem = treeViewfolder });
 
                         fileType = "Unknown";
                         fileFormat = "Unknown";
