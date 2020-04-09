@@ -315,12 +315,26 @@ namespace BFBC2_Toolkit.Functions
 
                 string filePathMod = Dirs.filesPathMod + @"\" + Dirs.filePath;
 
-                foreach (string gameId in Vars.gameIds)
+                if (Vars.isGameProfile == false)
                 {
-                    if (filePathMod.Contains(gameId))
+                    foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
                     {
-                        filePathMod = filePathMod.Replace(gameId + @"\", "");
-                        break;
+                        if (Dirs.filesPathData.EndsWith(kvp.Value))
+                        {
+                            filePathMod = Dirs.filesPathMod + @"\" + kvp.Value + @"\" + Dirs.filePath;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (string gameId in Vars.gameIds)
+                    {
+                        if (filePathMod.Contains(gameId))
+                        {
+                            filePathMod = filePathMod.Replace(gameId + @"\", "");
+                            break;
+                        }
                     }
                 }
 
