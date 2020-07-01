@@ -938,6 +938,10 @@ namespace BFBC2_Toolkit
 
         private void InitializeStartup()
         {
+            //Remove these two lines when game profiles are implemented
+            btnAddGame.IsEnabled = false;
+            btnSelectGame.IsEnabled = false;
+
             Elements.TxtBoxEventLog = txtBoxEventLog;
             Elements.TxtBoxInformation = txtBoxInformation;
             Elements.TextEditor = textEditor;
