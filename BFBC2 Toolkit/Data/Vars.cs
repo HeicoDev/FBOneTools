@@ -30,9 +30,6 @@ namespace BFBC2_Toolkit.Data
                                                         "xenonpixelshader", "xenonvertexshader", "xenontexture", "ps3pixelshader",
                                                         "ps3vertexshader", "ps3texture", "pathdatadefinition", "dbxdeleted", "resdeleted",
                                                         "nonres", "dbx", "bin", "dbmanifest", "ini", "txt" };
-
-        public static readonly string[] supportedArchives = { "level-00.fbrb", "terrain-00.fbrb", "loader-00.fbrb", "ingame-00.fbrb",
-                                                              "startup-00.fbrb", "mainmenu-00.fbrb" };
         
         public static readonly string[] gameIds = { "BFBC2-PC", "BFBC2-Server-PC", "BFBC2-PS3", "BFBC2-Xbox", "BFBC-PS3", "BFBC-Xbox",
                                                     "BF1943-PS3", "BF1943-Xbox" };
