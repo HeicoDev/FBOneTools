@@ -30,6 +30,21 @@
             <Button x:Name="btnArchiveMod" BorderBrush="#FF707070" Background="#FF454545" Content="Archive Mod" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="21" Margin="2,-2,0,-2" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="76" Click="BtnArchiveMod_Click" ToolTip="Archive a mod (.zip)"/>
             <Button x:Name="btnExtractFbrb" BorderBrush="#FF707070" Background="#FF454545" Content="Extract fbrb" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="21" Margin="2,-2,0,-2" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="72" Click="BtnExtractFbrb_Click" ToolTip="Extract a single fbrb archive"/>
             <Button x:Name="btnArchiveFbrb" BorderBrush="#FF707070" Background="#FF454545" Content="Archive fbrb" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="21" Margin="2,-2,0,-2" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="74" Click="BtnArchiveFbrb_Click" ToolTip="Archive a single fbrb archive"/>
+            <ToggleButton Checked="DropdownButton_Checked" MouseRightButtonUp="DropdownButton_MouseRightButtonUp" x:Name="btnDropDown" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="21" Margin="2,-2,0,-2" VerticalContentAlignment="Center" Width="50" ToolTip="Standalone tools" Style="{DynamicResource ToggleButtonStyle1}">
+                <ToggleButton.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- Image Source="mysrc.png" /-->
+                        <TextBlock Text="Tools" />
+                        <Path Margin="4" Width="5" Fill="#FFE2E2E2" Stretch="Uniform" HorizontalAlignment="Right" VerticalAlignment="Center" Data="F1 M 301.14,-189.041L 311.57,-189.041L 306.355,-182.942L 301.14,-189.041 Z" />
+                    </StackPanel>
+                </ToggleButton.Content>
+                <ToggleButton.ContextMenu>
+                    <ContextMenu Closed="ContextMenu_Closed">
+                        <MenuItem x:Name="menuItemFileConverter" Header=" File Converter" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" Width="160" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" Click="MenuItemFileConverter_Click" />
+                        <!--MenuItem x:Name="menuItemCustomizer" Header=" Customizer" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" Width="160" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" Click="MenuItemCustomizer_Click" /-->
+                    </ContextMenu>
+                </ToggleButton.ContextMenu>
+            </ToggleButton>
         </ToolBar>
 
         <TreeView x:Name="treeViewDataExplorer" HorizontalAlignment="Left" Margin="6,57,0,151" Width="224" Background="#FF454545" BorderBrush="#FF454545" Foreground="#FFE2E2E2" FontSize="11" FontWeight="Bold" MinWidth="178" MinHeight="215" Style="{DynamicResource TreeViewStyle}" SelectedItemChanged="DataExplorer_ItemChanged">

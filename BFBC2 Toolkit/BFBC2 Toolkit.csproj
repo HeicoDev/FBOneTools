@@ -133,6 +133,12 @@
     <Compile Include="Data\HexDB.cs" />
     <Compile Include="Functions\IniFile.cs" />
     <Compile Include="Tools\TextureConverter.cs" />
+    <Compile Include="Windows\CustomizerWindow.xaml.cs">
+      <DependentUpon>CustomizerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FileConverterWindow.xaml.cs">
+      <DependentUpon>FileConverterWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\FindAndReplaceWindow.xaml.cs">
       <DependentUpon>FindAndReplaceWindow.xaml</DependentUpon>
     </Compile>
@@ -162,6 +168,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\CustomizerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\FileConverterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\FindAndReplaceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

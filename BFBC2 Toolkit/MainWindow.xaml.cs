@@ -15,6 +15,8 @@ using BFBC2_Toolkit.Tools;
 using BFBC2_Toolkit.Windows;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Highlighting.Xshd;
+using System.Windows.Controls.Primitives;
+using System.Windows.Controls;
 
 /// <summary>
 /// BFBC2 Toolkit 
@@ -733,6 +735,24 @@ namespace BFBC2_Toolkit
                 btnSave.IsEnabled = false;*/
         }
 
+        private void DropdownButton_Checked(object sender, RoutedEventArgs e)
+        {
+            var menu = (sender as ToggleButton).ContextMenu;
+            menu.PlacementTarget = sender as ToggleButton;
+            menu.Placement = PlacementMode.Bottom;
+            menu.IsOpen = true;
+        }
+
+        private void ContextMenu_Closed(object sender, RoutedEventArgs e)
+        {
+            ((sender as ContextMenu).PlacementTarget as ToggleButton).IsChecked = false;
+        }
+
+        private void DropdownButton_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+        }
+
         private async Task ChangeInterface(string format)
         {
             if (format == "dbx" || format == "ini" || format == "txt")
@@ -965,6 +985,20 @@ namespace BFBC2_Toolkit
             textEditor.Options.EnableEmailHyperlinks = false;
             textEditor.Options.EnableHyperlinks = false;
             //textEditor.Options.HighlightCurrentLine = true;
+        }        
+
+        private void MenuItemFileConverter_Click(object sender, RoutedEventArgs e)
+        {
+            var fileConverterWindow = new FileConverterWindow();
+            fileConverterWindow.Owner = this;
+            fileConverterWindow.ShowDialog();
+        }
+
+        private void MenuItemCustomizer_Click(object sender, RoutedEventArgs e)
+        {
+            var customizerWindow = new CustomizerWindow();
+            customizerWindow.Owner = this;
+            customizerWindow.ShowDialog();
         }
     }
 }
