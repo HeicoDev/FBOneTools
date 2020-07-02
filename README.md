@@ -6,7 +6,9 @@ Supports Battlefield: Bad Company, Bad Company 2 and 1943.
 For now you will need to build the tool on your own. 
 A proper build will be released on [Nexus Mods](https://www.nexusmods.com/battlefieldbadcompany2/mods/) soon.
 
-Note: The whole tool is still WIP so expect bugs and other issues!
+Note: The whole tool is still WIP so expect unfinished features, bugs and other issues!
+
+Features Preview: https://www.youtube.com/watch?v=-WeeXXNA87M
 
 # Build & Run Requirements
 
