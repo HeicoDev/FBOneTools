@@ -930,6 +930,9 @@ namespace BFBC2_Toolkit
 
         private void InitializeStartup()
         {
+            if (File.Exists(Dirs.errorLog))
+                File.Delete(Dirs.errorLog);
+
             Elements.TxtBoxEventLog = txtBoxEventLog;
             Elements.TxtBoxInformation = txtBoxInformation;
             Elements.TextEditor = textEditor;
