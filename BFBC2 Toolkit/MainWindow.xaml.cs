@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using System.Windows.Controls.Primitives;
+using System.Windows.Controls;
 using System.Diagnostics;
 using System.Xml;
 using Microsoft.Win32;
@@ -15,8 +17,6 @@ using BFBC2_Toolkit.Tools;
 using BFBC2_Toolkit.Windows;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Highlighting.Xshd;
-using System.Windows.Controls.Primitives;
-using System.Windows.Controls;
 
 /// <summary>
 /// BFBC2 Toolkit 
@@ -62,15 +62,7 @@ namespace BFBC2_Toolkit
                 await Profile.Add(ofd);
             }
 
-            /*
-            var xmlDoc = XDocument.Load(Dirs.configGames);
-            var games = xmlDoc.Element("Games");
-            var game = new XElement("Game");
-            game.Add(new XAttribute("Name", "Battlefield Test"));
-            game.Add(new XAttribute("Platform", "PC"));
-            games.Add(game);
-            xmlDoc.Save(Dirs.configGames);
-            */
+            Write.ToEventLog("You can select your game profile now.", "done");
 
             //Vars.isGameProfile = true;
         }
@@ -938,10 +930,6 @@ namespace BFBC2_Toolkit
 
         private void InitializeStartup()
         {
-            //Remove these two lines when game profiles are implemented
-            btnAddGame.IsEnabled = false;
-            btnSelectGame.IsEnabled = false;
-
             Elements.TxtBoxEventLog = txtBoxEventLog;
             Elements.TxtBoxInformation = txtBoxInformation;
             Elements.TextEditor = textEditor;
