@@ -124,6 +124,7 @@
     <Compile Include="Functions\Mod.cs" />
     <Compile Include="Functions\Play.cs" />
     <Compile Include="Functions\Profile.cs" />
+    <Compile Include="Functions\Reverse.cs" />
     <Compile Include="Functions\Save.cs" />
     <Compile Include="Functions\SelectedFile.cs" />
     <Compile Include="Helpers\TreeViewItemHelper.cs" />
