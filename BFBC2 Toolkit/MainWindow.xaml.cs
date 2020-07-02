@@ -998,6 +998,13 @@ namespace BFBC2_Toolkit
             fileConverterWindow.ShowDialog();
         }
 
+        private void MenuItemFilePorter_Click(object sender, RoutedEventArgs e)
+        {
+            var filePorterWindow = new FilePorterWindow();
+            filePorterWindow.Owner = this;
+            filePorterWindow.ShowDialog();
+        }
+
         private void MenuItemCustomizer_Click(object sender, RoutedEventArgs e)
         {
             var customizerWindow = new CustomizerWindow();

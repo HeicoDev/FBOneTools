@@ -41,6 +41,7 @@
                 <ToggleButton.ContextMenu>
                     <ContextMenu Closed="ContextMenu_Closed">
                         <MenuItem x:Name="menuItemFileConverter" Header=" File Converter" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" Width="160" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" Click="MenuItemFileConverter_Click" />
+                        <MenuItem x:Name="menuItemFilePorter" Header=" File Porter" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" Width="160" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" Click="MenuItemFilePorter_Click" />
                         <!--MenuItem x:Name="menuItemCustomizer" Header=" Customizer" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" Width="160" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" Click="MenuItemCustomizer_Click" /-->
                     </ContextMenu>
                 </ToggleButton.ContextMenu>

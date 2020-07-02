@@ -127,6 +127,7 @@
     <Compile Include="Functions\Save.cs" />
     <Compile Include="Functions\SelectedFile.cs" />
     <Compile Include="Helpers\TreeViewItemHelper.cs" />
+    <Compile Include="Tools\FilePorter.cs" />
     <Compile Include="Windows\CreateModWindow.xaml.cs">
       <DependentUpon>CreateModWindow.xaml</DependentUpon>
     </Compile>
@@ -138,6 +139,9 @@
     </Compile>
     <Compile Include="Windows\FileConverterWindow.xaml.cs">
       <DependentUpon>FileConverterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FilePorterWindow.xaml.cs">
+      <DependentUpon>FilePorterWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\FindAndReplaceWindow.xaml.cs">
       <DependentUpon>FindAndReplaceWindow.xaml</DependentUpon>
@@ -173,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\FileConverterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\FilePorterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
