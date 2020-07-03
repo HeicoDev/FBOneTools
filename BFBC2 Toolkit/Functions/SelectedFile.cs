@@ -182,7 +182,7 @@ namespace BFBC2_Toolkit.Functions
                     {
                         Write.ToEventLog("Importing file...", "");
 
-                        await SelectedFile.RenameToBik();
+                        await RenameToBik();
 
                         string path = selectedFilePath.Replace(".binkmemory", ".mp4");
 

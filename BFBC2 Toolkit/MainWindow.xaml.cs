@@ -249,9 +249,8 @@ namespace BFBC2_Toolkit
                             await Task.Run(() => process.WaitForExit());
                         }
 
-                        var reader = new XmlTextReader(Dirs.syntaxXML);
-                        textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
-                        reader.Close();
+                        using (var reader = new XmlTextReader(Dirs.syntaxXML))
+                            textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
                         textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.selectedFilePathData.Replace(".dbx", ".xml")));
                         textEditor.ScrollToHome();
@@ -261,9 +260,8 @@ namespace BFBC2_Toolkit
                         await ChangeInterface("ini");
                         Write.ToInfoBox(tvi);
 
-                        var reader = new XmlTextReader(Dirs.syntaxINI);
-                        textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
-                        reader.Close();
+                        using (var reader = new XmlTextReader(Dirs.syntaxINI))
+                            textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
                         textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.selectedFilePathData));
                         textEditor.ScrollToHome();
@@ -447,9 +445,8 @@ namespace BFBC2_Toolkit
                             await Task.Run(() => process.WaitForExit());
                         }
 
-                        var reader = new XmlTextReader(Dirs.syntaxXML);
-                        textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
-                        reader.Close();
+                        using (var reader = new XmlTextReader(Dirs.syntaxXML))
+                            textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
                         textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.selectedFilePathMod.Replace(".dbx", ".xml")));
                         textEditor.ScrollToHome();
@@ -459,9 +456,8 @@ namespace BFBC2_Toolkit
                         await ChangeInterface("ini");
                         Write.ToInfoBox(tvi);
 
-                        var reader = new XmlTextReader(Dirs.syntaxINI);
-                        textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
-                        reader.Close();
+                        using (var reader = new XmlTextReader(Dirs.syntaxINI))
+                            textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
                         textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.selectedFilePathMod));
                         textEditor.ScrollToHome();

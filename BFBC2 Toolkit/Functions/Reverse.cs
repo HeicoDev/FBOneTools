@@ -13,7 +13,7 @@ namespace BFBC2_Toolkit.Functions
             data[offset] = temp1;
             data[offset + 1] = temp0;
 
-            Console.WriteLine("Writing Bytes: " + offset + " of " + length + " Data: " + temp1 + " " + temp0);
+            //Console.WriteLine("Writing Bytes: " + offset + " of " + length + " Data: " + temp1 + " " + temp0);
 
             return data;
         }
@@ -30,7 +30,7 @@ namespace BFBC2_Toolkit.Functions
             data[offset + 2] = temp1;
             data[offset + 3] = temp0;
 
-            Console.WriteLine("Writing Bytes: " + offset + " of " + length + " Data: " + temp3 + " " + temp2 + " " + temp1 + " " + temp0);
+            //Console.WriteLine("Writing Bytes: " + offset + " of " + length + " Data: " + temp3 + " " + temp2 + " " + temp1 + " " + temp0);
 
             return data;
         }

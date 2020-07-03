@@ -11,7 +11,7 @@ namespace BFBC2_Toolkit.Data
                            isGameProfile = false;
 
         public static string textureFormat = "",
-                             versionClient = "1.0.0";
+                             versionClient = "1.0.0 Beta";
 
         public static int textureWidth = 0,
                           textureHeight = 0;

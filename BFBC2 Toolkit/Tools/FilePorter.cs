@@ -194,14 +194,12 @@ namespace BFBC2_Toolkit.Tools
                 {
                     bw.BaseStream.Position = 0x0;
                     bw.Write(fileData);
-                }
-
-                Console.WriteLine("Done!");
+                }                
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
-                Console.ReadKey();
+                Write.ToErrorLog(ex);
+                Write.ToEventLog("Unable to convert file! See error.log", "error");
             }
         }
     }
