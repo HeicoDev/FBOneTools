@@ -929,7 +929,7 @@ namespace BFBC2_Toolkit
             if (!File.Exists(@"C:\Python27\python.exe"))
             {
                 MessageBox.Show("Unable to locate Python 2.7 (32 bit) installation!\nPlease make sure that Python is installed to C:\\Python27", "Error");
-                Application.Current.Shutdown();
+                Environment.Exit(0);
             }
 
             if (File.Exists(Dirs.errorLog))
