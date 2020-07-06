@@ -107,7 +107,18 @@
             <Button x:Name="btnImport" BorderBrush="#FF707070" Background="#FF454545" Content="Import" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" Height="21" Margin="2,-2,0,-2" Width="52" Style="{DynamicResource ButtonStyle1}" Click="BtnImport_Click" ToolTip="Import a file and replace the selected file "/>
             <Button x:Name="btnOpenFileLocation" BorderBrush="#FF707070" Background="#FF454545" Content="Open File Location" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="21" Margin="2,-2,0,-2" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="108" Click="BtnOpenFileLocation_Click" ToolTip="Open file location in the file browser of Windows"/>
         </ToolBar>
-        <avalonedit:TextEditor x:Name="textEditor" SyntaxHighlighting="XML" Margin="6,676,416,-468" Foreground="#FFE2E2E2" Background="#FF454545" FontSize="11" HorizontalScrollBarVisibility="Auto" ShowLineNumbers="True" VerticalScrollBarVisibility="Auto" LineNumbersForeground="#FFE2E2E2" TextChanged="XMLEditor_TextChanged"/>
+        <avalonedit:TextEditor x:Name="textEditor" SyntaxHighlighting="XML" Margin="6,676,416,-468" Foreground="#FFE2E2E2" Background="#FF454545" FontSize="11" HorizontalScrollBarVisibility="Auto" ShowLineNumbers="True" VerticalScrollBarVisibility="Auto" LineNumbersForeground="#FFE2E2E2" TextChanged="XMLEditor_TextChanged">
+            <avalonedit:TextEditor.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Command="Undo" />
+                    <MenuItem Command="Redo" />
+                    <Separator/>
+                    <MenuItem Command="Cut" />
+                    <MenuItem Command="Copy" />
+                    <MenuItem Command="Paste" />
+                </ContextMenu>
+            </avalonedit:TextEditor.ContextMenu>
+        </avalonedit:TextEditor>
         <Image x:Name="image" Margin="416,441,6,-233" ScrollViewer.VerticalScrollBarVisibility="Disabled" StretchDirection="DownOnly"/>
         <MediaElement x:Name="mediaElement" Margin="6,441,416,-233" ScrollViewer.VerticalScrollBarVisibility="Disabled" StretchDirection="DownOnly" UnloadedBehavior="Manual" LoadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded"/>
         <Button x:Name="btnPlayMedia" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,31,-188,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnPlayMedia_Click" ToolTip="Play">
