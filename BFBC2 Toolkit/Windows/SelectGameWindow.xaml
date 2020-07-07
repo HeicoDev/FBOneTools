@@ -81,6 +81,7 @@
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="btnDeleteGame" Foreground="#FFE2E2E2" HorizontalAlignment="Left" Content="Delete Game" FontWeight="Bold" FontSize="11" Width="80" Margin="95,0,0,8" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" OverridesDefaultStyle="True" Style="{DynamicResource ButtonStyle1}" Height="20" Padding="1,0,1,1" Click="BtnDeleteGame_Click" VerticalAlignment="Bottom"/>
 
 
     </Grid>

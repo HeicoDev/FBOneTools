@@ -6,13 +6,12 @@ using System.Diagnostics;
 using Microsoft.Win32;
 using BFBC2_Toolkit.Data;
 using System.Windows;
-using System.Xml.Linq;
 using System.Xml;
 
 namespace BFBC2_Toolkit.Functions
 {
     public class Profile
-    {
+    {        
         public static async Task Add(OpenFileDialog ofd)
         {
             try
@@ -128,6 +127,128 @@ namespace BFBC2_Toolkit.Functions
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to create game profile! See error.log", "error");
+            }
+        }
+
+        public static async Task Load(GameProfile profile)
+        {
+            try
+            {
+                if (Directory.Exists(Dirs.filesPathData) && Vars.isGameProfile == false)
+                    await Task.Run(() => Directory.Delete(Dirs.filesPathData, true));
+
+                if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "PC")
+                {
+                    Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BFBC2-PC");
+                    Dirs.filesPathData = Dirs.games + @"\BFBC2-PC";
+                }
+                else if (profile.Name == "Battlefield Bad Company 2 Server" && profile.Platform == "PC")
+                {
+                    Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BFBC2-Server-PC");
+                    Dirs.filesPathData = Dirs.games + @"\BFBC2-Server-PC";
+                }
+                else if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "PS3")
+                {
+                    Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BFBC2-PS3");
+                    Dirs.filesPathData = Dirs.games + @"\BFBC2-PS3";
+                }
+                else if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "Xbox")
+                {
+                    Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BFBC2-Xbox");
+                    Dirs.filesPathData = Dirs.games + @"\BFBC2-Xbox";
+                }
+                else if (profile.Name == "Battlefield Bad Company" && profile.Platform == "PS3")
+                {
+                    Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BFBC-PS3");
+                    Dirs.filesPathData = Dirs.games + @"\BFBC-PS3";
+                }
+                else if (profile.Name == "Battlefield Bad Company" && profile.Platform == "Xbox")
+                {
+                    Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BFBC-Xbox");
+                    Dirs.filesPathData = Dirs.games + @"\BFBC-Xbox";
+                }
+                else if (profile.Name == "Battlefield 1943" && profile.Platform == "PS3")
+                {
+                    Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BF1943-PS3");
+                    Dirs.filesPathData = Dirs.games + @"\BF1943-PS3";
+                }
+                else if (profile.Name == "Battlefield 1943" && profile.Platform == "Xbox")
+                {
+                    Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BF1943-Xbox");
+                    Dirs.filesPathData = Dirs.games + @"\BF1943-Xbox";
+                }
+            }
+            catch (Exception ex)
+            {
+                Write.ToErrorLog(ex);
+                Write.ToEventLog("Unable to create game profile! See error.log", "error");
+            }
+        }
+
+        public static async Task Delete(GameProfile profile)
+        {
+            try
+            {
+                if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "PC")
+                {
+                    if (Directory.Exists(Dirs.games + @"\BFBC2-PC"))
+                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BFBC2-PC", true));
+                }
+                else if (profile.Name == "Battlefield Bad Company 2 Server" && profile.Platform == "PC")
+                {
+                    if (Directory.Exists(Dirs.games + @"\BFBC2-Server-PC"))
+                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BFBC2-Server-PC", true));
+                }
+                else if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "PS3")
+                {
+                    if (Directory.Exists(Dirs.games + @"\BFBC2-PS3"))
+                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BFBC2-PS3", true));
+                }
+                else if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "Xbox")
+                {
+                    if (Directory.Exists(Dirs.games + @"\BFBC2-Xbox"))
+                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BFBC2-Xbox", true));
+                }
+                else if (profile.Name == "Battlefield Bad Company" && profile.Platform == "PS3")
+                {
+                    if (Directory.Exists(Dirs.games + @"\BFBC-PS3"))
+                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BFBC-PS3", true));
+                }
+                else if (profile.Name == "Battlefield Bad Company" && profile.Platform == "Xbox")
+                {
+                    if (Directory.Exists(Dirs.games + @"\BFBC-Xbox"))
+                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BFBC-Xbox", true));
+                }
+                else if (profile.Name == "Battlefield 1943" && profile.Platform == "PS3")
+                {
+                    if (Directory.Exists(Dirs.games + @"\BF1943-PS3"))
+                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BF1943-PS3", true));
+                }
+                else if (profile.Name == "Battlefield 1943" && profile.Platform == "Xbox")
+                {
+                    if (Directory.Exists(Dirs.games + @"\BF1943-Xbox"))
+                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BF1943-Xbox", true));
+                }
+
+                var xmlDoc = new XmlDocument();
+                xmlDoc.Load(Dirs.configGames);
+                var nodeList = xmlDoc.SelectNodes("/Games/Game");
+
+                for (int i = 0; i < nodeList.Count; i++)
+                {
+                    if (nodeList[i].Attributes["Name"].Value == profile.Name && nodeList[i].Attributes["Platform"].Value == profile.Platform)
+                    {
+                        nodeList[i].ParentNode.RemoveChild(nodeList[i]);
+                        break;
+                    }
+                }
+
+                xmlDoc.Save(Dirs.configGames);
+            }
+            catch (Exception ex)
+            {
+                Write.ToErrorLog(ex);
+                Write.ToEventLog("Unable to delete game profile! See error.log", "error");
             }
         }
 
