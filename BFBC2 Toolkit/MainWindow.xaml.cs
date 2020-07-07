@@ -932,6 +932,23 @@ namespace BFBC2_Toolkit
                 Environment.Exit(0);
             }
 
+            if (!Directory.Exists(Dirs.games))
+                Directory.CreateDirectory(Dirs.games);
+            if (!Directory.Exists(Dirs.logs))
+                Directory.CreateDirectory(Dirs.logs);
+            if (!Directory.Exists(Dirs.projects))
+                Directory.CreateDirectory(Dirs.projects);
+            if (!Directory.Exists(Dirs.output))
+            {
+                Directory.CreateDirectory(Dirs.output);
+                Directory.CreateDirectory(Dirs.outputDDS);
+                Directory.CreateDirectory(Dirs.outputHeightmap);
+                Directory.CreateDirectory(Dirs.outputiTexture);
+                Directory.CreateDirectory(Dirs.outputMods);
+                Directory.CreateDirectory(Dirs.outputVideo);
+                Directory.CreateDirectory(Dirs.outputXML);
+            }
+
             if (File.Exists(Dirs.errorLog))
                 File.Delete(Dirs.errorLog);
 
