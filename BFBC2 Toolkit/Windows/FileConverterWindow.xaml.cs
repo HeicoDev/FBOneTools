@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using MahApps.Metro.Controls;
 using Microsoft.Win32;
 using Microsoft.VisualBasic.FileIO;
+using MahApps.Metro.Controls;
 using BFBC2_Toolkit.Functions;
 using BFBC2_Toolkit.Data;
 using BFBC2_Toolkit.Tools;

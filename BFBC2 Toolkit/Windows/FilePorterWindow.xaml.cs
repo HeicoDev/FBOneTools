@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Microsoft.Win32;
 using MahApps.Metro.Controls;
+using BFBC2_Toolkit.Tools;
+using BFBC2_Toolkit.Functions;
 
 namespace BFBC2_Toolkit.Windows
 {
@@ -28,19 +21,67 @@ namespace BFBC2_Toolkit.Windows
             e.Handled = true;
         }
 
-        private void TxtBoxDragAndDrop_Drop(object sender, DragEventArgs e)
+        private async void TxtBoxDragAndDrop_Drop(object sender, DragEventArgs e)
         {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
 
+                await ConvertFiles(files);
+            }
         }
 
-        private void BtnConvert_Click(object sender, RoutedEventArgs e)
+        private async void BtnConvert_Click(object sender, RoutedEventArgs e)
         {
+            var ofd = new OpenFileDialog();
+            ofd.Filter = "All|*.terrainheightfield;*.watermesh;*.visualwater;*.terrainmaterialmap;*.visualterrain;*.ps3texture;*.xenontexture|Texture|*.ps3texture;*.xenontexture|Heightmap|*.terrainheightfield|Misc Terrain|*.terrainmaterialmap;*.visualterrain|Water|*.watermesh;*.visualwater";
+            ofd.Title = "Open a file...";
+            ofd.Multiselect = true;
 
+            if (ofd.ShowDialog() == true)
+            {
+                await ConvertFiles(ofd.FileNames);
+            }
+        }
+
+        private async Task ConvertFiles(string[] files)
+        {
+            int filesCountA = 1,
+                filesCountB = await Task.Run(() => CountFiles(files));
+
+            foreach (string file in files)
+            {
+                lblMain.Content = "Converting file " + filesCountA + " of " + filesCountB + "...";
+
+                try
+                {
+                    await Task.Run(() => FilePorter.ConvertFile(file));
+                }
+                catch (Exception ex)
+                {
+                    lblMain.Content = "Unable to convert file! See error.log";
+                    Write.ToErrorLog(ex);
+                }
+
+                filesCountA++;
+            }
+
+            lblMain.Content = "Done!";
+        }
+
+        private int CountFiles(string[] files)
+        {
+            int filesCount = 0;
+
+            foreach (string file in files)
+                filesCount++;
+
+            return filesCount;
         }
 
         private void BtnInfo_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This tool does not do anything yet.", "Info (Placeholder)");
+            MessageBox.Show("BFBC2 File Porter is able to port several Frostbite 1 files from console (PS3 & Xbox 360) to PC.\n\nNote: This tool is still WIP!\n\nSupported File Formats:\nps3texture, xenontexture, watermesh & visualwater\n\nSupport for the remaining terrain related files will follow soon.", "Info (Placeholder)");
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
