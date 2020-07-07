@@ -21,5 +21,31 @@ namespace BFBC2_Toolkit.Windows
         {
             InitializeComponent();
         }
+
+        private void TxtBoxDragAndDrop_PreviewDragOver(object sender, DragEventArgs e)
+        {
+            //Allow drag and drop handler of the textbox to handle all file formats
+            e.Handled = true;
+        }
+
+        private void TxtBoxDragAndDrop_Drop(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void BtnConvert_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnInfo_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("This tool does not do anything yet.", "Info (Placeholder)");
+        }
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
