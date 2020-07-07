@@ -30,6 +30,6 @@ namespace BFBC2_Toolkit.Data
                                       games = Environment.CurrentDirectory + @"\BFBC2Toolkit\Games",
                                       templateMod = Environment.CurrentDirectory + @"\BFBC2Toolkit\Templates\Mod",
                                       errorLog = Environment.CurrentDirectory + @"\BFBC2Toolkit\Logs\error.log",
-                                      logs = Environment.CurrentDirectory + @"\BFBC2ModLoader\Logs";
+                                      logs = Environment.CurrentDirectory + @"\BFBC2Toolkit\Logs";
     }
 }
