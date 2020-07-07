@@ -988,14 +988,14 @@ namespace BFBC2_Toolkit
         {
             var fileConverterWindow = new FileConverterWindow();
             fileConverterWindow.Owner = this;
-            fileConverterWindow.ShowDialog();
+            fileConverterWindow.Show();
         }
 
         private void MenuItemFilePorter_Click(object sender, RoutedEventArgs e)
         {
             var filePorterWindow = new FilePorterWindow();
             filePorterWindow.Owner = this;
-            filePorterWindow.ShowDialog();
+            filePorterWindow.Show();
         }
 
         private void MenuItemCustomizer_Click(object sender, RoutedEventArgs e)
