@@ -53,6 +53,8 @@ namespace BFBC2_Toolkit
 
         private async void BtnAddGame_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("Note: Game profiles are still WIP!\n\nKeep in mind that adding a game can take up to an hour.\nLoading a game profile afterwards takes only a few minutes.\n\nAlso make sure that enough disk space is available.\nA game profile will take up several GBs of space.", "Warning");
+
             var ofd = new OpenFileDialog();
             ofd.Filter = "exe file (.exe)|*.exe";
             ofd.Title = "Select game or server executable...";
@@ -60,9 +62,9 @@ namespace BFBC2_Toolkit
             if (ofd.ShowDialog() == true)
             {
                 await Profile.Add(ofd);
-            }
 
-            Write.ToEventLog("You can select your game profile now.", "done");
+                Write.ToEventLog("You can select your game profile now.", "done");
+            }           
 
             //Vars.isGameProfile = true;
         }
