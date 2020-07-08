@@ -59,7 +59,7 @@ namespace BFBC2_Toolkit.Windows
 
         private async void BtnSelectGame_Click(object sender, RoutedEventArgs e)
         {
-            if (dataGrid.SelectedItems != null)
+            if (dataGrid.SelectedItem != null)
             {
                 var selectedProfile = dataGrid.SelectedItem as GameProfile;
 
@@ -73,11 +73,14 @@ namespace BFBC2_Toolkit.Windows
 
         private async void BtnDeleteGame_Click(object sender, RoutedEventArgs e)
         {
-            var selectedProfile = dataGrid.SelectedItem as GameProfile;
+            if (dataGrid.SelectedItem != null)
+            {
+                var selectedProfile = dataGrid.SelectedItem as GameProfile;
 
-            await Profile.Delete(selectedProfile);
+                await Profile.Delete(selectedProfile);
 
-            dataGrid.Items.RemoveAt(dataGrid.Items.IndexOf(dataGrid.SelectedItem));
+                dataGrid.Items.RemoveAt(dataGrid.Items.IndexOf(dataGrid.SelectedItem));
+            }
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
