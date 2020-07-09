@@ -32,6 +32,13 @@ namespace BFBC2_Toolkit
         public MainWindow()
         {
             InitializeComponent();
+
+            #if DEBUG
+            AppDomain.CurrentDomain.UnhandledException += (sender, arguments) =>
+            {
+                MessageBox.Show("Unhandled exception: " + arguments.ExceptionObject);
+            };
+            #endif
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
