@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using BFBC2_Toolkit.Data;
 
 namespace BFBC2_Toolkit.Functions
 {
@@ -60,6 +61,20 @@ namespace BFBC2_Toolkit.Functions
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to delete empty folders! See error.log", "error");
+            }
+        }
+
+        public static void StartUp()
+        {
+            try
+            {
+                if (File.Exists(Dirs.errorLog))
+                    File.Delete(Dirs.errorLog);
+            }
+            catch (Exception ex)
+            {
+                Write.ToErrorLog(ex);
+                Write.ToEventLog("Unable to do initial cleanup! See error.log", "error");
             }
         }
     }

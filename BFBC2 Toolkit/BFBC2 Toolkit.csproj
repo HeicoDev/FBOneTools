@@ -118,6 +118,7 @@
     </ApplicationDefinition>
     <Compile Include="Data\Bindings.cs" />
     <Compile Include="Data\Elements.cs" />
+    <Compile Include="Functions\Create.cs" />
     <Compile Include="Functions\MediaStream.cs" />
     <Compile Include="Data\Vars.cs" />
     <Compile Include="Functions\Fbrb.cs" />
