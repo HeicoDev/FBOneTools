@@ -628,7 +628,44 @@
                 </Style.Triggers>
             </Style-->
 
-            
+            <!-- GRIDSPLITTER STYLE -->
+
+            <Style TargetType="{x:Type GridSplitter}">
+                <Setter Property="TextElement.Foreground" Value="White" />
+                <Setter Property="Panel.Background" Value="Gray" />
+                <Setter Property="UIElement.SnapsToDevicePixels" Value="True" />
+                <Setter Property="UIElement.Focusable" Value="False" />
+                <Setter Property="ShowsPreview" Value="True"/>
+
+                <Setter Property="Control.Template">
+                    <Setter.Value>
+                        <ControlTemplate>
+
+                            <Border x:Name="Root" BorderThickness="{TemplateBinding Border.BorderThickness}" BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}">
+                                <Grid>
+                                    <StackPanel  x:Name="Grip"  VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Width="3" Height="3" Margin="1" RadiusX="3" RadiusY="3" />
+                                        <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Width="3" Height="3" Margin="1" RadiusX="3" RadiusY="3" />
+                                        <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Width="3" Height="3" Margin="1" RadiusX="3" RadiusY="3" />
+                                        <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Width="3" Height="3" Margin="1" RadiusX="3" RadiusY="3" />
+                                        <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Width="3" Height="3" Margin="1" RadiusX="3" RadiusY="3" />
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <DataTrigger Value="True"  Binding="{Binding RelativeSource={RelativeSource Self}, Path=ActualWidth}">
+                                    <Setter TargetName="Grip" Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+
+                                <Trigger Property="VerticalAlignment" Value="Stretch">
+                                    <Setter TargetName="Grip" Property="Orientation" Value="Vertical"/>
+                                    <Setter TargetName="Grip" Property="Visibility" Value="Visible"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
 
         </ResourceDictionary>
     </Application.Resources>

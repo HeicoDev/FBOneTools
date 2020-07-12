@@ -47,146 +47,176 @@
                 </ToggleButton.ContextMenu>
             </ToggleButton>
         </ToolBar>
+        <!--MediaElement x:Name="mediaElement" Margin="6,441,416,-233" ScrollViewer.VerticalScrollBarVisibility="Disabled" StretchDirection="DownOnly" UnloadedBehavior="Manual" LoadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded"/-->
+        <Grid Margin="0,26,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="229*" MinWidth="160" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="720*" MinWidth="500" />
+            </Grid.ColumnDefinitions>
+            <GridSplitter x:Name="gridSplitter1" HorizontalAlignment="Center" Width="5" Margin="0,4,0,7" VerticalAlignment="Stretch" ShowsPreview="True" Grid.Column="1" Background="#FF292929"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="245*" MinHeight="100" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="147*" MinHeight="100" />
+                </Grid.RowDefinitions>
+                <GridSplitter x:Name="gridSplitter" HorizontalAlignment="Stretch" Height="5" Margin="6,0,0,0" VerticalAlignment="Center" ShowsPreview="True" Grid.Row="1" Background="#FF292929"/>
+                <TreeView x:Name="treeViewModExplorer" Margin="7,27,0,7" Background="#FFE2E2E2" BorderBrush="#FFE2E2E2" Foreground="#FFE2E2E2" FontSize="11" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" SelectedItemChanged="ModExplorer_ItemChanged" Style="{DynamicResource TreeViewStyle}" Grid.Row="2">
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate DataType="{x:Type data:CustomTreeViewItem}" ItemsSource="{Binding Items}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}" />
+                                <TextBlock Text="{Binding Type}" Visibility="Collapsed" />
+                                <TextBlock Text="{Binding Format}" Visibility="Collapsed" />
+                                <TextBlock Text="{Binding Supported}" Visibility="Collapsed" />
+                                <TextBlock Text="{Binding Path}" Visibility="Collapsed" />
+                                <TextBlock Text="{Binding Archive}" Visibility="Collapsed" />
+                                <TextBlock Text="{Binding TreeViewPath}" Visibility="Collapsed" />
+                                <TextBlock Text="{Binding ParentItem}" Visibility="Collapsed" />
+                            </StackPanel>
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+                </TreeView>
 
-        <TreeView x:Name="treeViewDataExplorer" HorizontalAlignment="Left" Margin="6,57,0,151" Width="224" Background="#FF454545" BorderBrush="#FF454545" Foreground="#FFE2E2E2" FontSize="11" FontWeight="Bold" MinWidth="178" MinHeight="215" Style="{DynamicResource TreeViewStyle}" SelectedItemChanged="DataExplorer_ItemChanged">
-            <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate DataType="{x:Type data:CustomTreeViewItem}" ItemsSource="{Binding Items}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Name}" />
-                        <TextBlock Text="{Binding Type}" Visibility="Collapsed" />
-                        <TextBlock Text="{Binding Format}" Visibility="Collapsed" />
-                        <TextBlock Text="{Binding Supported}" Visibility="Collapsed" />
-                        <TextBlock Text="{Binding Path}" Visibility="Collapsed" />
-                        <TextBlock Text="{Binding Archive}" Visibility="Collapsed" />
-                        <TextBlock Text="{Binding TreeViewPath}" Visibility="Collapsed" />
-                        <TextBlock Text="{Binding ParentItem}" Visibility="Collapsed" />
+                <TextBox x:Name="txtModExplorer" Height="22" Margin="7,0,0,0" TextWrapping="Wrap" Text="Mod Explorer" VerticalAlignment="Top" Background="#FF454545" BorderBrush="#FF454545" SelectionBrush="{x:Null}" Foreground="#FFE2E2E2" MinHeight="22" FontSize="11" Cursor="Arrow" Controls:ControlsHelper.FocusBorderBrush="#FF454545" Controls:ControlsHelper.MouseOverBorderBrush="#FF454545" UndoLimit="0" IsTabStop="False" AllowDrop="False" Focusable="False" IsReadOnly="True" IsUndoEnabled="False" MinWidth="178" Grid.Row="2"/>
+                <Button x:Name="btnModRefresh" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnModRefresh_Click" ToolTip="Refresh mod explorer" Grid.Row="2">
+                    <StackPanel>
+                        <Image Source="/BFBC2Toolkit/Resources/Icons/refresh.png" />
                     </StackPanel>
-                </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
-        </TreeView>
-
-        <TreeView x:Name="treeViewModExplorer" HorizontalAlignment="Left" Height="113" Margin="6,0,0,6" VerticalAlignment="Bottom" Width="224" Background="#FFE2E2E2" BorderBrush="#FFE2E2E2" Foreground="#FFE2E2E2" FontSize="11" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" MinWidth="178" MinHeight="113" SelectedItemChanged="ModExplorer_ItemChanged" Style="{DynamicResource TreeViewStyle}">
-            <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate DataType="{x:Type data:CustomTreeViewItem}" ItemsSource="{Binding Items}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Name}" />
-                        <TextBlock Text="{Binding Type}" Visibility="Collapsed" />
-                        <TextBlock Text="{Binding Format}" Visibility="Collapsed" />
-                        <TextBlock Text="{Binding Supported}" Visibility="Collapsed" />
-                        <TextBlock Text="{Binding Path}" Visibility="Collapsed" />
-                        <TextBlock Text="{Binding Archive}" Visibility="Collapsed" />
-                        <TextBlock Text="{Binding TreeViewPath}" Visibility="Collapsed" />
-                        <TextBlock Text="{Binding ParentItem}" Visibility="Collapsed" />
+                </Button>
+                <Button x:Name="btnModRestore" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,0,24,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnModRestore_Click" ToolTip="Restore original file" Grid.Row="2">
+                    <StackPanel>
+                        <Image Source="/BFBC2Toolkit/Resources/Icons/restore.png" />
                     </StackPanel>
-                </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
-        </TreeView>
-
-        <TextBox x:Name="txtDataExplorer" HorizontalAlignment="Left" Margin="6,30,0,0" TextWrapping="Wrap" Text="Data Explorer" VerticalAlignment="Top" Background="#FF454545" BorderBrush="#FF454545" SelectionBrush="{x:Null}" Foreground="#FFE2E2E2" MinHeight="22" FontSize="11" Cursor="Arrow" Controls:ControlsHelper.FocusBorderBrush="#FF454545" Controls:ControlsHelper.MouseOverBorderBrush="#FF454545" UndoLimit="0" IsTabStop="False" AllowDrop="False" Focusable="False" IsReadOnly="True" IsUndoEnabled="False" MinWidth="178" Height="22" Width="224"/>
-        <TextBox x:Name="txtInformation" HorizontalAlignment="Right" Margin="0,30,6,0" TextWrapping="Wrap" Text="Information" VerticalAlignment="Top" Background="#FF454545" BorderBrush="#FF454545" SelectionBrush="{x:Null}" Foreground="#FFE2E2E2" MinHeight="22" FontSize="11" Cursor="Arrow" Controls:ControlsHelper.FocusBorderBrush="#FF454545" Controls:ControlsHelper.MouseOverBorderBrush="#FF454545" UndoLimit="0" IsTabStop="False" AllowDrop="False" Focusable="False" IsReadOnly="True" IsUndoEnabled="False" MinWidth="176" Height="22"/>
-        <TextBox x:Name="txtPreview" Margin="235,30,187,0" TextWrapping="Wrap" Text="Preview" VerticalAlignment="Top" Background="#FF454545" BorderBrush="#FF454545" SelectionBrush="{x:Null}" Foreground="#FFE2E2E2" MinHeight="22" FontSize="11" Cursor="Arrow" Controls:ControlsHelper.FocusBorderBrush="#FF454545" Controls:ControlsHelper.MouseOverBorderBrush="#FF454545" UndoLimit="0" IsTabStop="False" AllowDrop="False" Focusable="False" IsReadOnly="True" IsUndoEnabled="False" Height="22"/>
-        <TextBox x:Name="txtModExplorer" HorizontalAlignment="Left" Height="22" Margin="6,0,0,124" TextWrapping="Wrap" Text="Mod Explorer" VerticalAlignment="Bottom" Background="#FF454545" BorderBrush="#FF454545" SelectionBrush="{x:Null}" Foreground="#FFE2E2E2" MinHeight="22" FontSize="11" Cursor="Arrow" Controls:ControlsHelper.FocusBorderBrush="#FF454545" Controls:ControlsHelper.MouseOverBorderBrush="#FF454545" UndoLimit="0" IsTabStop="False" AllowDrop="False" Focusable="False" IsReadOnly="True" IsUndoEnabled="False" MinWidth="178" Width="224"/>
-        <TextBox x:Name="txtEventLog" Height="22" Margin="235,0,6,97" TextWrapping="Wrap" Text="Event Log" VerticalAlignment="Bottom" Background="#FF454545" BorderBrush="#FF454545" SelectionBrush="{x:Null}" Foreground="#FFE2E2E2" MinHeight="22" FontSize="11" Cursor="Arrow" Controls:ControlsHelper.FocusBorderBrush="#FF454545" Controls:ControlsHelper.MouseOverBorderBrush="#FF454545" UndoLimit="0" IsTabStop="False" AllowDrop="False" Focusable="False" IsReadOnly="True" IsUndoEnabled="False"/>
-        <RichTextBox x:Name="txtBoxEventLog" x:FieldModifier="public" Height="86" Margin="235,0,6,6" VerticalAlignment="Bottom" Background="#FF454545" BorderBrush="#FF454545" Foreground="#FFE2E2E2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" FontSize="11" AcceptsReturn="False" AutoWordSelection="False" IsUndoEnabled="False" IsReadOnly="True" Controls:TextBoxHelper.HasText="True" Cursor="Arrow" BorderThickness="0" MinWidth="0" MinHeight="86">
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text="RichTextBox"/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-        <RichTextBox x:Name="txtBoxInformation" Margin="0,57,6,124" Background="#FF454545" BorderBrush="#FF454545" Foreground="#FFE2E2E2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" FontSize="11" AcceptsReturn="False" AutoWordSelection="False" IsUndoEnabled="False" IsReadOnly="True" Controls:TextBoxHelper.HasText="True" HorizontalAlignment="Right" Cursor="Arrow" UseLayoutRounding="False" BorderThickness="0" MinWidth="176" MinHeight="242" Width="176">
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text="RichTextBox"/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-        <Frame x:Name="frame" Content="" Margin="235,57,187,151" Background="#FF454545" Foreground="{x:Null}" MinHeight="215"/>
-        <ToolBar x:Name="toolBarPreview" VerticalAlignment="Bottom" Margin="232,0,186,124" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom" MinHeight="22" Height="22">
-            <Button x:Name="btnExport" Background="#FF454545" Content="Export" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontWeight="Bold" FontSize="11" HorizontalAlignment="Left" Margin="0,-2" Width="52" BorderBrush="#FF707070" Style="{DynamicResource ButtonStyle1}" VerticalAlignment="Stretch" Height="21" Click="BtnExport_Click" ToolTip="Export selected file to a common file format"/>
-            <Button x:Name="btnImport" BorderBrush="#FF707070" Background="#FF454545" Content="Import" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" Height="21" Margin="2,-2,0,-2" Width="52" Style="{DynamicResource ButtonStyle1}" Click="BtnImport_Click" ToolTip="Import a file and replace the selected file "/>
-            <Button x:Name="btnOpenFileLocation" BorderBrush="#FF707070" Background="#FF454545" Content="Open File Location" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="21" Margin="2,-2,0,-2" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="108" Click="BtnOpenFileLocation_Click" ToolTip="Open file location in the file browser of Windows"/>
-        </ToolBar>
-        <avalonedit:TextEditor x:Name="textEditor" SyntaxHighlighting="XML" Margin="6,676,416,-468" Foreground="#FFE2E2E2" Background="#FF454545" FontSize="11" HorizontalScrollBarVisibility="Auto" ShowLineNumbers="True" VerticalScrollBarVisibility="Auto" LineNumbersForeground="#FFE2E2E2" TextChanged="XMLEditor_TextChanged">
-            <avalonedit:TextEditor.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Command="Undo" />
-                    <MenuItem Command="Redo" />
-                    <Separator/>
-                    <MenuItem Command="Cut" />
-                    <MenuItem Command="Copy" />
-                    <MenuItem Command="Paste" />
-                </ContextMenu>
-            </avalonedit:TextEditor.ContextMenu>
-        </avalonedit:TextEditor>
-        <Image x:Name="image" Margin="416,441,6,-233" ScrollViewer.VerticalScrollBarVisibility="Disabled" StretchDirection="DownOnly"/>
-        <MediaElement x:Name="mediaElement" Margin="6,441,416,-233" ScrollViewer.VerticalScrollBarVisibility="Disabled" StretchDirection="DownOnly" UnloadedBehavior="Manual" LoadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded"/>
-        <Button x:Name="btnPlayMedia" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,31,-188,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnPlayMedia_Click" ToolTip="Play">
-            <StackPanel>
-                <Image Source="/BFBC2Toolkit/Resources/Icons/play.png" />
-            </StackPanel>
-        </Button>
-        <Button x:Name="btnPauseMedia" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,31,-164,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnPauseMedia_Click" ToolTip="Pause">
-            <StackPanel>
-                <Image Source="/BFBC2Toolkit/Resources/Icons/pause.png" />
-            </StackPanel>
-        </Button>
-        <Button x:Name="btnStopMedia" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,31,-140,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnStopMedia_Click" ToolTip="Stop">
-            <StackPanel>
-                <Image Source="/BFBC2Toolkit/Resources/Icons/stop.png" />
-            </StackPanel>
-        </Button>
-        <Slider x:Name="slider" HorizontalAlignment="Right" Margin="0,31,-113,0" VerticalAlignment="Top" Height="21" Width="100" BorderBrush="#FFE2E2E2" Foreground="#FFD8D8D8" Background="{x:Null}" Controls:SliderHelper.EnableMouseWheel="MouseHover" Controls:SliderHelper.ThumbFillBrush="#FF919191" Controls:SliderHelper.ThumbFillHoverBrush="#FFD4D4D4" Controls:SliderHelper.TrackFillBrush="#FF707070" Controls:SliderHelper.TrackFillHoverBrush="#FF707070" Controls:SliderHelper.TrackFillPressedBrush="#FF707070" Controls:SliderHelper.TrackFillDisabledBrush="#FF707070" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" Controls:SliderHelper.TrackValueFillBrush="#FFD4D4D4" Controls:SliderHelper.TrackValueFillDisabledBrush="#FFD4D4D4" Controls:SliderHelper.TrackValueFillHoverBrush="#FFD4D4D4" Controls:SliderHelper.TrackValueFillPressedBrush="#FFD4D4D4" ValueChanged="Slider_ValueChanged" Value="0.5" LargeChange="0.1" Maximum="1" SmallChange="0.05" ToolTip="Volume"/>
-        <Button x:Name="btnSearch" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,4,-107,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnSearch_Click" ToolTip="Search (Ctrl + F)">
-            <StackPanel>
-                <Image Source="/BFBC2Toolkit/Resources/Icons/search.png" />
-            </StackPanel>
-        </Button>
-        <Button x:Name="btnRedo" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,4,-83,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnRedo_Click" ToolTip="Redo (Ctrl + Y)">
-            <StackPanel>
-                <Image Source="/BFBC2Toolkit/Resources/Icons/redo.png" />
-            </StackPanel>
-        </Button>
-        <Button x:Name="btnUndo" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,4,-59,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnUndo_Click" ToolTip="Undo (Ctrl + Z)">
-            <StackPanel>
-                <Image Source="/BFBC2Toolkit/Resources/Icons/undo.png" />
-            </StackPanel>
-        </Button>
-        <Button x:Name="btnSave" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,4,-35,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnSave_Click" ToolTip="Save (Ctrl + S)">
-            <StackPanel>
-                <Image Source="/BFBC2Toolkit/Resources/Icons/save.png" />
-            </StackPanel>
-        </Button>
-        <Button x:Name="btnModRefresh" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="208,0,0,124" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Bottom" Click="BtnModRefresh_Click" ToolTip="Refresh mod explorer">
-            <StackPanel>
-                <Image Source="/BFBC2Toolkit/Resources/Icons/refresh.png" />
-            </StackPanel>
-        </Button>
-        <Button x:Name="btnModRestore" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="184,0,0,124" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Bottom" Click="BtnModRestore_Click" ToolTip="Restore original file">
-            <StackPanel>
-                <Image Source="/BFBC2Toolkit/Resources/Icons/restore.png" />
-            </StackPanel>
-        </Button>
-        <Button x:Name="btnModDelete" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="160,0,0,124" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Bottom" Click="BtnModDelete_Click" ToolTip="Delete selected file">
-            <StackPanel>
-                <Image Source="/BFBC2Toolkit/Resources/Icons/delete.png" />
-            </StackPanel>
-        </Button>
-        <Button x:Name="btnDataRefresh" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="208,30,0,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnDataRefresh_Click" ToolTip="Refresh data explorer">
-            <StackPanel>
-                <Image Source="/BFBC2Toolkit/Resources/Icons/refresh.png" />
-            </StackPanel>
-        </Button>
-        <Button x:Name="btnDataDelete" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="160,30,0,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnDataDelete_Click" ToolTip="Delete selected file">
-            <StackPanel>
-                <Image Source="/BFBC2Toolkit/Resources/Icons/delete.png" />
-            </StackPanel>
-        </Button>
-        <Button x:Name="btnCopyToMod" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="184,30,0,371" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnCopyToMod_Click" ToolTip="Copy selected file to mod project">
-            <StackPanel>
-                <Image Source="/BFBC2Toolkit/Resources/Icons/copy.png" />
-            </StackPanel>
-        </Button>
-
+                </Button>
+                <Button x:Name="btnModDelete" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,0,48,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnModDelete_Click" ToolTip="Delete selected file" Grid.Row="2">
+                    <StackPanel>
+                        <Image Source="/BFBC2Toolkit/Resources/Icons/delete.png" />
+                    </StackPanel>
+                </Button>
+                <TreeView x:Name="treeViewDataExplorer" Margin="7,31,0,0" Background="#FF454545" BorderBrush="#FF454545" Foreground="#FFE2E2E2" FontSize="11" FontWeight="Bold" Style="{DynamicResource TreeViewStyle}" SelectedItemChanged="DataExplorer_ItemChanged">
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate DataType="{x:Type data:CustomTreeViewItem}" ItemsSource="{Binding Items}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}" />
+                                <TextBlock Text="{Binding Type}" Visibility="Collapsed" />
+                                <TextBlock Text="{Binding Format}" Visibility="Collapsed" />
+                                <TextBlock Text="{Binding Supported}" Visibility="Collapsed" />
+                                <TextBlock Text="{Binding Path}" Visibility="Collapsed" />
+                                <TextBlock Text="{Binding Archive}" Visibility="Collapsed" />
+                                <TextBlock Text="{Binding TreeViewPath}" Visibility="Collapsed" />
+                                <TextBlock Text="{Binding ParentItem}" Visibility="Collapsed" />
+                            </StackPanel>
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+                </TreeView>
+                <TextBox x:Name="txtDataExplorer" Margin="7,4,0,0" TextWrapping="Wrap" Text="Data Explorer" VerticalAlignment="Top" Background="#FF454545" BorderBrush="#FF454545" SelectionBrush="{x:Null}" Foreground="#FFE2E2E2" MinHeight="22" FontSize="11" Cursor="Arrow" Controls:ControlsHelper.FocusBorderBrush="#FF454545" Controls:ControlsHelper.MouseOverBorderBrush="#FF454545" UndoLimit="0" IsTabStop="False" AllowDrop="False" Focusable="False" IsReadOnly="True" IsUndoEnabled="False" MinWidth="178" Height="22"/>
+                <Button x:Name="btnDataRefresh" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,4,0,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnDataRefresh_Click" ToolTip="Refresh data explorer">
+                    <StackPanel>
+                        <Image Source="/BFBC2Toolkit/Resources/Icons/refresh.png" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnDataDelete" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,4,48,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnDataDelete_Click" ToolTip="Delete selected file">
+                    <StackPanel>
+                        <Image Source="/BFBC2Toolkit/Resources/Icons/delete.png" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnCopyToMod" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,4,24,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnCopyToMod_Click" ToolTip="Copy selected file to mod project">
+                    <StackPanel>
+                        <Image Source="/BFBC2Toolkit/Resources/Icons/copy.png" />
+                    </StackPanel>
+                </Button>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="274*" MinHeight="200" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="121*" MinHeight="80" />
+                </Grid.RowDefinitions>
+                <GridSplitter x:Name="gridSplitter2" HorizontalAlignment="Stretch" Height="5" Margin="0,0,7,0" VerticalAlignment="Center" ShowsPreview="True" Grid.Row="1" Background="#FF292929"/>
+                <TextBox x:Name="txtEventLog" Height="22" Margin="0,0,7,0" TextWrapping="Wrap" Text="Event Log" VerticalAlignment="Top" Background="#FF454545" BorderBrush="#FF454545" SelectionBrush="{x:Null}" Foreground="#FFE2E2E2" MinHeight="22" FontSize="11" Cursor="Arrow" Controls:ControlsHelper.FocusBorderBrush="#FF454545" Controls:ControlsHelper.MouseOverBorderBrush="#FF454545" UndoLimit="0" IsTabStop="False" AllowDrop="False" Focusable="False" IsReadOnly="True" IsUndoEnabled="False" Grid.Row="2"/>
+                <RichTextBox x:Name="txtBoxEventLog" x:FieldModifier="public" Margin="0,27,7,7" Background="#FF454545" BorderBrush="#FF454545" Foreground="#FFE2E2E2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" FontSize="11" AcceptsReturn="False" AutoWordSelection="False" IsUndoEnabled="False" IsReadOnly="True" Controls:TextBoxHelper.HasText="True" Cursor="Arrow" BorderThickness="0" MinWidth="0" MinHeight="0" Grid.Row="2">
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run Text="RichTextBox"/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="500*" MinWidth="260" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="182*" MinWidth="100" />
+                    </Grid.ColumnDefinitions>
+                    <GridSplitter x:Name="gridSplitter3" HorizontalAlignment="Center" Width="5" Margin="0,4,0,0" VerticalAlignment="Stretch" ShowsPreview="True" Grid.Column="1" Background="#FF292929"/>
+                    <TextBox x:Name="txtProperties" Margin="0,4,7,0" TextWrapping="Wrap" Text="Properties" VerticalAlignment="Top" Background="#FF454545" BorderBrush="#FF454545" SelectionBrush="{x:Null}" Foreground="#FFE2E2E2" MinHeight="22" FontSize="11" Cursor="Arrow" Controls:ControlsHelper.FocusBorderBrush="#FF454545" Controls:ControlsHelper.MouseOverBorderBrush="#FF454545" UndoLimit="0" IsTabStop="False" AllowDrop="False" Focusable="False" IsReadOnly="True" IsUndoEnabled="False" MinWidth="100" Height="22" Grid.Column="2"/>
+                    <RichTextBox x:Name="txtBoxInformation" Margin="0,31,7,0" Background="#FF454545" BorderBrush="#FF454545" Foreground="#FFE2E2E2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" FontSize="11" AcceptsReturn="False" AutoWordSelection="False" IsUndoEnabled="False" IsReadOnly="True" Controls:TextBoxHelper.HasText="True" Cursor="Arrow" UseLayoutRounding="False" BorderThickness="0" MinWidth="0" MinHeight="0" Grid.Column="2">
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run Text="RichTextBox"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                    <TextBox x:Name="txtPreview" Margin="0,4,0,0" TextWrapping="Wrap" Text="Preview" VerticalAlignment="Top" Background="#FF454545" BorderBrush="#FF454545" SelectionBrush="{x:Null}" Foreground="#FFE2E2E2" MinHeight="22" FontSize="11" Cursor="Arrow" Controls:ControlsHelper.FocusBorderBrush="#FF454545" Controls:ControlsHelper.MouseOverBorderBrush="#FF454545" UndoLimit="0" IsTabStop="False" AllowDrop="False" Focusable="False" IsReadOnly="True" IsUndoEnabled="False" Height="22"/>
+                    <Frame x:Name="frame" Content="" Margin="0,31,0,27" Background="#FF454545" Foreground="{x:Null}"/>
+                    <ToolBar x:Name="toolBarPreview" VerticalAlignment="Bottom" Margin="-3,0,0,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom" MinHeight="22" Height="22">
+                        <Button x:Name="btnExport" Background="#FF454545" Content="Export" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontWeight="Bold" FontSize="11" HorizontalAlignment="Left" Margin="0,-2" Width="52" BorderBrush="#FF707070" Style="{DynamicResource ButtonStyle1}" VerticalAlignment="Stretch" Height="21" Click="BtnExport_Click" ToolTip="Export selected file to a common file format"/>
+                        <Button x:Name="btnImport" BorderBrush="#FF707070" Background="#FF454545" Content="Import" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" Height="21" Margin="2,-2,0,-2" Width="52" Style="{DynamicResource ButtonStyle1}" Click="BtnImport_Click" ToolTip="Import a file and replace the selected file "/>
+                        <Button x:Name="btnOpenFileLocation" BorderBrush="#FF707070" Background="#FF454545" Content="Open File Location" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="21" Margin="2,-2,0,-2" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="108" Click="BtnOpenFileLocation_Click" ToolTip="Open file location in the file browser of Windows"/>
+                    </ToolBar>
+                    <Button x:Name="btnSearch" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,-21,-308,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnSearch_Click" ToolTip="Search (Ctrl + F)" Grid.Column="0">
+                        <StackPanel>
+                            <Image Source="/BFBC2Toolkit/Resources/Icons/search.png" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="btnRedo" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,-21,-284,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnRedo_Click" ToolTip="Redo (Ctrl + Y)" Grid.Column="0">
+                        <StackPanel>
+                            <Image Source="/BFBC2Toolkit/Resources/Icons/redo.png" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="btnUndo" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,-21,-260,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnUndo_Click" ToolTip="Undo (Ctrl + Z)" Grid.Column="0">
+                        <StackPanel>
+                            <Image Source="/BFBC2Toolkit/Resources/Icons/undo.png" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="btnSave" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,-21,-236,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnSave_Click" ToolTip="Save (Ctrl + S)" Grid.Column="0">
+                        <StackPanel>
+                            <Image Source="/BFBC2Toolkit/Resources/Icons/save.png" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="btnPlayMedia" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,5,-391,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnPlayMedia_Click" ToolTip="Play" Grid.Column="0">
+                        <StackPanel>
+                            <Image Source="/BFBC2Toolkit/Resources/Icons/play.png" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="btnPauseMedia" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,5,-367,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnPauseMedia_Click" ToolTip="Pause" Grid.Column="0">
+                        <StackPanel>
+                            <Image Source="/BFBC2Toolkit/Resources/Icons/pause.png" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="btnStopMedia" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,5,-343,0" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnStopMedia_Click" ToolTip="Stop" Grid.Column="0">
+                        <StackPanel>
+                            <Image Source="/BFBC2Toolkit/Resources/Icons/stop.png" />
+                        </StackPanel>
+                    </Button>
+                    <Slider x:Name="slider" HorizontalAlignment="Right" Margin="0,6,-315,0" VerticalAlignment="Top" Height="21" Width="100" BorderBrush="#FFE2E2E2" Foreground="#FFD8D8D8" Background="{x:Null}" Controls:SliderHelper.EnableMouseWheel="MouseHover" Controls:SliderHelper.ThumbFillBrush="#FF919191" Controls:SliderHelper.ThumbFillHoverBrush="#FFD4D4D4" Controls:SliderHelper.TrackFillBrush="#FF707070" Controls:SliderHelper.TrackFillHoverBrush="#FF707070" Controls:SliderHelper.TrackFillPressedBrush="#FF707070" Controls:SliderHelper.TrackFillDisabledBrush="#FF707070" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" Controls:SliderHelper.TrackValueFillBrush="#FFD4D4D4" Controls:SliderHelper.TrackValueFillDisabledBrush="#FFD4D4D4" Controls:SliderHelper.TrackValueFillHoverBrush="#FFD4D4D4" Controls:SliderHelper.TrackValueFillPressedBrush="#FFD4D4D4" ValueChanged="Slider_ValueChanged" Value="0.5" LargeChange="0.1" Maximum="1" SmallChange="0.05" ToolTip="Volume" Grid.Column="0"/>
+                    <avalonedit:TextEditor x:Name="textEditor" SyntaxHighlighting="XML" Margin="6,676,416,-468" Foreground="#FFE2E2E2" Background="#FF454545" FontSize="11" HorizontalScrollBarVisibility="Auto" ShowLineNumbers="True" VerticalScrollBarVisibility="Auto" LineNumbersForeground="#FFE2E2E2" TextChanged="XMLEditor_TextChanged">
+                        <avalonedit:TextEditor.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Command="Undo" />
+                                <MenuItem Command="Redo" />
+                                <Separator/>
+                                <MenuItem Command="Cut" />
+                                <MenuItem Command="Copy" />
+                                <MenuItem Command="Paste" />
+                            </ContextMenu>
+                        </avalonedit:TextEditor.ContextMenu>
+                    </avalonedit:TextEditor>
+                    <Image x:Name="image" Margin="416,441,6,-233" ScrollViewer.VerticalScrollBarVisibility="Disabled" StretchDirection="DownOnly"/>
+                    <MediaElement x:Name="mediaElement" Margin="6,441,416,-233" ScrollViewer.VerticalScrollBarVisibility="Disabled" StretchDirection="DownOnly" UnloadedBehavior="Manual" LoadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded"/>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Controls:MetroWindow>

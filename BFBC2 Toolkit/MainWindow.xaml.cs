@@ -663,7 +663,8 @@ namespace BFBC2_Toolkit
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            mediaElement.Volume = slider.Value;
+            if (mediaElement != null)
+                mediaElement.Volume = slider.Value;
         }                
 
         private void BtnDataRefresh_Click(object sender, RoutedEventArgs e)
@@ -955,17 +956,17 @@ namespace BFBC2_Toolkit
 
             Vars.SetFbrbFiles();
 
-            image.Margin = new Thickness(235, 57, 187, 151);
-            mediaElement.Margin = new Thickness(235, 57, 187, 151);
-            textEditor.Margin = new Thickness(235, 57, 187, 151);
-            slider.Margin = new Thickness(0, 30, 262, 0);
-            btnPlayMedia.Margin = new Thickness(0, 30, 187, 0);
-            btnPauseMedia.Margin = new Thickness(0, 30, 211, 0);
-            btnStopMedia.Margin = new Thickness(0, 30, 235, 0);
-            btnSearch.Margin = new Thickness(0, 30, 187, 0);
-            btnRedo.Margin = new Thickness(0, 30, 211, 0);
-            btnUndo.Margin = new Thickness(0, 30, 235, 0);
-            btnSave.Margin = new Thickness(0, 30, 259, 0);
+            image.Margin = new Thickness(0, 31, 0, 27);
+            mediaElement.Margin = new Thickness(0, 31, 0, 27);
+            textEditor.Margin = new Thickness(0, 31, 0, 27);
+            slider.Margin = new Thickness(0, 4, 77, 0);
+            btnPlayMedia.Margin = new Thickness(0, 4, 1, 0);
+            btnPauseMedia.Margin = new Thickness(0, 4, 25, 0);
+            btnStopMedia.Margin = new Thickness(0, 4, 49, 0);
+            btnSearch.Margin = new Thickness(0, 4, 0, 0);
+            btnRedo.Margin = new Thickness(0, 4, 24, 0);
+            btnUndo.Margin = new Thickness(0, 4, 48, 0);
+            btnSave.Margin = new Thickness(0, 4, 72, 0);
 
             btnArchiveMod.IsEnabled = false;
             btnArchiveFbrb.IsEnabled = false;
@@ -973,6 +974,9 @@ namespace BFBC2_Toolkit
             btnImport.IsEnabled = false;
             btnOpenFileLocation.IsEnabled = false;
 
+            textEditor.Visibility = Visibility.Hidden;
+            mediaElement.Visibility = Visibility.Hidden;
+            image.Visibility = Visibility.Hidden;            
             slider.Visibility = Visibility.Hidden;
             btnPlayMedia.Visibility = Visibility.Hidden;
             btnPauseMedia.Visibility = Visibility.Hidden;
@@ -982,16 +986,15 @@ namespace BFBC2_Toolkit
             btnRedo.Visibility = Visibility.Hidden;
             btnSearch.Visibility = Visibility.Hidden;
 
-            txtBoxEventLog.Document.Blocks.Clear();
-            txtBoxInformation.Document.Blocks.Clear();
-
-            mediaElement.Visibility = Visibility.Hidden;
-            image.Visibility = Visibility.Hidden;
-            textEditor.Visibility = Visibility.Hidden;
+            mediaElement.Volume = slider.Value;
+           
             //textEditor.TextArea.TextView.LinkTextForegroundBrush = Brushes.DodgerBlue;
             textEditor.Options.EnableEmailHyperlinks = false;
             textEditor.Options.EnableHyperlinks = false;
             //textEditor.Options.HighlightCurrentLine = true;
+
+            txtBoxEventLog.Document.Blocks.Clear();
+            txtBoxInformation.Document.Blocks.Clear();
         }        
 
         private void MenuItemFileConverter_Click(object sender, RoutedEventArgs e)
