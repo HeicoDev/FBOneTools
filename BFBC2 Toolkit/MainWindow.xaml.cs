@@ -68,7 +68,11 @@ namespace BFBC2_Toolkit
 
             if (ofd.ShowDialog() == true)
             {
+                progressRing.IsActive = true;
+
                 await Profile.Add(ofd);
+
+                progressRing.IsActive = false;
 
                 Write.ToEventLog("You can select your game profile now.", "done");
             }           
@@ -111,9 +115,13 @@ namespace BFBC2_Toolkit
                 {
                     Write.ToEventLog("Loading mod files...", "");
 
+                    progressRing.IsActive = true;
+
                     await Mod.OpenProject(ofd);
 
                     btnArchiveMod.IsEnabled = true;
+
+                    progressRing.IsActive = false;
 
                     Write.ToEventLog("", "done");
                 }
@@ -130,9 +138,13 @@ namespace BFBC2_Toolkit
             {
                 Write.ToEventLog("Extracting mod archive...", "");
 
+                progressRing.IsActive = true;
+
                 await Mod.Extract(ofd);
 
                 btnArchiveMod.IsEnabled = true;
+
+                progressRing.IsActive = false;
 
                 Write.ToEventLog("", "done");
             }
@@ -142,7 +154,11 @@ namespace BFBC2_Toolkit
         {
             Write.ToEventLog("Archiving mod...", "");
 
+            progressRing.IsActive = true;
+
             await Mod.Archive();
+
+            progressRing.IsActive = false;
 
             Write.ToEventLog("", "done");
         }
@@ -157,9 +173,13 @@ namespace BFBC2_Toolkit
             {
                 Write.ToEventLog("This may take a while. Extracting fbrb archive, please wait...", "");
 
+                progressRing.IsActive = true;
+
                 await Fbrb.Extract(ofd);
 
                 btnArchiveFbrb.IsEnabled = true;
+
+                progressRing.IsActive = false;
 
                 Write.ToEventLog("", "done");
             }
@@ -169,7 +189,11 @@ namespace BFBC2_Toolkit
         {
             Write.ToEventLog("This may take a while. Archiving fbrb archive, please wait...", "");
 
+            progressRing.IsActive = true;
+
             await Fbrb.Archive();
+
+            progressRing.IsActive = false;
 
             Write.ToEventLog("", "done");
         }
@@ -180,7 +204,11 @@ namespace BFBC2_Toolkit
             {
                 Write.ToEventLog("Copying file...", "");
 
+                progressRing.IsActive = true;
+
                 await SelectedFile.CopyToMod();
+
+                progressRing.IsActive = false;
 
                 Write.ToEventLog("", "done");
             }
@@ -190,14 +218,26 @@ namespace BFBC2_Toolkit
         {
             Write.ToEventLog("Exporting file...", "");
 
+            progressRing.IsActive = true;
+
             await SelectedFile.Export();
+
+            progressRing.IsActive = false;
 
             Write.ToEventLog("Exported file to output folder.", "done");
         }
 
         private async void BtnImport_Click(object sender, RoutedEventArgs e)
         {
+            Write.ToEventLog("Importing file...", "");
+
+            progressRing.IsActive = true;
+
             await SelectedFile.Import();
+
+            progressRing.IsActive = false;
+
+            Write.ToEventLog("Imported file successfully.", "done");
         }
 
         private void BtnOpenFileLocation_Click(object sender, RoutedEventArgs e)
@@ -619,7 +659,11 @@ namespace BFBC2_Toolkit
         {
             Write.ToEventLog("Saving file...", "");
 
+            progressRing.IsActive = true;
+
             await Save.TextEditorChanges();
+
+            progressRing.IsActive = false;
 
             Write.ToEventLog("", "done");
         }
@@ -669,18 +713,40 @@ namespace BFBC2_Toolkit
 
         private void BtnDataRefresh_Click(object sender, RoutedEventArgs e)
         {
+            progressRing.IsActive = true;
+
             if (treeViewDataExplorer.HasItems == true)
                 Tree.Populate(treeViewDataExplorer, Dirs.filesPathData);
+
+            progressRing.IsActive = false;
+        }
+
+        private void BtnModRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            progressRing.IsActive = true;
+
+            if (treeViewModExplorer.HasItems == true)
+                Tree.Populate(treeViewModExplorer, Dirs.filesPathMod);
+
+            progressRing.IsActive = false;
         }
 
         private async void BtnDataDelete_Click(object sender, RoutedEventArgs e)
         {
+            progressRing.IsActive = true;
+
             await SelectedFile.DeleteFile("data");
+
+            progressRing.IsActive = false;
         }
 
         private async void BtnModDelete_Click(object sender, RoutedEventArgs e)
         {
+            progressRing.IsActive = true;
+
             await SelectedFile.DeleteFile("mod");
+
+            progressRing.IsActive = false;
         }
 
         private async void BtnModRestore_Click(object sender, RoutedEventArgs e)
@@ -689,19 +755,17 @@ namespace BFBC2_Toolkit
             {
                 Write.ToEventLog("Restoring original file...", "");
 
+                progressRing.IsActive = true;
+
                 await ChangeInterface("");
 
                 await SelectedFile.RestoreFile();
 
+                progressRing.IsActive = false;
+
                 Write.ToEventLog("", "done");
             }
-        }
-
-        private void BtnModRefresh_Click(object sender, RoutedEventArgs e)
-        {
-            if (treeViewModExplorer.HasItems == true)
-                Tree.Populate(treeViewModExplorer, Dirs.filesPathMod);
-        }
+        }        
 
         private void BtnVisitHeico_Click(object sender, RoutedEventArgs e)
         {

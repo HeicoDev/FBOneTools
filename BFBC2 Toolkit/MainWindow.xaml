@@ -47,6 +47,7 @@
                 </ToggleButton.ContextMenu>
             </ToggleButton>
         </ToolBar>
+        <Controls:ProgressRing x:Name="progressRing" Foreground="#FFE2E2E2" Height="19" Margin="0,5,10,0" Width="19" VerticalAlignment="Top" HorizontalAlignment="Right" MinHeight="19" MinWidth="19" IsActive="False"/>
         <!--MediaElement x:Name="mediaElement" Margin="6,441,416,-233" ScrollViewer.VerticalScrollBarVisibility="Disabled" StretchDirection="DownOnly" UnloadedBehavior="Manual" LoadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded"/-->
         <Grid Margin="0,26,0,0">
             <Grid.ColumnDefinitions>
