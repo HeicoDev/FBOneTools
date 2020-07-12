@@ -4,7 +4,6 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
-using Microsoft.VisualBasic.FileIO;
 using MahApps.Metro.Controls;
 using BFBC2_Toolkit.Functions;
 using BFBC2_Toolkit.Data;
@@ -15,6 +14,8 @@ namespace BFBC2_Toolkit.Windows
     public partial class FileConverterWindow : MetroWindow
     {
         private int skippedFiles = 0;
+
+        private bool copyToOutputEnabled = false;
 
         public FileConverterWindow()
         {
@@ -82,24 +83,61 @@ namespace BFBC2_Toolkit.Windows
                 {
                     var process = Process.Start(Dirs.scriptDBX, "\"" + filePath);
                     await Task.Run(() => process.WaitForExit());
+
+                    if (copyToOutputEnabled)
+                    {
+                        string targetFileName = String.Empty;
+
+                        if (filePath.EndsWith(".dbx"))
+                        {
+                            filePath = filePath.Replace(".dbx", ".xml");
+                            targetFileName = Path.GetFileName(filePath.Replace(".dbx", ".xml"));
+                        }
+                        else
+                        {
+                            filePath = filePath.Replace(".xml", ".dbx");
+                            targetFileName = Path.GetFileName(filePath.Replace(".xml", ".dbx"));
+                        }
+
+                        string targetFilePath = Dirs.outputXML + @"\" + targetFileName;
+
+                        if (File.Exists(targetFilePath))
+                            await Task.Run(() => File.Delete(targetFilePath));
+
+                        await Task.Run(() => File.Copy(filePath, targetFilePath));
+                    }
                 }
                 else if (filePath.EndsWith(".itexture") || filePath.EndsWith(".ps3texture") || filePath.EndsWith(".xenontexture") || filePath.EndsWith(".dds") || filePath.EndsWith(".terrainheightfield"))
                 {
                     string[] file = { filePath };
 
-                    await Task.Run(() => TextureConverter.ConvertFile(file, false));
+                    await Task.Run(() => TextureConverter.ConvertFile(file, copyToOutputEnabled));
                 }
                 else if (filePath.EndsWith(".binkmemory"))
                 {
-                    string fileName = Path.GetFileName(filePath);
+                    string targetFilePath = filePath.Replace(".binkmemory", ".bik");
+                    string fileName = Path.GetFileName(targetFilePath);
 
-                    await Task.Run(() => FileSystem.RenameFile(filePath, fileName.Replace(".binkmemory", ".bik")));
+                    if (copyToOutputEnabled)
+                        targetFilePath = Dirs.outputVideo + @"\" + fileName;
+
+                    if (File.Exists(targetFilePath))
+                        await Task.Run(() => File.Delete(targetFilePath));
+
+                    await Task.Run(() => File.Copy(filePath, targetFilePath));
                 }
                 else if (filePath.EndsWith(".bik"))
                 {
-                    string fileName = Path.GetFileName(filePath);
+                    string targetFilePath = filePath.Replace(".bik", ".binkmemory");
+                    string fileName = Path.GetFileName(targetFilePath);
 
-                    await Task.Run(() => FileSystem.RenameFile(filePath, fileName.Replace(".bik", ".binkmemory")));
+                    if (copyToOutputEnabled)
+                        targetFilePath = Dirs.outputVideo + @"\" + fileName;
+
+                    if (File.Exists(targetFilePath))
+                        await Task.Run(() => File.Delete(targetFilePath));
+
+                    await Task.Run(() => File.Copy(filePath, targetFilePath));
                 }
                 else
                 {
@@ -133,6 +171,29 @@ namespace BFBC2_Toolkit.Windows
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void BtnOpenOutputFolder_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {                
+                Process.Start("explorer.exe", Dirs.output);
+            }
+            catch (Exception ex)
+            {
+                Write.ToErrorLog(ex);
+                lblMain.Content = "Unable to open folder! See error.log";
+            }
+        }
+
+        private void ChkBoxCopyToOutput_Checked(object sender, RoutedEventArgs e)
+        {
+            copyToOutputEnabled = true;
+        }
+
+        private void ChkBoxCopyToOutput_Unchecked(object sender, RoutedEventArgs e)
+        {
+            copyToOutputEnabled = false;
         }
     }
 }
