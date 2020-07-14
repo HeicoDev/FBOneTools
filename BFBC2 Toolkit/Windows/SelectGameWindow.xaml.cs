@@ -61,11 +61,15 @@ namespace BFBC2_Toolkit.Windows
         {
             if (dataGrid.SelectedItem != null)
             {
+                progressRing.IsActive = true;
+
                 var selectedProfile = dataGrid.SelectedItem as GameProfile;
 
                 await Profile.Load(selectedProfile);
 
                 Vars.isGameProfile = true;
+
+                progressRing.IsActive = false;
 
                 Close();
             }
@@ -75,11 +79,15 @@ namespace BFBC2_Toolkit.Windows
         {
             if (dataGrid.SelectedItem != null)
             {
+                progressRing.IsActive = true;
+
                 var selectedProfile = dataGrid.SelectedItem as GameProfile;
 
                 await Profile.Delete(selectedProfile);
 
                 dataGrid.Items.RemoveAt(dataGrid.Items.IndexOf(dataGrid.SelectedItem));
+
+                progressRing.IsActive = false;
             }
         }
 

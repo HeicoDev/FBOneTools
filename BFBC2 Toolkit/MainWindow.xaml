@@ -202,7 +202,7 @@
                         </StackPanel>
                     </Button>
                     <Slider x:Name="slider" HorizontalAlignment="Right" Margin="0,6,-315,0" VerticalAlignment="Top" Height="21" Width="100" BorderBrush="#FFE2E2E2" Foreground="#FFD8D8D8" Background="{x:Null}" Controls:SliderHelper.EnableMouseWheel="MouseHover" Controls:SliderHelper.ThumbFillBrush="#FF919191" Controls:SliderHelper.ThumbFillHoverBrush="#FFD4D4D4" Controls:SliderHelper.TrackFillBrush="#FF707070" Controls:SliderHelper.TrackFillHoverBrush="#FF707070" Controls:SliderHelper.TrackFillPressedBrush="#FF707070" Controls:SliderHelper.TrackFillDisabledBrush="#FF707070" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" Controls:SliderHelper.TrackValueFillBrush="#FFD4D4D4" Controls:SliderHelper.TrackValueFillDisabledBrush="#FFD4D4D4" Controls:SliderHelper.TrackValueFillHoverBrush="#FFD4D4D4" Controls:SliderHelper.TrackValueFillPressedBrush="#FFD4D4D4" ValueChanged="Slider_ValueChanged" Value="0.5" LargeChange="0.1" Maximum="1" SmallChange="0.05" ToolTip="Volume" Grid.Column="0"/>
-                    <avalonedit:TextEditor x:Name="textEditor" SyntaxHighlighting="XML" Margin="6,676,416,-468" Foreground="#FFE2E2E2" Background="#FF454545" FontSize="11" HorizontalScrollBarVisibility="Auto" ShowLineNumbers="True" VerticalScrollBarVisibility="Auto" LineNumbersForeground="#FFE2E2E2" TextChanged="XMLEditor_TextChanged">
+                    <avalonedit:TextEditor x:Name="textEditor" SyntaxHighlighting="XML" Margin="239,53,-95,155" Foreground="#FFE2E2E2" Background="#FF454545" FontSize="11" HorizontalScrollBarVisibility="Auto" ShowLineNumbers="True" VerticalScrollBarVisibility="Auto" LineNumbersForeground="#FFE2E2E2" TextChanged="XMLEditor_TextChanged">
                         <avalonedit:TextEditor.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Command="Undo" />
@@ -214,8 +214,8 @@
                             </ContextMenu>
                         </avalonedit:TextEditor.ContextMenu>
                     </avalonedit:TextEditor>
-                    <Image x:Name="image" Margin="416,441,6,-233" ScrollViewer.VerticalScrollBarVisibility="Disabled" StretchDirection="DownOnly"/>
-                    <MediaElement x:Name="mediaElement" Margin="6,441,416,-233" ScrollViewer.VerticalScrollBarVisibility="Disabled" StretchDirection="DownOnly" UnloadedBehavior="Manual" LoadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded"/>
+                    <Image x:Name="image" Margin="272,53,-128,155" ScrollViewer.VerticalScrollBarVisibility="Disabled" StretchDirection="DownOnly"/>
+                    <MediaElement x:Name="mediaElement" Margin="209,53,-65,155" ScrollViewer.VerticalScrollBarVisibility="Disabled" StretchDirection="DownOnly" UnloadedBehavior="Manual" LoadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded"/>
                 </Grid>
             </Grid>
         </Grid>

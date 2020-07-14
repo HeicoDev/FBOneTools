@@ -263,6 +263,8 @@ namespace BFBC2_Toolkit
 
                 if (tvi != null)
                 {
+                    progressRing.IsActive = true;
+
                     Dirs.selectedFileNameData = tvi.Name;
                     Dirs.selectedFilePathData = tvi.Path;
 
@@ -451,6 +453,8 @@ namespace BFBC2_Toolkit
                         await ChangeInterface("");
                         Write.ToInfoBox(tvi);
                     }
+
+                    progressRing.IsActive = false;
                 }
             }
             catch (Exception ex)
@@ -477,6 +481,8 @@ namespace BFBC2_Toolkit
 
                 if (tvi != null)
                 {
+                    progressRing.IsActive = true;
+
                     Dirs.selectedFileNameMod = tvi.Name;
                     Dirs.selectedFilePathMod = tvi.Path;
 
@@ -647,6 +653,8 @@ namespace BFBC2_Toolkit
                         await ChangeInterface("");
                         Write.ToInfoBox(tvi);
                     }
+
+                    progressRing.IsActive = false;
                 }
             }
             catch (Exception ex)
