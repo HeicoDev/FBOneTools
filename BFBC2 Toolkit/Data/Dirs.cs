@@ -23,6 +23,7 @@ namespace BFBC2_Toolkit.Data
                                       scripts = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts",
                                       scriptArchive = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts\fbrb.pyw",
                                       scriptDBX = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts\dbx.pyw",
+                                      scriptSwfMovie = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts\swfmovie.pyw",
                                       syntaxXML = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\syntaxXML.config",
                                       syntaxINI = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\syntaxINI.config",
                                       configGames = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\games.config",

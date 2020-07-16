@@ -219,6 +219,9 @@
     <Content Include="BFBC2Toolkit\Scripts\dbx.pyw">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="BFBC2Toolkit\Scripts\swfmovie.pyw">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="BFBC2Toolkit\Templates\Mod\_Docs\readme.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
