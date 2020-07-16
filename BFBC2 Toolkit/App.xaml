@@ -666,6 +666,59 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            
+            <!-- SCROLLBAR STYLE -->
+
+            <!--Style x:Key="MahApps.Styles.Thumb.ScrollBar" TargetType="{x:Type Thumb}" BasedOn="{StaticResource MetroScrollBar}">
+                <Setter Property="Background" Value="Green"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="Green"/>
+                    </Trigger>
+                </Style.Triggers>
+            </-->
+
+            <!--Style x:Key="MahApps.Styles.Thumb.ScrollBar" TargetType="{x:Type Thumb}">
+                <Setter Property="Background" Value="Green" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="IsTabStop" Value="False" />
+                <Setter Property="OverridesDefaultStyle" Value="True" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Thumb}">
+                            <Grid x:Name="ThumbVisual">
+                                <Rectangle x:Name="Background"
+                                   Fill="Green"
+                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                   StrokeThickness="{TemplateBinding BorderThickness}" />
+                                <Rectangle x:Name="MouseOverRectangle"
+                                   Fill="Green"
+                                   Opacity="0"
+                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                   StrokeThickness="{TemplateBinding BorderThickness}" />
+                                <Rectangle x:Name="PressedRectangle"
+                                   Fill="Green"
+                                   Opacity="0"
+                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                   StrokeThickness="{TemplateBinding BorderThickness}" />
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal" />
+                                        <VisualState x:Name="MouseOver" Storyboard="{StaticResource MahApps.Storyboard.ScrollBarThumbMouseOver}" />
+                                        <VisualState x:Name="Pressed" Storyboard="{StaticResource MahApps.Storyboard.ScrollBarThumbPressed}" />
+                                        <VisualState x:Name="Disabled" />
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="ThumbVisual" Property="Opacity" Value="0" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </-->            
 
         </ResourceDictionary>
     </Application.Resources>

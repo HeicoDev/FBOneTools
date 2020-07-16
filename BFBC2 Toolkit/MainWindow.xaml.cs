@@ -46,6 +46,18 @@ namespace BFBC2_Toolkit
             InitializeStartup();
         }
 
+        private void MainWindow_StateChanged(object sender, EventArgs e)
+        {
+            if (WindowState == WindowState.Normal)
+                ResetGridSizes();
+        }
+
+        private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (e.PreviousSize.Height > e.NewSize.Height || e.PreviousSize.Width > e.NewSize.Width)
+                ResetGridSizes();
+        }        
+
         private async void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
             if (textEditor.Visibility == Visibility.Visible)
@@ -797,6 +809,27 @@ namespace BFBC2_Toolkit
             infoWindow.ShowDialog();
         }
 
+        private void MenuItemFileConverter_Click(object sender, RoutedEventArgs e)
+        {
+            var fileConverterWindow = new FileConverterWindow();
+            fileConverterWindow.Owner = this;
+            fileConverterWindow.Show();
+        }
+
+        private void MenuItemFilePorter_Click(object sender, RoutedEventArgs e)
+        {
+            var filePorterWindow = new FilePorterWindow();
+            filePorterWindow.Owner = this;
+            filePorterWindow.Show();
+        }
+
+        private void MenuItemCustomizer_Click(object sender, RoutedEventArgs e)
+        {
+            var customizerWindow = new CustomizerWindow();
+            customizerWindow.Owner = this;
+            customizerWindow.ShowDialog();
+        }
+
         private void XMLEditor_TextChanged(object sender, EventArgs e)
         {
             /*if (Vars.isDataTreeView == false || Vars.isGame == false)
@@ -1067,28 +1100,23 @@ namespace BFBC2_Toolkit
 
             txtBoxEventLog.Document.Blocks.Clear();
             txtBoxInformation.Document.Blocks.Clear();
-        }        
-
-        private void MenuItemFileConverter_Click(object sender, RoutedEventArgs e)
-        {
-            var fileConverterWindow = new FileConverterWindow();
-            fileConverterWindow.Owner = this;
-            fileConverterWindow.Show();
         }
 
-        private void MenuItemFilePorter_Click(object sender, RoutedEventArgs e)
+        private void ResetGridSizes()
         {
-            var filePorterWindow = new FilePorterWindow();
-            filePorterWindow.Owner = this;
-            filePorterWindow.Show();
-        }
+            //Workaround to fix an issue with some Grid/UI sizes when decreasing the size of the main window
+            gridMainElements.ColumnDefinitions[0].Width = new GridLength(229, GridUnitType.Star);
+            gridMainElements.ColumnDefinitions[2].Width = new GridLength(720, GridUnitType.Star);
 
-        private void MenuItemCustomizer_Click(object sender, RoutedEventArgs e)
-        {
-            var customizerWindow = new CustomizerWindow();
-            customizerWindow.Owner = this;
-            customizerWindow.ShowDialog();
-        }
+            gridData.RowDefinitions[0].Height = new GridLength(245, GridUnitType.Star);
+            gridData.RowDefinitions[2].Height = new GridLength(147, GridUnitType.Star);
+
+            gridPreviewLogProp.RowDefinitions[0].Height = new GridLength(274, GridUnitType.Star);
+            gridPreviewLogProp.RowDefinitions[2].Height = new GridLength(121, GridUnitType.Star);
+
+            gridPreviewProp.ColumnDefinitions[0].Width = new GridLength(500, GridUnitType.Star);
+            gridPreviewProp.ColumnDefinitions[2].Width = new GridLength(182, GridUnitType.Star);
+        }       
     }
 }
 

@@ -8,7 +8,7 @@
         xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         xmlns:data="clr-namespace:BFBC2_Toolkit.Data"
         mc:Ignorable="d"
-        Title="BFBC2 Toolkit" Height="450" Width="800" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterScreen" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" Loaded="MainWindow_Loaded" MinWidth="721" MinHeight="450" ScrollViewer.VerticalScrollBarVisibility="Disabled" KeyDown="MainWindow_KeyDown">
+        Title="BFBC2 Toolkit" Height="450" Width="800" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterScreen" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" Loaded="MainWindow_Loaded" MinWidth="721" MinHeight="450" ScrollViewer.VerticalScrollBarVisibility="Disabled" KeyDown="MainWindow_KeyDown" StateChanged="MainWindow_StateChanged" SizeChanged="MainWindow_SizeChanged">
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
@@ -20,7 +20,7 @@
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
 
-    <Grid Margin="-4,0,-4,-4">
+    <Grid x:Name="gridMain" Margin="-4,0,-4,-4">
         <ToolBar x:Name="toolBarMain" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="3,4,0,0" Height="22" MinWidth="700" MinHeight="22">
             <Button x:Name="btnAddGame" Foreground="#FFE2E2E2" HorizontalAlignment="Left" Content="Add Game" FontWeight="Bold" FontSize="11" Width="66" Margin="0,-2" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" OverridesDefaultStyle="True" Style="{DynamicResource ButtonStyle1}" Click="BtnAddGame_Click" ToolTip="Add a game and create a new profile"/>
             <Button x:Name="btnSelectGame" Background="#FF454545" Content="Select Game" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontWeight="Bold" FontSize="11" HorizontalAlignment="Left" Margin="2,-2,0,-2" Width="74" BorderBrush="#FF707070" Style="{DynamicResource ButtonStyle1}" VerticalAlignment="Stretch" Height="21" Click="BtnSelectGame_Click" ToolTip="Select a game profile"/>
@@ -49,14 +49,14 @@
         </ToolBar>
         <Controls:ProgressRing x:Name="progressRing" Foreground="#FFE2E2E2" Height="19" Margin="0,5,10,0" Width="19" VerticalAlignment="Top" HorizontalAlignment="Right" MinHeight="19" MinWidth="19" IsActive="False"/>
         <!--MediaElement x:Name="mediaElement" Margin="6,441,416,-233" ScrollViewer.VerticalScrollBarVisibility="Disabled" StretchDirection="DownOnly" UnloadedBehavior="Manual" LoadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded"/-->
-        <Grid Margin="0,26,0,0">
+        <Grid x:Name="gridMainElements" Margin="0,26,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="229*" MinWidth="160" />
                 <ColumnDefinition Width="5" />
                 <ColumnDefinition Width="720*" MinWidth="500" />
             </Grid.ColumnDefinitions>
             <GridSplitter x:Name="gridSplitter1" HorizontalAlignment="Center" Width="5" Margin="0,4,0,7" VerticalAlignment="Stretch" ShowsPreview="True" Grid.Column="1" Background="#FF292929"/>
-            <Grid>
+            <Grid x:Name="gridData">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="245*" MinHeight="100" />
                     <RowDefinition Height="5" />
@@ -129,7 +129,7 @@
                     </StackPanel>
                 </Button>
             </Grid>
-            <Grid Grid.Column="2">
+            <Grid x:Name="gridPreviewLogProp" Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="274*" MinHeight="200" />
                     <RowDefinition Height="5" />
@@ -144,7 +144,7 @@
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-                <Grid>
+                <Grid x:Name="gridPreviewProp">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="500*" MinWidth="260" />
                         <ColumnDefinition Width="5" />
