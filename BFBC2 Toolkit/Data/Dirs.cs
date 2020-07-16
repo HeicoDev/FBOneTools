@@ -21,7 +21,7 @@ namespace BFBC2_Toolkit.Data
                                       outputVideo = Environment.CurrentDirectory + @"\BFBC2Toolkit\Output\Video",
                                       outputMods = Environment.CurrentDirectory + @"\BFBC2Toolkit\Output\Mods",
                                       scripts = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts",
-                                      scriptArchive = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts\archive.pyw",
+                                      scriptArchive = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts\fbrb.pyw",
                                       scriptDBX = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts\dbx.pyw",
                                       syntaxXML = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\syntaxXML.config",
                                       syntaxINI = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\syntaxINI.config",

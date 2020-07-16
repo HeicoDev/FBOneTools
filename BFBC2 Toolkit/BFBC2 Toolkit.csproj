@@ -213,7 +213,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Content Include="BFBC2Toolkit\Scripts\archive.pyw">
+    <Content Include="BFBC2Toolkit\Scripts\fbrb.pyw">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="BFBC2Toolkit\Scripts\dbx.pyw">
