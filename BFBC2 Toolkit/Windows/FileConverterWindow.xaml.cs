@@ -139,6 +139,16 @@ namespace BFBC2_Toolkit.Windows
 
                     await Task.Run(() => File.Copy(filePath, targetFilePath));
                 }
+                else if (filePath.EndsWith(".swfmovie"))
+                {
+                    string targetFilePath = Path.GetDirectoryName(filePath);
+
+                    if (copyToOutputEnabled)
+                        targetFilePath = Dirs.outputSwfMovie;
+
+                    var process = Process.Start(Dirs.scriptSwfMovie, "\"" + filePath + "\" \"" + targetFilePath + "\"");
+                    await Task.Run(() => process.WaitForExit());
+                }
                 else
                 {
                     skippedFiles++;

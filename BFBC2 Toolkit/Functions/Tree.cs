@@ -156,6 +156,21 @@ namespace BFBC2_Toolkit.Functions
                     }
                 }
             }
+            else if (fileName.EndsWith(".swfmovie"))
+            {
+                fileType = "UI/Menu";
+                fileFormat = "SwfMovie (.swfmovie)";
+                fileSupported = "Partially";
+
+                foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
+                {
+                    if (filePath.Contains(kvp.Value))
+                    {
+                        fileArchive = kvp.Key;
+                        break;
+                    }
+                }
+            }
             else
             {
                 foreach (string format in Vars.fileFormats)

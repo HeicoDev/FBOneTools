@@ -460,6 +460,11 @@ namespace BFBC2_Toolkit
 
                         Play.Video(mp4);                   
                     }
+                    else if (Dirs.selectedFileNameData.EndsWith(".swfmovie"))
+                    {
+                        await ChangeInterface("swfmovie");
+                        Write.ToInfoBox(tvi);
+                    }
                     else
                     {
                         await ChangeInterface("");
@@ -659,6 +664,11 @@ namespace BFBC2_Toolkit
                         await Task.Run(() => FileSystem.RenameFile(bik, Dirs.selectedFileNameMod.Replace(".binkmemory", ".mp4")));
 
                         Play.Video(mp4);
+                    }
+                    else if (Dirs.selectedFileNameMod.EndsWith(".swfmovie"))
+                    {
+                        await ChangeInterface("swfmovie");
+                        Write.ToInfoBox(tvi);                       
                     }
                     else
                     {
@@ -1012,6 +1022,12 @@ namespace BFBC2_Toolkit
                 else
                     btnImport.IsEnabled = true;
 
+                btnExport.IsEnabled = true;
+                btnOpenFileLocation.IsEnabled = true;
+            }
+            else if (format == "swfmovie")
+            {
+                btnImport.IsEnabled = false;
                 btnExport.IsEnabled = true;
                 btnOpenFileLocation.IsEnabled = true;
             }

@@ -20,6 +20,7 @@ namespace BFBC2_Toolkit.Data
                                       outputXML = Environment.CurrentDirectory + @"\BFBC2Toolkit\Output\XML",
                                       outputVideo = Environment.CurrentDirectory + @"\BFBC2Toolkit\Output\Video",
                                       outputMods = Environment.CurrentDirectory + @"\BFBC2Toolkit\Output\Mods",
+                                      outputSwfMovie = Environment.CurrentDirectory + @"\BFBC2Toolkit\Output\SwfMovie",
                                       scripts = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts",
                                       scriptArchive = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts\fbrb.pyw",
                                       scriptDBX = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts\dbx.pyw",

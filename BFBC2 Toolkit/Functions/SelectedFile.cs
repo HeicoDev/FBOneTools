@@ -81,6 +81,11 @@ namespace BFBC2_Toolkit.Functions
 
                     await Task.Run(() => File.Copy(selectedFilePath, Dirs.outputVideo + @"\" + name));
                 }
+                else if (selectedFilePath.EndsWith(".swfmovie"))
+                {
+                    var process = Process.Start(Dirs.scriptSwfMovie, "\"" + selectedFilePath + "\" \"" + Dirs.outputSwfMovie + "\"");
+                    await Task.Run(() => process.WaitForExit());
+                }
             }
             catch (Exception ex)
             {

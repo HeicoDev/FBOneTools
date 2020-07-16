@@ -12,22 +12,17 @@ namespace BFBC2_Toolkit.Functions
         {
             try
             {
-                if (!Directory.Exists(Dirs.games))
-                    Directory.CreateDirectory(Dirs.games);
-                if (!Directory.Exists(Dirs.logs))
-                    Directory.CreateDirectory(Dirs.logs);
-                if (!Directory.Exists(Dirs.projects))
-                    Directory.CreateDirectory(Dirs.projects);
-                if (!Directory.Exists(Dirs.output))
-                {
-                    Directory.CreateDirectory(Dirs.output);
-                    Directory.CreateDirectory(Dirs.outputDDS);
-                    Directory.CreateDirectory(Dirs.outputHeightmap);
-                    Directory.CreateDirectory(Dirs.outputiTexture);
-                    Directory.CreateDirectory(Dirs.outputMods);
-                    Directory.CreateDirectory(Dirs.outputVideo);
-                    Directory.CreateDirectory(Dirs.outputXML);
-                }
+                Directory.CreateDirectory(Dirs.games);
+                Directory.CreateDirectory(Dirs.logs);
+                Directory.CreateDirectory(Dirs.projects);
+                Directory.CreateDirectory(Dirs.output);
+                Directory.CreateDirectory(Dirs.outputDDS);
+                Directory.CreateDirectory(Dirs.outputHeightmap);
+                Directory.CreateDirectory(Dirs.outputiTexture);
+                Directory.CreateDirectory(Dirs.outputMods);
+                Directory.CreateDirectory(Dirs.outputVideo);
+                Directory.CreateDirectory(Dirs.outputXML);
+                Directory.CreateDirectory(Dirs.outputSwfMovie);
             }
             catch (Exception ex)
             {
