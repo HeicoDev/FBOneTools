@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using BFBC2_Toolkit.Data;
 
@@ -55,7 +51,7 @@ namespace BFBC2_Toolkit.Functions
             }
 
             return treeViewfolder;
-        }
+        }        
 
         private static void GetFileInfo(string fileName, string filePath)
         {
@@ -72,14 +68,7 @@ namespace BFBC2_Toolkit.Functions
                 fileFormat = "XML (.xml)";
                 fileSupported = "Yes";
 
-                foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
-                {
-                    if (filePath.Contains(kvp.Value))
-                    {
-                        fileArchive = kvp.Key;
-                        break;
-                    }
-                }
+                GetFileArchive(filePath);
             }
             else if (fileName.EndsWith(".ini"))
             {
@@ -87,14 +76,7 @@ namespace BFBC2_Toolkit.Functions
                 fileFormat = "INI (.ini)";
                 fileSupported = "Yes";
 
-                foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
-                {
-                    if (filePath.Contains(kvp.Value))
-                    {
-                        fileArchive = kvp.Key;
-                        break;
-                    }
-                }
+                GetFileArchive(filePath);
             }
             else if (fileName.EndsWith(".txt"))
             {
@@ -102,14 +84,7 @@ namespace BFBC2_Toolkit.Functions
                 fileFormat = "TXT (.txt)";
                 fileSupported = "Yes";
 
-                foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
-                {
-                    if (filePath.Contains(kvp.Value))
-                    {
-                        fileArchive = kvp.Key;
-                        break;
-                    }
-                }
+                GetFileArchive(filePath);
             }
             else if (fileName.EndsWith(".itexture") || fileName.EndsWith(".ps3texture") || fileName.EndsWith(".xenontexture"))
             {
@@ -117,14 +92,7 @@ namespace BFBC2_Toolkit.Functions
                 fileFormat = "DDS (.dds)";
                 fileSupported = "Yes";
 
-                foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
-                {
-                    if (filePath.Contains(kvp.Value))
-                    {
-                        fileArchive = kvp.Key;
-                        break;
-                    }
-                }
+                GetFileArchive(filePath);
             }
             else if (fileName.EndsWith(".terrainheightfield"))
             {
@@ -132,14 +100,7 @@ namespace BFBC2_Toolkit.Functions
                 fileFormat = "RAW (.raw)";
                 fileSupported = "Partially";
 
-                foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
-                {
-                    if (filePath.Contains(kvp.Value))
-                    {
-                        fileArchive = kvp.Key;
-                        break;
-                    }
-                }
+                GetFileArchive(filePath);
             }
             else if (fileName.EndsWith(".binkmemory"))
             {
@@ -147,14 +108,7 @@ namespace BFBC2_Toolkit.Functions
                 fileFormat = "Bink (.bik)";
                 fileSupported = "Yes";
 
-                foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
-                {
-                    if (filePath.Contains(kvp.Value))
-                    {
-                        fileArchive = kvp.Key;
-                        break;
-                    }
-                }
+                GetFileArchive(filePath);
             }
             else if (fileName.EndsWith(".swfmovie"))
             {
@@ -162,14 +116,7 @@ namespace BFBC2_Toolkit.Functions
                 fileFormat = "SwfMovie (.swfmovie)";
                 fileSupported = "Partially";
 
-                foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
-                {
-                    if (filePath.Contains(kvp.Value))
-                    {
-                        fileArchive = kvp.Key;
-                        break;
-                    }
-                }
+                GetFileArchive(filePath);
             }
             else
             {
@@ -181,17 +128,22 @@ namespace BFBC2_Toolkit.Functions
                         fileFormat = "Unknown";
                         fileSupported = "No";
 
-                        foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
-                        {
-                            if (filePath.Contains(kvp.Value))
-                            {
-                                fileArchive = kvp.Key;
-                                break;
-                            }
-                        }
+                        GetFileArchive(filePath);
 
                         break;
                     }
+                }
+            }
+        }
+
+        private static void GetFileArchive(string filePath)
+        {
+            foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
+            {
+                if (filePath.Contains(kvp.Value))
+                {
+                    fileArchive = kvp.Key;
+                    break;
                 }
             }
         }

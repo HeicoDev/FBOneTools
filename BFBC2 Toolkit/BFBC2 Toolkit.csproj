@@ -133,7 +133,7 @@
     <Compile Include="Windows\CreateModWindow.xaml.cs">
       <DependentUpon>CreateModWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Data\HexDB.cs" />
+    <Compile Include="Data\FileHeaders.cs" />
     <Compile Include="Functions\IniFile.cs" />
     <Compile Include="Tools\TextureConverter.cs" />
     <Compile Include="Windows\CustomizerWindow.xaml.cs">

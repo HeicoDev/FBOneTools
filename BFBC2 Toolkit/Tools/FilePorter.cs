@@ -2,13 +2,6 @@
 using System.IO;
 using BFBC2_Toolkit.Functions;
 
-/// <summary>
-/// BFBC2 File Porter
-/// By Nico Hellmund 
-/// Aka Heico
-/// Copyright 2020
-/// </summary>
-
 namespace BFBC2_Toolkit.Tools
 {
     public class FilePorter

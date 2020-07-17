@@ -68,30 +68,30 @@ namespace BFBC2_Toolkit.Tools
 
                         if (format == 49)                       //DXT1
                         {
-                            hexHeader = StringToByteArray(HexDB.pcDXT1iT);
+                            hexHeader = StringToByteArray(FileHeaders.pcDXT1iT);
                             sMipmap = 8;
                             Vars.textureFormat = "DXT1 BC1";
                         }
                         else if (format == 51)                  //DXT3
                         {
-                            hexHeader = StringToByteArray(HexDB.pcDXT3iT);
+                            hexHeader = StringToByteArray(FileHeaders.pcDXT3iT);
                             Vars.textureFormat = "DXT3 BC2";
                         }
                         else if (format == 53)                  //DXT5
                         {
-                            hexHeader = StringToByteArray(HexDB.pcDXT5iT);
+                            hexHeader = StringToByteArray(FileHeaders.pcDXT5iT);
                             Vars.textureFormat = "DXT5 BC3";
                         }
                         else if (format == 32)
                         {
                             if (hexMain[88] == 32)
                             {
-                                hexHeader = StringToByteArray(HexDB.pcARGBiT);   //ARGB8888
+                                hexHeader = StringToByteArray(FileHeaders.pcARGBiT);   //ARGB8888
                                 Vars.textureFormat = "ARGB8888";
                             }
                             else if (hexMain[88] == 8)
                             {
-                                hexHeader = StringToByteArray(HexDB.pcGrayiT);   //Grayscale
+                                hexHeader = StringToByteArray(FileHeaders.pcGrayiT);   //Grayscale
                                 Vars.textureFormat = "Grayscale";
                             }
                         }
@@ -313,27 +313,27 @@ namespace BFBC2_Toolkit.Tools
 
                         if (format == 0 || format == 18)        //DXT1
                         {
-                            hexHeader = StringToByteArray(HexDB.pcDXT1);
+                            hexHeader = StringToByteArray(FileHeaders.pcDXT1);
                             Vars.textureFormat = "DXT1 BC1";
                         }
                         else if (format == 1)                   //DXT3
                         {
-                            hexHeader = StringToByteArray(HexDB.pcDXT3);
+                            hexHeader = StringToByteArray(FileHeaders.pcDXT3);
                             Vars.textureFormat = "DXT3 BC2";
                         }
                         else if (format == 2 || format == 19 || format == 20 || format == 13)   //DXT5
                         {
-                            hexHeader = StringToByteArray(HexDB.pcDXT5);
+                            hexHeader = StringToByteArray(FileHeaders.pcDXT5);
                             Vars.textureFormat = "DXT5 BC3";
                         }
                         else if (format == 9)                   //ARGB8888
                         {
-                            hexHeader = StringToByteArray(HexDB.pcARGB);
+                            hexHeader = StringToByteArray(FileHeaders.pcARGB);
                             Vars.textureFormat = "ARGB8888";
                         }
                         else if (format == 10)                  //Grayscale
                         {
-                            hexHeader = StringToByteArray(HexDB.pcGray);
+                            hexHeader = StringToByteArray(FileHeaders.pcGray);
                             Vars.textureFormat = "Grayscale";
                         }
 
@@ -421,27 +421,27 @@ namespace BFBC2_Toolkit.Tools
 
                         if (format == 0 || format == 18)        //DXT1
                         {
-                            hexHeader = StringToByteArray(HexDB.pcDXT1);
+                            hexHeader = StringToByteArray(FileHeaders.pcDXT1);
                             Vars.textureFormat = "DXT1 BC1";
                         }
                         else if (format == 1)                   //DXT3
                         {
-                            hexHeader = StringToByteArray(HexDB.pcDXT3);
+                            hexHeader = StringToByteArray(FileHeaders.pcDXT3);
                             Vars.textureFormat = "DXT3 BC2";
                         }
                         else if (format == 2 || format == 19 || format == 20 || format == 13)   //DXT5
                         {
-                            hexHeader = StringToByteArray(HexDB.pcDXT5);
+                            hexHeader = StringToByteArray(FileHeaders.pcDXT5);
                             Vars.textureFormat = "DXT5 BC3";
                         }
                         else if (format == 9)                   //ARGB8888
                         {
-                            hexHeader = StringToByteArray(HexDB.pcARGB);
+                            hexHeader = StringToByteArray(FileHeaders.pcARGB);
                             Vars.textureFormat = "ARGB8888";
                         }
                         else if (format == 10)                  //Grayscale
                         {
-                            hexHeader = StringToByteArray(HexDB.pcGray);
+                            hexHeader = StringToByteArray(FileHeaders.pcGray);
                             Vars.textureFormat = "Grayscale";
                         }
 
@@ -567,27 +567,27 @@ namespace BFBC2_Toolkit.Tools
 
                         if (format == 0 || format == 18)        //DXT1
                         {
-                            hexHeader = StringToByteArray(HexDB.pcDXT1);
+                            hexHeader = StringToByteArray(FileHeaders.pcDXT1);
                             Vars.textureFormat = "DXT1 BC1";
                         }
                         else if (format == 1)                   //DXT3
                         {
-                            hexHeader = StringToByteArray(HexDB.pcDXT3);
+                            hexHeader = StringToByteArray(FileHeaders.pcDXT3);
                             Vars.textureFormat = "DXT3 BC2";
                         }
                         else if (format == 2 || format == 19 || format == 20 || format == 13)   //DXT5
                         {
-                            hexHeader = StringToByteArray(HexDB.pcDXT5);
+                            hexHeader = StringToByteArray(FileHeaders.pcDXT5);
                             Vars.textureFormat = "DXT5 BC3";
                         }
                         else if (format == 9)                   //ARGB8888
                         {
-                            hexHeader = StringToByteArray(HexDB.pcARGB);
+                            hexHeader = StringToByteArray(FileHeaders.pcARGB);
                             Vars.textureFormat = "ARGB8888";
                         }
                         else if (format == 10)                  //Grayscale
                         {
-                            hexHeader = StringToByteArray(HexDB.pcGray);
+                            hexHeader = StringToByteArray(FileHeaders.pcGray);
                             Vars.textureFormat = "Grayscale";
                         }
 

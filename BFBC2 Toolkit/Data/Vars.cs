@@ -6,12 +6,13 @@ namespace BFBC2_Toolkit.Data
     {
         public static IDictionary<string, string> fbrbFiles = new Dictionary<string, string>();
 
+        public static readonly string versionClient = "1.0.0 Beta";
+
+        public static string textureFormat = "";
+
         public static bool isDataTreeView = false,
                            isModAvailable = false,
-                           isGameProfile = false;
-
-        public static string textureFormat = "",
-                             versionClient = "1.0.0 Beta";
+                           isGameProfile = false;                                   
 
         public static int textureWidth = 0,
                           textureHeight = 0;

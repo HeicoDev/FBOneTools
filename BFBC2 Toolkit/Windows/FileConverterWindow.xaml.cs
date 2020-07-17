@@ -79,7 +79,13 @@ namespace BFBC2_Toolkit.Windows
         {          
             try
             {
-                if (filePath.EndsWith(".dbx") || filePath.EndsWith(".xml"))
+                if (filePath.EndsWith(".itexture") || filePath.EndsWith(".ps3texture") || filePath.EndsWith(".xenontexture") || filePath.EndsWith(".dds") || filePath.EndsWith(".terrainheightfield"))
+                {
+                    string[] file = { filePath };
+
+                    await Task.Run(() => TextureConverter.ConvertFile(file, copyToOutputEnabled));
+                }
+                else if (filePath.EndsWith(".dbx") || filePath.EndsWith(".xml"))
                 {
                     var process = Process.Start(Dirs.scriptDBX, "\"" + filePath);
                     await Task.Run(() => process.WaitForExit());
@@ -106,29 +112,14 @@ namespace BFBC2_Toolkit.Windows
 
                         await Task.Run(() => File.Copy(filePath, targetFilePath));
                     }
-                }
-                else if (filePath.EndsWith(".itexture") || filePath.EndsWith(".ps3texture") || filePath.EndsWith(".xenontexture") || filePath.EndsWith(".dds") || filePath.EndsWith(".terrainheightfield"))
-                {
-                    string[] file = { filePath };
-
-                    await Task.Run(() => TextureConverter.ConvertFile(file, copyToOutputEnabled));
-                }
-                else if (filePath.EndsWith(".binkmemory"))
+                }                
+                else if (filePath.EndsWith(".binkmemory") || filePath.EndsWith(".bik"))
                 {
                     string targetFilePath = filePath.Replace(".binkmemory", ".bik");
-                    string fileName = Path.GetFileName(targetFilePath);
 
-                    if (copyToOutputEnabled)
-                        targetFilePath = Dirs.outputVideo + @"\" + fileName;
+                    if (filePath.EndsWith(".bik"))
+                        targetFilePath = filePath.Replace(".bik", ".binkmemory");
 
-                    if (File.Exists(targetFilePath))
-                        await Task.Run(() => File.Delete(targetFilePath));
-
-                    await Task.Run(() => File.Copy(filePath, targetFilePath));
-                }
-                else if (filePath.EndsWith(".bik"))
-                {
-                    string targetFilePath = filePath.Replace(".bik", ".binkmemory");
                     string fileName = Path.GetFileName(targetFilePath);
 
                     if (copyToOutputEnabled)

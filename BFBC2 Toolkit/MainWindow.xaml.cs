@@ -89,6 +89,7 @@ namespace BFBC2_Toolkit
                 Write.ToEventLog("You can select your game profile now.", "done");
             }           
 
+            //Maybe load game profile afterwards?
             //Vars.isGameProfile = true;
         }
 
@@ -281,25 +282,7 @@ namespace BFBC2_Toolkit
                     Dirs.selectedFilePathData = tvi.Path;
 
                     if (Dirs.selectedFilePathData.Contains(Dirs.filesPathData))
-                        Dirs.filePath = Dirs.selectedFilePathData.Replace(Dirs.filesPathData, "");
-
-                    /*
-                    for (int i = 0; i < 1000; i++)
-                    {
-                        tvi = tvi.Parent as TreeViewItem;
-
-                        if (tvi == null)
-                            break;
-
-                        header = tvi.Header.ToString();
-                        path = header + @"\" + path;
-                    }
-                    */
-
-                    /*
-                    if (header.Length != 0)
-                        path = path.Replace(header, "");
-                    */                    
+                        Dirs.filePath = Dirs.selectedFilePathData.Replace(Dirs.filesPathData, "");                  
 
                     if (Dirs.selectedFileNameData.EndsWith(".dbx"))
                     {
@@ -345,7 +328,6 @@ namespace BFBC2_Toolkit
 
                         string[] file = { Dirs.selectedFilePathData };
 
-                        //if (!File.Exists(Dirs.selectedFilePathData.Replace(".itexture", ".dds")))
                         await Task.Run(() => TextureConverter.ConvertFile(file, false));
 
                         try
@@ -376,7 +358,6 @@ namespace BFBC2_Toolkit
 
                         string[] file = { Dirs.selectedFilePathData };
 
-                        //if (!File.Exists(Dirs.selectedFilePathData.Replace(".ps3texture", ".dds")))
                         await Task.Run(() => TextureConverter.ConvertFile(file, false));
 
                         try
@@ -407,7 +388,6 @@ namespace BFBC2_Toolkit
 
                         string[] file = { Dirs.selectedFilePathData };
 
-                        //if (!File.Exists(Dirs.selectedFilePathData.Replace(".ps3texture", ".dds")))
                         await Task.Run(() => TextureConverter.ConvertFile(file, false));
 
                         try
@@ -550,7 +530,6 @@ namespace BFBC2_Toolkit
 
                         string[] file = { Dirs.selectedFilePathMod };
 
-                        //if (!File.Exists(Dirs.selectedFilePathMod.Replace(".itexture", ".dds")))
                         await Task.Run(() => TextureConverter.ConvertFile(file, false));
 
                         try
@@ -581,7 +560,6 @@ namespace BFBC2_Toolkit
 
                         string[] file = { Dirs.selectedFilePathMod };
 
-                        //if (!File.Exists(Dirs.selectedFilePathMod.Replace(".ps3texture", ".dds")))
                         await Task.Run(() => TextureConverter.ConvertFile(file, false));
 
                         try
@@ -612,7 +590,6 @@ namespace BFBC2_Toolkit
 
                         string[] file = { Dirs.selectedFilePathMod };
 
-                        //if (!File.Exists(Dirs.selectedFilePathMod.Replace(".ps3texture", ".dds")))
                         await Task.Run(() => TextureConverter.ConvertFile(file, false));
 
                         try
@@ -979,11 +956,6 @@ namespace BFBC2_Toolkit
 
             if (format == "dbx")
             {
-                /*if (Vars.isDataTreeView == true && Vars.isModAvailable == true)
-                    btnCopyToMod.IsEnabled = true;
-                else
-                    btnCopyToMod.IsEnabled = false;*/
-
                 if (Vars.isDataTreeView == true && Vars.isGameProfile == true)
                     btnImport.IsEnabled = false;
                 else
@@ -1006,8 +978,7 @@ namespace BFBC2_Toolkit
             {
                 if (Vars.isDataTreeView == true && Vars.isGameProfile == true)
                     btnImport.IsEnabled = false;
-                else
-                    if (format == "texture")
+                else if (format == "texture")
                     btnImport.IsEnabled = true;
                 else
                     btnImport.IsEnabled = false;
