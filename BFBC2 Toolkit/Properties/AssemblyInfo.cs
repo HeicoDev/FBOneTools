@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("BFBC2 Toolkit")]
 [assembly: AssemblyDescription("BFBC2 Toolkit")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Heico")]
+[assembly: AssemblyCompany("Nico Hellmund aka Heico")]
 [assembly: AssemblyProduct("BFBC2 Toolkit")]
-[assembly: AssemblyCopyright("Copyright © Nico Hellmund")]
+[assembly: AssemblyCopyright("Licensed under GNU GPLv3")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

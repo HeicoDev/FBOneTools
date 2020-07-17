@@ -20,9 +20,9 @@ using ICSharpCode.AvalonEdit.Highlighting.Xshd;
 
 /// <summary>
 /// BFBC2 Toolkit 
+/// Licensed under GNU GPLv3
 /// By Nico Hellmund 
 /// Aka Heico
-/// Copyright 2020
 /// </summary>
 
 namespace BFBC2_Toolkit
