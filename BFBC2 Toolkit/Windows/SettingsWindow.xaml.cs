@@ -15,6 +15,9 @@ namespace BFBC2_Toolkit.Windows
         {
             if (Settings.TxtEdHighlightCurrentLine)
                 chkBoxHighlightCurrentLine.IsChecked = true;
+
+            if (Settings.TxtEdHighlightSyntax)
+                chkBoxHighlightSyntax.IsChecked = true;
         }
 
         private void ChkBoxHighlightCurrentLine_Checked(object sender, RoutedEventArgs e)
@@ -25,15 +28,22 @@ namespace BFBC2_Toolkit.Windows
         private void ChkBoxHighlightCurrentLine_Unchecked(object sender, RoutedEventArgs e)
         {
             Settings.TxtEdHighlightCurrentLine = false;
-        }       
+        }
+
+        private void ChkBoxHighlightSyntax_Checked(object sender, RoutedEventArgs e)
+        {
+            Settings.TxtEdHighlightSyntax = true;
+        }
+
+        private void ChkBoxHighlightSyntax_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Settings.TxtEdHighlightSyntax = false;
+        }
 
         private void BtnSaveClose_Click(object sender, RoutedEventArgs e)
         {
-            if (Settings.TxtEdHighlightCurrentLine)
-                Elements.TextEditor.Options.HighlightCurrentLine = true;
-            else
-                Elements.TextEditor.Options.HighlightCurrentLine = false;
-
+            Save();
+            
             Close();
         }
 
@@ -41,5 +51,16 @@ namespace BFBC2_Toolkit.Windows
         {
             Close();
         }
+
+        private void Save()
+        {
+            if (Settings.TxtEdHighlightCurrentLine)
+                Elements.TextEditor.Options.HighlightCurrentLine = true;
+            else
+                Elements.TextEditor.Options.HighlightCurrentLine = false;
+
+            if (!Settings.TxtEdHighlightSyntax)
+                Elements.TextEditor.SyntaxHighlighting = null;
+        }        
     }
 }

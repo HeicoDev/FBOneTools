@@ -22,7 +22,8 @@
 
             <TabItem x:Name="tabTextEditor" Header="Text Editor" Background="#FF454545" BorderBrush="#FFE2E2E2" Foreground="#FFE2E2E2" FontSize="11">
                 <Grid Background="#FF292929">
-                    <CheckBox x:Name="chkBoxHighlightCurrentLine" Content="Highlight Current Line" Margin="10,0,277,205" VerticalAlignment="Bottom" HorizontalAlignment="Center" ToolTip="Highlight the currently selected line of the text editor" Checked="ChkBoxHighlightCurrentLine_Checked" Unchecked="ChkBoxHighlightCurrentLine_Unchecked"/>
+                    <CheckBox x:Name="chkBoxHighlightCurrentLine" Content="Highlight Current Line" Margin="10,0,277,185" VerticalAlignment="Bottom" HorizontalAlignment="Center" ToolTip="Highlight the currently selected line of the text editor" Checked="ChkBoxHighlightCurrentLine_Checked" Unchecked="ChkBoxHighlightCurrentLine_Unchecked"/>
+                    <CheckBox x:Name="chkBoxHighlightSyntax" Content="Highlight Syntax" Margin="10,0,305,205" VerticalAlignment="Bottom" HorizontalAlignment="Center" ToolTip="Highlight syntax depending on the currently opened file format" Checked="ChkBoxHighlightSyntax_Checked" Unchecked="ChkBoxHighlightSyntax_Unchecked"/>
                 </Grid>
             </TabItem>
 

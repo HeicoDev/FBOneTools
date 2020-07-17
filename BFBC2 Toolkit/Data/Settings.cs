@@ -8,6 +8,7 @@ namespace BFBC2_Toolkit.Data
 {
     public class Settings
     {
-        public static bool TxtEdHighlightCurrentLine = false;
+        public static bool TxtEdHighlightSyntax = true,
+                           TxtEdHighlightCurrentLine = false;                    
     }
 }
