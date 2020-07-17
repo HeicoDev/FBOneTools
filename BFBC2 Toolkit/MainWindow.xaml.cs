@@ -335,6 +335,18 @@ namespace BFBC2_Toolkit
                         textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath.Replace(".dbx", ".xml")));
                         textEditor.ScrollToHome();
                     }
+                    else if (selectedFileName.EndsWith(".dbmanifest"))
+                    {
+                        await ChangeInterface("dbmanifest");
+                        Write.ToInfoBox(tvi);
+
+                        if (Settings.TxtEdHighlightSyntax)
+                            using (var reader = new XmlTextReader(Dirs.syntaxXML))
+                                textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
+
+                        textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath));
+                        textEditor.ScrollToHome();
+                    }
                     else if (selectedFileName.EndsWith(".ini"))
                     {
                         await ChangeInterface("ini");
@@ -356,7 +368,7 @@ namespace BFBC2_Toolkit
 
                         textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath));
                         textEditor.ScrollToHome();
-                    }
+                    }                    
                     else if (selectedFileName.EndsWith(".itexture"))
                     {
                         await ChangeInterface("texture");
@@ -661,20 +673,21 @@ namespace BFBC2_Toolkit
 
         private async Task ChangeInterface(string format)
         {
-            if (format == "dbx" || format == "ini" || format == "txt")
+            if (format == "dbx" || format == "dbmanifest" || format == "ini" || format == "txt")
             {
-                image.Visibility = Visibility.Hidden;
-                textEditor.Visibility = Visibility.Visible;
                 txtPreview.Text = "Text Editor";
+                mediaElement.Visibility = Visibility.Hidden;
+                image.Visibility = Visibility.Hidden;                               
                 slider.Visibility = Visibility.Hidden;
                 btnPlayMedia.Visibility = Visibility.Hidden;
                 btnPauseMedia.Visibility = Visibility.Hidden;
                 btnStopMedia.Visibility = Visibility.Hidden;
+                textEditor.Visibility = Visibility.Visible;
                 btnSave.Visibility = Visibility.Visible;
                 btnUndo.Visibility = Visibility.Visible;
                 btnRedo.Visibility = Visibility.Visible;
                 btnSearch.Visibility = Visibility.Visible;
-                mediaElement.Visibility = Visibility.Hidden;
+
                 mediaElement.Stop();
                 mediaElement.Close();
                 mediaElement.Source = null;
@@ -683,10 +696,10 @@ namespace BFBC2_Toolkit
             }
             else if (format == "texture" || format == "ps3texture" || format == "xenontexture")
             {
+                txtPreview.Text = "Texture Preview";
                 textEditor.Text = "";
                 textEditor.Visibility = Visibility.Hidden;
-                image.Visibility = Visibility.Visible;
-                txtPreview.Text = "Texture Preview";
+                mediaElement.Visibility = Visibility.Hidden;
                 slider.Visibility = Visibility.Hidden;
                 btnPlayMedia.Visibility = Visibility.Hidden;
                 btnPauseMedia.Visibility = Visibility.Hidden;
@@ -695,7 +708,8 @@ namespace BFBC2_Toolkit
                 btnUndo.Visibility = Visibility.Hidden;
                 btnRedo.Visibility = Visibility.Hidden;
                 btnSearch.Visibility = Visibility.Hidden;
-                mediaElement.Visibility = Visibility.Hidden;
+                image.Visibility = Visibility.Visible;               
+
                 mediaElement.Stop();
                 mediaElement.Close();
                 mediaElement.Source = null;
@@ -704,28 +718,28 @@ namespace BFBC2_Toolkit
             }
             else if (format == "video")
             {
+                txtPreview.Text = "Video Preview";
                 textEditor.Text = "";
                 textEditor.Visibility = Visibility.Hidden;
-                image.Visibility = Visibility.Hidden;
-                mediaElement.Visibility = Visibility.Visible;
-                txtPreview.Text = "Video Preview";
-                slider.Visibility = Visibility.Visible;
-                btnPlayMedia.Visibility = Visibility.Visible;
-                btnPauseMedia.Visibility = Visibility.Visible;
-                btnStopMedia.Visibility = Visibility.Visible;
+                image.Visibility = Visibility.Hidden;               
                 btnSave.Visibility = Visibility.Hidden;
                 btnUndo.Visibility = Visibility.Hidden;
                 btnRedo.Visibility = Visibility.Hidden;
                 btnSearch.Visibility = Visibility.Hidden;
+                mediaElement.Visibility = Visibility.Visible;
+                slider.Visibility = Visibility.Visible;
+                btnPlayMedia.Visibility = Visibility.Visible;
+                btnPauseMedia.Visibility = Visibility.Visible;
+                btnStopMedia.Visibility = Visibility.Visible;
 
                 await MediaStream.Dispose();
             }
             else
             {
+                txtPreview.Text = "Preview";
                 textEditor.Text = "";
                 textEditor.Visibility = Visibility.Hidden;
-                image.Visibility = Visibility.Hidden;
-                txtPreview.Text = "Preview";
+                image.Visibility = Visibility.Hidden;                
                 slider.Visibility = Visibility.Hidden;
                 btnPlayMedia.Visibility = Visibility.Hidden;
                 btnPauseMedia.Visibility = Visibility.Hidden;
@@ -752,13 +766,9 @@ namespace BFBC2_Toolkit
                 btnExport.IsEnabled = true;
                 btnOpenFileLocation.IsEnabled = true;
             }
-            else if (format == "ini" || format == "txt")
+            else if (format == "dbmanifest" || format == "ini" || format == "txt")
             {
-                if (Vars.isDataTreeView && Vars.isGameProfile)
-                    btnImport.IsEnabled = false;
-                else
-                    btnImport.IsEnabled = true;
-
+                btnImport.IsEnabled = false;
                 btnExport.IsEnabled = false;
                 btnOpenFileLocation.IsEnabled = true;
             }

@@ -30,7 +30,7 @@ namespace BFBC2_Toolkit.Functions
                     var process = Process.Start(Dirs.scriptDBX, "\"" + path.Replace(@"\", @"\\"));
                     await Task.Run(() => process.WaitForExit());
                 }
-                else if (selectedFilePath.EndsWith(".ini") || selectedFilePath.EndsWith(".txt"))
+                else if (selectedFilePath.EndsWith(".dbmanifest") || selectedFilePath.EndsWith(".ini") || selectedFilePath.EndsWith(".txt"))
                 {
                     await Task.Run(() => File.WriteAllText(selectedFilePath, textEditorText));
                 }

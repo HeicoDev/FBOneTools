@@ -62,7 +62,7 @@ namespace BFBC2_Toolkit.Functions
                 fileSupported = "No";
                 fileArchive = "None";
             }
-            else if (fileName.EndsWith(".dbx"))
+            else if (fileName.EndsWith(".dbx") || fileName.EndsWith(".dbmanifest"))
             {
                 fileType = "Text";
                 fileFormat = "XML (.xml)";
