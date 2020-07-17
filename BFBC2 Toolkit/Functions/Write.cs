@@ -81,19 +81,13 @@ namespace BFBC2_Toolkit.Functions
             if (ctvi.Type == "Texture")
             {
                 Elements.TxtBoxInformation.Document.Blocks.Clear();
-                if (ctvi.Name.Length < 150)
-                    Elements.TxtBoxInformation.Document.PageWidth = 150;
-                else
-                    Elements.TxtBoxInformation.Document.PageWidth = ctvi.Name.Length * 10;
+                Elements.TxtBoxInformation.Document.PageWidth = ctvi.Name.Length * 15;
                 Elements.TxtBoxInformation.AppendText("Name:\r" + ctvi.Name + "\r\rType:\r" + ctvi.Type + "\r\rFormat:\r" + ctvi.Format + "\r" + Vars.textureFormat + "\r\rResolution:\r" + Vars.textureWidth + "x" + Vars.textureHeight + "\r\rMipmaps:\r" + Vars.mipmapCount + "\r\rArchive:\r" + ctvi.Archive + "\r\rSupported:\r" + ctvi.Supported);
             }
             else
             {
                 Elements.TxtBoxInformation.Document.Blocks.Clear();
-                if (ctvi.Name.Length < 150)
-                    Elements.TxtBoxInformation.Document.PageWidth = 150;
-                else
-                    Elements.TxtBoxInformation.Document.PageWidth = ctvi.Name.Length * 10;
+                Elements.TxtBoxInformation.Document.PageWidth = ctvi.Name.Length * 15;
                 Elements.TxtBoxInformation.AppendText("Name:\r" + ctvi.Name + "\r\rType:\r" + ctvi.Type + "\r\rFormat:\r" + ctvi.Format + "\r\rArchive:\r" + ctvi.Archive + "\r\rSupported:\r" + ctvi.Supported);
             }         
         }
