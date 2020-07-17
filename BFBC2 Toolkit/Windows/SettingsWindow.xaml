@@ -26,6 +26,7 @@
                     <CheckBox x:Name="chkBoxHighlightSyntax" Content="Highlight Syntax" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" ToolTip="Highlight syntax depending on the currently opened file format" Checked="ChkBoxHighlightSyntax_Checked" Unchecked="ChkBoxHighlightSyntax_Unchecked"/>
                     <CheckBox x:Name="chkBoxShowLineNumbers" Content="Show Line Numbers" Margin="10,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" ToolTip="Show line numbers at the left side of the text editor" Checked="ChkBoxShowLineNumbers_Checked" Unchecked="ChkBoxShowLineNumbers_Unchecked" />
                     <CheckBox x:Name="chkBoxClickableHyperlinks" Content="Clickable Hyperlinks" Margin="10,70,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" ToolTip="Highlight links and make them clickable" Checked="ChkBoxClickableHyperlinks_Checked" Unchecked="ChkBoxClickableHyperlinks_Unchecked" />
+                    <CheckBox x:Name="chkBoxHideCursorWhileTyping" Content="Hide Cursor While Typing" Margin="10,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" ToolTip="Hide mouse course while typing in the text editor" Checked="ChkBoxHideCursorWhileTyping_Checked" Unchecked="ChkBoxHideCursorWhileTyping_Unchecked" />
                 </Grid>
             </TabItem>
 

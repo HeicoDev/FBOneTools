@@ -11,6 +11,7 @@ namespace BFBC2_Toolkit.Data
         public static bool TxtEdHighlightSyntax = true,
                            TxtEdHighlightCurrentLine = false,
                            TxtEdShowLineNumbers = true,
-                           TxtEdClickableHyperlinks = true;                    
+                           TxtEdClickableHyperlinks = true,
+                           TxtEdHideCursorWhileTyping = true;                   
     }
 }

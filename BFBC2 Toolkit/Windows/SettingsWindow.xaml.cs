@@ -13,17 +13,11 @@ namespace BFBC2_Toolkit.Windows
 
         private void SettingsWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            if (Settings.TxtEdHighlightSyntax)
-                chkBoxHighlightSyntax.IsChecked = true;
-
-            if (Settings.TxtEdHighlightCurrentLine)
-                chkBoxHighlightCurrentLine.IsChecked = true;
-
-            if (Settings.TxtEdShowLineNumbers)
-                chkBoxShowLineNumbers.IsChecked = true;
-
-            if (Settings.TxtEdClickableHyperlinks)
-                chkBoxClickableHyperlinks.IsChecked = true;
+            chkBoxHighlightSyntax.IsChecked = Settings.TxtEdHighlightSyntax;
+            chkBoxHighlightCurrentLine.IsChecked = Settings.TxtEdHighlightCurrentLine;
+            chkBoxShowLineNumbers.IsChecked = Settings.TxtEdShowLineNumbers;
+            chkBoxClickableHyperlinks.IsChecked = Settings.TxtEdClickableHyperlinks;
+            chkBoxHideCursorWhileTyping.IsChecked = Settings.TxtEdHideCursorWhileTyping;            
         }
 
         private void ChkBoxHighlightSyntax_Checked(object sender, RoutedEventArgs e)
@@ -66,6 +60,16 @@ namespace BFBC2_Toolkit.Windows
             Settings.TxtEdClickableHyperlinks = false;
         }
 
+        private void ChkBoxHideCursorWhileTyping_Checked(object sender, RoutedEventArgs e)
+        {
+            Settings.TxtEdHideCursorWhileTyping = true;
+        }
+
+        private void ChkBoxHideCursorWhileTyping_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Settings.TxtEdHideCursorWhileTyping = false;
+        }        
+
         private void BtnSaveClose_Click(object sender, RoutedEventArgs e)
         {
             Save();
@@ -83,20 +87,10 @@ namespace BFBC2_Toolkit.Windows
             if (!Settings.TxtEdHighlightSyntax)
                 Elements.TextEditor.SyntaxHighlighting = null;
 
-            if (Settings.TxtEdHighlightCurrentLine)
-                Elements.TextEditor.Options.HighlightCurrentLine = true;
-            else
-                Elements.TextEditor.Options.HighlightCurrentLine = false;
-
-            if (Settings.TxtEdShowLineNumbers)
-                Elements.TextEditor.ShowLineNumbers = true;
-            else
-                Elements.TextEditor.ShowLineNumbers = false;
-
-            if (Settings.TxtEdClickableHyperlinks)
-                Elements.TextEditor.Options.EnableHyperlinks = true;
-            else
-                Elements.TextEditor.Options.EnableHyperlinks = false;
+            Elements.TextEditor.Options.HighlightCurrentLine = Settings.TxtEdHighlightCurrentLine;
+            Elements.TextEditor.ShowLineNumbers = Settings.TxtEdShowLineNumbers;
+            Elements.TextEditor.Options.EnableHyperlinks = Settings.TxtEdClickableHyperlinks;
+            Elements.TextEditor.Options.HideCursorWhileTyping = Settings.TxtEdHideCursorWhileTyping;
         }        
     }
 }
