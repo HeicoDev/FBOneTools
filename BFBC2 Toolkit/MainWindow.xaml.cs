@@ -809,7 +809,7 @@ namespace BFBC2_Toolkit
 
         private void BtnReportBug_Click(object sender, RoutedEventArgs e)
         {
-            //Process.Start("https://www.nexusmods.com/battlefieldbadcompany2/mods/4?tab=bugs");
+            Process.Start("https://github.com/HeicoDev/BFBC2Toolkit/issues");
         }
 
         private void BtnInfo_Click(object sender, RoutedEventArgs e)
