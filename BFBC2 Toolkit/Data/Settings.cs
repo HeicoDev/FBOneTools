@@ -12,6 +12,7 @@ namespace BFBC2_Toolkit.Data
                            TxtEdHighlightCurrentLine = false,
                            TxtEdShowLineNumbers = true,
                            TxtEdClickableHyperlinks = true,
-                           TxtEdHideCursorWhileTyping = true;                   
+                           TxtEdHideCursorWhileTyping = true,
+                           TxtEdShowTabs = false;                    
     }
 }

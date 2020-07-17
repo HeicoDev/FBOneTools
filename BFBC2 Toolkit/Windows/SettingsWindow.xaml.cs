@@ -17,7 +17,8 @@ namespace BFBC2_Toolkit.Windows
             chkBoxHighlightCurrentLine.IsChecked = Settings.TxtEdHighlightCurrentLine;
             chkBoxShowLineNumbers.IsChecked = Settings.TxtEdShowLineNumbers;
             chkBoxClickableHyperlinks.IsChecked = Settings.TxtEdClickableHyperlinks;
-            chkBoxHideCursorWhileTyping.IsChecked = Settings.TxtEdHideCursorWhileTyping;            
+            chkBoxHideCursorWhileTyping.IsChecked = Settings.TxtEdHideCursorWhileTyping;
+            chkBoxShowTabs.IsChecked = Settings.TxtEdShowTabs;
         }
 
         private void ChkBoxHighlightSyntax_Checked(object sender, RoutedEventArgs e)
@@ -68,7 +69,17 @@ namespace BFBC2_Toolkit.Windows
         private void ChkBoxHideCursorWhileTyping_Unchecked(object sender, RoutedEventArgs e)
         {
             Settings.TxtEdHideCursorWhileTyping = false;
-        }        
+        }
+
+        private void ChkBoxShowTabs_Checked(object sender, RoutedEventArgs e)
+        {
+            Settings.TxtEdShowTabs = true;
+        }
+
+        private void ChkBoxShowTabs_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Settings.TxtEdShowTabs = false;
+        }
 
         private void BtnSaveClose_Click(object sender, RoutedEventArgs e)
         {
@@ -91,6 +102,7 @@ namespace BFBC2_Toolkit.Windows
             Elements.TextEditor.ShowLineNumbers = Settings.TxtEdShowLineNumbers;
             Elements.TextEditor.Options.EnableHyperlinks = Settings.TxtEdClickableHyperlinks;
             Elements.TextEditor.Options.HideCursorWhileTyping = Settings.TxtEdHideCursorWhileTyping;
+            Elements.TextEditor.Options.ShowTabs = Settings.TxtEdShowTabs;
         }        
     }
 }
