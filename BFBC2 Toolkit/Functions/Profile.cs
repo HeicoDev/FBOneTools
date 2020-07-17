@@ -80,48 +80,48 @@ namespace BFBC2_Toolkit.Functions
                                 await Task.Run(() => Directory.CreateDirectory(dir.Replace(file.Replace(kvp.Key, kvp.Value), Dirs.games + @"\" + gameId + @"\" + kvp.Value)));
 
                             foreach (string filePath in Directory.GetFiles(file.Replace(kvp.Key, kvp.Value), "*.*", SearchOption.AllDirectories))
-                                await Task.Run(() => File.Copy(filePath, filePath.Replace(file.Replace(kvp.Key, kvp.Value), Dirs.games + @"\" + gameId + @"\" + kvp.Value), true));
-
-                            var xmlDoc = new XmlDocument();
-                            xmlDoc.Load(Dirs.configGames);
-                            var nodeList = xmlDoc.SelectNodes("/Games/Game");
-
-                            bool profileEntryExists = false;
-
-                            for (int i = 0; i < nodeList.Count; i++)
-                            {
-                                if (nodeList[i].Attributes["Name"].Value == gameName && nodeList[i].Attributes["Platform"].Value == gamePlatform)
-                                {
-                                    profileEntryExists = true;
-                                    break;
-                                }
-                            }
-
-                            if (!profileEntryExists)
-                            {
-                                var rootNode = xmlDoc.DocumentElement;
-                                var newElement = xmlDoc.CreateElement("Game");
-
-                                var attrName = xmlDoc.CreateAttribute("Name");
-                                attrName.Value = gameName;
-
-                                newElement.Attributes.Append(attrName);
-
-                                var attrPlat = xmlDoc.CreateAttribute("Platform");
-                                attrPlat.Value = gamePlatform;
-
-                                newElement.Attributes.Append(attrPlat);
-
-                                rootNode.AppendChild(newElement);
-                                xmlDoc.AppendChild(rootNode);
-                            }
-
-                            xmlDoc.Save(Dirs.configGames);
+                                await Task.Run(() => File.Copy(filePath, filePath.Replace(file.Replace(kvp.Key, kvp.Value), Dirs.games + @"\" + gameId + @"\" + kvp.Value), true));                           
 
                             break;
                         }
                     }
                 }
+
+                var xmlDoc = new XmlDocument();
+                xmlDoc.Load(Dirs.configGames);
+                var nodeList = xmlDoc.SelectNodes("/Games/Game");
+
+                bool profileEntryExists = false;
+
+                for (int i = 0; i < nodeList.Count; i++)
+                {
+                    if (nodeList[i].Attributes["Name"].Value == gameName && nodeList[i].Attributes["Platform"].Value == gamePlatform)
+                    {
+                        profileEntryExists = true;
+                        break;
+                    }
+                }
+
+                if (!profileEntryExists)
+                {
+                    var rootNode = xmlDoc.DocumentElement;
+                    var newElement = xmlDoc.CreateElement("Game");
+
+                    var attrName = xmlDoc.CreateAttribute("Name");
+                    attrName.Value = gameName;
+
+                    newElement.Attributes.Append(attrName);
+
+                    var attrPlat = xmlDoc.CreateAttribute("Platform");
+                    attrPlat.Value = gamePlatform;
+
+                    newElement.Attributes.Append(attrPlat);
+
+                    rootNode.AppendChild(newElement);
+                    xmlDoc.AppendChild(rootNode);
+                }
+
+                xmlDoc.Save(Dirs.configGames);
             }
             catch (Exception ex)
             {
