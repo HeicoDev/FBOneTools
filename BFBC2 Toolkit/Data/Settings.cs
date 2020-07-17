@@ -10,6 +10,7 @@ namespace BFBC2_Toolkit.Data
     {
         public static bool TxtEdHighlightSyntax = true,
                            TxtEdHighlightCurrentLine = false,
-                           TxtEdShowLineNumbers = true;                    
+                           TxtEdShowLineNumbers = true,
+                           TxtEdClickableHyperlinks = true;                    
     }
 }
