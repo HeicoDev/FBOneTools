@@ -46,7 +46,7 @@ namespace BFBC2_Toolkit.Functions
                     if (result != MessageBoxResult.Yes)
                         return;
 
-                    Directory.Delete(Dirs.games + @"\" + gameId, true);
+                    await Task.Run(() => Directory.Delete(Dirs.games + @"\" + gameId, true));
                 }               
 
                 string path = ofd.FileName.Replace(ofd.SafeFileName, "");
