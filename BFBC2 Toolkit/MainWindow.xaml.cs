@@ -261,215 +261,70 @@ namespace BFBC2_Toolkit
 
         private async void DataExplorer_ItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            try
-            {
-                Vars.isDataTreeView = true;
+            Vars.isDataTreeView = true;
 
-                if (treeViewModExplorer.SelectedItem != null)
-                    (treeViewModExplorer.SelectedItem as CustomTreeViewItem).IsSelected = false;
+            if (Dirs.SelectedFilePathData != null && Dirs.SelectedFilePathData.EndsWith(".binkmemory"))
+                await SelectedFile.RenameToBik();
 
-                treeViewDataExplorer.Focus();
+            if (treeViewModExplorer.SelectedItem != null)
+                (treeViewModExplorer.SelectedItem as CustomTreeViewItem).IsSelected = false;
 
-                if (Dirs.SelectedFilePathData != null && Dirs.SelectedFilePathData.EndsWith(".binkmemory"))
-                    await SelectedFile.RenameToBik();
-
-                var tvi = treeViewDataExplorer.SelectedItem as CustomTreeViewItem;
-
-                if (tvi != null)
-                {
-                    progressRing.IsActive = true;
-
-                    Dirs.SelectedFileNameData = tvi.Name;
-                    Dirs.SelectedFilePathData = tvi.Path;
-
-                    if (Dirs.SelectedFilePathData.Contains(Dirs.FilesPathData))
-                        Dirs.FilePath = Dirs.SelectedFilePathData.Replace(Dirs.FilesPathData, "");                  
-
-                    if (Dirs.SelectedFileNameData.EndsWith(".dbx"))
-                    {
-                        await ChangeInterface("dbx");
-                        Write.ToInfoBox(tvi);
-
-                        if (!File.Exists(Dirs.SelectedFilePathData.Replace(".dbx", ".xml")))
-                        {
-                            var process = Process.Start(Dirs.scriptDBX, "\"" + Dirs.SelectedFilePathData);
-                            await Task.Run(() => process.WaitForExit());
-                        }
-
-                        if (Settings.TxtEdHighlightSyntax)
-                            using (var reader = new XmlTextReader(Dirs.syntaxXML))
-                                textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
-
-                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.SelectedFilePathData.Replace(".dbx", ".xml")));
-                        textEditor.ScrollToHome();
-                    }
-                    else if (Dirs.SelectedFileNameData.EndsWith(".ini"))
-                    {
-                        await ChangeInterface("ini");
-                        Write.ToInfoBox(tvi);
-
-                        if (Settings.TxtEdHighlightSyntax)
-                            using (var reader = new XmlTextReader(Dirs.syntaxINI))
-                                textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
-
-                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.SelectedFilePathData));
-                        textEditor.ScrollToHome();
-                    }
-                    else if (Dirs.SelectedFileNameData.EndsWith(".txt"))
-                    {
-                        await ChangeInterface("txt");
-                        Write.ToInfoBox(tvi);
-
-                        textEditor.SyntaxHighlighting = null;
-
-                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.SelectedFilePathData));
-                        textEditor.ScrollToHome();
-                    }
-                    else if (Dirs.SelectedFileNameData.EndsWith(".itexture"))
-                    {
-                        await ChangeInterface("texture");
-
-                        string[] file = { Dirs.SelectedFilePathData };
-
-                        await Task.Run(() => TextureConverter.ConvertFile(file, false));
-
-                        try
-                        {
-                            image.Source = Bitmap.LoadImage(Dirs.SelectedFilePathData.Replace(".itexture", ".dds"));
-                        }
-                        catch
-                        {
-                            image.Visibility = Visibility.Hidden;
-
-                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
-                        }
-
-                        Write.ToInfoBox(tvi);
-                    }
-                    else if (Dirs.SelectedFileNameData.EndsWith(".ps3texture"))
-                    {
-                        await ChangeInterface("ps3texture");
-
-                        string[] file = { Dirs.SelectedFilePathData };
-
-                        await Task.Run(() => TextureConverter.ConvertFile(file, false));
-
-                        try
-                        {
-                            image.Source = Bitmap.LoadImage(Dirs.SelectedFilePathData.Replace(".ps3texture", ".dds"));
-                        }
-                        catch
-                        {
-                            image.Visibility = Visibility.Hidden;
-
-                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
-                        }
-
-                        Write.ToInfoBox(tvi);
-                    }
-                    else if (Dirs.SelectedFileNameData.EndsWith(".xenontexture"))
-                    {
-                        await ChangeInterface("xenontexture");
-
-                        string[] file = { Dirs.SelectedFilePathData };
-
-                        await Task.Run(() => TextureConverter.ConvertFile(file, false));
-
-                        try
-                        {
-                            image.Source = Bitmap.LoadImage(Dirs.SelectedFilePathData.Replace(".xenontexture", ".dds"));
-                        }
-                        catch
-                        {
-                            image.Visibility = Visibility.Hidden;
-
-                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
-                        }
-
-                        Write.ToInfoBox(tvi);
-                    }
-                    else if (Dirs.SelectedFileNameData.EndsWith(".terrainheightfield"))
-                    {
-                        await ChangeInterface("heightmap");
-                        Write.ToInfoBox(tvi);
-
-                        string[] file = { Dirs.SelectedFilePathData };
-
-                        if (!File.Exists(Dirs.SelectedFilePathData.Replace(".terrainheightfield", ".raw")))
-                            await Task.Run(() => TextureConverter.ConvertFile(file, false));
-                    }
-                    else if (Dirs.SelectedFileNameData.EndsWith(".binkmemory"))
-                    {
-                        await ChangeInterface("video");
-                        Write.ToInfoBox(tvi);
-
-                        string mp4 = Dirs.SelectedFilePathData.Replace(".binkmemory", ".mp4"),
-                              bik = Dirs.SelectedFilePathData.Replace(".binkmemory", ".bik");
-
-                        if (!File.Exists(bik))
-                            await Task.Run(() => File.Copy(Dirs.SelectedFilePathData, bik));
-
-                        if (File.Exists(mp4))
-                            await Task.Run(() => File.Delete(mp4));
-
-                        await Task.Run(() => FileSystem.RenameFile(bik, Dirs.SelectedFileNameData.Replace(".binkmemory", ".mp4")));
-
-                        Play.Video(mp4);                   
-                    }
-                    else if (Dirs.SelectedFileNameData.EndsWith(".swfmovie"))
-                    {
-                        await ChangeInterface("swfmovie");
-                        Write.ToInfoBox(tvi);
-                    }
-                    else
-                    {
-                        await ChangeInterface("");
-                        Write.ToInfoBox(tvi);
-                    }
-
-                    progressRing.IsActive = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+            await HandleSelectedItem(treeViewDataExplorer);
         }
 
         private async void ModExplorer_ItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
+            Vars.isDataTreeView = false;
+
+            if (Dirs.SelectedFilePathMod != null && Dirs.SelectedFilePathMod.EndsWith(".binkmemory"))
+                await SelectedFile.RenameToBik();
+
+            if (treeViewDataExplorer.SelectedItem != null)
+                (treeViewDataExplorer.SelectedItem as CustomTreeViewItem).IsSelected = false;
+
+            await HandleSelectedItem(treeViewModExplorer);
+        }
+
+        private async Task HandleSelectedItem(TreeView treeView)
+        {
             try
             {
-                Vars.isDataTreeView = false;
+                treeView.Focus();
 
-                if (treeViewDataExplorer.SelectedItem != null)
-                    (treeViewDataExplorer.SelectedItem as CustomTreeViewItem).IsSelected = false;
-
-                treeViewModExplorer.Focus();
-
-                if (Dirs.SelectedFilePathMod != null && Dirs.SelectedFilePathMod.EndsWith(".binkmemory"))
-                    await SelectedFile.RenameToBik();
-
-                var tvi = treeViewModExplorer.SelectedItem as CustomTreeViewItem;
+                var tvi = treeView.SelectedItem as CustomTreeViewItem;
 
                 if (tvi != null)
                 {
-                    progressRing.IsActive = true;
+                    progressRing.IsActive = true;                                        
 
-                    Dirs.SelectedFileNameMod = tvi.Name;
-                    Dirs.SelectedFilePathMod = tvi.Path;
+                    string selectedFileName = tvi.Name,
+                           selectedFilePath = tvi.Path,
+                           filesPath = String.Empty;
 
-                    if (Dirs.SelectedFilePathMod.Contains(Dirs.FilesPathMod))
-                        Dirs.FilePath = Dirs.SelectedFilePathMod.Replace(Dirs.FilesPathMod, "");
+                    if (Vars.isDataTreeView)
+                    {
+                        Dirs.SelectedFileNameData = selectedFileName;
+                        Dirs.SelectedFilePathData = selectedFilePath;
+                        filesPath = Dirs.FilesPathData;
+                    }
+                    else
+                    {
+                        Dirs.SelectedFileNameMod = selectedFileName;
+                        Dirs.SelectedFilePathMod = selectedFilePath;
+                        filesPath = Dirs.FilesPathMod;
+                    }
 
-                    if (Dirs.SelectedFileNameMod.EndsWith(".dbx"))
+                    if (selectedFilePath.Contains(filesPath))
+                        Dirs.FilePath = selectedFilePath.Replace(filesPath, "");
+
+                    if (selectedFileName.EndsWith(".dbx"))
                     {
                         await ChangeInterface("dbx");
                         Write.ToInfoBox(tvi);
 
-                        if (!File.Exists(Dirs.SelectedFilePathMod.Replace(".dbx", ".xml")))
+                        if (!File.Exists(selectedFilePath.Replace(".dbx", ".xml")))
                         {
-                            var process = Process.Start(Dirs.scriptDBX, "\"" + Dirs.SelectedFilePathMod);
+                            var process = Process.Start(Dirs.scriptDBX, "\"" + selectedFilePath);
                             await Task.Run(() => process.WaitForExit());
                         }
 
@@ -477,10 +332,10 @@ namespace BFBC2_Toolkit
                             using (var reader = new XmlTextReader(Dirs.syntaxXML))
                                 textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
-                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.SelectedFilePathMod.Replace(".dbx", ".xml")));
+                        textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath.Replace(".dbx", ".xml")));
                         textEditor.ScrollToHome();
                     }
-                    else if (Dirs.SelectedFileNameMod.EndsWith(".ini"))
+                    else if (selectedFileName.EndsWith(".ini"))
                     {
                         await ChangeInterface("ini");
                         Write.ToInfoBox(tvi);
@@ -489,30 +344,30 @@ namespace BFBC2_Toolkit
                             using (var reader = new XmlTextReader(Dirs.syntaxINI))
                                 textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
-                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.SelectedFilePathMod));
+                        textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath));
                         textEditor.ScrollToHome();
                     }
-                    else if (Dirs.SelectedFileNameMod.EndsWith(".txt"))
+                    else if (selectedFileName.EndsWith(".txt"))
                     {
                         await ChangeInterface("txt");
                         Write.ToInfoBox(tvi);
 
                         textEditor.SyntaxHighlighting = null;
 
-                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.SelectedFilePathMod));
+                        textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath));
                         textEditor.ScrollToHome();
                     }
-                    else if (Dirs.SelectedFileNameMod.EndsWith(".itexture"))
+                    else if (selectedFileName.EndsWith(".itexture"))
                     {
                         await ChangeInterface("texture");
 
-                        string[] file = { Dirs.SelectedFilePathMod };
+                        string[] file = { selectedFilePath };
 
                         await Task.Run(() => TextureConverter.ConvertFile(file, false));
 
                         try
                         {
-                            image.Source = Bitmap.LoadImage(Dirs.SelectedFilePathMod.Replace(".itexture", ".dds"));
+                            image.Source = Bitmap.LoadImage(selectedFilePath.Replace(".itexture", ".dds"));
                         }
                         catch
                         {
@@ -523,17 +378,17 @@ namespace BFBC2_Toolkit
 
                         Write.ToInfoBox(tvi);
                     }
-                    else if (Dirs.SelectedFileNameMod.EndsWith(".ps3texture"))
+                    else if (selectedFileName.EndsWith(".ps3texture"))
                     {
                         await ChangeInterface("ps3texture");
 
-                        string[] file = { Dirs.SelectedFilePathMod };
+                        string[] file = { selectedFilePath };
 
                         await Task.Run(() => TextureConverter.ConvertFile(file, false));
 
                         try
                         {
-                            image.Source = Bitmap.LoadImage(Dirs.SelectedFilePathMod.Replace(".ps3texture", ".dds"));
+                            image.Source = Bitmap.LoadImage(selectedFilePath.Replace(".ps3texture", ".dds"));
                         }
                         catch
                         {
@@ -544,17 +399,17 @@ namespace BFBC2_Toolkit
 
                         Write.ToInfoBox(tvi);
                     }
-                    else if (Dirs.SelectedFileNameMod.EndsWith(".xenontexture"))
+                    else if (selectedFileName.EndsWith(".xenontexture"))
                     {
                         await ChangeInterface("xenontexture");
 
-                        string[] file = { Dirs.SelectedFilePathMod };
+                        string[] file = { selectedFilePath };
 
                         await Task.Run(() => TextureConverter.ConvertFile(file, false));
 
                         try
                         {
-                            image.Source = Bitmap.LoadImage(Dirs.SelectedFilePathMod.Replace(".xenontexture", ".dds"));
+                            image.Source = Bitmap.LoadImage(selectedFilePath.Replace(".xenontexture", ".dds"));
                         }
                         catch
                         {
@@ -565,38 +420,38 @@ namespace BFBC2_Toolkit
 
                         Write.ToInfoBox(tvi);
                     }
-                    else if (Dirs.SelectedFileNameMod.EndsWith(".terrainheightfield"))
+                    else if (selectedFileName.EndsWith(".terrainheightfield"))
                     {
                         await ChangeInterface("heightmap");
                         Write.ToInfoBox(tvi);
 
-                        string[] file = { Dirs.SelectedFilePathMod };
+                        string[] file = { selectedFilePath };
 
-                        if (!File.Exists(Dirs.SelectedFilePathMod.Replace(".terrainheightfield", ".raw")))
+                        if (!File.Exists(selectedFilePath.Replace(".terrainheightfield", ".raw")))
                             await Task.Run(() => TextureConverter.ConvertFile(file, false));
                     }
-                    else if (Dirs.SelectedFileNameMod.EndsWith(".binkmemory"))
+                    else if (selectedFileName.EndsWith(".binkmemory"))
                     {
                         await ChangeInterface("video");
                         Write.ToInfoBox(tvi);
 
-                        string mp4 = Dirs.SelectedFilePathMod.Replace(".binkmemory", ".mp4"),
-                               bik = Dirs.SelectedFilePathMod.Replace(".binkmemory", ".bik");
+                        string mp4 = selectedFilePath.Replace(".binkmemory", ".mp4"),
+                               bik = selectedFilePath.Replace(".binkmemory", ".bik");
 
                         if (!File.Exists(bik))
-                            await Task.Run(() => File.Copy(Dirs.SelectedFilePathMod, bik));
+                            await Task.Run(() => File.Copy(selectedFilePath, bik));
 
                         if (File.Exists(mp4))
                             await Task.Run(() => File.Delete(mp4));
 
-                        await Task.Run(() => FileSystem.RenameFile(bik, Dirs.SelectedFileNameMod.Replace(".binkmemory", ".mp4")));
+                        await Task.Run(() => FileSystem.RenameFile(bik, selectedFileName.Replace(".binkmemory", ".mp4")));
 
                         Play.Video(mp4);
                     }
-                    else if (Dirs.SelectedFileNameMod.EndsWith(".swfmovie"))
+                    else if (selectedFileName.EndsWith(".swfmovie"))
                     {
                         await ChangeInterface("swfmovie");
-                        Write.ToInfoBox(tvi);                       
+                        Write.ToInfoBox(tvi);
                     }
                     else
                     {
@@ -608,8 +463,11 @@ namespace BFBC2_Toolkit
                 }
             }
             catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
+            {                
+                Write.ToErrorLog(ex);
+                Write.ToEventLog("Unable to handle selected file! See error.log", "error");
+
+                progressRing.IsActive = false;
             }
         }
 
