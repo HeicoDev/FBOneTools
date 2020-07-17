@@ -21,7 +21,7 @@
     </Controls:MetroWindow.RightWindowCommands>
 
     <Grid x:Name="gridMain" Margin="-4,0,-4,-4">
-        <ToolBar x:Name="toolBarMain" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="3,4,0,0" Height="22" MinWidth="700" MinHeight="22">
+        <ToolBar x:Name="toolBarMain" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="3,4,0,0" Height="22" MinWidth="700" MinHeight="22" Width="763">
             <Button x:Name="btnAddGame" Foreground="#FFE2E2E2" HorizontalAlignment="Left" Content="Add Game" FontWeight="Bold" FontSize="11" Width="66" Margin="0,-2" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" OverridesDefaultStyle="True" Style="{DynamicResource ButtonStyle1}" Click="BtnAddGame_Click" ToolTip="Add a game and create a new profile"/>
             <Button x:Name="btnSelectGame" Background="#FF454545" Content="Select Game" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontWeight="Bold" FontSize="11" HorizontalAlignment="Left" Margin="2,-2,0,-2" Width="74" BorderBrush="#FF707070" Style="{DynamicResource ButtonStyle1}" VerticalAlignment="Stretch" Height="21" Click="BtnSelectGame_Click" ToolTip="Select a game profile"/>
             <Button x:Name="btnCreateMod" BorderBrush="#FF707070" Background="#FF454545" Content="Create Mod" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" Height="21" Margin="2,-2,0,-2" Width="70" Style="{DynamicResource ButtonStyle1}" VerticalAlignment="Stretch" Click="BtnCreateMod_Click" ToolTip="Create a new mod"/>
@@ -46,6 +46,7 @@
                     </ContextMenu>
                 </ToggleButton.ContextMenu>
             </ToggleButton>
+            <Button x:Name="btnSettings" BorderBrush="#FF707070" Background="#FF454545" Content="Settings" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="21" Margin="2,-2,0,-2" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="54" ToolTip="Open settings window" Click="BtnSettings_Click"/>
         </ToolBar>
         <Controls:ProgressRing x:Name="progressRing" Foreground="#FFE2E2E2" Height="19" Margin="0,5,10,0" Width="19" VerticalAlignment="Top" HorizontalAlignment="Right" MinHeight="19" MinWidth="19" IsActive="False"/>
         <!--MediaElement x:Name="mediaElement" Margin="6,441,416,-233" ScrollViewer.VerticalScrollBarVisibility="Disabled" StretchDirection="DownOnly" UnloadedBehavior="Manual" LoadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded"/-->

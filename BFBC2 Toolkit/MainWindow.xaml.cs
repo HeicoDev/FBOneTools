@@ -796,6 +796,13 @@ namespace BFBC2_Toolkit
             infoWindow.ShowDialog();
         }
 
+        private void BtnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            var settingsWindow = new SettingsWindow();
+            settingsWindow.Owner = this;
+            settingsWindow.ShowDialog();
+        }
+
         private void MenuItemFileConverter_Click(object sender, RoutedEventArgs e)
         {
             var fileConverterWindow = new FileConverterWindow();
@@ -1103,7 +1110,7 @@ namespace BFBC2_Toolkit
 
             gridPreviewProp.ColumnDefinitions[0].Width = new GridLength(500, GridUnitType.Star);
             gridPreviewProp.ColumnDefinitions[2].Width = new GridLength(182, GridUnitType.Star);
-        }       
+        }        
     }
 }
 

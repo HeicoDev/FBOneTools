@@ -118,6 +118,7 @@
     </ApplicationDefinition>
     <Compile Include="Data\Bindings.cs" />
     <Compile Include="Data\Elements.cs" />
+    <Compile Include="Data\Settings.cs" />
     <Compile Include="Functions\Create.cs" />
     <Compile Include="Functions\MediaStream.cs" />
     <Compile Include="Data\Vars.cs" />
@@ -153,6 +154,9 @@
     </Compile>
     <Compile Include="Windows\SelectGameWindow.xaml.cs">
       <DependentUpon>SelectGameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Windows\CreateModWindow.xaml">
       <SubType>Designer</SubType>
@@ -195,6 +199,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\SelectGameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
