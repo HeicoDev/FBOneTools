@@ -134,48 +134,48 @@ namespace BFBC2_Toolkit.Functions
         {
             try
             {
-                if (Directory.Exists(Dirs.filesPathData) && Vars.isGameProfile == false)
-                    await Task.Run(() => Directory.Delete(Dirs.filesPathData, true));
+                if (Directory.Exists(Dirs.FilesPathData) && Vars.isGameProfile == false)
+                    await Task.Run(() => Directory.Delete(Dirs.FilesPathData, true));
 
                 if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "PC")
                 {
                     Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BFBC2-PC");
-                    Dirs.filesPathData = Dirs.games + @"\BFBC2-PC";
+                    Dirs.FilesPathData = Dirs.games + @"\BFBC2-PC";
                 }
                 else if (profile.Name == "Battlefield Bad Company 2 Server" && profile.Platform == "PC")
                 {
                     Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BFBC2-Server-PC");
-                    Dirs.filesPathData = Dirs.games + @"\BFBC2-Server-PC";
+                    Dirs.FilesPathData = Dirs.games + @"\BFBC2-Server-PC";
                 }
                 else if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "PS3")
                 {
                     Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BFBC2-PS3");
-                    Dirs.filesPathData = Dirs.games + @"\BFBC2-PS3";
+                    Dirs.FilesPathData = Dirs.games + @"\BFBC2-PS3";
                 }
                 else if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "Xbox")
                 {
                     Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BFBC2-Xbox");
-                    Dirs.filesPathData = Dirs.games + @"\BFBC2-Xbox";
+                    Dirs.FilesPathData = Dirs.games + @"\BFBC2-Xbox";
                 }
                 else if (profile.Name == "Battlefield Bad Company" && profile.Platform == "PS3")
                 {
                     Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BFBC-PS3");
-                    Dirs.filesPathData = Dirs.games + @"\BFBC-PS3";
+                    Dirs.FilesPathData = Dirs.games + @"\BFBC-PS3";
                 }
                 else if (profile.Name == "Battlefield Bad Company" && profile.Platform == "Xbox")
                 {
                     Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BFBC-Xbox");
-                    Dirs.filesPathData = Dirs.games + @"\BFBC-Xbox";
+                    Dirs.FilesPathData = Dirs.games + @"\BFBC-Xbox";
                 }
                 else if (profile.Name == "Battlefield 1943" && profile.Platform == "PS3")
                 {
                     Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BF1943-PS3");
-                    Dirs.filesPathData = Dirs.games + @"\BF1943-PS3";
+                    Dirs.FilesPathData = Dirs.games + @"\BF1943-PS3";
                 }
                 else if (profile.Name == "Battlefield 1943" && profile.Platform == "Xbox")
                 {
                     Tree.Populate(Elements.TreeViewDataExplorer, Dirs.games + @"\BF1943-Xbox");
-                    Dirs.filesPathData = Dirs.games + @"\BF1943-Xbox";
+                    Dirs.FilesPathData = Dirs.games + @"\BF1943-Xbox";
                 }
             }
             catch (Exception ex)

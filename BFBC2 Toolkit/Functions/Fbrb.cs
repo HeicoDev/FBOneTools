@@ -15,19 +15,19 @@ namespace BFBC2_Toolkit.Functions
             {
                 await MediaStream.Dispose();
 
-                if (Directory.Exists(Dirs.filesPathData) && Vars.isGameProfile == false)
-                    await Task.Run(() => Directory.Delete(Dirs.filesPathData, true));
+                if (Directory.Exists(Dirs.FilesPathData) && !Vars.isGameProfile)
+                    await Task.Run(() => Directory.Delete(Dirs.FilesPathData, true));
 
                 var process = Process.Start(Dirs.scriptArchive, "\"" + ofd.FileName.Replace(@"\", @"\\"));
                 await Task.Run(() => process.WaitForExit());
 
-                Dirs.filesPathData = ofd.FileName.Replace(".fbrb", " FbRB");
+                Dirs.FilesPathData = ofd.FileName.Replace(".fbrb", " FbRB");
 
                 Write.ToEventLog("Cleaning up files, please wait...", "");
 
-                await Task.Run(() => CleanUp.FilesAndDirs(Dirs.filesPathData));
+                await Task.Run(() => CleanUp.FilesAndDirs(Dirs.FilesPathData));
 
-                Tree.Populate(Elements.TreeViewDataExplorer, Dirs.filesPathData);
+                Tree.Populate(Elements.TreeViewDataExplorer, Dirs.FilesPathData);
 
                 Vars.isGameProfile = false;
             }
@@ -44,7 +44,7 @@ namespace BFBC2_Toolkit.Functions
             {
                 await MediaStream.Dispose();
 
-                var process = Process.Start(Dirs.scriptArchive, "\"" + Dirs.filesPathData.Replace(@"\", @"\\"));
+                var process = Process.Start(Dirs.scriptArchive, "\"" + Dirs.FilesPathData.Replace(@"\", @"\\"));
                 await Task.Run(() => process.WaitForExit());
             }
             catch (Exception ex)

@@ -16,13 +16,13 @@ namespace BFBC2_Toolkit.Functions
             {
                 await MediaStream.Dispose();
 
-                Dirs.filesPathMod = ofd.FileName.Replace(@"\ModInfo.ini", "");
+                Dirs.FilesPathMod = ofd.FileName.Replace(@"\ModInfo.ini", "");
 
                 var iniFile = new IniFile(ofd.FileName);
 
-                Dirs.modName = iniFile.Read("Name", "ModInfo");
+                Dirs.ModName = iniFile.Read("Name", "ModInfo");
 
-                Tree.Populate(Elements.TreeViewModExplorer, Dirs.filesPathMod);
+                Tree.Populate(Elements.TreeViewModExplorer, Dirs.FilesPathMod);
 
                 Vars.isModAvailable = true;
             }
@@ -89,8 +89,8 @@ namespace BFBC2_Toolkit.Functions
 
                             Tree.Populate(Elements.TreeViewModExplorer, path);
 
-                            Dirs.filesPathMod = path;
-                            Dirs.modName = name;
+                            Dirs.FilesPathMod = path;
+                            Dirs.ModName = name;
 
                             Vars.isModAvailable = true;                            
                         }
@@ -110,8 +110,8 @@ namespace BFBC2_Toolkit.Functions
             {
                 await MediaStream.Dispose();
 
-                string zipFile = Dirs.outputMods + @"\" + Dirs.modName + ".zip",
-                       projectPath = Dirs.projects + @"\" + Dirs.modName;
+                string zipFile = Dirs.outputMods + @"\" + Dirs.ModName + ".zip",
+                       projectPath = Dirs.projects + @"\" + Dirs.ModName;
 
                 if (File.Exists(zipFile))
                     await Task.Run(() => File.Delete(zipFile));

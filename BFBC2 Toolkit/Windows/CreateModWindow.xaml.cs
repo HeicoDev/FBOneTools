@@ -48,8 +48,8 @@ namespace BFBC2_Toolkit
                 iniFile.Write("Image", " " + txtBoxImage.Text, "ModInfo");
                 iniFile.Write("Link", " " + txtBoxLink.Text, "ModInfo");
 
-                Dirs.modName = iniFile.Read("Name", "ModInfo");
-                Dirs.filesPathMod = projectPath;
+                Dirs.ModName = iniFile.Read("Name", "ModInfo");
+                Dirs.FilesPathMod = projectPath;
 
                 Vars.isModAvailable = true;
 

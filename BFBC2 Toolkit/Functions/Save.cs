@@ -14,10 +14,10 @@ namespace BFBC2_Toolkit.Functions
             {
                 string selectedFilePath = "";
 
-                if (Vars.isDataTreeView == true)
-                    selectedFilePath = Dirs.selectedFilePathData;
+                if (Vars.isDataTreeView)
+                    selectedFilePath = Dirs.SelectedFilePathData;
                 else
-                    selectedFilePath = Dirs.selectedFilePathMod;
+                    selectedFilePath = Dirs.SelectedFilePathMod;
 
                 string textEditorText = Elements.TextEditor.Text;
 

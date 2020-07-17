@@ -6,18 +6,18 @@ namespace BFBC2_Toolkit.Data
     {
         public static IDictionary<string, string> fbrbFiles = new Dictionary<string, string>();
 
-        public static readonly string versionClient = "1.0.0 Beta";
-
-        public static string textureFormat = "";
+        public static readonly string versionClient = "1.0.0 Beta";       
 
         public static bool isDataTreeView = false,
                            isModAvailable = false,
-                           isGameProfile = false;                                   
+                           isGameProfile = false;
 
-        public static int textureWidth = 0,
-                          textureHeight = 0;
+        public static string TextureFormat { get; set; }
 
-        public static byte mipmapCount = 0;
+        public static int TextureWidth { get; set; }
+        public static int TextureHeight { get; set; }
+
+        public static byte MipmapCount { get; set; }
 
         public static readonly string[] fileFormats = { "swfmovie", "dx10pixelshader", "havokphysicsdata", "treemeshset",
                                                         "terrainheightfield", "itexture", "animtreeinfo", "irradiancevolume",

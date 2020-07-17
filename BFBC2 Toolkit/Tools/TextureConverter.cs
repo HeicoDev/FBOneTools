@@ -62,37 +62,37 @@ namespace BFBC2_Toolkit.Tools
                             mipmapS4 = mipmapS3 / 4;
                         }
 
-                        Vars.textureWidth = width;
-                        Vars.textureHeight = height;
-                        Vars.mipmapCount = Convert.ToByte(mipmapN);
+                        Vars.TextureWidth = width;
+                        Vars.TextureHeight = height;
+                        Vars.MipmapCount = Convert.ToByte(mipmapN);
 
                         if (format == 49)                       //DXT1
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcDXT1iT);
                             sMipmap = 8;
-                            Vars.textureFormat = "DXT1 BC1";
+                            Vars.TextureFormat = "DXT1 BC1";
                         }
                         else if (format == 51)                  //DXT3
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcDXT3iT);
-                            Vars.textureFormat = "DXT3 BC2";
+                            Vars.TextureFormat = "DXT3 BC2";
                         }
                         else if (format == 53)                  //DXT5
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcDXT5iT);
-                            Vars.textureFormat = "DXT5 BC3";
+                            Vars.TextureFormat = "DXT5 BC3";
                         }
                         else if (format == 32)
                         {
                             if (hexMain[88] == 32)
                             {
                                 hexHeader = StringToByteArray(FileHeaders.pcARGBiT);   //ARGB8888
-                                Vars.textureFormat = "ARGB8888";
+                                Vars.TextureFormat = "ARGB8888";
                             }
                             else if (hexMain[88] == 8)
                             {
                                 hexHeader = StringToByteArray(FileHeaders.pcGrayiT);   //Grayscale
-                                Vars.textureFormat = "Grayscale";
+                                Vars.TextureFormat = "Grayscale";
                             }
                         }
 
@@ -307,34 +307,34 @@ namespace BFBC2_Toolkit.Tools
                             headerL = 312 / 2;
                         }
 
-                        Vars.textureWidth = width;
-                        Vars.textureHeight = height;
-                        Vars.mipmapCount = Convert.ToByte(mipmapN);
+                        Vars.TextureWidth = width;
+                        Vars.TextureHeight = height;
+                        Vars.MipmapCount = Convert.ToByte(mipmapN);
 
                         if (format == 0 || format == 18)        //DXT1
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcDXT1);
-                            Vars.textureFormat = "DXT1 BC1";
+                            Vars.TextureFormat = "DXT1 BC1";
                         }
                         else if (format == 1)                   //DXT3
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcDXT3);
-                            Vars.textureFormat = "DXT3 BC2";
+                            Vars.TextureFormat = "DXT3 BC2";
                         }
                         else if (format == 2 || format == 19 || format == 20 || format == 13)   //DXT5
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcDXT5);
-                            Vars.textureFormat = "DXT5 BC3";
+                            Vars.TextureFormat = "DXT5 BC3";
                         }
                         else if (format == 9)                   //ARGB8888
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcARGB);
-                            Vars.textureFormat = "ARGB8888";
+                            Vars.TextureFormat = "ARGB8888";
                         }
                         else if (format == 10)                  //Grayscale
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcGray);
-                            Vars.textureFormat = "Grayscale";
+                            Vars.TextureFormat = "Grayscale";
                         }
 
                         if (hexHeader.Length > 0)
@@ -415,34 +415,34 @@ namespace BFBC2_Toolkit.Tools
                             headerL = 312 / 2;
                         }
 
-                        Vars.textureWidth = width;
-                        Vars.textureHeight = height;
-                        Vars.mipmapCount = Convert.ToByte(mipmapN);
+                        Vars.TextureWidth = width;
+                        Vars.TextureHeight = height;
+                        Vars.MipmapCount = Convert.ToByte(mipmapN);
 
                         if (format == 0 || format == 18)        //DXT1
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcDXT1);
-                            Vars.textureFormat = "DXT1 BC1";
+                            Vars.TextureFormat = "DXT1 BC1";
                         }
                         else if (format == 1)                   //DXT3
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcDXT3);
-                            Vars.textureFormat = "DXT3 BC2";
+                            Vars.TextureFormat = "DXT3 BC2";
                         }
                         else if (format == 2 || format == 19 || format == 20 || format == 13)   //DXT5
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcDXT5);
-                            Vars.textureFormat = "DXT5 BC3";
+                            Vars.TextureFormat = "DXT5 BC3";
                         }
                         else if (format == 9)                   //ARGB8888
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcARGB);
-                            Vars.textureFormat = "ARGB8888";
+                            Vars.TextureFormat = "ARGB8888";
                         }
                         else if (format == 10)                  //Grayscale
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcGray);
-                            Vars.textureFormat = "Grayscale";
+                            Vars.TextureFormat = "Grayscale";
                         }
 
                         if (hexHeader.Length > 0)
@@ -561,34 +561,34 @@ namespace BFBC2_Toolkit.Tools
                             headerL = 312 / 2;
                         }
 
-                        Vars.textureWidth = width;
-                        Vars.textureHeight = height;
-                        Vars.mipmapCount = Convert.ToByte(mipmapN);
+                        Vars.TextureWidth = width;
+                        Vars.TextureHeight = height;
+                        Vars.MipmapCount = Convert.ToByte(mipmapN);
 
                         if (format == 0 || format == 18)        //DXT1
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcDXT1);
-                            Vars.textureFormat = "DXT1 BC1";
+                            Vars.TextureFormat = "DXT1 BC1";
                         }
                         else if (format == 1)                   //DXT3
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcDXT3);
-                            Vars.textureFormat = "DXT3 BC2";
+                            Vars.TextureFormat = "DXT3 BC2";
                         }
                         else if (format == 2 || format == 19 || format == 20 || format == 13)   //DXT5
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcDXT5);
-                            Vars.textureFormat = "DXT5 BC3";
+                            Vars.TextureFormat = "DXT5 BC3";
                         }
                         else if (format == 9)                   //ARGB8888
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcARGB);
-                            Vars.textureFormat = "ARGB8888";
+                            Vars.TextureFormat = "ARGB8888";
                         }
                         else if (format == 10)                  //Grayscale
                         {
                             hexHeader = StringToByteArray(FileHeaders.pcGray);
-                            Vars.textureFormat = "Grayscale";
+                            Vars.TextureFormat = "Grayscale";
                         }
 
                         if (hexHeader.Length > 0)

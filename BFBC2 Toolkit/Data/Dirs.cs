@@ -4,14 +4,15 @@ namespace BFBC2_Toolkit.Data
 {
     public class Dirs
     {
-        public static string filePath = "",
-                             filesPathData = "",
-                             selectedFilePathData = "",
-                             selectedFileNameData = "",
-                             filesPathMod = "",
-                             selectedFilePathMod = "",
-                             selectedFileNameMod = "",
-                             modName = "";
+        public static string ModName { get; set; }
+
+        public static string FilePath { get; set; }
+        public static string FilesPathData { get; set; }
+        public static string SelectedFilePathData { get; set; }
+        public static string SelectedFileNameData { get; set; }
+        public static string FilesPathMod { get; set; }
+        public static string SelectedFilePathMod { get; set; }
+        public static string SelectedFileNameMod { get; set; }
 
         public static readonly string output = Environment.CurrentDirectory + @"\BFBC2Toolkit\Output",
                                       outputHeightmap = Environment.CurrentDirectory + @"\BFBC2Toolkit\Output\Heightmap",

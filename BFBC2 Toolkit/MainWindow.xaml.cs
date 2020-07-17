@@ -3,9 +3,10 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Controls.Primitives;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Diagnostics;
 using System.Xml;
 using Microsoft.Win32;
@@ -17,7 +18,6 @@ using BFBC2_Toolkit.Tools;
 using BFBC2_Toolkit.Windows;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Highlighting.Xshd;
-using System.Windows.Media;
 
 /// <summary>
 /// BFBC2 Toolkit 
@@ -112,7 +112,7 @@ namespace BFBC2_Toolkit
             createModWindow.Owner = this;
             createModWindow.ShowDialog();
 
-            if (treeViewModExplorer.HasItems == true)
+            if (treeViewModExplorer.HasItems)
                 btnArchiveMod.IsEnabled = true;
         }
 
@@ -214,7 +214,7 @@ namespace BFBC2_Toolkit
 
         private async void BtnCopyToMod_Click(object sender, RoutedEventArgs e)
         {
-            if (Vars.isDataTreeView == true && Vars.isModAvailable == true && treeViewDataExplorer.SelectedItem != null)
+            if (Vars.isDataTreeView && Vars.isModAvailable && treeViewDataExplorer.SelectedItem != null)
             {
                 Write.ToEventLog("Copying file...", "");
 
@@ -270,7 +270,7 @@ namespace BFBC2_Toolkit
 
                 treeViewDataExplorer.Focus();
 
-                if (Dirs.selectedFilePathData.EndsWith(".binkmemory"))
+                if (Dirs.SelectedFilePathData != null && Dirs.SelectedFilePathData.EndsWith(".binkmemory"))
                     await SelectedFile.RenameToBik();
 
                 var tvi = treeViewDataExplorer.SelectedItem as CustomTreeViewItem;
@@ -279,20 +279,20 @@ namespace BFBC2_Toolkit
                 {
                     progressRing.IsActive = true;
 
-                    Dirs.selectedFileNameData = tvi.Name;
-                    Dirs.selectedFilePathData = tvi.Path;
+                    Dirs.SelectedFileNameData = tvi.Name;
+                    Dirs.SelectedFilePathData = tvi.Path;
 
-                    if (Dirs.selectedFilePathData.Contains(Dirs.filesPathData))
-                        Dirs.filePath = Dirs.selectedFilePathData.Replace(Dirs.filesPathData, "");                  
+                    if (Dirs.SelectedFilePathData.Contains(Dirs.FilesPathData))
+                        Dirs.FilePath = Dirs.SelectedFilePathData.Replace(Dirs.FilesPathData, "");                  
 
-                    if (Dirs.selectedFileNameData.EndsWith(".dbx"))
+                    if (Dirs.SelectedFileNameData.EndsWith(".dbx"))
                     {
                         await ChangeInterface("dbx");
                         Write.ToInfoBox(tvi);
 
-                        if (!File.Exists(Dirs.selectedFilePathData.Replace(".dbx", ".xml")))
+                        if (!File.Exists(Dirs.SelectedFilePathData.Replace(".dbx", ".xml")))
                         {
-                            var process = Process.Start(Dirs.scriptDBX, "\"" + Dirs.selectedFilePathData);
+                            var process = Process.Start(Dirs.scriptDBX, "\"" + Dirs.SelectedFilePathData);
                             await Task.Run(() => process.WaitForExit());
                         }
 
@@ -300,10 +300,10 @@ namespace BFBC2_Toolkit
                             using (var reader = new XmlTextReader(Dirs.syntaxXML))
                                 textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
-                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.selectedFilePathData.Replace(".dbx", ".xml")));
+                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.SelectedFilePathData.Replace(".dbx", ".xml")));
                         textEditor.ScrollToHome();
                     }
-                    else if (Dirs.selectedFileNameData.EndsWith(".ini"))
+                    else if (Dirs.SelectedFileNameData.EndsWith(".ini"))
                     {
                         await ChangeInterface("ini");
                         Write.ToInfoBox(tvi);
@@ -312,39 +312,30 @@ namespace BFBC2_Toolkit
                             using (var reader = new XmlTextReader(Dirs.syntaxINI))
                                 textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
-                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.selectedFilePathData));
+                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.SelectedFilePathData));
                         textEditor.ScrollToHome();
                     }
-                    else if (Dirs.selectedFileNameData.EndsWith(".txt"))
+                    else if (Dirs.SelectedFileNameData.EndsWith(".txt"))
                     {
                         await ChangeInterface("txt");
                         Write.ToInfoBox(tvi);
 
                         textEditor.SyntaxHighlighting = null;
 
-                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.selectedFilePathData));
+                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.SelectedFilePathData));
                         textEditor.ScrollToHome();
                     }
-                    else if (Dirs.selectedFileNameData.EndsWith(".itexture"))
+                    else if (Dirs.SelectedFileNameData.EndsWith(".itexture"))
                     {
                         await ChangeInterface("texture");
 
-                        string[] file = { Dirs.selectedFilePathData };
+                        string[] file = { Dirs.SelectedFilePathData };
 
                         await Task.Run(() => TextureConverter.ConvertFile(file, false));
 
                         try
                         {
-                            var bitmap = new BitmapImage();
-                            MediaStream.stream = new FileStream(Dirs.selectedFilePathData.Replace(".itexture", ".dds"), FileMode.Open);
-
-                            bitmap.BeginInit();
-                            bitmap.CacheOption = BitmapCacheOption.None;
-                            bitmap.StreamSource = MediaStream.stream;
-                            bitmap.EndInit();
-
-                            bitmap.Freeze();
-                            image.Source = bitmap;
+                            image.Source = Bitmap.LoadImage(Dirs.SelectedFilePathData.Replace(".itexture", ".dds"));
                         }
                         catch
                         {
@@ -355,26 +346,17 @@ namespace BFBC2_Toolkit
 
                         Write.ToInfoBox(tvi);
                     }
-                    else if (Dirs.selectedFileNameData.EndsWith(".ps3texture"))
+                    else if (Dirs.SelectedFileNameData.EndsWith(".ps3texture"))
                     {
                         await ChangeInterface("ps3texture");
 
-                        string[] file = { Dirs.selectedFilePathData };
+                        string[] file = { Dirs.SelectedFilePathData };
 
                         await Task.Run(() => TextureConverter.ConvertFile(file, false));
 
                         try
                         {
-                            var bitmap = new BitmapImage();
-                            MediaStream.stream = new FileStream(Dirs.selectedFilePathData.Replace(".ps3texture", ".dds"), FileMode.Open);
-
-                            bitmap.BeginInit();
-                            bitmap.CacheOption = BitmapCacheOption.None;
-                            bitmap.StreamSource = MediaStream.stream;
-                            bitmap.EndInit();
-
-                            bitmap.Freeze();
-                            image.Source = bitmap;
+                            image.Source = Bitmap.LoadImage(Dirs.SelectedFilePathData.Replace(".ps3texture", ".dds"));
                         }
                         catch
                         {
@@ -385,26 +367,17 @@ namespace BFBC2_Toolkit
 
                         Write.ToInfoBox(tvi);
                     }
-                    else if (Dirs.selectedFileNameData.EndsWith(".xenontexture"))
+                    else if (Dirs.SelectedFileNameData.EndsWith(".xenontexture"))
                     {
                         await ChangeInterface("xenontexture");
 
-                        string[] file = { Dirs.selectedFilePathData };
+                        string[] file = { Dirs.SelectedFilePathData };
 
                         await Task.Run(() => TextureConverter.ConvertFile(file, false));
 
                         try
                         {
-                            var bitmap = new BitmapImage();
-                            MediaStream.stream = new FileStream(Dirs.selectedFilePathData.Replace(".xenontexture", ".dds"), FileMode.Open);
-
-                            bitmap.BeginInit();
-                            bitmap.CacheOption = BitmapCacheOption.None;
-                            bitmap.StreamSource = MediaStream.stream;
-                            bitmap.EndInit();
-
-                            bitmap.Freeze();
-                            image.Source = bitmap;
+                            image.Source = Bitmap.LoadImage(Dirs.SelectedFilePathData.Replace(".xenontexture", ".dds"));
                         }
                         catch
                         {
@@ -415,35 +388,35 @@ namespace BFBC2_Toolkit
 
                         Write.ToInfoBox(tvi);
                     }
-                    else if (Dirs.selectedFileNameData.EndsWith(".terrainheightfield"))
+                    else if (Dirs.SelectedFileNameData.EndsWith(".terrainheightfield"))
                     {
                         await ChangeInterface("heightmap");
                         Write.ToInfoBox(tvi);
 
-                        string[] file = { Dirs.selectedFilePathData };
+                        string[] file = { Dirs.SelectedFilePathData };
 
-                        if (!File.Exists(Dirs.selectedFilePathData.Replace(".terrainheightfield", ".raw")))
+                        if (!File.Exists(Dirs.SelectedFilePathData.Replace(".terrainheightfield", ".raw")))
                             await Task.Run(() => TextureConverter.ConvertFile(file, false));
                     }
-                    else if (Dirs.selectedFileNameData.EndsWith(".binkmemory"))
+                    else if (Dirs.SelectedFileNameData.EndsWith(".binkmemory"))
                     {
                         await ChangeInterface("video");
                         Write.ToInfoBox(tvi);
 
-                        string mp4 = Dirs.selectedFilePathData.Replace(".binkmemory", ".mp4"),
-                              bik = Dirs.selectedFilePathData.Replace(".binkmemory", ".bik");
+                        string mp4 = Dirs.SelectedFilePathData.Replace(".binkmemory", ".mp4"),
+                              bik = Dirs.SelectedFilePathData.Replace(".binkmemory", ".bik");
 
                         if (!File.Exists(bik))
-                            await Task.Run(() => File.Copy(Dirs.selectedFilePathData, bik));
+                            await Task.Run(() => File.Copy(Dirs.SelectedFilePathData, bik));
 
                         if (File.Exists(mp4))
                             await Task.Run(() => File.Delete(mp4));
 
-                        await Task.Run(() => FileSystem.RenameFile(bik, Dirs.selectedFileNameData.Replace(".binkmemory", ".mp4")));
+                        await Task.Run(() => FileSystem.RenameFile(bik, Dirs.SelectedFileNameData.Replace(".binkmemory", ".mp4")));
 
                         Play.Video(mp4);                   
                     }
-                    else if (Dirs.selectedFileNameData.EndsWith(".swfmovie"))
+                    else if (Dirs.SelectedFileNameData.EndsWith(".swfmovie"))
                     {
                         await ChangeInterface("swfmovie");
                         Write.ToInfoBox(tvi);
@@ -474,7 +447,7 @@ namespace BFBC2_Toolkit
 
                 treeViewModExplorer.Focus();
 
-                if (Dirs.selectedFilePathMod.EndsWith(".binkmemory"))
+                if (Dirs.SelectedFilePathMod != null && Dirs.SelectedFilePathMod.EndsWith(".binkmemory"))
                     await SelectedFile.RenameToBik();
 
                 var tvi = treeViewModExplorer.SelectedItem as CustomTreeViewItem;
@@ -483,20 +456,20 @@ namespace BFBC2_Toolkit
                 {
                     progressRing.IsActive = true;
 
-                    Dirs.selectedFileNameMod = tvi.Name;
-                    Dirs.selectedFilePathMod = tvi.Path;
+                    Dirs.SelectedFileNameMod = tvi.Name;
+                    Dirs.SelectedFilePathMod = tvi.Path;
 
-                    if (Dirs.selectedFilePathMod.Contains(Dirs.filesPathMod))
-                        Dirs.filePath = Dirs.selectedFilePathMod.Replace(Dirs.filesPathMod, "");
+                    if (Dirs.SelectedFilePathMod.Contains(Dirs.FilesPathMod))
+                        Dirs.FilePath = Dirs.SelectedFilePathMod.Replace(Dirs.FilesPathMod, "");
 
-                    if (Dirs.selectedFileNameMod.EndsWith(".dbx"))
+                    if (Dirs.SelectedFileNameMod.EndsWith(".dbx"))
                     {
                         await ChangeInterface("dbx");
                         Write.ToInfoBox(tvi);
 
-                        if (!File.Exists(Dirs.selectedFilePathMod.Replace(".dbx", ".xml")))
+                        if (!File.Exists(Dirs.SelectedFilePathMod.Replace(".dbx", ".xml")))
                         {
-                            var process = Process.Start(Dirs.scriptDBX, "\"" + Dirs.selectedFilePathMod);
+                            var process = Process.Start(Dirs.scriptDBX, "\"" + Dirs.SelectedFilePathMod);
                             await Task.Run(() => process.WaitForExit());
                         }
 
@@ -504,10 +477,10 @@ namespace BFBC2_Toolkit
                             using (var reader = new XmlTextReader(Dirs.syntaxXML))
                                 textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
-                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.selectedFilePathMod.Replace(".dbx", ".xml")));
+                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.SelectedFilePathMod.Replace(".dbx", ".xml")));
                         textEditor.ScrollToHome();
                     }
-                    else if (Dirs.selectedFileNameMod.EndsWith(".ini"))
+                    else if (Dirs.SelectedFileNameMod.EndsWith(".ini"))
                     {
                         await ChangeInterface("ini");
                         Write.ToInfoBox(tvi);
@@ -516,39 +489,30 @@ namespace BFBC2_Toolkit
                             using (var reader = new XmlTextReader(Dirs.syntaxINI))
                                 textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
-                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.selectedFilePathMod));
+                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.SelectedFilePathMod));
                         textEditor.ScrollToHome();
                     }
-                    else if (Dirs.selectedFileNameMod.EndsWith(".txt"))
+                    else if (Dirs.SelectedFileNameMod.EndsWith(".txt"))
                     {
                         await ChangeInterface("txt");
                         Write.ToInfoBox(tvi);
 
                         textEditor.SyntaxHighlighting = null;
 
-                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.selectedFilePathMod));
+                        textEditor.Text = await Task.Run(() => File.ReadAllText(Dirs.SelectedFilePathMod));
                         textEditor.ScrollToHome();
                     }
-                    else if (Dirs.selectedFileNameMod.EndsWith(".itexture"))
+                    else if (Dirs.SelectedFileNameMod.EndsWith(".itexture"))
                     {
                         await ChangeInterface("texture");
 
-                        string[] file = { Dirs.selectedFilePathMod };
+                        string[] file = { Dirs.SelectedFilePathMod };
 
                         await Task.Run(() => TextureConverter.ConvertFile(file, false));
 
                         try
                         {
-                            var bitmap = new BitmapImage();
-                            MediaStream.stream = new FileStream(Dirs.selectedFilePathMod.Replace(".itexture", ".dds"), FileMode.Open);
-
-                            bitmap.BeginInit();
-                            bitmap.CacheOption = BitmapCacheOption.None;
-                            bitmap.StreamSource = MediaStream.stream;
-                            bitmap.EndInit();
-
-                            bitmap.Freeze();
-                            image.Source = bitmap;
+                            image.Source = Bitmap.LoadImage(Dirs.SelectedFilePathMod.Replace(".itexture", ".dds"));
                         }
                         catch
                         {
@@ -559,26 +523,17 @@ namespace BFBC2_Toolkit
 
                         Write.ToInfoBox(tvi);
                     }
-                    else if (Dirs.selectedFileNameMod.EndsWith(".ps3texture"))
+                    else if (Dirs.SelectedFileNameMod.EndsWith(".ps3texture"))
                     {
                         await ChangeInterface("ps3texture");
 
-                        string[] file = { Dirs.selectedFilePathMod };
+                        string[] file = { Dirs.SelectedFilePathMod };
 
                         await Task.Run(() => TextureConverter.ConvertFile(file, false));
 
                         try
                         {
-                            var bitmap = new BitmapImage();
-                            MediaStream.stream = new FileStream(Dirs.selectedFilePathMod.Replace(".ps3texture", ".dds"), FileMode.Open);
-
-                            bitmap.BeginInit();
-                            bitmap.CacheOption = BitmapCacheOption.None;
-                            bitmap.StreamSource = MediaStream.stream;
-                            bitmap.EndInit();
-
-                            bitmap.Freeze();
-                            image.Source = bitmap;
+                            image.Source = Bitmap.LoadImage(Dirs.SelectedFilePathMod.Replace(".ps3texture", ".dds"));
                         }
                         catch
                         {
@@ -589,26 +544,17 @@ namespace BFBC2_Toolkit
 
                         Write.ToInfoBox(tvi);
                     }
-                    else if (Dirs.selectedFileNameMod.EndsWith(".xenontexture"))
+                    else if (Dirs.SelectedFileNameMod.EndsWith(".xenontexture"))
                     {
                         await ChangeInterface("xenontexture");
 
-                        string[] file = { Dirs.selectedFilePathMod };
+                        string[] file = { Dirs.SelectedFilePathMod };
 
                         await Task.Run(() => TextureConverter.ConvertFile(file, false));
 
                         try
                         {
-                            var bitmap = new BitmapImage();
-                            MediaStream.stream = new FileStream(Dirs.selectedFilePathMod.Replace(".xenontexture", ".dds"), FileMode.Open);
-
-                            bitmap.BeginInit();
-                            bitmap.CacheOption = BitmapCacheOption.None;
-                            bitmap.StreamSource = MediaStream.stream;
-                            bitmap.EndInit();
-
-                            bitmap.Freeze();
-                            image.Source = bitmap;
+                            image.Source = Bitmap.LoadImage(Dirs.SelectedFilePathMod.Replace(".xenontexture", ".dds"));
                         }
                         catch
                         {
@@ -619,35 +565,35 @@ namespace BFBC2_Toolkit
 
                         Write.ToInfoBox(tvi);
                     }
-                    else if (Dirs.selectedFileNameMod.EndsWith(".terrainheightfield"))
+                    else if (Dirs.SelectedFileNameMod.EndsWith(".terrainheightfield"))
                     {
                         await ChangeInterface("heightmap");
                         Write.ToInfoBox(tvi);
 
-                        string[] file = { Dirs.selectedFilePathMod };
+                        string[] file = { Dirs.SelectedFilePathMod };
 
-                        if (!File.Exists(Dirs.selectedFilePathMod.Replace(".terrainheightfield", ".raw")))
+                        if (!File.Exists(Dirs.SelectedFilePathMod.Replace(".terrainheightfield", ".raw")))
                             await Task.Run(() => TextureConverter.ConvertFile(file, false));
                     }
-                    else if (Dirs.selectedFileNameMod.EndsWith(".binkmemory"))
+                    else if (Dirs.SelectedFileNameMod.EndsWith(".binkmemory"))
                     {
                         await ChangeInterface("video");
                         Write.ToInfoBox(tvi);
 
-                        string mp4 = Dirs.selectedFilePathMod.Replace(".binkmemory", ".mp4"),
-                               bik = Dirs.selectedFilePathMod.Replace(".binkmemory", ".bik");
+                        string mp4 = Dirs.SelectedFilePathMod.Replace(".binkmemory", ".mp4"),
+                               bik = Dirs.SelectedFilePathMod.Replace(".binkmemory", ".bik");
 
                         if (!File.Exists(bik))
-                            await Task.Run(() => File.Copy(Dirs.selectedFilePathMod, bik));
+                            await Task.Run(() => File.Copy(Dirs.SelectedFilePathMod, bik));
 
                         if (File.Exists(mp4))
                             await Task.Run(() => File.Delete(mp4));
 
-                        await Task.Run(() => FileSystem.RenameFile(bik, Dirs.selectedFileNameMod.Replace(".binkmemory", ".mp4")));
+                        await Task.Run(() => FileSystem.RenameFile(bik, Dirs.SelectedFileNameMod.Replace(".binkmemory", ".mp4")));
 
                         Play.Video(mp4);
                     }
-                    else if (Dirs.selectedFileNameMod.EndsWith(".swfmovie"))
+                    else if (Dirs.SelectedFileNameMod.EndsWith(".swfmovie"))
                     {
                         await ChangeInterface("swfmovie");
                         Write.ToInfoBox(tvi);                       
@@ -727,8 +673,8 @@ namespace BFBC2_Toolkit
         {
             progressRing.IsActive = true;
 
-            if (treeViewDataExplorer.HasItems == true)
-                Tree.Populate(treeViewDataExplorer, Dirs.filesPathData);
+            if (treeViewDataExplorer.HasItems)
+                Tree.Populate(treeViewDataExplorer, Dirs.FilesPathData);
 
             progressRing.IsActive = false;
         }
@@ -737,8 +683,8 @@ namespace BFBC2_Toolkit
         {
             progressRing.IsActive = true;
 
-            if (treeViewModExplorer.HasItems == true)
-                Tree.Populate(treeViewModExplorer, Dirs.filesPathMod);
+            if (treeViewModExplorer.HasItems)
+                Tree.Populate(treeViewModExplorer, Dirs.FilesPathMod);
 
             progressRing.IsActive = false;
         }
@@ -859,17 +805,6 @@ namespace BFBC2_Toolkit
         {
             if (format == "dbx" || format == "ini" || format == "txt")
             {
-                if (MediaStream.stream != null)
-                {
-                    MediaStream.stream.Close();
-                    MediaStream.stream.Dispose();
-                    MediaStream.stream = null;
-                }
-
-                mediaElement.Stop();
-                mediaElement.Close();
-                mediaElement.Source = null;
-                mediaElement.Visibility = Visibility.Hidden;
                 image.Visibility = Visibility.Hidden;
                 textEditor.Visibility = Visibility.Visible;
                 txtPreview.Text = "Text Editor";
@@ -881,22 +816,15 @@ namespace BFBC2_Toolkit
                 btnUndo.Visibility = Visibility.Visible;
                 btnRedo.Visibility = Visibility.Visible;
                 btnSearch.Visibility = Visibility.Visible;
-
-                await Task.Run(() => GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, true));
-            }
-            else if (format == "texture" || format == "ps3texture" || format == "xenontexture")
-            {
-                if (MediaStream.stream != null)
-                {
-                    MediaStream.stream.Close();
-                    MediaStream.stream.Dispose();
-                    MediaStream.stream = null;
-                }
-
+                mediaElement.Visibility = Visibility.Hidden;
                 mediaElement.Stop();
                 mediaElement.Close();
                 mediaElement.Source = null;
-                mediaElement.Visibility = Visibility.Hidden;
+
+                await MediaStream.Dispose();
+            }
+            else if (format == "texture" || format == "ps3texture" || format == "xenontexture")
+            {
                 textEditor.Text = "";
                 textEditor.Visibility = Visibility.Hidden;
                 image.Visibility = Visibility.Visible;
@@ -909,18 +837,15 @@ namespace BFBC2_Toolkit
                 btnUndo.Visibility = Visibility.Hidden;
                 btnRedo.Visibility = Visibility.Hidden;
                 btnSearch.Visibility = Visibility.Hidden;
+                mediaElement.Visibility = Visibility.Hidden;
+                mediaElement.Stop();
+                mediaElement.Close();
+                mediaElement.Source = null;
 
-                await Task.Run(() => GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, true));
+                await MediaStream.Dispose();
             }
             else if (format == "video")
             {
-                if (MediaStream.stream != null)
-                {
-                    MediaStream.stream.Close();
-                    MediaStream.stream.Dispose();
-                    MediaStream.stream = null;
-                }
-
                 textEditor.Text = "";
                 textEditor.Visibility = Visibility.Hidden;
                 image.Visibility = Visibility.Hidden;
@@ -935,21 +860,10 @@ namespace BFBC2_Toolkit
                 btnRedo.Visibility = Visibility.Hidden;
                 btnSearch.Visibility = Visibility.Hidden;
 
-                await Task.Run(() => GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, true));
+                await MediaStream.Dispose();
             }
             else
             {
-                if (MediaStream.stream != null)
-                {
-                    MediaStream.stream.Close();
-                    MediaStream.stream.Dispose();
-                    MediaStream.stream = null;
-                }
-
-                mediaElement.Stop();
-                mediaElement.Close();
-                mediaElement.Source = null;
-                mediaElement.Visibility = Visibility.Hidden;
                 textEditor.Text = "";
                 textEditor.Visibility = Visibility.Hidden;
                 image.Visibility = Visibility.Hidden;
@@ -962,13 +876,17 @@ namespace BFBC2_Toolkit
                 btnUndo.Visibility = Visibility.Hidden;
                 btnRedo.Visibility = Visibility.Hidden;
                 btnSearch.Visibility = Visibility.Hidden;
+                mediaElement.Visibility = Visibility.Hidden;
+                mediaElement.Stop();
+                mediaElement.Close();
+                mediaElement.Source = null;
 
-                await Task.Run(() => GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, true));
+                await MediaStream.Dispose();
             }
 
             if (format == "dbx")
             {
-                if (Vars.isDataTreeView == true && Vars.isGameProfile == true)
+                if (Vars.isDataTreeView && Vars.isGameProfile)
                     btnImport.IsEnabled = false;
                 else
                     btnImport.IsEnabled = true;
@@ -978,7 +896,7 @@ namespace BFBC2_Toolkit
             }
             else if (format == "ini" || format == "txt")
             {
-                if (Vars.isDataTreeView == true && Vars.isGameProfile == true)
+                if (Vars.isDataTreeView && Vars.isGameProfile)
                     btnImport.IsEnabled = false;
                 else
                     btnImport.IsEnabled = true;
@@ -988,7 +906,7 @@ namespace BFBC2_Toolkit
             }
             else if (format == "texture" || format == "ps3texture" || format == "xenontexture" || format == "heightmap")
             {
-                if (Vars.isDataTreeView == true && Vars.isGameProfile == true)
+                if (Vars.isDataTreeView && Vars.isGameProfile)
                     btnImport.IsEnabled = false;
                 else if (format == "texture")
                     btnImport.IsEnabled = true;
@@ -1000,7 +918,7 @@ namespace BFBC2_Toolkit
             }
             else if (format == "video")
             {
-                if (Vars.isDataTreeView == true && Vars.isGameProfile == true)
+                if (Vars.isDataTreeView && Vars.isGameProfile)
                     btnImport.IsEnabled = false;
                 else
                     btnImport.IsEnabled = true;
@@ -1018,10 +936,10 @@ namespace BFBC2_Toolkit
             {
                 string selectedFilePath = "";
 
-                if (Vars.isDataTreeView == true)
-                    selectedFilePath = Dirs.selectedFilePathData;
+                if (Vars.isDataTreeView)
+                    selectedFilePath = Dirs.SelectedFilePathData;
                 else
-                    selectedFilePath = Dirs.selectedFilePathMod;
+                    selectedFilePath = Dirs.SelectedFilePathMod;
 
                 if (selectedFilePath.Contains("."))
                 {

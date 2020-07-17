@@ -82,7 +82,7 @@ namespace BFBC2_Toolkit.Functions
             {
                 Elements.TxtBoxInformation.Document.Blocks.Clear();
                 Elements.TxtBoxInformation.Document.PageWidth = ctvi.Name.Length * 15;
-                Elements.TxtBoxInformation.AppendText("Name:\r" + ctvi.Name + "\r\rType:\r" + ctvi.Type + "\r\rFormat:\r" + ctvi.Format + "\r" + Vars.textureFormat + "\r\rResolution:\r" + Vars.textureWidth + "x" + Vars.textureHeight + "\r\rMipmaps:\r" + Vars.mipmapCount + "\r\rArchive:\r" + ctvi.Archive + "\r\rSupported:\r" + ctvi.Supported);
+                Elements.TxtBoxInformation.AppendText("Name:\r" + ctvi.Name + "\r\rType:\r" + ctvi.Type + "\r\rFormat:\r" + ctvi.Format + "\r" + Vars.TextureFormat + "\r\rResolution:\r" + Vars.TextureWidth + "x" + Vars.TextureHeight + "\r\rMipmaps:\r" + Vars.MipmapCount + "\r\rArchive:\r" + ctvi.Archive + "\r\rSupported:\r" + ctvi.Supported);
             }
             else
             {

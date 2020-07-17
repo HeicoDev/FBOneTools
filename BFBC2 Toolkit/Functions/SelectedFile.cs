@@ -21,15 +21,15 @@ namespace BFBC2_Toolkit.Functions
                 string selectedFilePath = "",
                        selectedFileName = "";
 
-                if (Vars.isDataTreeView == true)
+                if (Vars.isDataTreeView)
                 {
-                    selectedFilePath = Dirs.selectedFilePathData;
-                    selectedFileName = Dirs.selectedFileNameData;
+                    selectedFilePath = Dirs.SelectedFilePathData;
+                    selectedFileName = Dirs.SelectedFileNameData;
                 }
                 else
                 {
-                    selectedFilePath = Dirs.selectedFilePathMod;
-                    selectedFileName = Dirs.selectedFileNameMod;
+                    selectedFilePath = Dirs.SelectedFilePathMod;
+                    selectedFileName = Dirs.SelectedFileNameMod;
                 }
 
                 if (selectedFilePath.EndsWith(".dbx"))
@@ -102,10 +102,10 @@ namespace BFBC2_Toolkit.Functions
 
                 string selectedFilePath = "";
 
-                if (Vars.isDataTreeView == true)
-                    selectedFilePath = Dirs.selectedFilePathData;
+                if (Vars.isDataTreeView)
+                    selectedFilePath = Dirs.SelectedFilePathData;
                 else
-                    selectedFilePath = Dirs.selectedFilePathMod;
+                    selectedFilePath = Dirs.SelectedFilePathMod;
 
                 if (selectedFilePath.EndsWith(".dbx"))
                 {
@@ -156,16 +156,7 @@ namespace BFBC2_Toolkit.Functions
 
                         try
                         {
-                            var bitmap = new BitmapImage();
-                            MediaStream.stream = new FileStream(path, FileMode.Open);
-
-                            bitmap.BeginInit();
-                            bitmap.CacheOption = BitmapCacheOption.None;
-                            bitmap.StreamSource = MediaStream.stream;
-                            bitmap.EndInit();
-
-                            bitmap.Freeze();
-                            Elements.ImageElement.Source = bitmap;
+                            Elements.ImageElement.Source = Bitmap.LoadImage(path);
                         }
                         catch
                         {
@@ -223,11 +214,11 @@ namespace BFBC2_Toolkit.Functions
             {
                 if (explorer == "data")
                 {
-                    if (Vars.isGameProfile == false)
+                    if (!Vars.isGameProfile)
                     {
                         if (Elements.TreeViewDataExplorer.SelectedItem != null)
                         {
-                            await Task.Run(() => File.Delete(Dirs.selectedFilePathData));
+                            await Task.Run(() => File.Delete(Dirs.SelectedFilePathData));
 
                             var item = Elements.TreeViewDataExplorer.SelectedItem as CustomTreeViewItem;
                             var parent = item.ParentItem;
@@ -244,7 +235,7 @@ namespace BFBC2_Toolkit.Functions
                 {
                     if (Elements.TreeViewModExplorer.SelectedItem != null)
                     {
-                        await Task.Run(() => File.Delete(Dirs.selectedFilePathMod));
+                        await Task.Run(() => File.Delete(Dirs.SelectedFilePathMod));
 
                         var item = Elements.TreeViewModExplorer.SelectedItem as CustomTreeViewItem;
                         var parent = item.ParentItem;
@@ -264,34 +255,34 @@ namespace BFBC2_Toolkit.Functions
         {
             try
             {
-                await Task.Run(() => CleanUp.FilesAndDirs(Dirs.filesPathMod));
+                await Task.Run(() => CleanUp.FilesAndDirs(Dirs.FilesPathMod));
 
                 string filePathData = "";
 
-                if (Vars.isGameProfile == false)
+                if (!Vars.isGameProfile)
                 {
                     foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
                     {
-                        if (Dirs.filePath.Contains(kvp.Value))
+                        if (Dirs.FilePath.Contains(kvp.Value))
                         {
-                            filePathData = Dirs.filePath.Replace(kvp.Value + @"\", "");
+                            filePathData = Dirs.FilePath.Replace(kvp.Value + @"\", "");
                             break;
                         }
                     }
                 }
                 else
                 {
-                    filePathData = Dirs.filePath;
+                    filePathData = Dirs.FilePath;
                 }
 
-                filePathData = Dirs.filesPathData + filePathData;
+                filePathData = Dirs.FilesPathData + filePathData;
 
                 if (File.Exists(filePathData))
                 {
-                    if (File.Exists(Dirs.selectedFilePathMod))
-                        await Task.Run(() => File.Delete(Dirs.selectedFilePathMod));
+                    if (File.Exists(Dirs.SelectedFilePathMod))
+                        await Task.Run(() => File.Delete(Dirs.SelectedFilePathMod));
 
-                    await Task.Run(() => File.Copy(filePathData, Dirs.selectedFilePathMod));
+                    await Task.Run(() => File.Copy(filePathData, Dirs.SelectedFilePathMod));
                 }
                 else
                 {
@@ -316,17 +307,17 @@ namespace BFBC2_Toolkit.Functions
             {
                 await MediaStream.Dispose();
 
-                await Task.Run(() => CleanUp.FilesAndDirs(Dirs.filesPathMod));
+                await Task.Run(() => CleanUp.FilesAndDirs(Dirs.FilesPathMod));
 
-                string filePathMod = Dirs.filesPathMod + @"\" + Dirs.filePath;
+                string filePathMod = Dirs.FilesPathMod + @"\" + Dirs.FilePath;
 
-                if (Vars.isGameProfile == false)
+                if (!Vars.isGameProfile)
                 {
                     foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
                     {
-                        if (Dirs.filesPathData.EndsWith(kvp.Value))
+                        if (Dirs.FilesPathData.EndsWith(kvp.Value))
                         {
-                            filePathMod = Dirs.filesPathMod + @"\" + kvp.Value + @"\" + Dirs.filePath;
+                            filePathMod = Dirs.FilesPathMod + @"\" + kvp.Value + @"\" + Dirs.FilePath;
                             break;
                         }
                     }
@@ -349,9 +340,9 @@ namespace BFBC2_Toolkit.Functions
                 var fileInfo = new FileInfo(filePathMod);
                 await Task.Run(() => fileInfo.Directory.Create());
 
-                await Task.Run(() => File.Copy(Dirs.selectedFilePathData, filePathMod));
+                await Task.Run(() => File.Copy(Dirs.SelectedFilePathData, filePathMod));
 
-                Tree.Populate(Elements.TreeViewModExplorer, Dirs.filesPathMod);
+                Tree.Populate(Elements.TreeViewModExplorer, Dirs.FilesPathMod);
             }
             catch (Exception ex)
             {
@@ -371,15 +362,15 @@ namespace BFBC2_Toolkit.Functions
                 Elements.MediaElement.Close();
                 Elements.MediaElement.Source = null;
 
-                if (Vars.isDataTreeView == true)
+                if (Vars.isDataTreeView)
                 {
-                    selectedFilePath = Dirs.selectedFilePathData;
-                    selectedFileName = Dirs.selectedFileNameData;
+                    selectedFilePath = Dirs.SelectedFilePathData;
+                    selectedFileName = Dirs.SelectedFileNameData;
                 }
                 else
                 {
-                    selectedFilePath = Dirs.selectedFilePathMod;
-                    selectedFileName = Dirs.selectedFileNameMod;
+                    selectedFilePath = Dirs.SelectedFilePathMod;
+                    selectedFileName = Dirs.SelectedFileNameMod;
                 }
 
                 await Task.Run(() => GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, true));
@@ -402,10 +393,10 @@ namespace BFBC2_Toolkit.Functions
             {
                 string selectedFilePath = "";
 
-                if (Vars.isDataTreeView == true)
-                    selectedFilePath = Dirs.selectedFilePathData;
+                if (Vars.isDataTreeView)
+                    selectedFilePath = Dirs.SelectedFilePathData;
                 else
-                    selectedFilePath = Dirs.selectedFilePathMod;
+                    selectedFilePath = Dirs.SelectedFilePathMod;
 
                 Process.Start("explorer.exe", "/select, " + selectedFilePath);
             }
