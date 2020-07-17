@@ -5,7 +5,6 @@ namespace BFBC2_Toolkit.Data
     public class Dirs
     {
         public static string ModName { get; set; }
-
         public static string FilePath { get; set; }
         public static string FilesPathData { get; set; }
         public static string SelectedFilePathData { get; set; }
@@ -29,6 +28,7 @@ namespace BFBC2_Toolkit.Data
                                       syntaxXML = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\syntaxXML.config",
                                       syntaxINI = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\syntaxINI.config",
                                       configGames = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\games.config",
+                                      configSettings = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\settings.config",
                                       projects = Environment.CurrentDirectory + @"\BFBC2Toolkit\Projects",
                                       games = Environment.CurrentDirectory + @"\BFBC2Toolkit\Games",
                                       templateMod = Environment.CurrentDirectory + @"\BFBC2Toolkit\Templates\Mod",

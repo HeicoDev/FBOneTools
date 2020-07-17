@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BFBC2_Toolkit.Windows"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="Settings" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterOwner" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="443" Height="330" WindowStyle="ToolWindow" ResizeMode="NoResize" Topmost="True" Loaded="SettingsWindow_Loaded">
+        Title="Settings" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterOwner" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="443" Height="330" WindowStyle="ToolWindow" ResizeMode="NoResize" Topmost="True" Loaded="SettingsWindow_Loaded" Closing="SettingsWindow_Closing">
     <Grid>
         <TabControl Name="tabMain" BorderBrush="#FF707070" Background="#FF292929" Foreground="#FFE2E2E2" Margin="5,10,5,36">
 

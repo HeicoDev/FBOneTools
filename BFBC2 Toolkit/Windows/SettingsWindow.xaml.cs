@@ -6,6 +6,8 @@ namespace BFBC2_Toolkit.Windows
 {
     public partial class SettingsWindow : MetroWindow
     {
+        private static bool hasSaved = false;
+
         public SettingsWindow()
         {
             InitializeComponent();
@@ -83,7 +85,9 @@ namespace BFBC2_Toolkit.Windows
 
         private void BtnSaveClose_Click(object sender, RoutedEventArgs e)
         {
-            Save();
+            SaveSettings();
+
+            hasSaved = true;
             
             Close();
         }
@@ -93,7 +97,13 @@ namespace BFBC2_Toolkit.Windows
             Close();
         }
 
-        private void Save()
+        private void SettingsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!hasSaved)
+                SettingsHandler.Load();
+        }
+
+        private void SaveSettings()
         {
             if (!Settings.TxtEdHighlightSyntax)
                 Elements.TextEditor.SyntaxHighlighting = null;
@@ -103,6 +113,8 @@ namespace BFBC2_Toolkit.Windows
             Elements.TextEditor.Options.EnableHyperlinks = Settings.TxtEdClickableHyperlinks;
             Elements.TextEditor.Options.HideCursorWhileTyping = Settings.TxtEdHideCursorWhileTyping;
             Elements.TextEditor.Options.ShowTabs = Settings.TxtEdShowTabs;
+
+            SettingsHandler.Save();
         }        
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Windows;
 using System.Xml;
 using BFBC2_Toolkit.Data;
 
@@ -27,7 +28,7 @@ namespace BFBC2_Toolkit.Functions
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to precreate dirs! See error.log", "error");
+                MessageBox.Show("Unable to precreate dirs! See error.log", "error");
             }
         }
 
@@ -43,12 +44,67 @@ namespace BFBC2_Toolkit.Functions
 
                     File.WriteAllText(Dirs.configGames, IndentXml(xmlDoc));
                 }
+
+                if (!File.Exists(Dirs.configSettings))
+                {
+                    var xmlDoc = new XmlDocument();
+                    xmlDoc.LoadXml("<Settings>" +
+                                   "</Settings>");
+
+                    File.WriteAllText(Dirs.configSettings, IndentXml(xmlDoc));
+                }
+
+                CreateSettingsTemplate();
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to create config files! See error.log", "error");
+                MessageBox.Show("Unable to create config files! See error.log", "error");
             }
+        }
+
+        private static void CreateSettingsTemplate()
+        {
+            var settings = new Settings();
+
+            var xmlDocSettings = new XmlDocument();
+            xmlDocSettings.Load(Dirs.configSettings);
+            var nodeList = xmlDocSettings.SelectNodes("/Settings/Setting");
+
+            foreach (var prop in settings.GetType().GetProperties())
+            {
+                bool entryExists = false;
+
+                for (int i = 0; i < nodeList.Count; i++)
+                {
+                    if (nodeList[i].Attributes["Name"].Value == prop.Name)
+                    {
+                        entryExists = true;
+                        break;
+                    }
+                }
+
+                if (!entryExists)
+                {
+                    var rootNode = xmlDocSettings.DocumentElement;
+                    var newElement = xmlDocSettings.CreateElement("Setting");
+
+                    var attrName = xmlDocSettings.CreateAttribute("Name");
+                    attrName.Value = prop.Name;
+
+                    newElement.Attributes.Append(attrName);
+
+                    var attrPlat = xmlDocSettings.CreateAttribute("Value");
+                    attrPlat.Value = prop.GetValue(settings).ToString();
+
+                    newElement.Attributes.Append(attrPlat);
+
+                    rootNode.AppendChild(newElement);
+                    xmlDocSettings.AppendChild(rootNode);
+                }
+            }
+
+            xmlDocSettings.Save(Dirs.configSettings);
         }
 
         private static string IndentXml(XmlDocument xmlDoc)

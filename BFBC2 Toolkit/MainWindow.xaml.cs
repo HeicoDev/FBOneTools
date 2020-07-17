@@ -835,6 +835,7 @@ namespace BFBC2_Toolkit
             Create.PrecreateDirs();
             Create.ConfigFiles();
             CleanUp.StartUp();
+            SettingsHandler.Load();
 
             Elements.TxtBoxEventLog = txtBoxEventLog;
             Elements.TxtBoxInformation = txtBoxInformation;
