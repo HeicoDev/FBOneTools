@@ -27,7 +27,7 @@ namespace BFBC2_Toolkit.Functions
 
                     await Task.Run(() => File.WriteAllText(path, textEditorText));
 
-                    var process = Process.Start(Dirs.scriptDBX, "\"" + path.Replace(@"\", @"\\"));
+                    var process = Process.Start(Settings.PathToPython, "\"" + Dirs.scriptDBX + "\" \"" + path.Replace(@"\", @"\\") + "\"");
                     await Task.Run(() => process.WaitForExit());
                 }
                 else if (selectedFilePath.EndsWith(".dbmanifest") || selectedFilePath.EndsWith(".ini") || selectedFilePath.EndsWith(".txt"))

@@ -82,7 +82,7 @@ namespace BFBC2_Toolkit.Functions
                 }
                 else if (selectedFilePath.EndsWith(".swfmovie"))
                 {
-                    var process = Process.Start(Dirs.scriptSwfMovie, "\"" + selectedFilePath + "\" \"" + Dirs.outputSwfMovie + "\"");
+                    var process = Process.Start(Settings.PathToPython, "\"" + Dirs.scriptSwfMovie + "\" \"" + selectedFilePath + "\" \"" + Dirs.outputSwfMovie + "\"");
                     await Task.Run(() => process.WaitForExit());
                 }
             }
@@ -135,7 +135,7 @@ namespace BFBC2_Toolkit.Functions
 
                         await Task.Run(() => File.Copy(ofd.FileName, path));
 
-                        var process = Process.Start(Dirs.scriptDBX, "\"" + path.Replace(@"\", @"\\"));
+                        var process = Process.Start(Settings.PathToPython, "\"" + Dirs.scriptDBX + "\" \"" + path.Replace(@"\", @"\\") + "\"");
                         await Task.Run(() => process.WaitForExit());
 
                         Elements.TextEditor.Text = await Task.Run(() => File.ReadAllText(path));

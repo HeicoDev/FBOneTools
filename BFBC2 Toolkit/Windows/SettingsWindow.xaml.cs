@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using MahApps.Metro.Controls;
 using BFBC2_Toolkit.Data;
 
@@ -15,6 +16,8 @@ namespace BFBC2_Toolkit.Windows
 
         private void SettingsWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            txtBoxPathToPython.Text = Settings.PathToPython;
+
             chkBoxHighlightSyntax.IsChecked = Settings.TxtEdHighlightSyntax;
             chkBoxHighlightCurrentLine.IsChecked = Settings.TxtEdHighlightCurrentLine;
             chkBoxShowLineNumbers.IsChecked = Settings.TxtEdShowLineNumbers;
@@ -83,6 +86,16 @@ namespace BFBC2_Toolkit.Windows
             Settings.TxtEdShowTabs = false;
         }
 
+        private void BtnSelectPathToPython_Click(object sender, RoutedEventArgs e)
+        {
+            string path = SettingsHandler.ChangePythonPath();
+
+            if (path == String.Empty)
+                MessageBox.Show("Unable to locate pythonw.exe!", "Error");            
+            else
+                txtBoxPathToPython.Text = path;
+        }
+
         private void BtnSaveClose_Click(object sender, RoutedEventArgs e)
         {
             SaveSettings();
@@ -115,6 +128,6 @@ namespace BFBC2_Toolkit.Windows
             Elements.TextEditor.Options.ShowTabs = Settings.TxtEdShowTabs;
 
             SettingsHandler.Save();
-        }        
+        }       
     }
 }

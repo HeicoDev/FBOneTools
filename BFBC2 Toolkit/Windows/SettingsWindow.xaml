@@ -14,7 +14,9 @@
 
             <TabItem x:Name="tabGeneral" Header="General" Background="#FF454545" BorderBrush="#FFE2E2E2" Foreground="#FFE2E2E2" FontSize="11">
                 <Grid Background="#FF292929">
-
+                    <TextBox x:Name="txtBoxPathToPython" Height="25" Margin="103,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Background="#FF454545" BorderBrush="#FF454545" Foreground="#FFE2E2E2" Cursor="Arrow" IsReadOnly="True" IsUndoEnabled="False" HorizontalAlignment="Left"/>
+                    <Label x:Name="lblPathToPython" Content="Path To Python:" HorizontalAlignment="Left" Margin="6,10,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
+                    <Button x:Name="btnSelectPathToPython" BorderBrush="#FF707070" Background="#FF454545" Content="Select" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" Height="21" Margin="328,12,0,0" Width="88" Style="{DynamicResource ButtonStyle1}" ToolTip="Select path to pythonw.exe" VerticalAlignment="Top" Click="BtnSelectPathToPython_Click"/>
                 </Grid>
             </TabItem>
 

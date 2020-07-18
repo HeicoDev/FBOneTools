@@ -1,6 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 using System.Xml;
+using Microsoft.Win32;
 using BFBC2_Toolkit.Functions;
 
 namespace BFBC2_Toolkit.Data
@@ -13,6 +15,8 @@ namespace BFBC2_Toolkit.Data
         public static bool TxtEdClickableHyperlinks { get; set; } = true;
         public static bool TxtEdHideCursorWhileTyping { get; set; } = true;
         public static bool TxtEdShowTabs { get; set; } = false;
+
+        public static string PathToPython { get; set; } = @"C:\Python27\pythonw.exe";
     }
 
     public class SettingsHandler
@@ -46,6 +50,9 @@ namespace BFBC2_Toolkit.Data
                             break;
                         case "TxtEdShowTabs":
                             nodeList[i].Attributes["Value"].Value = Settings.TxtEdShowTabs.ToString();
+                            break;
+                        case "PathToPython":
+                            nodeList[i].Attributes["Value"].Value = Settings.PathToPython;
                             break;
                     }
                 }
@@ -89,6 +96,9 @@ namespace BFBC2_Toolkit.Data
                         case "TxtEdShowTabs":
                             Settings.TxtEdShowTabs = Convert.ToBoolean(nodeList[i].Attributes["Value"].Value);
                             break;
+                        case "PathToPython":
+                            Settings.PathToPython = nodeList[i].Attributes["Value"].Value;
+                            break;
                     }
                 }
             }
@@ -97,6 +107,42 @@ namespace BFBC2_Toolkit.Data
                 Write.ToErrorLog(ex);
                 MessageBox.Show("Unable to load settings! See error.log", "error");
             }
+        }
+
+        public static string ChangePythonPath()
+        {
+            var ofd = new OpenFileDialog();
+            ofd.Filter = "exe file (.exe)|*.exe";
+            ofd.Title = "Select pythonw.exe...";
+
+            if (ofd.ShowDialog() == true)
+            {
+                string path = ofd.FileName;
+
+                if (path.EndsWith("pythonw.exe"))
+                {
+                    Settings.PathToPython = path;
+
+                    return path;
+                }
+                else
+                {
+                    path = Path.GetDirectoryName(path) + @"\pythonw.exe";
+
+                    if (File.Exists(path))
+                    {                       
+                        Settings.PathToPython = path;
+
+                        return path;
+                    }
+                    else
+                    {
+                        return String.Empty;
+                    }
+                }
+            }
+
+            return String.Empty;
         }
     }
 }

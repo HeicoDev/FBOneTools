@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Diagnostics;
@@ -360,7 +359,7 @@ namespace BFBC2_Toolkit
 
                         if (!File.Exists(selectedFilePath.Replace(".dbx", ".xml")))
                         {
-                            var process = Process.Start(Dirs.scriptDBX, "\"" + selectedFilePath);
+                            var process = Process.Start(Settings.PathToPython, "\"" + Dirs.scriptDBX + "\" \"" + selectedFilePath + "\"");
                             await Task.Run(() => process.WaitForExit());
                         }
 
@@ -963,10 +962,22 @@ namespace BFBC2_Toolkit
 
         private void InitializeStartup()
         {
-            if (!File.Exists(@"C:\Python27\python.exe"))
+            if (!File.Exists(Settings.PathToPython))
             {
-                MessageBox.Show("Unable to locate Python 2.7 (32 bit) installation!\nPlease make sure that Python is installed to C:\\Python27", "Error");
-                Environment.Exit(0);
+                MessageBox.Show("Unable to locate Python 2.7 installation!\nPlease select pythonw.exe...", "Error");
+
+                string path = SettingsHandler.ChangePythonPath();
+
+                if (path == String.Empty)
+                {
+                    MessageBox.Show("Unable to locate pythonw.exe!\nPress 'OK' to close the app.", "Error");
+
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    SettingsHandler.Save();
+                }
             }
 
             Create.PrecreateDirs();

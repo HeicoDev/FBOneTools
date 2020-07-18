@@ -87,7 +87,7 @@ namespace BFBC2_Toolkit.Windows
                 }
                 else if (filePath.EndsWith(".dbx") || filePath.EndsWith(".xml"))
                 {
-                    var process = Process.Start(Dirs.scriptDBX, "\"" + filePath);
+                    var process = Process.Start(Settings.PathToPython, "\"" + Dirs.scriptDBX + "\" \"" + filePath + "\"");
                     await Task.Run(() => process.WaitForExit());
 
                     if (copyToOutputEnabled)
@@ -137,7 +137,7 @@ namespace BFBC2_Toolkit.Windows
                     if (copyToOutputEnabled)
                         targetFilePath = Dirs.outputSwfMovie;
 
-                    var process = Process.Start(Dirs.scriptSwfMovie, "\"" + filePath + "\" \"" + targetFilePath + "\"");
+                    var process = Process.Start(Settings.PathToPython, "\"" + Dirs.scriptSwfMovie + "\" \"" + filePath + "\" \"" + targetFilePath + "\"");
                     await Task.Run(() => process.WaitForExit());
                 }
                 else
