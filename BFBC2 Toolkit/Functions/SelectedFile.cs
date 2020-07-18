@@ -2,7 +2,6 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Media.Imaging;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic.FileIO;
@@ -18,8 +17,8 @@ namespace BFBC2_Toolkit.Functions
         {
             try
             {
-                string selectedFilePath = "",
-                       selectedFileName = "";
+                string selectedFilePath = String.Empty,
+                       selectedFileName = String.Empty;
 
                 if (Vars.isDataTreeView)
                 {
@@ -100,12 +99,24 @@ namespace BFBC2_Toolkit.Functions
             {
                 await MediaStream.Dispose();
 
-                string selectedFilePath = "";
+                string selectedFilePath = String.Empty;
+
+                var ctvi = new CustomTreeViewItem();
 
                 if (Vars.isDataTreeView)
+                {
                     selectedFilePath = Dirs.SelectedFilePathData;
+
+                    if (ctvi != null)
+                        ctvi = Elements.TreeViewDataExplorer.SelectedItem as CustomTreeViewItem;
+                }
                 else
+                {
                     selectedFilePath = Dirs.SelectedFilePathMod;
+
+                    if (ctvi != null)
+                        ctvi = Elements.TreeViewModExplorer.SelectedItem as CustomTreeViewItem;
+                }
 
                 if (selectedFilePath.EndsWith(".dbx"))
                 {
@@ -152,7 +163,7 @@ namespace BFBC2_Toolkit.Functions
 
                         string[] file = { path };
 
-                        await Task.Run(() => TextureConverter.ConvertFile(file, false));
+                        await Task.Run(() => TextureConverter.ConvertFile(file, true, false));
 
                         try
                         {
@@ -165,6 +176,7 @@ namespace BFBC2_Toolkit.Functions
                             Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
                         }
 
+                        Write.ToInfoBox(ctvi);
                         Write.ToEventLog("", "done");
                     }
                 }

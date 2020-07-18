@@ -4,22 +4,14 @@ using System.Linq;
 using System.IO;
 using System.Windows;
 using BFBC2_Toolkit.Data;
+using BFBC2_Toolkit.Functions;
 
 namespace BFBC2_Toolkit.Tools
 {
     public class TextureConverter
     {
-        public static void ConvertFile(string[] fileNames, bool isStandalone)
+        public static void ConvertFile(string[] fileNames, bool copyToOutputFolder, bool isStandalone)
         {
-            int i = 0,
-                j = 0;
-
-            if (File.Exists("SkippedFiles.txt"))
-                File.Delete("SkippedFiles.txt");
-
-            foreach (string file in fileNames)
-                i++;
-
             try
             {
                 foreach (string file in fileNames)
@@ -29,672 +21,76 @@ namespace BFBC2_Toolkit.Tools
                         string fileName = Path.GetFileName(file.Replace(".dds", ".itexture")),
                                fileLocation = file.Replace(".dds", ".itexture");
 
-                        if (isStandalone == true)
+                        if (copyToOutputFolder)
                             fileLocation = Dirs.outputiTexture + @"\" + fileName;
 
                         File.Copy(file, fileLocation, true);
 
-                        BinaryReader br = new BinaryReader(File.OpenRead(fileLocation));
-                        byte[] hexMain = br.ReadBytes(Convert.ToInt32(br.BaseStream.Length));
-                        br.Close();
-
-                        byte[] hexHeader = { };
-
-                        //string RES = BitConverter.ToString(hexMain, 0, 3);
-
-                        int type = hexMain[0],
-                            format = hexMain[87],
-                            width = BitConverter.ToInt32(hexMain, 16),
-                            height = BitConverter.ToInt32(hexMain, 20),
-                            mipmapN = hexMain[28],
-                            mipmapS = BitConverter.ToInt32(hexMain, 21),
-                            mipmapS2 = mipmapS / 4,
-                            mipmapS3 = mipmapS2 / 4,
-                            mipmapS4 = mipmapS3 / 4,
-                            sMipmap = 16,
-                            headerL = 256 / 2;
-
-                        if (mipmapN <= 9)
-                        {
-                            mipmapS = BitConverter.ToInt32(hexMain, 20);
-                            mipmapS2 = mipmapS / 4;
-                            mipmapS3 = mipmapS2 / 4;
-                            mipmapS4 = mipmapS3 / 4;
-                        }
-
-                        Vars.TextureWidth = width;
-                        Vars.TextureHeight = height;
-                        Vars.MipmapCount = Convert.ToByte(mipmapN);
-
-                        if (format == 49)                       //DXT1
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcDXT1iT);
-                            sMipmap = 8;
-                            Vars.TextureFormat = "DXT1 BC1";
-                        }
-                        else if (format == 51)                  //DXT3
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcDXT3iT);
-                            Vars.TextureFormat = "DXT3 BC2";
-                        }
-                        else if (format == 53)                  //DXT5
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcDXT5iT);
-                            Vars.TextureFormat = "DXT5 BC3";
-                        }
-                        else if (format == 32)
-                        {
-                            if (hexMain[88] == 32)
-                            {
-                                hexHeader = StringToByteArray(FileHeaders.pcARGBiT);   //ARGB8888
-                                Vars.TextureFormat = "ARGB8888";
-                            }
-                            else if (hexMain[88] == 8)
-                            {
-                                hexHeader = StringToByteArray(FileHeaders.pcGrayiT);   //Grayscale
-                                Vars.TextureFormat = "Grayscale";
-                            }
-                        }
-
-                        if (hexHeader.Length > 0)
-                        {
-                            hexHeader[16] = hexMain[16];
-                            hexHeader[17] = hexMain[17];
-                            hexHeader[20] = hexMain[12];
-                            hexHeader[21] = hexMain[13];
-                            hexHeader[28] = hexMain[28];
-
-                            int a = 33;
-
-                            for (int n = 0; n < mipmapN; n++)
-                            {
-                                switch (n)
-                                {
-                                    case 0:
-                                        hexHeader[a] = hexMain[21];
-                                        hexHeader[a + 1] = hexMain[22];
-                                        a = a + 4;
-                                        break;
-                                    case 1:
-                                        byte[] array = BitConverter.GetBytes(mipmapS2);
-                                        if (mipmapN <= 9)
-                                        {
-                                            hexHeader[a - 1] = array[0];
-                                            hexHeader[a] = array[1];
-                                            a = a + 4;
-                                            break;
-                                        }
-                                        hexHeader[a] = array[0];
-                                        hexHeader[a + 1] = array[1];
-                                        a = a + 4;
-                                        break;
-                                    case 2:
-                                        byte[] array2 = BitConverter.GetBytes(mipmapS3);
-                                        if (mipmapN <= 9)
-                                        {
-                                            hexHeader[a - 1] = array2[0];
-                                            hexHeader[a] = array2[1];
-                                            a = a + 4;
-                                            break;
-                                        }
-                                        hexHeader[a] = array2[0];
-                                        hexHeader[a + 1] = array2[1];
-                                        a = a + 4;
-                                        break;
-                                    case 3:
-                                        byte[] array3 = BitConverter.GetBytes(mipmapS4);
-                                        if (mipmapN <= 9)
-                                        {
-                                            hexHeader[a - 1] = array3[0];
-                                            hexHeader[a] = array3[1];
-                                            a = a + 3;
-                                            break;
-                                        }
-                                        hexHeader[a] = array3[0];
-                                        hexHeader[a + 1] = array3[1];
-                                        a = a + 3;
-                                        break;
-                                    case 4:
-                                        hexHeader[a] = hexMain[21];
-                                        hexHeader[a + 1] = hexMain[22];
-                                        a = a + 4;
-                                        break;
-                                    case 5:
-                                        byte[] array4 = BitConverter.GetBytes(mipmapS2);
-                                        if (mipmapS <= 32 || hexHeader[48] <= 32 && mipmapN <= 9)
-                                        {
-                                            hexHeader[52] = Convert.ToByte(sMipmap);
-                                            hexHeader[53] = 0;
-                                            a = a + 4;
-                                            break;
-                                        }
-                                        else if (mipmapN <= 9)
-                                        {
-                                            hexHeader[a - 1] = array4[0];
-                                            hexHeader[a] = array4[1];
-                                            a = a + 4;
-                                            break;
-                                        }
-                                        hexHeader[a] = array4[0];
-                                        hexHeader[a + 1] = array4[1];
-                                        a = a + 4;
-                                        break;
-                                    case 6:
-                                        byte[] array5 = BitConverter.GetBytes(mipmapS3);
-                                        if (mipmapN > 11)
-                                        {
-                                            mipmapS3 = mipmapS3 * 2;
-                                            array5 = BitConverter.GetBytes(mipmapS3);
-                                        }
-                                        if (mipmapS2 <= 32 || hexHeader[52] <= 32 && mipmapN <= 9)
-                                        {
-                                            hexHeader[56] = Convert.ToByte(sMipmap);
-                                            hexHeader[57] = 0;
-                                            a = a + 4;
-                                            break;
-                                        }
-                                        else if (mipmapN <= 9)
-                                        {
-                                            hexHeader[a - 1] = array5[0];
-                                            hexHeader[a] = array5[1];
-                                            a = a + 4;
-                                            break;
-                                        }
-                                        hexHeader[a] = array5[0];
-                                        hexHeader[a + 1] = array5[1];
-                                        a = a + 4;
-                                        break;
-                                    case 7:
-                                        byte[] array6 = BitConverter.GetBytes(mipmapS4);
-                                        if (mipmapN > 11)
-                                        {
-                                            array6 = BitConverter.GetBytes(mipmapS3 / 2);
-                                        }
-                                        if (mipmapS3 <= 32 || hexHeader[56] <= 32 && mipmapN <= 9)
-                                        {
-                                            hexHeader[60] = Convert.ToByte(sMipmap);
-                                            hexHeader[61] = 0;
-                                            break;
-                                        }
-                                        else if (mipmapN <= 9)
-                                        {
-                                            hexHeader[a - 1] = array6[0];
-                                            hexHeader[a] = array6[1];
-                                            a = a + 4;
-                                            break;
-                                        }
-                                        hexHeader[a] = array6[0];
-                                        hexHeader[a + 1] = array6[1];
-                                        break;
-                                    case 8:
-                                        if (mipmapN > 11)
-                                        {
-                                            hexHeader[64] = Convert.ToByte(mipmapS3 / 4);
-                                            hexHeader[65] = 0;
-                                            break;
-                                        }
-                                        hexHeader[64] = Convert.ToByte(sMipmap);
-                                        break;
-                                    case 9:
-                                        hexHeader[68] = Convert.ToByte(sMipmap);
-                                        break;
-                                    case 10:
-                                        hexHeader[72] = Convert.ToByte(sMipmap);
-                                        break;
-                                    case 11:
-                                        hexHeader[76] = Convert.ToByte(sMipmap);
-                                        break;
-                                    case 12:
-                                        hexHeader[80] = Convert.ToByte(sMipmap);
-                                        break;
-                                }
-                            }
-
-                            hexMain = hexMain.Skip(headerL).ToArray();
-                            hexMain = hexHeader.Concat(hexMain).ToArray();
-
-                            BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileLocation));
-                            bw.BaseStream.Position = 0x0;
-                            bw.Write(hexMain);
-                            bw.Close();
-                        }
-                        else
-                        {
-                            if (File.Exists(fileLocation))
-                                File.Delete(fileLocation);
-
-                            StreamWriter sw = new StreamWriter("SkippedFiles.txt", true);
-                            sw.WriteLine(fileName);
-                            sw.Close();
-
-                            j++;
-                        }
+                        ConvertFileToITexture(fileLocation, isStandalone);
                     }
                     else if (file.EndsWith(".itexture"))
                     {
                         string fileName = Path.GetFileName(file.Replace(".itexture", ".dds")),
                                fileLocation = file.Replace(".itexture", ".dds");
 
-                        if (isStandalone == true)
+                        if (copyToOutputFolder)
                             fileLocation = Dirs.outputDDS + @"\" + fileName;
 
                         File.Copy(file, fileLocation, true);
 
-                        BinaryReader br = new BinaryReader(File.OpenRead(fileLocation));
-                        byte[] hexMain = br.ReadBytes(Convert.ToInt32(br.BaseStream.Length));
-                        br.Close();
-
-                        byte[] hexHeader = { };
-
-                        string RES = BitConverter.ToString(hexMain, 0, 3);
-
-                        int type = hexMain[0],
-                            format = hexMain[8],
-                            width = BitConverter.ToInt32(hexMain, 16),
-                            height = BitConverter.ToInt32(hexMain, 20),
-                            mipmapN = hexMain[28],
-                            unknown1 = hexMain[34],
-                            headerL = 184 / 2;
-
-                        if (RES == "52-45-53")
-                        {
-                            type = hexMain[64];
-                            format = hexMain[72];
-                            width = BitConverter.ToInt32(hexMain, 80);
-                            height = BitConverter.ToInt32(hexMain, 84);
-                            mipmapN = hexMain[92];
-                            unknown1 = hexMain[98];
-                            headerL = 312 / 2;
-                        }
-
-                        Vars.TextureWidth = width;
-                        Vars.TextureHeight = height;
-                        Vars.MipmapCount = Convert.ToByte(mipmapN);
-
-                        if (format == 0 || format == 18)        //DXT1
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcDXT1);
-                            Vars.TextureFormat = "DXT1 BC1";
-                        }
-                        else if (format == 1)                   //DXT3
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcDXT3);
-                            Vars.TextureFormat = "DXT3 BC2";
-                        }
-                        else if (format == 2 || format == 19 || format == 20 || format == 13)   //DXT5
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcDXT5);
-                            Vars.TextureFormat = "DXT5 BC3";
-                        }
-                        else if (format == 9)                   //ARGB8888
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcARGB);
-                            Vars.TextureFormat = "ARGB8888";
-                        }
-                        else if (format == 10)                  //Grayscale
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcGray);
-                            Vars.TextureFormat = "Grayscale";
-                        }
-
-                        if (hexHeader.Length > 0)
-                        {
-                            hexHeader[16] = hexMain[16];
-                            hexHeader[17] = hexMain[17];
-                            hexHeader[12] = hexMain[20];
-                            hexHeader[13] = hexMain[21];
-                            hexHeader[28] = hexMain[28];
-                            hexHeader[21] = hexMain[33];
-                            hexHeader[22] = hexMain[34];
-
-                            if (RES == "52-45-53")
-                            {
-                                hexHeader[16] = hexMain[80];
-                                hexHeader[17] = hexMain[81];
-                                hexHeader[12] = hexMain[84];
-                                hexHeader[13] = hexMain[85];
-                                hexHeader[28] = hexMain[92];
-                                hexHeader[21] = hexMain[97];
-                                hexHeader[22] = hexMain[98];
-                            }
-
-                            hexMain = hexMain.Skip(headerL).ToArray();
-                            hexMain = hexHeader.Concat(hexMain).ToArray();
-
-                            BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileLocation));
-                            bw.BaseStream.Position = 0x0;
-                            bw.Write(hexMain);
-                            bw.Close();
-                        }
-                        else
-                        {
-                            if (File.Exists(fileLocation))
-                                File.Delete(fileLocation);
-
-                            StreamWriter sw = new StreamWriter("SkippedFiles.txt", true);
-                            sw.WriteLine(fileName);
-                            sw.Close();
-
-                            j++;
-                        }
+                        ConvertFileToDDS(fileLocation, isStandalone, false);
                     }
                     else if (file.EndsWith(".ps3texture"))
                     {
                         string fileName = Path.GetFileName(file.Replace(".ps3texture", ".dds")),
                                fileLocation = file.Replace(".ps3texture", ".dds");
 
-                        if (isStandalone == true)
+                        if (copyToOutputFolder)
                             fileLocation = Dirs.outputDDS + @"\" + fileName;
 
                         File.Copy(file, fileLocation, true);
 
-                        BinaryReader br = new BinaryReader(File.OpenRead(fileLocation));
-                        byte[] hexMain = br.ReadBytes(Convert.ToInt32(br.BaseStream.Length));
-                        br.Close();
-
-                        byte[] hexHeader = { };
-
-                        string RES = BitConverter.ToString(hexMain, 0, 3);
-
-                        int type = hexMain[3],
-                            format = hexMain[11],
-                            width = BitConverter.ToInt32(hexMain, 17),
-                            height = BitConverter.ToInt32(hexMain, 21),
-                            mipmapN = hexMain[31],
-                            unknown1 = hexMain[42],
-                            headerL = 184 / 2;
-
-                        if (RES == "52-45-53")
-                        {
-                            type = hexMain[67];
-                            format = hexMain[75];
-                            width = BitConverter.ToInt32(hexMain, 81);
-                            height = BitConverter.ToInt32(hexMain, 85);
-                            mipmapN = hexMain[95];
-                            unknown1 = hexMain[106];
-                            headerL = 312 / 2;
-                        }
-
-                        Vars.TextureWidth = width;
-                        Vars.TextureHeight = height;
-                        Vars.MipmapCount = Convert.ToByte(mipmapN);
-
-                        if (format == 0 || format == 18)        //DXT1
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcDXT1);
-                            Vars.TextureFormat = "DXT1 BC1";
-                        }
-                        else if (format == 1)                   //DXT3
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcDXT3);
-                            Vars.TextureFormat = "DXT3 BC2";
-                        }
-                        else if (format == 2 || format == 19 || format == 20 || format == 13)   //DXT5
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcDXT5);
-                            Vars.TextureFormat = "DXT5 BC3";
-                        }
-                        else if (format == 9)                   //ARGB8888
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcARGB);
-                            Vars.TextureFormat = "ARGB8888";
-                        }
-                        else if (format == 10)                  //Grayscale
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcGray);
-                            Vars.TextureFormat = "Grayscale";
-                        }
-
-                        if (hexHeader.Length > 0)
-                        {
-                            if (RES == "52-45-53")
-                            {
-                                if (hexMain[81] == 0 && hexMain[82] == 0)
-                                {
-                                    hexHeader[16] = hexMain[83];
-                                    hexHeader[17] = hexMain[84];
-                                }
-                                else
-                                {
-                                    hexHeader[16] = hexMain[81];
-                                    hexHeader[17] = hexMain[82];
-                                }
-
-                                if (hexMain[85] == 0 && hexMain[86] == 0)
-                                {
-                                    hexHeader[12] = hexMain[87];
-                                    hexHeader[13] = hexMain[88];
-                                }
-                                else
-                                {
-                                    hexHeader[12] = hexMain[85];
-                                    hexHeader[13] = hexMain[86];
-                                }
-
-                                hexHeader[28] = hexMain[95];
-                                hexHeader[21] = hexMain[105];
-                                hexHeader[22] = hexMain[106];
-                            }
-                            else
-                            {
-                                if (hexMain[17] == 0 && hexMain[18] == 0)
-                                {
-                                    hexHeader[16] = hexMain[19];
-                                    hexHeader[17] = hexMain[20];
-                                }
-                                else
-                                {
-                                    hexHeader[16] = hexMain[17];
-                                    hexHeader[17] = hexMain[18];
-                                }
-
-                                if (hexMain[21] == 0 && hexMain[22] == 0)
-                                {
-                                    hexHeader[12] = hexMain[23];
-                                    hexHeader[13] = hexMain[24];
-                                }
-                                else
-                                {
-                                    hexHeader[12] = hexMain[21];
-                                    hexHeader[13] = hexMain[22];
-                                }
-
-                                hexHeader[28] = hexMain[31];
-                                hexHeader[21] = hexMain[41];
-                                hexHeader[22] = hexMain[42];
-                            }
-
-                            hexMain = hexMain.Skip(headerL).ToArray();
-                            hexMain = hexHeader.Concat(hexMain).ToArray();
-
-                            BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileLocation));
-                            bw.BaseStream.Position = 0x0;
-                            bw.Write(hexMain);
-                            bw.Close();
-                        }
-                        else
-                        {
-                            if (File.Exists(fileLocation))
-                                File.Delete(fileLocation);
-
-                            StreamWriter sw = new StreamWriter("SkippedFiles.txt", true);
-                            sw.WriteLine(fileName);
-                            sw.Close();
-
-                            j++;
-                        }
+                        ConvertFileToDDS(fileLocation, isStandalone, true);
                     }
                     else if (file.EndsWith(".xenontexture"))
                     {
                         string fileName = Path.GetFileName(file.Replace(".xenontexture", ".dds")),
                                fileLocation = file.Replace(".xenontexture", ".dds");
 
-                        if (isStandalone == true)
+                        if (copyToOutputFolder)
                             fileLocation = Dirs.outputDDS + @"\" + fileName;
 
                         File.Copy(file, fileLocation, true);
 
-                        BinaryReader br = new BinaryReader(File.OpenRead(fileLocation));
-                        byte[] hexMain = br.ReadBytes(Convert.ToInt32(br.BaseStream.Length));
-                        br.Close();
-
-                        byte[] hexHeader = { };
-
-                        string RES = BitConverter.ToString(hexMain, 0, 3);
-
-                        int type = hexMain[3],
-                            format = hexMain[11],
-                            width = BitConverter.ToInt32(hexMain, 17),
-                            height = BitConverter.ToInt32(hexMain, 21),
-                            mipmapN = hexMain[31],
-                            unknown1 = hexMain[42],
-                            headerL = 184 / 2;
-
-                        if (RES == "52-45-53")
-                        {
-                            type = hexMain[67];
-                            format = hexMain[75];
-                            width = BitConverter.ToInt32(hexMain, 81);
-                            height = BitConverter.ToInt32(hexMain, 85);
-                            mipmapN = hexMain[95];
-                            unknown1 = hexMain[106];
-                            headerL = 312 / 2;
-                        }
-
-                        Vars.TextureWidth = width;
-                        Vars.TextureHeight = height;
-                        Vars.MipmapCount = Convert.ToByte(mipmapN);
-
-                        if (format == 0 || format == 18)        //DXT1
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcDXT1);
-                            Vars.TextureFormat = "DXT1 BC1";
-                        }
-                        else if (format == 1)                   //DXT3
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcDXT3);
-                            Vars.TextureFormat = "DXT3 BC2";
-                        }
-                        else if (format == 2 || format == 19 || format == 20 || format == 13)   //DXT5
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcDXT5);
-                            Vars.TextureFormat = "DXT5 BC3";
-                        }
-                        else if (format == 9)                   //ARGB8888
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcARGB);
-                            Vars.TextureFormat = "ARGB8888";
-                        }
-                        else if (format == 10)                  //Grayscale
-                        {
-                            hexHeader = StringToByteArray(FileHeaders.pcGray);
-                            Vars.TextureFormat = "Grayscale";
-                        }
-
-                        if (hexHeader.Length > 0)
-                        {
-                            if (RES == "52-45-53")
-                            {
-                                if (hexMain[81] == 0 && hexMain[82] == 0)
-                                {
-                                    hexHeader[16] = hexMain[83];
-                                    hexHeader[17] = hexMain[84];
-                                }
-                                else
-                                {
-                                    hexHeader[16] = hexMain[81];
-                                    hexHeader[17] = hexMain[82];
-                                }
-
-                                if (hexMain[85] == 0 && hexMain[86] == 0)
-                                {
-                                    hexHeader[12] = hexMain[87];
-                                    hexHeader[13] = hexMain[88];
-                                }
-                                else
-                                {
-                                    hexHeader[12] = hexMain[85];
-                                    hexHeader[13] = hexMain[86];
-                                }
-
-                                hexHeader[28] = hexMain[95];
-                                hexHeader[21] = hexMain[105];
-                                hexHeader[22] = hexMain[106];
-                            }
-                            else
-                            {
-                                if (hexMain[17] == 0 && hexMain[18] == 0)
-                                {
-                                    hexHeader[16] = hexMain[19];
-                                    hexHeader[17] = hexMain[20];
-                                }
-                                else
-                                {
-                                    hexHeader[16] = hexMain[17];
-                                    hexHeader[17] = hexMain[18];
-                                }
-
-                                if (hexMain[21] == 0 && hexMain[22] == 0)
-                                {
-                                    hexHeader[12] = hexMain[23];
-                                    hexHeader[13] = hexMain[24];
-                                }
-                                else
-                                {
-                                    hexHeader[12] = hexMain[21];
-                                    hexHeader[13] = hexMain[22];
-                                }
-
-                                hexHeader[28] = hexMain[31];
-                                hexHeader[21] = hexMain[41];
-                                hexHeader[22] = hexMain[42];
-                            }
-
-                            hexMain = hexMain.Skip(headerL).ToArray();
-                            hexMain = hexHeader.Concat(hexMain).ToArray();
-
-                            BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileLocation));
-                            bw.BaseStream.Position = 0x0;
-                            bw.Write(hexMain);
-                            bw.Close();
-                        }
-                        else
-                        {
-                            if (File.Exists(fileLocation))
-                                File.Delete(fileLocation);
-
-                            StreamWriter sw = new StreamWriter("SkippedFiles.txt", true);
-                            sw.WriteLine(fileName);
-                            sw.Close();
-
-                            j++;
-                        }
+                        ConvertFileToDDS(fileLocation, isStandalone, true);
                     }
                     else if (file.EndsWith(".terrainheightfield"))
                     {
                         string fileName = Path.GetFileName(file.Replace(".terrainheightfield", ".raw")),
                                fileLocation = file.Replace(".terrainheightfield", ".raw");
 
-                        if (isStandalone == true)
+                        if (copyToOutputFolder)
                             fileLocation = Dirs.outputHeightmap + @"\" + fileName;
 
                         File.Copy(file, fileLocation, true);
 
-                        BinaryReader br = new BinaryReader(File.OpenRead(fileLocation));
-                        byte[] hexMain = br.ReadBytes(Convert.ToInt32(br.BaseStream.Length));
-                        br.Close();
+                        byte[] hexMain = { };
 
-                        int headerL = 90 / 2;
+                        using (var br = new BinaryReader(File.OpenRead(fileLocation)))
+                            hexMain = br.ReadBytes(Convert.ToInt32(br.BaseStream.Length));
+
+                        int headerLength = 49;
 
                         if (hexMain[0] != 0)
-                            headerL = 84 / 2;
+                            headerLength = 45;
 
-                        hexMain = hexMain.Skip(headerL).ToArray();
+                        hexMain = hexMain.Skip(headerLength).ToArray();
 
-                        BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileLocation));
-                        bw.BaseStream.Position = 0x0;
-                        bw.Write(hexMain);
-                        bw.Close();
+                        using (var bw = new BinaryWriter(File.OpenWrite(fileLocation)))
+                        {
+                            bw.BaseStream.Position = 0x0;
+                            bw.Write(hexMain);
+                        }
                     }
                 }
             }
@@ -702,6 +98,269 @@ namespace BFBC2_Toolkit.Tools
             {
                 MessageBox.Show(ex.ToString(), "Error");
             }
+        }
+
+        private static void ConvertFileToITexture(string fileLocation, bool isStandalone)
+        {
+            byte[] hexHeader = { };
+            byte[] hexMain = { };
+
+            using (var br = new BinaryReader(File.OpenRead(fileLocation)))
+                hexMain = br.ReadBytes(Convert.ToInt32(br.BaseStream.Length));
+
+            int format = hexMain[87],
+                width = BitConverter.ToInt32(hexMain, 16),
+                height = BitConverter.ToInt32(hexMain, 12),
+                mipmapCount = BitConverter.ToInt32(hexMain, 28),
+                mipmapSize = BitConverter.ToInt32(hexMain, 20),
+                mipmapMinSize = 16,
+                headerLength = 128;
+
+            string textureFormat = String.Empty;
+
+            if (format == 49)
+            {
+                hexHeader = StringToByteArray(FileHeaders.pcDXT1iT);
+                mipmapMinSize = 8;
+                textureFormat = "DXT1 BC1";
+            }
+            else if (format == 51)
+            {
+                hexHeader = StringToByteArray(FileHeaders.pcDXT3iT);
+                textureFormat = "DXT3 BC2";
+            }
+            else if (format == 53)
+            {
+                hexHeader = StringToByteArray(FileHeaders.pcDXT5iT);
+                textureFormat = "DXT5 BC3";
+            }
+            else if (format == 32)
+            {
+                if (hexMain[88] == 32)
+                {
+                    hexHeader = StringToByteArray(FileHeaders.pcARGBiT);
+                    textureFormat = "ARGB8888";
+                }
+                else if (hexMain[88] == 8)
+                {
+                    hexHeader = StringToByteArray(FileHeaders.pcGrayiT);
+                    textureFormat = "Grayscale";
+                }
+            }
+
+            if (!isStandalone)
+            {
+                Vars.TextureFormat = textureFormat;
+                Vars.TextureWidth = width;
+                Vars.TextureHeight = height;
+                Vars.MipmapCount = mipmapCount;
+            }
+
+            if (hexHeader.Length > 0)
+            {
+                hexHeader[16] = hexMain[16];
+                hexHeader[17] = hexMain[17];
+                hexHeader[18] = hexMain[18];
+                hexHeader[19] = hexMain[19];
+                hexHeader[20] = hexMain[12];
+                hexHeader[21] = hexMain[13];
+                hexHeader[22] = hexMain[14];
+                hexHeader[23] = hexMain[15];
+                hexHeader[28] = hexMain[28];
+                hexHeader[29] = hexMain[29];
+                hexHeader[30] = hexMain[30];
+                hexHeader[31] = hexMain[31];
+
+                int offset = 32;
+
+                int[] mipmapSizes = CalculateMipmapSizes(height, width, mipmapCount, mipmapMinSize);
+
+                for (int i = 0; i < mipmapCount; i++)
+                {
+                    byte[] size = BitConverter.GetBytes(mipmapSizes[i]);
+
+                    hexHeader[offset] = size[0];
+                    hexHeader[offset + 1] = size[1];
+                    hexHeader[offset + 2] = size[2];
+                    hexHeader[offset + 3] = size[3];
+
+                    offset += 4;
+                }
+
+                hexMain = hexMain.Skip(headerLength).ToArray();
+                hexMain = hexHeader.Concat(hexMain).ToArray();
+
+                using (var bw = new BinaryWriter(File.OpenWrite(fileLocation)))
+                {
+                    bw.BaseStream.Position = 0x0;
+                    bw.Write(hexMain);
+                }
+            }
+            else
+            {
+                if (File.Exists(fileLocation))
+                    File.Delete(fileLocation);
+            }
+        }
+
+        private static void ConvertFileToDDS(string fileLocation, bool isStandalone, bool isConsoleTexture)
+        {
+            byte[] hexHeader = { };
+            byte[] hexMain = { };
+
+            using (var br = new BinaryReader(File.OpenRead(fileLocation)))
+                hexMain = br.ReadBytes(Convert.ToInt32(br.BaseStream.Length));
+
+            string RES = BitConverter.ToString(hexMain, 0, 3);
+
+            int headerLength = 92;
+
+            if (RES == "52-45-53")
+                headerLength = 156;
+
+            if (isConsoleTexture)
+                hexMain = ReverseHeader(hexMain, headerLength);
+
+            int format = BitConverter.ToInt32(hexMain, 8),
+                width = BitConverter.ToInt32(hexMain, 16),
+                height = BitConverter.ToInt32(hexMain, 20),
+                mipmapCount = BitConverter.ToInt32(hexMain, 28);                
+
+            if (RES == "52-45-53")
+            {
+                format = BitConverter.ToInt32(hexMain, 72);
+                width = BitConverter.ToInt32(hexMain, 80);
+                height = BitConverter.ToInt32(hexMain, 84);
+                mipmapCount = BitConverter.ToInt32(hexMain, 92);                
+            }            
+
+            string textureFormat = String.Empty;
+
+            if (format == 0 || format == 18)        
+            {
+                hexHeader = StringToByteArray(FileHeaders.pcDXT1);
+                textureFormat = "DXT1 BC1";
+            }
+            else if (format == 1)                  
+            {
+                hexHeader = StringToByteArray(FileHeaders.pcDXT3);
+                textureFormat = "DXT3 BC2";
+            }
+            else if (format == 2 || format == 19 || format == 20 || format == 13)
+            {
+                hexHeader = StringToByteArray(FileHeaders.pcDXT5);
+                textureFormat = "DXT5 BC3";
+            }
+            else if (format == 9) 
+            {
+                hexHeader = StringToByteArray(FileHeaders.pcARGB);
+                textureFormat = "ARGB8888";
+            }
+            else if (format == 10) 
+            {
+                hexHeader = StringToByteArray(FileHeaders.pcGray);
+                textureFormat = "Grayscale";
+            }
+
+            if (!isStandalone)
+            {
+                Vars.TextureFormat = textureFormat;
+                Vars.TextureWidth = width;
+                Vars.TextureHeight = height;
+                Vars.MipmapCount = mipmapCount;
+            }
+
+            if (hexHeader.Length > 0)
+            {
+                if (RES == "52-45-53")
+                {
+                    hexHeader[16] = hexMain[80];
+                    hexHeader[17] = hexMain[81];
+                    hexHeader[18] = hexMain[82];
+                    hexHeader[19] = hexMain[83];
+                    hexHeader[12] = hexMain[84];
+                    hexHeader[13] = hexMain[85];
+                    hexHeader[14] = hexMain[86];
+                    hexHeader[15] = hexMain[87];
+                    hexHeader[28] = hexMain[92];
+                    hexHeader[29] = hexMain[93];
+                    hexHeader[30] = hexMain[94];
+                    hexHeader[31] = hexMain[95];
+                    hexHeader[20] = hexMain[96];
+                    hexHeader[21] = hexMain[97];
+                    hexHeader[22] = hexMain[98];
+                    hexHeader[23] = hexMain[99];
+                }
+                else
+                {
+                    hexHeader[16] = hexMain[16];
+                    hexHeader[17] = hexMain[17];
+                    hexHeader[18] = hexMain[18];
+                    hexHeader[19] = hexMain[19];
+                    hexHeader[12] = hexMain[20];
+                    hexHeader[13] = hexMain[21];
+                    hexHeader[14] = hexMain[22];
+                    hexHeader[15] = hexMain[23];
+                    hexHeader[28] = hexMain[28];
+                    hexHeader[29] = hexMain[29];
+                    hexHeader[30] = hexMain[30];
+                    hexHeader[31] = hexMain[31];
+                    hexHeader[20] = hexMain[32];
+                    hexHeader[21] = hexMain[33];
+                    hexHeader[22] = hexMain[34];
+                    hexHeader[23] = hexMain[35];
+                }
+
+                hexMain = hexMain.Skip(headerLength).ToArray();
+                hexMain = hexHeader.Concat(hexMain).ToArray();
+
+                using (var bw = new BinaryWriter(File.OpenWrite(fileLocation)))
+                {
+                    bw.BaseStream.Position = 0x0;
+                    bw.Write(hexMain);
+                }
+            }
+            else
+            {
+                if (File.Exists(fileLocation))
+                    File.Delete(fileLocation);
+            }
+        }
+
+        private static int[] CalculateMipmapSizes(int height, int width, int mipmapCount, int minSize)
+        {
+            int[] mipmaps = new int[mipmapCount];
+
+            int mipmapSize = Math.Max(1, ((width + 3) / 4)) * Math.Max(1, ((height + 3) / 4)) * minSize;
+
+            mipmaps[0] = mipmapSize;
+
+            for (int i = 1; i < mipmapCount; i++)
+            {
+                if (mipmapSize != minSize)
+                    mipmapSize = mipmapSize / 4;
+
+                mipmaps[i] = mipmapSize;
+            }
+
+            return mipmaps;
+        }
+
+        private static byte[] ReverseHeader(byte[] hex, int length)
+        {
+            int offset = 0;
+
+            while (true)
+            {
+                if (offset >= length)
+                    break;
+
+                hex = Reverse.FourByteBlock(hex, offset);
+
+                offset += 4;
+            }
+
+            return hex;
         }
 
         private static byte[] StringToByteArray(string hex)

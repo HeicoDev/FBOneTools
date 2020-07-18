@@ -375,7 +375,7 @@ namespace BFBC2_Toolkit
 
                         string[] file = { selectedFilePath };
 
-                        await Task.Run(() => TextureConverter.ConvertFile(file, false));
+                        await Task.Run(() => TextureConverter.ConvertFile(file, false, false));
 
                         try
                         {
@@ -396,7 +396,7 @@ namespace BFBC2_Toolkit
 
                         string[] file = { selectedFilePath };
 
-                        await Task.Run(() => TextureConverter.ConvertFile(file, false));
+                        await Task.Run(() => TextureConverter.ConvertFile(file, false, false));
 
                         try
                         {
@@ -417,7 +417,7 @@ namespace BFBC2_Toolkit
 
                         string[] file = { selectedFilePath };
 
-                        await Task.Run(() => TextureConverter.ConvertFile(file, false));
+                        await Task.Run(() => TextureConverter.ConvertFile(file, false, false));
 
                         try
                         {
@@ -440,7 +440,7 @@ namespace BFBC2_Toolkit
                         string[] file = { selectedFilePath };
 
                         if (!File.Exists(selectedFilePath.Replace(".terrainheightfield", ".raw")))
-                            await Task.Run(() => TextureConverter.ConvertFile(file, false));
+                            await Task.Run(() => TextureConverter.ConvertFile(file, false, false));
                     }
                     else if (selectedFileName.EndsWith(".binkmemory"))
                     {

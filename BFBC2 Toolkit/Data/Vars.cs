@@ -16,8 +16,7 @@ namespace BFBC2_Toolkit.Data
 
         public static int TextureWidth { get; set; }
         public static int TextureHeight { get; set; }
-
-        public static byte MipmapCount { get; set; }
+        public static int MipmapCount { get; set; }
 
         public static readonly string[] fileFormats = { "swfmovie", "dx10pixelshader", "havokphysicsdata", "treemeshset",
                                                         "terrainheightfield", "itexture", "animtreeinfo", "irradiancevolume",

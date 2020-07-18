@@ -33,7 +33,7 @@ namespace BFBC2_Toolkit.Tools
                     if (offset >= length)
                         break;
 
-                    fileData = Reverse.TwoByteBlock(fileData, offset, length);
+                    fileData = Reverse.TwoByteBlock(fileData, offset);
 
                     offset += 2;
                 }
@@ -51,7 +51,7 @@ namespace BFBC2_Toolkit.Tools
                     if (offset >= length)
                         break;
 
-                    fileData = Reverse.FourByteBlock(fileData, offset, length);
+                    fileData = Reverse.FourByteBlock(fileData, offset);
 
                     offset += 4;
                 }
@@ -68,7 +68,7 @@ namespace BFBC2_Toolkit.Tools
                 //Reverse header
                 for (int i = 0; i < 3; i++)
                 {
-                    fileData = Reverse.FourByteBlock(fileData, offset, length);
+                    fileData = Reverse.FourByteBlock(fileData, offset);
 
                     offset += 4;
                 }
@@ -78,15 +78,15 @@ namespace BFBC2_Toolkit.Tools
                 {
                     if (offset == pointerOffset)
                     {
-                        fileData = Reverse.TwoByteBlock(fileData, offset, length);
-                        fileData = Reverse.TwoByteBlock(fileData, offset + 2, length);
+                        fileData = Reverse.TwoByteBlock(fileData, offset);
+                        fileData = Reverse.TwoByteBlock(fileData, offset + 2);
 
                         offset += 4;
 
                         break;
                     }
 
-                    fileData = Reverse.TwoByteBlock(fileData, offset, length);
+                    fileData = Reverse.TwoByteBlock(fileData, offset);
 
                     offset += 2;
                 }
@@ -104,7 +104,7 @@ namespace BFBC2_Toolkit.Tools
                         break;
                     }
 
-                    fileData = Reverse.FourByteBlock(fileData, offset, length);
+                    fileData = Reverse.FourByteBlock(fileData, offset);
 
                     offset += 4;
                 }
@@ -130,7 +130,7 @@ namespace BFBC2_Toolkit.Tools
                     if (offset >= length)
                         break;
 
-                    fileData = Reverse.FourByteBlock(fileData, offset, length);
+                    fileData = Reverse.FourByteBlock(fileData, offset);
 
                     offset += 4;
                 }
@@ -155,7 +155,7 @@ namespace BFBC2_Toolkit.Tools
                 //Reverse header
                 for (int i = 0; i < 23; i++)
                 {
-                    fileData = Reverse.FourByteBlock(fileData, offset, length);
+                    fileData = Reverse.FourByteBlock(fileData, offset);
 
                     offset += 4;
                 }
@@ -166,7 +166,7 @@ namespace BFBC2_Toolkit.Tools
                     if (offset >= length)
                         break;
 
-                    fileData = Reverse.TwoByteBlock(fileData, offset, length);
+                    fileData = Reverse.TwoByteBlock(fileData, offset);
 
                     offset += 2;
                 }

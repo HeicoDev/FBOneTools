@@ -83,7 +83,7 @@ namespace BFBC2_Toolkit.Windows
                 {
                     string[] file = { filePath };
 
-                    await Task.Run(() => TextureConverter.ConvertFile(file, copyToOutputEnabled));
+                    await Task.Run(() => TextureConverter.ConvertFile(file, copyToOutputEnabled, true));
                 }
                 else if (filePath.EndsWith(".dbx") || filePath.EndsWith(".xml"))
                 {
