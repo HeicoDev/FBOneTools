@@ -81,11 +81,15 @@ namespace BFBC2_Toolkit
 
             if (ofd.ShowDialog() == true)
             {
+                EnableInterface(false);
+
                 progressRing.IsActive = true;
 
                 await Profile.Add(ofd);
 
                 progressRing.IsActive = false;
+
+                EnableInterface(true);
 
                 Write.ToEventLog("You can select your game profile now.", "done");
             }           
@@ -100,7 +104,7 @@ namespace BFBC2_Toolkit
             selectGameWindow.Owner = this;
             selectGameWindow.ShowDialog();
 
-            if (Vars.isGameProfile)
+            if (Vars.IsGameProfile)
                 btnArchiveFbrb.IsEnabled = false;
         }
 
@@ -129,6 +133,8 @@ namespace BFBC2_Toolkit
                 {
                     Write.ToEventLog("Loading mod files...", "");
 
+                    EnableInterface(false);
+
                     progressRing.IsActive = true;
 
                     await Mod.OpenProject(ofd);
@@ -136,6 +142,8 @@ namespace BFBC2_Toolkit
                     btnArchiveMod.IsEnabled = true;
 
                     progressRing.IsActive = false;
+
+                    EnableInterface(true);
 
                     Write.ToEventLog("", "done");
                 }
@@ -152,6 +160,8 @@ namespace BFBC2_Toolkit
             {
                 Write.ToEventLog("Extracting mod archive...", "");
 
+                EnableInterface(false);
+
                 progressRing.IsActive = true;
 
                 await Mod.Extract(ofd);
@@ -159,6 +169,8 @@ namespace BFBC2_Toolkit
                 btnArchiveMod.IsEnabled = true;
 
                 progressRing.IsActive = false;
+
+                EnableInterface(true);
 
                 Write.ToEventLog("", "done");
             }
@@ -168,11 +180,15 @@ namespace BFBC2_Toolkit
         {
             Write.ToEventLog("Archiving mod...", "");
 
+            EnableInterface(false);
+
             progressRing.IsActive = true;
 
             await Mod.Archive();
 
             progressRing.IsActive = false;
+
+            EnableInterface(true);
 
             Write.ToEventLog("", "done");
         }
@@ -187,6 +203,8 @@ namespace BFBC2_Toolkit
             {
                 Write.ToEventLog("This may take a while. Extracting fbrb archive, please wait...", "");
 
+                EnableInterface(false);
+
                 progressRing.IsActive = true;
 
                 await Fbrb.Extract(ofd);
@@ -194,6 +212,8 @@ namespace BFBC2_Toolkit
                 btnArchiveFbrb.IsEnabled = true;
 
                 progressRing.IsActive = false;
+
+                EnableInterface(true);
 
                 Write.ToEventLog("", "done");
             }
@@ -203,26 +223,34 @@ namespace BFBC2_Toolkit
         {
             Write.ToEventLog("This may take a while. Archiving fbrb archive, please wait...", "");
 
+            EnableInterface(false);
+
             progressRing.IsActive = true;
 
             await Fbrb.Archive();
 
             progressRing.IsActive = false;
 
+            EnableInterface(true);
+
             Write.ToEventLog("", "done");
         }
 
         private async void BtnCopyToMod_Click(object sender, RoutedEventArgs e)
         {
-            if (Vars.isDataTreeView && Vars.isModAvailable && treeViewDataExplorer.SelectedItem != null)
+            if (Vars.IsDataTreeView && Vars.IsModAvailable && treeViewDataExplorer.SelectedItem != null)
             {
                 Write.ToEventLog("Copying file...", "");
+
+                EnableInterface(false);
 
                 progressRing.IsActive = true;
 
                 await SelectedFile.CopyToMod();
 
                 progressRing.IsActive = false;
+
+                EnableInterface(true);
 
                 Write.ToEventLog("", "done");
             }
@@ -232,11 +260,15 @@ namespace BFBC2_Toolkit
         {
             Write.ToEventLog("Exporting file...", "");
 
+            EnableInterface(false);
+
             progressRing.IsActive = true;
 
             await SelectedFile.Export();
 
             progressRing.IsActive = false;
+
+            EnableInterface(true);
 
             Write.ToEventLog("Exported file to output folder.", "done");
         }
@@ -245,11 +277,15 @@ namespace BFBC2_Toolkit
         {
             Write.ToEventLog("Importing file...", "");
 
+            EnableInterface(false);
+
             progressRing.IsActive = true;
 
             await SelectedFile.Import();
 
             progressRing.IsActive = false;
+
+            EnableInterface(true);
 
             Write.ToEventLog("Imported file successfully.", "done");
         }
@@ -261,7 +297,7 @@ namespace BFBC2_Toolkit
 
         private async void DataExplorer_ItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            Vars.isDataTreeView = true;
+            Vars.IsDataTreeView = true;
 
             if (Dirs.SelectedFilePathData != null && Dirs.SelectedFilePathData.EndsWith(".binkmemory"))
                 await SelectedFile.RenameToBik();
@@ -274,7 +310,7 @@ namespace BFBC2_Toolkit
 
         private async void ModExplorer_ItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            Vars.isDataTreeView = false;
+            Vars.IsDataTreeView = false;
 
             if (Dirs.SelectedFilePathMod != null && Dirs.SelectedFilePathMod.EndsWith(".binkmemory"))
                 await SelectedFile.RenameToBik();
@@ -301,7 +337,7 @@ namespace BFBC2_Toolkit
                            selectedFilePath = tvi.Path,
                            filesPath = String.Empty;
 
-                    if (Vars.isDataTreeView)
+                    if (Vars.IsDataTreeView)
                     {
                         Dirs.SelectedFileNameData = selectedFileName;
                         Dirs.SelectedFilePathData = selectedFilePath;
@@ -319,7 +355,7 @@ namespace BFBC2_Toolkit
 
                     if (selectedFileName.EndsWith(".dbx"))
                     {
-                        await ChangeInterface("dbx");
+                        await ChangeInterface(".dbx");
                         Write.ToInfoBox(tvi);
 
                         if (!File.Exists(selectedFilePath.Replace(".dbx", ".xml")))
@@ -337,7 +373,7 @@ namespace BFBC2_Toolkit
                     }
                     else if (selectedFileName.EndsWith(".dbmanifest"))
                     {
-                        await ChangeInterface("dbmanifest");
+                        await ChangeInterface(".dbmanifest");
                         Write.ToInfoBox(tvi);
 
                         if (Settings.TxtEdHighlightSyntax)
@@ -349,7 +385,7 @@ namespace BFBC2_Toolkit
                     }
                     else if (selectedFileName.EndsWith(".ini"))
                     {
-                        await ChangeInterface("ini");
+                        await ChangeInterface(".ini");
                         Write.ToInfoBox(tvi);
 
                         if (Settings.TxtEdHighlightSyntax)
@@ -361,7 +397,7 @@ namespace BFBC2_Toolkit
                     }
                     else if (selectedFileName.EndsWith(".txt"))
                     {
-                        await ChangeInterface("txt");
+                        await ChangeInterface(".txt");
                         Write.ToInfoBox(tvi);
 
                         textEditor.SyntaxHighlighting = null;
@@ -371,7 +407,7 @@ namespace BFBC2_Toolkit
                     }                    
                     else if (selectedFileName.EndsWith(".itexture"))
                     {
-                        await ChangeInterface("texture");
+                        await ChangeInterface(".itexture");
 
                         string[] file = { selectedFilePath };
 
@@ -392,7 +428,7 @@ namespace BFBC2_Toolkit
                     }
                     else if (selectedFileName.EndsWith(".ps3texture"))
                     {
-                        await ChangeInterface("ps3texture");
+                        await ChangeInterface(".ps3texture");
 
                         string[] file = { selectedFilePath };
 
@@ -413,7 +449,7 @@ namespace BFBC2_Toolkit
                     }
                     else if (selectedFileName.EndsWith(".xenontexture"))
                     {
-                        await ChangeInterface("xenontexture");
+                        await ChangeInterface(".xenontexture");
 
                         string[] file = { selectedFilePath };
 
@@ -434,7 +470,7 @@ namespace BFBC2_Toolkit
                     }
                     else if (selectedFileName.EndsWith(".terrainheightfield"))
                     {
-                        await ChangeInterface("heightmap");
+                        await ChangeInterface(".terrainheightfield");
                         Write.ToInfoBox(tvi);
 
                         string[] file = { selectedFilePath };
@@ -444,7 +480,7 @@ namespace BFBC2_Toolkit
                     }
                     else if (selectedFileName.EndsWith(".binkmemory"))
                     {
-                        await ChangeInterface("video");
+                        await ChangeInterface(".binkmemory");
                         Write.ToInfoBox(tvi);
 
                         string mp4 = selectedFilePath.Replace(".binkmemory", ".mp4"),
@@ -462,7 +498,7 @@ namespace BFBC2_Toolkit
                     }
                     else if (selectedFileName.EndsWith(".swfmovie"))
                     {
-                        await ChangeInterface("swfmovie");
+                        await ChangeInterface(".swfmovie");
                         Write.ToInfoBox(tvi);
                     }
                     else
@@ -485,13 +521,23 @@ namespace BFBC2_Toolkit
 
         private async void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            if (Vars.IsGameProfile)
+            {
+                Write.ToEventLog("You can't edit a file from a game profile!", "warning");
+                return;
+            }
+
             Write.ToEventLog("Saving file...", "");
+
+            EnableInterface(false);
 
             progressRing.IsActive = true;
 
             await Save.TextEditorChanges();
 
             progressRing.IsActive = false;
+
+            EnableInterface(true);
 
             Write.ToEventLog("", "done");
         }
@@ -541,40 +587,56 @@ namespace BFBC2_Toolkit
 
         private void BtnDataRefresh_Click(object sender, RoutedEventArgs e)
         {
+            EnableInterface(false);
+
             progressRing.IsActive = true;
 
             if (treeViewDataExplorer.HasItems)
                 Tree.Populate(treeViewDataExplorer, Dirs.FilesPathData);
 
             progressRing.IsActive = false;
+
+            EnableInterface(true);
         }
 
         private void BtnModRefresh_Click(object sender, RoutedEventArgs e)
         {
+            EnableInterface(false);
+
             progressRing.IsActive = true;
 
             if (treeViewModExplorer.HasItems)
                 Tree.Populate(treeViewModExplorer, Dirs.FilesPathMod);
 
             progressRing.IsActive = false;
+
+            EnableInterface(true);
         }
 
         private async void BtnDataDelete_Click(object sender, RoutedEventArgs e)
         {
+            EnableInterface(false);
+
             progressRing.IsActive = true;
 
             await SelectedFile.DeleteFile("data");
 
             progressRing.IsActive = false;
+
+            EnableInterface(true);
         }
 
         private async void BtnModDelete_Click(object sender, RoutedEventArgs e)
         {
+            EnableInterface(false);
+
             progressRing.IsActive = true;
 
             await SelectedFile.DeleteFile("mod");
 
             progressRing.IsActive = false;
+
+            EnableInterface(true);
         }
 
         private async void BtnModRestore_Click(object sender, RoutedEventArgs e)
@@ -583,6 +645,8 @@ namespace BFBC2_Toolkit
             {
                 Write.ToEventLog("Restoring original file...", "");
 
+                EnableInterface(false);
+
                 progressRing.IsActive = true;
 
                 await ChangeInterface("");
@@ -590,6 +654,8 @@ namespace BFBC2_Toolkit
                 await SelectedFile.RestoreFile();
 
                 progressRing.IsActive = false;
+
+                EnableInterface(true);
 
                 Write.ToEventLog("", "done");
             }
@@ -673,7 +739,7 @@ namespace BFBC2_Toolkit
 
         private async Task ChangeInterface(string format)
         {
-            if (format == "dbx" || format == "dbmanifest" || format == "ini" || format == "txt")
+            if (format == ".dbx" || format == ".dbmanifest" || format == ".ini" || format == ".txt")
             {
                 txtPreview.Text = "Text Editor";
                 mediaElement.Visibility = Visibility.Hidden;
@@ -694,7 +760,7 @@ namespace BFBC2_Toolkit
 
                 await MediaStream.Dispose();
             }
-            else if (format == "texture" || format == "ps3texture" || format == "xenontexture")
+            else if (format == ".itexture" || format == ".ps3texture" || format == ".xenontexture")
             {
                 txtPreview.Text = "Texture Preview";
                 textEditor.Text = "";
@@ -716,7 +782,7 @@ namespace BFBC2_Toolkit
 
                 await MediaStream.Dispose();
             }
-            else if (format == "video")
+            else if (format == ".binkmemory")
             {
                 txtPreview.Text = "Video Preview";
                 textEditor.Text = "";
@@ -756,9 +822,80 @@ namespace BFBC2_Toolkit
                 await MediaStream.Dispose();
             }
 
-            if (format == "dbx")
+            ChangeBottomButtons(format);
+        }
+
+        private void EnableInterface(bool enableButtons)
+        {
+            if (enableButtons)
             {
-                if (Vars.isDataTreeView && Vars.isGameProfile)
+                treeViewDataExplorer.IsEnabled = true;
+                treeViewModExplorer.IsEnabled = true;
+
+                btnAddGame.IsEnabled = true;
+                btnSelectGame.IsEnabled = true;
+                btnCreateMod.IsEnabled = true;
+                btnOpenMod.IsEnabled = true;
+                btnExtractMod.IsEnabled = true;
+                btnExtractFbrb.IsEnabled = true;
+                btnSettings.IsEnabled = true;
+                btnDataDelete.IsEnabled = true;
+                btnModDelete.IsEnabled = true;
+                btnCopyToMod.IsEnabled = true;
+                btnModRestore.IsEnabled = true;
+                btnDataRefresh.IsEnabled = true;
+                btnModRefresh.IsEnabled = true;
+                btnSave.IsEnabled = true;
+
+                if (Vars.IsModAvailable)
+                    btnArchiveMod.IsEnabled = true;
+
+                if (Vars.IsDataAvailable && !Vars.IsGameProfile)
+                    btnArchiveFbrb.IsEnabled = true;
+
+                string selectedFileName = "";
+
+                if (Vars.IsDataTreeView)
+                    selectedFileName = Dirs.SelectedFilePathData;
+                else
+                    selectedFileName = Dirs.SelectedFilePathMod;
+
+                string selectedFileExt = Path.GetExtension(selectedFileName);
+
+                ChangeBottomButtons(selectedFileExt);
+            }
+            else
+            {
+                treeViewDataExplorer.IsEnabled = false;
+                treeViewModExplorer.IsEnabled = false;
+
+                btnAddGame.IsEnabled = false;
+                btnSelectGame.IsEnabled = false;
+                btnCreateMod.IsEnabled = false;
+                btnOpenMod.IsEnabled = false;
+                btnExtractMod.IsEnabled = false;
+                btnExtractFbrb.IsEnabled = false;
+                btnSettings.IsEnabled = false;
+                btnArchiveMod.IsEnabled = false;
+                btnArchiveFbrb.IsEnabled = false;
+                btnImport.IsEnabled = false;
+                btnExport.IsEnabled = false;
+                btnOpenFileLocation.IsEnabled = false;
+                btnDataDelete.IsEnabled = false;
+                btnModDelete.IsEnabled = false;
+                btnCopyToMod.IsEnabled = false;
+                btnModRestore.IsEnabled = false;
+                btnDataRefresh.IsEnabled = false;
+                btnModRefresh.IsEnabled = false;
+                btnSave.IsEnabled = false;
+            }
+        }
+
+        private void ChangeBottomButtons(string format)
+        {
+            if (format == ".dbx")
+            {
+                if (Vars.IsDataTreeView && Vars.IsGameProfile)
                     btnImport.IsEnabled = false;
                 else
                     btnImport.IsEnabled = true;
@@ -766,17 +903,17 @@ namespace BFBC2_Toolkit
                 btnExport.IsEnabled = true;
                 btnOpenFileLocation.IsEnabled = true;
             }
-            else if (format == "dbmanifest" || format == "ini" || format == "txt")
+            else if (format == ".dbmanifest" || format == ".ini" || format == ".txt")
             {
                 btnImport.IsEnabled = false;
                 btnExport.IsEnabled = false;
                 btnOpenFileLocation.IsEnabled = true;
             }
-            else if (format == "texture" || format == "ps3texture" || format == "xenontexture" || format == "heightmap")
+            else if (format == ".itexture" || format == ".ps3texture" || format == ".xenontexture" || format == ".terrainheightfield")
             {
-                if (Vars.isDataTreeView && Vars.isGameProfile)
+                if (Vars.IsDataTreeView && Vars.IsGameProfile)
                     btnImport.IsEnabled = false;
-                else if (format == "texture")
+                else if (format == ".itexture")
                     btnImport.IsEnabled = true;
                 else
                     btnImport.IsEnabled = false;
@@ -784,9 +921,9 @@ namespace BFBC2_Toolkit
                 btnExport.IsEnabled = true;
                 btnOpenFileLocation.IsEnabled = true;
             }
-            else if (format == "video")
+            else if (format == ".binkmemory")
             {
-                if (Vars.isDataTreeView && Vars.isGameProfile)
+                if (Vars.IsDataTreeView && Vars.IsGameProfile)
                     btnImport.IsEnabled = false;
                 else
                     btnImport.IsEnabled = true;
@@ -794,7 +931,7 @@ namespace BFBC2_Toolkit
                 btnExport.IsEnabled = true;
                 btnOpenFileLocation.IsEnabled = true;
             }
-            else if (format == "swfmovie")
+            else if (format == ".swfmovie")
             {
                 btnImport.IsEnabled = false;
                 btnExport.IsEnabled = true;
@@ -802,14 +939,14 @@ namespace BFBC2_Toolkit
             }
             else
             {
-                string selectedFilePath = "";
+                string selectedFileName = "";
 
-                if (Vars.isDataTreeView)
-                    selectedFilePath = Dirs.SelectedFilePathData;
+                if (Vars.IsDataTreeView)
+                    selectedFileName = Dirs.SelectedFilePathData;
                 else
-                    selectedFilePath = Dirs.SelectedFilePathMod;
+                    selectedFileName = Dirs.SelectedFilePathMod;
 
-                if (selectedFilePath.Contains("."))
+                if (selectedFileName != null && selectedFileName.Contains("."))
                 {
                     btnExport.IsEnabled = false;
                     btnImport.IsEnabled = false;

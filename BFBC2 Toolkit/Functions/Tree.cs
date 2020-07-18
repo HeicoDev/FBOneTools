@@ -32,7 +32,7 @@ namespace BFBC2_Toolkit.Functions
 
             foreach (var file in directoryInfo.GetFiles())
             {
-                foreach (string format in Vars.fileFormats)
+                foreach (string format in Vars.FileFormats)
                 {
                     if (file.Name.EndsWith("." + format))
                     {
@@ -120,7 +120,7 @@ namespace BFBC2_Toolkit.Functions
             }
             else
             {
-                foreach (string format in Vars.fileFormats)
+                foreach (string format in Vars.FileFormats)
                 {
                     if (fileName.EndsWith("." + format))
                     {
@@ -138,7 +138,7 @@ namespace BFBC2_Toolkit.Functions
 
         private static void GetFileArchive(string filePath)
         {
-            foreach (KeyValuePair<string, string> kvp in Vars.fbrbFiles)
+            foreach (KeyValuePair<string, string> kvp in Vars.FbrbFiles)
             {
                 if (filePath.Contains(kvp.Value))
                 {

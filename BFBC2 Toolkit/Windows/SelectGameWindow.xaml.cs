@@ -61,13 +61,14 @@ namespace BFBC2_Toolkit.Windows
         {
             if (dataGrid.SelectedItem != null)
             {
-                progressRing.IsActive = true;
+                progressRing.IsActive = true;                
 
                 var selectedProfile = dataGrid.SelectedItem as GameProfile;
 
                 await Profile.Load(selectedProfile);
 
-                Vars.isGameProfile = true;
+                Vars.IsDataAvailable = true;
+                Vars.IsGameProfile = true;
 
                 progressRing.IsActive = false;
 

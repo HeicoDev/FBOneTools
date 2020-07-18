@@ -24,7 +24,7 @@ namespace BFBC2_Toolkit.Functions
 
                 Tree.Populate(Elements.TreeViewModExplorer, Dirs.FilesPathMod);
 
-                Vars.isModAvailable = true;
+                Vars.IsModAvailable = true;
             }
             catch (Exception ex)
             {
@@ -92,7 +92,7 @@ namespace BFBC2_Toolkit.Functions
                             Dirs.FilesPathMod = path;
                             Dirs.ModName = name;
 
-                            Vars.isModAvailable = true;                            
+                            Vars.IsModAvailable = true;                            
                         }
                     }
                 }

@@ -120,30 +120,30 @@ namespace BFBC2_Toolkit.Tools
 
             if (format == 49)
             {
-                hexHeader = StringToByteArray(FileHeaders.pcDXT1iT);
+                hexHeader = StringToByteArray(FileHeaders.PcDXT1iT);
                 mipmapMinSize = 8;
                 textureFormat = "DXT1 BC1";
             }
             else if (format == 51)
             {
-                hexHeader = StringToByteArray(FileHeaders.pcDXT3iT);
+                hexHeader = StringToByteArray(FileHeaders.PcDXT3iT);
                 textureFormat = "DXT3 BC2";
             }
             else if (format == 53)
             {
-                hexHeader = StringToByteArray(FileHeaders.pcDXT5iT);
+                hexHeader = StringToByteArray(FileHeaders.PcDXT5iT);
                 textureFormat = "DXT5 BC3";
             }
             else if (format == 32)
             {
                 if (hexMain[88] == 32)
                 {
-                    hexHeader = StringToByteArray(FileHeaders.pcARGBiT);
+                    hexHeader = StringToByteArray(FileHeaders.PcARGBiT);
                     textureFormat = "ARGB8888";
                 }
                 else if (hexMain[88] == 8)
                 {
-                    hexHeader = StringToByteArray(FileHeaders.pcGrayiT);
+                    hexHeader = StringToByteArray(FileHeaders.PcGrayiT);
                     textureFormat = "Grayscale";
                 }
             }
@@ -238,27 +238,27 @@ namespace BFBC2_Toolkit.Tools
 
             if (format == 0 || format == 18)        
             {
-                hexHeader = StringToByteArray(FileHeaders.pcDXT1);
+                hexHeader = StringToByteArray(FileHeaders.PcDXT1);
                 textureFormat = "DXT1 BC1";
             }
             else if (format == 1)                  
             {
-                hexHeader = StringToByteArray(FileHeaders.pcDXT3);
+                hexHeader = StringToByteArray(FileHeaders.PcDXT3);
                 textureFormat = "DXT3 BC2";
             }
             else if (format == 2 || format == 19 || format == 20 || format == 13)
             {
-                hexHeader = StringToByteArray(FileHeaders.pcDXT5);
+                hexHeader = StringToByteArray(FileHeaders.PcDXT5);
                 textureFormat = "DXT5 BC3";
             }
             else if (format == 9) 
             {
-                hexHeader = StringToByteArray(FileHeaders.pcARGB);
+                hexHeader = StringToByteArray(FileHeaders.PcARGB);
                 textureFormat = "ARGB8888";
             }
             else if (format == 10) 
             {
-                hexHeader = StringToByteArray(FileHeaders.pcGray);
+                hexHeader = StringToByteArray(FileHeaders.PcGray);
                 textureFormat = "Grayscale";
             }
 

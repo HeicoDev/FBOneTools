@@ -15,7 +15,7 @@ namespace BFBC2_Toolkit.Functions
             {
                 sw.WriteLine("#Error Log**************************Error Log**************************Error Log#");
                 sw.WriteLine("Name: BFBC2 Mod Loader");
-                sw.WriteLine("Ver: " + Vars.versionClient);
+                sw.WriteLine("Ver: " + Vars.VersionClient);
                 sw.WriteLine("Date: " + DateTime.Now);
                 sw.WriteLine("Error: " + ex);
             }

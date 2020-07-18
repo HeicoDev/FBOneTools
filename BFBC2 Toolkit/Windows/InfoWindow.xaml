@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:BFBC2_Toolkit.Windows"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="Info" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterOwner" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="300" Height="150" WindowStyle="ToolWindow" ResizeMode="NoResize" Topmost="True">
+        Title="Info" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterOwner" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="300" Height="150" WindowStyle="ToolWindow" ResizeMode="NoResize" Topmost="True" Loaded="InfoWindow_Loaded">
     <Grid>
-        <Label x:Name="lblName" Content="BFBC2 Toolkit 1.0.0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
+        <Label x:Name="lblName" Content="BFBC2 Toolkit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
         <Label x:Name="lblSummary" Content="By Nico Hellmund" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
         <Label x:Name="lblAuthor" Content="Aka Heico" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
         <Label x:Name="lblVersion" Content="Copyright 2020" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>

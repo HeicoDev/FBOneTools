@@ -11,10 +11,10 @@ namespace BFBC2_Toolkit.Functions
         public static async Task TextEditorChanges()
         {
             try
-            {
+            {                
                 string selectedFilePath = "";
 
-                if (Vars.isDataTreeView)
+                if (Vars.IsDataTreeView)
                     selectedFilePath = Dirs.SelectedFilePathData;
                 else
                     selectedFilePath = Dirs.SelectedFilePathMod;
