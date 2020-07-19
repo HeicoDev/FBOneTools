@@ -17,6 +17,7 @@ using BFBC2_Toolkit.Tools;
 using BFBC2_Toolkit.Windows;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Highlighting.Xshd;
+using ICSharpCode.AvalonEdit.Folding;
 
 /// <summary>
 /// BFBC2 Toolkit 
@@ -29,6 +30,9 @@ namespace BFBC2_Toolkit
 {
     public partial class MainWindow : MetroWindow
     {
+        private FoldingManager foldingManager;
+        private XmlFoldingStrategy foldingStrategy;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -369,6 +373,13 @@ namespace BFBC2_Toolkit
 
                         textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath.Replace(".dbx", ".xml")));
                         textEditor.ScrollToHome();
+
+                        if (foldingManager != null)
+                            FoldingManager.Uninstall(foldingManager);
+
+                        foldingManager = FoldingManager.Install(textEditor.TextArea);
+                        foldingStrategy = new XmlFoldingStrategy();
+                        foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
                     }
                     else if (selectedFileName.EndsWith(".dbmanifest"))
                     {
@@ -716,6 +727,9 @@ namespace BFBC2_Toolkit
                 btnSave.IsEnabled = true;
             else
                 btnSave.IsEnabled = false;*/
+
+            if(foldingStrategy != null)
+                foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
         }
 
         private void DropdownButton_Checked(object sender, RoutedEventArgs e)
