@@ -374,12 +374,7 @@ namespace BFBC2_Toolkit
                         textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath.Replace(".dbx", ".xml")));
                         textEditor.ScrollToHome();
 
-                        if (foldingManager != null)
-                            FoldingManager.Uninstall(foldingManager);
-
-                        foldingManager = FoldingManager.Install(textEditor.TextArea);
-                        foldingStrategy = new XmlFoldingStrategy();
-                        foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
+                        ApplyCodeFolding();
                     }
                     else if (selectedFileName.EndsWith(".dbmanifest"))
                     {
@@ -392,6 +387,8 @@ namespace BFBC2_Toolkit
 
                         textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath));
                         textEditor.ScrollToHome();
+
+                        ApplyCodeFolding();
                     }
                     else if (selectedFileName.EndsWith(".ini"))
                     {
@@ -719,18 +716,7 @@ namespace BFBC2_Toolkit
             var customizerWindow = new CustomizerWindow();
             customizerWindow.Owner = this;
             customizerWindow.ShowDialog();
-        }
-
-        private void XMLEditor_TextChanged(object sender, EventArgs e)
-        {
-            /*if (Vars.isDataTreeView == false || Vars.isGame == false)
-                btnSave.IsEnabled = true;
-            else
-                btnSave.IsEnabled = false;*/
-
-            if(foldingStrategy != null)
-                foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
-        }
+        }        
 
         private void DropdownButton_Checked(object sender, RoutedEventArgs e)
         {
@@ -748,6 +734,30 @@ namespace BFBC2_Toolkit
         private void DropdownButton_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void XMLEditor_TextChanged(object sender, EventArgs e)
+        {
+            /*if (Vars.isDataTreeView == false || Vars.isGame == false)
+                btnSave.IsEnabled = true;
+            else
+                btnSave.IsEnabled = false;*/
+
+            if (foldingStrategy != null && Settings.TxtEdCodeFolding)
+                foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
+        }
+
+        private void ApplyCodeFolding()
+        {
+            if (foldingManager != null)
+                FoldingManager.Uninstall(foldingManager);
+
+            if (Settings.TxtEdCodeFolding)
+            {
+                foldingManager = FoldingManager.Install(textEditor.TextArea);
+                foldingStrategy = new XmlFoldingStrategy();
+                foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
+            }
         }
 
         private async Task ChangeInterface(string format)

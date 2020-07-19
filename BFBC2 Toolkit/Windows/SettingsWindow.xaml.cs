@@ -24,6 +24,7 @@ namespace BFBC2_Toolkit.Windows
             chkBoxClickableHyperlinks.IsChecked = Settings.TxtEdClickableHyperlinks;
             chkBoxHideCursorWhileTyping.IsChecked = Settings.TxtEdHideCursorWhileTyping;
             chkBoxShowTabs.IsChecked = Settings.TxtEdShowTabs;
+            chkBoxCodeFolding.IsChecked = Settings.TxtEdCodeFolding;
         }
 
         private void ChkBoxHighlightSyntax_Checked(object sender, RoutedEventArgs e)
@@ -84,6 +85,16 @@ namespace BFBC2_Toolkit.Windows
         private void ChkBoxShowTabs_Unchecked(object sender, RoutedEventArgs e)
         {
             Settings.TxtEdShowTabs = false;
+        }
+
+        private void ChkBoxCodeFolding_Checked(object sender, RoutedEventArgs e)
+        {
+            Settings.TxtEdCodeFolding = true;
+        }
+
+        private void ChkBoxCodeFolding_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Settings.TxtEdCodeFolding = false;
         }
 
         private void BtnSelectPathToPython_Click(object sender, RoutedEventArgs e)

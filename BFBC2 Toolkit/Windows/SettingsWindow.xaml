@@ -30,6 +30,7 @@
                     <CheckBox x:Name="chkBoxClickableHyperlinks" Content="Clickable Hyperlinks" Margin="10,70,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" ToolTip="Highlight links and make them clickable" Checked="ChkBoxClickableHyperlinks_Checked" Unchecked="ChkBoxClickableHyperlinks_Unchecked" />
                     <CheckBox x:Name="chkBoxHideCursorWhileTyping" Content="Hide Cursor While Typing" Margin="10,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" ToolTip="Hide mouse course while typing in the text editor" Checked="ChkBoxHideCursorWhileTyping_Checked" Unchecked="ChkBoxHideCursorWhileTyping_Unchecked" />
                     <CheckBox x:Name="chkBoxShowTabs" Content="Show Tabs" Margin="10,110,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" ToolTip="Show a symbol for tabs" Checked="ChkBoxShowTabs_Checked" Unchecked="ChkBoxShowTabs_Unchecked" />
+                    <CheckBox x:Name="chkBoxCodeFolding" Content="Code Folding" Margin="10,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" ToolTip="Lets you fold XML elements" Checked="ChkBoxCodeFolding_Checked" Unchecked="ChkBoxCodeFolding_Unchecked" />
                 </Grid>
             </TabItem>
 

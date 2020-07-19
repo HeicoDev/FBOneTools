@@ -15,6 +15,7 @@ namespace BFBC2_Toolkit.Data
         public static bool TxtEdClickableHyperlinks { get; set; } = true;
         public static bool TxtEdHideCursorWhileTyping { get; set; } = true;
         public static bool TxtEdShowTabs { get; set; } = false;
+        public static bool TxtEdCodeFolding { get; set; } = true;
 
         public static string PathToPython { get; set; } = @"C:\Python27\pythonw.exe";
     }
@@ -50,6 +51,9 @@ namespace BFBC2_Toolkit.Data
                             break;
                         case "TxtEdShowTabs":
                             nodeList[i].Attributes["Value"].Value = Settings.TxtEdShowTabs.ToString();
+                            break;
+                        case "TxtEdCodeFolding":
+                            nodeList[i].Attributes["Value"].Value = Settings.TxtEdCodeFolding.ToString();
                             break;
                         case "PathToPython":
                             nodeList[i].Attributes["Value"].Value = Settings.PathToPython;
@@ -95,6 +99,9 @@ namespace BFBC2_Toolkit.Data
                             break;
                         case "TxtEdShowTabs":
                             Settings.TxtEdShowTabs = Convert.ToBoolean(nodeList[i].Attributes["Value"].Value);
+                            break;
+                        case "TxtEdCodeFolding":
+                            Settings.TxtEdCodeFolding = Convert.ToBoolean(nodeList[i].Attributes["Value"].Value);
                             break;
                         case "PathToPython":
                             Settings.PathToPython = nodeList[i].Attributes["Value"].Value;
