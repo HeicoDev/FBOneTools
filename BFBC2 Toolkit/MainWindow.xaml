@@ -206,12 +206,12 @@
                     <avalonedit:TextEditor x:Name="textEditor" SyntaxHighlighting="XML" Margin="650,111,-500,97" Foreground="#FFE2E2E2" Background="#FF454545" FontSize="11" HorizontalScrollBarVisibility="Auto" ShowLineNumbers="True" VerticalScrollBarVisibility="Auto" LineNumbersForeground="#FFE2E2E2" TextChanged="XMLEditor_TextChanged">
                         <avalonedit:TextEditor.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Command="Undo" />
-                                <MenuItem Command="Redo" />
-                                <Separator/>
-                                <MenuItem Command="Cut" />
-                                <MenuItem Command="Copy" />
-                                <MenuItem Command="Paste" />
+                                <MenuItem Command="Cut" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                                <MenuItem Command="Copy" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                                <MenuItem Command="Paste" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                                <!--Separator/-->
+                                <MenuItem Command="Undo" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                                <MenuItem Command="Redo" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
                             </ContextMenu>
                         </avalonedit:TextEditor.ContextMenu>
                     </avalonedit:TextEditor>
