@@ -81,7 +81,7 @@ namespace BFBC2_Toolkit.Windows
 
         private void BtnInfo_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("BFBC2 File Porter is able to port several Frostbite 1 files from console (PS3 & Xbox 360) to PC.\n\nNote: This tool is still WIP!\n\nSupported File Formats:\nps3texture, xenontexture, watermesh & visualwater\n\nSupport for the remaining terrain related files will follow soon.", "Info (Placeholder)");
+            MessageBox.Show("BFBC2 File Porter is able to port several Frostbite 1 files from console (PS3 & Xbox 360) to PC.\n\nNote: This tool is still WIP!\n\nSupported File Formats:\nterrainheightfield, watermesh, visualwater, ps3texture & xenontexture\n\nSupport for the remaining terrain related files will follow soon.", "Info (Placeholder)");
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
