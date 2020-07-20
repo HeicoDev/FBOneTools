@@ -144,6 +144,13 @@
                             <Run Text="RichTextBox"/>
                         </Paragraph>
                     </FlowDocument>
+                    <RichTextBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Command="Cut" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                            <MenuItem Command="Copy" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                            <MenuItem Command="Paste" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                        </ContextMenu>
+                    </RichTextBox.ContextMenu>
                 </RichTextBox>
                 <Grid x:Name="gridPreviewProp">
                     <Grid.ColumnDefinitions>
@@ -159,6 +166,13 @@
                                 <Run Text="RichTextBox"/>
                             </Paragraph>
                         </FlowDocument>
+                        <RichTextBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Command="Cut" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                                <MenuItem Command="Copy" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                                <MenuItem Command="Paste" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                            </ContextMenu>
+                        </RichTextBox.ContextMenu>
                     </RichTextBox>
                     <TextBox x:Name="txtPreview" Margin="0,4,0,0" TextWrapping="Wrap" Text="Preview" VerticalAlignment="Top" Background="#FF454545" BorderBrush="#FF454545" SelectionBrush="{x:Null}" Foreground="#FFE2E2E2" MinHeight="22" FontSize="11" Cursor="Arrow" Controls:ControlsHelper.FocusBorderBrush="#FF454545" Controls:ControlsHelper.MouseOverBorderBrush="#FF454545" UndoLimit="0" IsTabStop="False" AllowDrop="False" Focusable="False" IsReadOnly="True" IsUndoEnabled="False" Height="22"/>
                     <Frame x:Name="frame" Content="" Margin="0,31,0,27" Background="#FF454545" Foreground="{x:Null}"/>
