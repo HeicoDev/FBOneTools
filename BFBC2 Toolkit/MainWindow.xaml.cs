@@ -1051,13 +1051,15 @@ namespace BFBC2_Toolkit
 
             mediaElement.Volume = slider.Value;
            
+            //I should move this text editor stuff to XAML
             textEditor.TextArea.TextView.LinkTextForegroundBrush = Brushes.DodgerBlue;
+            textEditor.TextArea.SelectionBrush = Brushes.LightGray;            
+            textEditor.TextArea.SelectionForeground = Brushes.Black;
+            textEditor.TextArea.SelectionBorder.Brush = Brushes.Gray;
+            textEditor.TextArea.SelectionBorder.LineJoin = PenLineJoin.Bevel;
             textEditor.Options.EnableEmailHyperlinks = false;
             textEditor.Options.EnableHyperlinks = true;
             textEditor.Options.RequireControlModifierForHyperlinkClick = false;
-            //textEditor.Options.HighlightCurrentLine = true;
-            //textEditor.Options.ShowTabs = true;
-            //textEditor.Options.HideCursorWhileTyping = true;
 
             txtBoxEventLog.Document.Blocks.Clear();
             txtBoxInformation.Document.Blocks.Clear();
