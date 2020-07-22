@@ -11,7 +11,7 @@
   </p>  
 </div>
 
-# Description
+## Description
 
 For now you will need to build the tool on your own. A proper build will be released on [Nexus Mods](https://www.nexusmods.com/battlefieldbadcompany2/mods/) soon.
 
@@ -19,7 +19,7 @@ Note: The whole tool is still WIP so expect unfinished features, bugs and other 
 
 Features Preview: https://www.youtube.com/watch?v=-WeeXXNA87M
 
-# Supported File Formats
+## Supported File Formats
 
 * .fbrb - Extract & Archive
 * .dbx - Export & Import
@@ -35,7 +35,7 @@ Files that can be ported from console to PC via BFBC2 File Porter:
 * .visualwater
 * .ps3texture & .xenontexture (partially)
 
-# Build & Run Requirements
+## Build & Run Requirements
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/vs/older-downloads/)
 * [.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49982)
@@ -48,7 +48,7 @@ NuGet Packages:
 * [MahApps.Metro 1.6.5](https://www.nuget.org/packages/MahApps.Metro/1.6.5)
 * [ControlzEx 3.0.2.4](https://www.nuget.org/packages/ControlzEx/3.0.2.4)
 
-# Credits
+## Credits
 
 * Heico - Author of BFBC2 Toolkit
 * [Frankelstner](http://www.bfeditor.org/forums/index.php?/profile/6706-frankelstner/) - For his Python scripts that handle .fbrb & .dbx files. Without his work in the BF Community my tools would not be possible! 
@@ -61,7 +61,7 @@ NuGet Packages:
 * [DICE](https://www.dice.se/) & [EA](https://www.ea.com/) - For the Frostbite Engine and game series "Battlefield".
 * [Microsoft](https://www.microsoft.com/) - For the development environment "Visual Studio".
 
-# Disclaimer
+## Disclaimer
 
 I'm not affiliated, associated, authorized, endorsed by, or in any way officially connected with Electronic Arts or DICE, or any of its subsidiaries or its affiliates.
 The names Electronic Arts and DICE as well as related names, marks, emblems and images such as Battlefield are registered trademarks of their respective owners.
