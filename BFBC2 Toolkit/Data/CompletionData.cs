@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ICSharpCode.AvalonEdit.CodeCompletion;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Editing;
+using BFBC2_Toolkit.Functions;
 
 namespace BFBC2_Toolkit.Data
 {
@@ -50,41 +51,51 @@ namespace BFBC2_Toolkit.Data
     public class CompletionHandler
     {
         public static void HandleInput(string text)
-        {
-            //if (UIElements.CodeComWindow != null && !UIElements.CodeComWindow.CompletionList.ListBox.HasItems)
-            //    UIElements.CodeComWindow.Close();
-
-            if (text == "<" || text == "/")
+        {           
+            try
             {
-                UIElements.CodeComWindow = new CompletionWindow(UIElements.TextEditor.TextArea);
-                IList<ICompletionData> data = UIElements.CodeComWindow.CompletionList.CompletionData;
-                data.Add(new CompletionData("array", text));
-                data.Add(new CompletionData("complex", text));
-                data.Add(new CompletionData("field", text));
-                data.Add(new CompletionData("instance", text));
-                data.Add(new CompletionData("item", text));
-                data.Add(new CompletionData("partition", text));
-                UIElements.CodeComWindow.Show();
-                UIElements.CodeComWindow.Closed += delegate {
-                    UIElements.CodeComWindow = null;
-                };
+                if (text == "<" || text == "/")
+                {
+                    //if (UIElements.CodeComWindow != null && !UIElements.CodeComWindow.CompletionList.ListBox.HasItems)
+                    //    UIElements.CodeComWindow.Close();
+
+                    UIElements.CodeComWindow = new CompletionWindow(UIElements.TextEditor.TextArea);
+                    IList<ICompletionData> data = UIElements.CodeComWindow.CompletionList.CompletionData;
+                    data.Add(new CompletionData("array", text));
+                    data.Add(new CompletionData("complex", text));
+                    data.Add(new CompletionData("field", text));
+                    data.Add(new CompletionData("instance", text));
+                    data.Add(new CompletionData("item", text));
+                    data.Add(new CompletionData("partition", text));
+                    UIElements.CodeComWindow.Show();
+                    UIElements.CodeComWindow.Closed += delegate
+                    {
+                        UIElements.CodeComWindow = null;
+                    };
+                }
+
+                if (text == " ")
+                {
+                    UIElements.CodeComWindow = new CompletionWindow(UIElements.TextEditor.TextArea);
+                    IList<ICompletionData> data = UIElements.CodeComWindow.CompletionList.CompletionData;
+                    data.Add(new CompletionData("exportMode", text));
+                    data.Add(new CompletionData("guid", text));
+                    data.Add(new CompletionData("id", text));
+                    data.Add(new CompletionData("name", text));
+                    data.Add(new CompletionData("primaryInstance", text));
+                    data.Add(new CompletionData("ref", text));
+                    data.Add(new CompletionData("type", text));
+                    UIElements.CodeComWindow.Show();
+                    UIElements.CodeComWindow.Closed += delegate
+                    {
+                        UIElements.CodeComWindow = null;
+                    };
+                }
             }
-
-            if (text == " ")
+            catch (Exception ex)
             {
-                UIElements.CodeComWindow = new CompletionWindow(UIElements.TextEditor.TextArea);
-                IList<ICompletionData> data = UIElements.CodeComWindow.CompletionList.CompletionData;
-                data.Add(new CompletionData("exportMode", text));
-                data.Add(new CompletionData("guid", text));
-                data.Add(new CompletionData("id", text));
-                data.Add(new CompletionData("name", text));
-                data.Add(new CompletionData("primaryInstance", text));
-                data.Add(new CompletionData("ref", text));
-                data.Add(new CompletionData("type", text));
-                UIElements.CodeComWindow.Show();
-                UIElements.CodeComWindow.Closed += delegate {
-                    UIElements.CodeComWindow = null;
-                };
+                Write.ToErrorLog(ex);
+                Write.ToEventLog("Unable to open code completion window! See error.log", "Error");
             }
         }
     }

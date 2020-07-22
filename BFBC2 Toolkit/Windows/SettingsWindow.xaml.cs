@@ -25,6 +25,7 @@ namespace BFBC2_Toolkit.Windows
             chkBoxHideCursorWhileTyping.IsChecked = Settings.TxtEdHideCursorWhileTyping;
             chkBoxShowTabs.IsChecked = Settings.TxtEdShowTabs;
             chkBoxCodeFolding.IsChecked = Settings.TxtEdCodeFolding;
+            chkBoxCodeCompletion.IsChecked = Settings.TxtEdCodeCompletion;
         }
 
         private void ChkBoxHighlightSyntax_Checked(object sender, RoutedEventArgs e)
@@ -97,6 +98,16 @@ namespace BFBC2_Toolkit.Windows
             Settings.TxtEdCodeFolding = false;
         }
 
+        private void ChkBoxCodeCompletion_Checked(object sender, RoutedEventArgs e)
+        {
+            Settings.TxtEdCodeCompletion = true;
+        }
+
+        private void ChkBoxCodeCompletion_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Settings.TxtEdCodeCompletion = false;
+        }
+
         private void BtnSelectPathToPython_Click(object sender, RoutedEventArgs e)
         {
             string path = SettingsHandler.ChangePythonPath();
@@ -139,6 +150,6 @@ namespace BFBC2_Toolkit.Windows
             UIElements.TextEditor.Options.ShowTabs = Settings.TxtEdShowTabs;
 
             SettingsHandler.Save();
-        }       
+        }        
     }
 }
