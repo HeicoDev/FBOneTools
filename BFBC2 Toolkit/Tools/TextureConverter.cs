@@ -12,91 +12,84 @@ namespace BFBC2_Toolkit.Tools
     {
         public static void ConvertFile(string[] fileNames, bool copyToOutputFolder, bool isStandalone)
         {
-            try
+            foreach (string file in fileNames)
             {
-                foreach (string file in fileNames)
+                if (file.EndsWith(".dds"))
                 {
-                    if (file.EndsWith(".dds"))
+                    string fileName = Path.GetFileName(file.Replace(".dds", ".itexture")),
+                           fileLocation = file.Replace(".dds", ".itexture");
+
+                    if (copyToOutputFolder)
+                        fileLocation = Dirs.outputiTexture + @"\" + fileName;
+
+                    File.Copy(file, fileLocation, true);
+
+                    ConvertFileToITexture(fileLocation, isStandalone);
+                }
+                else if (file.EndsWith(".itexture"))
+                {
+                    string fileName = Path.GetFileName(file.Replace(".itexture", ".dds")),
+                           fileLocation = file.Replace(".itexture", ".dds");
+
+                    if (copyToOutputFolder)
+                        fileLocation = Dirs.outputDDS + @"\" + fileName;
+
+                    File.Copy(file, fileLocation, true);
+
+                    ConvertFileToDDS(fileLocation, isStandalone, false);
+                }
+                else if (file.EndsWith(".ps3texture"))
+                {
+                    string fileName = Path.GetFileName(file.Replace(".ps3texture", ".dds")),
+                           fileLocation = file.Replace(".ps3texture", ".dds");
+
+                    if (copyToOutputFolder)
+                        fileLocation = Dirs.outputDDS + @"\" + fileName;
+
+                    File.Copy(file, fileLocation, true);
+
+                    ConvertFileToDDS(fileLocation, isStandalone, true);
+                }
+                else if (file.EndsWith(".xenontexture"))
+                {
+                    string fileName = Path.GetFileName(file.Replace(".xenontexture", ".dds")),
+                           fileLocation = file.Replace(".xenontexture", ".dds");
+
+                    if (copyToOutputFolder)
+                        fileLocation = Dirs.outputDDS + @"\" + fileName;
+
+                    File.Copy(file, fileLocation, true);
+
+                    ConvertFileToDDS(fileLocation, isStandalone, true);
+                }
+                else if (file.EndsWith(".terrainheightfield"))
+                {
+                    string fileName = Path.GetFileName(file.Replace(".terrainheightfield", ".raw")),
+                           fileLocation = file.Replace(".terrainheightfield", ".raw");
+
+                    if (copyToOutputFolder)
+                        fileLocation = Dirs.outputHeightmap + @"\" + fileName;
+
+                    File.Copy(file, fileLocation, true);
+
+                    byte[] hexMain = { };
+
+                    using (var br = new BinaryReader(File.OpenRead(fileLocation)))
+                        hexMain = br.ReadBytes(Convert.ToInt32(br.BaseStream.Length));
+
+                    int headerLength = 49;
+
+                    if (hexMain[0] != 0)
+                        headerLength = 45;
+
+                    hexMain = hexMain.Skip(headerLength).ToArray();
+
+                    using (var bw = new BinaryWriter(File.OpenWrite(fileLocation)))
                     {
-                        string fileName = Path.GetFileName(file.Replace(".dds", ".itexture")),
-                               fileLocation = file.Replace(".dds", ".itexture");
-
-                        if (copyToOutputFolder)
-                            fileLocation = Dirs.outputiTexture + @"\" + fileName;
-
-                        File.Copy(file, fileLocation, true);
-
-                        ConvertFileToITexture(fileLocation, isStandalone);
-                    }
-                    else if (file.EndsWith(".itexture"))
-                    {
-                        string fileName = Path.GetFileName(file.Replace(".itexture", ".dds")),
-                               fileLocation = file.Replace(".itexture", ".dds");
-
-                        if (copyToOutputFolder)
-                            fileLocation = Dirs.outputDDS + @"\" + fileName;
-
-                        File.Copy(file, fileLocation, true);
-
-                        ConvertFileToDDS(fileLocation, isStandalone, false);
-                    }
-                    else if (file.EndsWith(".ps3texture"))
-                    {
-                        string fileName = Path.GetFileName(file.Replace(".ps3texture", ".dds")),
-                               fileLocation = file.Replace(".ps3texture", ".dds");
-
-                        if (copyToOutputFolder)
-                            fileLocation = Dirs.outputDDS + @"\" + fileName;
-
-                        File.Copy(file, fileLocation, true);
-
-                        ConvertFileToDDS(fileLocation, isStandalone, true);
-                    }
-                    else if (file.EndsWith(".xenontexture"))
-                    {
-                        string fileName = Path.GetFileName(file.Replace(".xenontexture", ".dds")),
-                               fileLocation = file.Replace(".xenontexture", ".dds");
-
-                        if (copyToOutputFolder)
-                            fileLocation = Dirs.outputDDS + @"\" + fileName;
-
-                        File.Copy(file, fileLocation, true);
-
-                        ConvertFileToDDS(fileLocation, isStandalone, true);
-                    }
-                    else if (file.EndsWith(".terrainheightfield"))
-                    {
-                        string fileName = Path.GetFileName(file.Replace(".terrainheightfield", ".raw")),
-                               fileLocation = file.Replace(".terrainheightfield", ".raw");
-
-                        if (copyToOutputFolder)
-                            fileLocation = Dirs.outputHeightmap + @"\" + fileName;
-
-                        File.Copy(file, fileLocation, true);
-
-                        byte[] hexMain = { };
-
-                        using (var br = new BinaryReader(File.OpenRead(fileLocation)))
-                            hexMain = br.ReadBytes(Convert.ToInt32(br.BaseStream.Length));
-
-                        int headerLength = 49;
-
-                        if (hexMain[0] != 0)
-                            headerLength = 45;
-
-                        hexMain = hexMain.Skip(headerLength).ToArray();
-
-                        using (var bw = new BinaryWriter(File.OpenWrite(fileLocation)))
-                        {
-                            bw.BaseStream.Position = 0x0;
-                            bw.Write(hexMain);
-                        }
+                        bw.BaseStream.Position = 0x0;
+                        bw.Write(hexMain);
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Error");
             }
         }
 

@@ -14,7 +14,7 @@ namespace BFBC2_Toolkit.Functions
             using (StreamWriter sw = new StreamWriter(Dirs.errorLog, true))
             {
                 sw.WriteLine("#Error Log**************************Error Log**************************Error Log#");
-                sw.WriteLine("Name: BFBC2 Mod Loader");
+                sw.WriteLine("Name: BFBC2 Toolkit");
                 sw.WriteLine("Ver: " + Vars.VersionClient);
                 sw.WriteLine("Date: " + DateTime.Now);
                 sw.WriteLine("Error: " + ex);

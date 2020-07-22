@@ -51,9 +51,9 @@ namespace BFBC2_Toolkit
             #endif
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            InitializeStartup();
+            await InitializeStartup();
         }
 
         private void MainWindow_StateChanged(object sender, EventArgs e)
@@ -1008,7 +1008,7 @@ namespace BFBC2_Toolkit
             }
         }
 
-        private void InitializeStartup()
+        private async Task InitializeStartup()
         {
             if (!File.Exists(Settings.PathToPython))
             {
@@ -1028,10 +1028,19 @@ namespace BFBC2_Toolkit
                 }
             }
 
-            Create.PrecreateDirs();
-            Create.ConfigFiles();
-            CleanUp.StartUp();
-            SettingsHandler.Load();
+            try
+            {
+                await Task.Run(() => Create.PrecreateDirs());
+                await Task.Run(() => Create.ConfigFiles());
+                await Task.Run(() => CleanUp.StartUp());
+                SettingsHandler.Load();
+            }
+            catch (Exception ex)
+            {
+                Write.ToErrorLog(ex);
+                MessageBox.Show("Unable to initialize startup! See error.log\nPress 'OK' to close the app.", "Error");
+                Environment.Exit(0);
+            }
 
             UIElements.TxtBoxEventLog = txtBoxEventLog;
             UIElements.TxtBoxInformation = txtBoxInformation;

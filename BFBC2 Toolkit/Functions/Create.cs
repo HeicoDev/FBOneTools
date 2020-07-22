@@ -11,56 +11,40 @@ namespace BFBC2_Toolkit.Functions
     {
         public static void PrecreateDirs()
         {
-            try
-            {
-                Directory.CreateDirectory(Dirs.games);
-                Directory.CreateDirectory(Dirs.logs);
-                Directory.CreateDirectory(Dirs.projects);
-                Directory.CreateDirectory(Dirs.output);
-                Directory.CreateDirectory(Dirs.outputDDS);
-                Directory.CreateDirectory(Dirs.outputHeightmap);
-                Directory.CreateDirectory(Dirs.outputiTexture);
-                Directory.CreateDirectory(Dirs.outputMods);
-                Directory.CreateDirectory(Dirs.outputVideo);
-                Directory.CreateDirectory(Dirs.outputXML);
-                Directory.CreateDirectory(Dirs.outputSwfMovie);
-            }
-            catch (Exception ex)
-            {
-                Write.ToErrorLog(ex);
-                MessageBox.Show("Unable to precreate dirs! See error.log", "error");
-            }
+            Directory.CreateDirectory(Dirs.games);
+            Directory.CreateDirectory(Dirs.logs);
+            Directory.CreateDirectory(Dirs.projects);
+            Directory.CreateDirectory(Dirs.output);
+            Directory.CreateDirectory(Dirs.outputDDS);
+            Directory.CreateDirectory(Dirs.outputHeightmap);
+            Directory.CreateDirectory(Dirs.outputiTexture);
+            Directory.CreateDirectory(Dirs.outputMods);
+            Directory.CreateDirectory(Dirs.outputVideo);
+            Directory.CreateDirectory(Dirs.outputXML);
+            Directory.CreateDirectory(Dirs.outputSwfMovie);
         }
 
         public static void ConfigFiles()
         {
-            try
+            if (!File.Exists(Dirs.configGames))
             {
-                if (!File.Exists(Dirs.configGames))
-                {
-                    var xmlDoc = new XmlDocument();
-                    xmlDoc.LoadXml("<Games>" +
-                                   "</Games>");
+                var xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml("<Games>" +
+                               "</Games>");
 
-                    File.WriteAllText(Dirs.configGames, IndentXml(xmlDoc));
-                }
-
-                if (!File.Exists(Dirs.configSettings))
-                {
-                    var xmlDoc = new XmlDocument();
-                    xmlDoc.LoadXml("<Settings>" +
-                                   "</Settings>");
-
-                    File.WriteAllText(Dirs.configSettings, IndentXml(xmlDoc));
-                }
-
-                CreateSettingsTemplate();
+                File.WriteAllText(Dirs.configGames, IndentXml(xmlDoc));
             }
-            catch (Exception ex)
+
+            if (!File.Exists(Dirs.configSettings))
             {
-                Write.ToErrorLog(ex);
-                MessageBox.Show("Unable to create config files! See error.log", "error");
+                var xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml("<Settings>" +
+                               "</Settings>");
+
+                File.WriteAllText(Dirs.configSettings, IndentXml(xmlDoc));
             }
+
+            CreateSettingsTemplate();
         }
 
         private static void CreateSettingsTemplate()

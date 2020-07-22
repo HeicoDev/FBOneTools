@@ -8,74 +8,50 @@ namespace BFBC2_Toolkit.Functions
     {
         public static void FilesAndDirs(string path)
         {
-            try
+            var directories = Directory.EnumerateDirectories(path);
+
+            foreach (string directory in directories)
             {
-                var directories = Directory.EnumerateDirectories(path);
+                var files = Directory.EnumerateFiles(directory, "*.xml", SearchOption.AllDirectories);
+                var files1 = Directory.EnumerateFiles(directory, "*.dds", SearchOption.AllDirectories);
+                var files2 = Directory.EnumerateFiles(directory, "*.raw", SearchOption.AllDirectories);
+                var files3 = Directory.EnumerateFiles(directory, "*.bik", SearchOption.AllDirectories);
 
-                foreach (string directory in directories)
-                {
-                    var files = Directory.EnumerateFiles(directory, "*.xml", SearchOption.AllDirectories);
-                    var files1 = Directory.EnumerateFiles(directory, "*.dds", SearchOption.AllDirectories);
-                    var files2 = Directory.EnumerateFiles(directory, "*.raw", SearchOption.AllDirectories);
-                    var files3 = Directory.EnumerateFiles(directory, "*.bik", SearchOption.AllDirectories);
+                foreach (string file in files)
+                    File.Delete(file);
 
-                    foreach (string file in files)
-                        File.Delete(file);
+                foreach (string file1 in files1)
+                    File.Delete(file1);
 
-                    foreach (string file1 in files1)
-                        File.Delete(file1);
+                foreach (string file2 in files2)
+                    File.Delete(file2);
 
-                    foreach (string file2 in files2)
-                        File.Delete(file2);
-
-                    foreach (string file3 in files3)
-                        File.Delete(file3);
-                }
-
-                DeleteEmptyFolders(path);
+                foreach (string file3 in files3)
+                    File.Delete(file3);
             }
-            catch (Exception ex)
-            {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to clean up files and dirs! See error.log", "error");
-            }
+
+            DeleteEmptyFolders(path);
         }
 
         private static void DeleteEmptyFolders(string path)
         {
-            try
-            {
-                var directories = Directory.EnumerateDirectories(path);
+            var directories = Directory.EnumerateDirectories(path);
 
-                foreach (string directory in directories)
+            foreach (string directory in directories)
+            {
+                DeleteEmptyFolders(directory);
+
+                if (Directory.GetFiles(directory).Length == 0 && Directory.GetDirectories(directory).Length == 0)
                 {
-                    DeleteEmptyFolders(directory);
-
-                    if (Directory.GetFiles(directory).Length == 0 && Directory.GetDirectories(directory).Length == 0)
-                    {
-                        Directory.Delete(directory, false);
-                    }
+                    Directory.Delete(directory, false);
                 }
-            }
-            catch (Exception ex)
-            {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to delete empty folders! See error.log", "error");
             }
         }
 
         public static void StartUp()
         {
-            try
-            {
-                if (File.Exists(Dirs.errorLog))
-                    File.Delete(Dirs.errorLog);
-            }
-            catch (Exception ex)
-            {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to do initial cleanup! See error.log", "error");
-            }
+            if (File.Exists(Dirs.errorLog))
+                File.Delete(Dirs.errorLog);
         }
     }
 }

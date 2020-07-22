@@ -66,7 +66,7 @@ namespace BFBC2_Toolkit.Data
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to save settings! See error.log", "error");
+                Write.ToEventLog("Unable to save settings! See error.log", "Error");
             }
         }
 
@@ -112,7 +112,7 @@ namespace BFBC2_Toolkit.Data
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
-                MessageBox.Show("Unable to load settings! See error.log", "error");
+                MessageBox.Show("Unable to load settings! See error.log", "Error");
             }
         }
 
