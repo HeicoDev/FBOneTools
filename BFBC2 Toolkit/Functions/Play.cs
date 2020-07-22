@@ -9,10 +9,10 @@ namespace BFBC2_Toolkit.Functions
         {
             try
             {
-                Elements.MediaElement.Stop();
-                Elements.MediaElement.Close();
-                Elements.MediaElement.Source = new Uri(path);
-                Elements.MediaElement.Play();
+                UIElements.MediaElement.Stop();
+                UIElements.MediaElement.Close();
+                UIElements.MediaElement.Source = new Uri(path);
+                UIElements.MediaElement.Play();
             }
             catch
             {

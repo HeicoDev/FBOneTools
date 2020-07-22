@@ -130,13 +130,13 @@ namespace BFBC2_Toolkit.Windows
         private void SaveSettings()
         {
             if (!Settings.TxtEdHighlightSyntax)
-                Elements.TextEditor.SyntaxHighlighting = null;
+                UIElements.TextEditor.SyntaxHighlighting = null;
 
-            Elements.TextEditor.Options.HighlightCurrentLine = Settings.TxtEdHighlightCurrentLine;
-            Elements.TextEditor.ShowLineNumbers = Settings.TxtEdShowLineNumbers;
-            Elements.TextEditor.Options.EnableHyperlinks = Settings.TxtEdClickableHyperlinks;
-            Elements.TextEditor.Options.HideCursorWhileTyping = Settings.TxtEdHideCursorWhileTyping;
-            Elements.TextEditor.Options.ShowTabs = Settings.TxtEdShowTabs;
+            UIElements.TextEditor.Options.HighlightCurrentLine = Settings.TxtEdHighlightCurrentLine;
+            UIElements.TextEditor.ShowLineNumbers = Settings.TxtEdShowLineNumbers;
+            UIElements.TextEditor.Options.EnableHyperlinks = Settings.TxtEdClickableHyperlinks;
+            UIElements.TextEditor.Options.HideCursorWhileTyping = Settings.TxtEdHideCursorWhileTyping;
+            UIElements.TextEditor.Options.ShowTabs = Settings.TxtEdShowTabs;
 
             SettingsHandler.Save();
         }       

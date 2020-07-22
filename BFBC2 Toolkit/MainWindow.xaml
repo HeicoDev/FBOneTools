@@ -49,7 +49,6 @@
             <Button x:Name="btnSettings" BorderBrush="#FF707070" Background="#FF454545" Content="Settings" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="21" Margin="2,-2,0,-2" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="54" ToolTip="Open settings window" Click="BtnSettings_Click"/>
         </ToolBar>
         <Controls:ProgressRing x:Name="progressRing" Foreground="#FFE2E2E2" Height="19" Margin="0,5,10,0" Width="19" VerticalAlignment="Top" HorizontalAlignment="Right" MinHeight="19" MinWidth="19" IsActive="False"/>
-        <!--MediaElement x:Name="mediaElement" Margin="6,441,416,-233" ScrollViewer.VerticalScrollBarVisibility="Disabled" StretchDirection="DownOnly" UnloadedBehavior="Manual" LoadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded"/-->
         <Grid x:Name="gridMainElements" Margin="0,26,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="229*" MinWidth="160" />
@@ -80,7 +79,6 @@
                         </HierarchicalDataTemplate>
                     </TreeView.ItemTemplate>
                 </TreeView>
-
                 <TextBox x:Name="txtModExplorer" Height="22" Margin="7,0,0,0" TextWrapping="Wrap" Text="Mod Explorer" VerticalAlignment="Top" Background="#FF454545" BorderBrush="#FF454545" SelectionBrush="{x:Null}" Foreground="#FFE2E2E2" MinHeight="22" FontSize="11" Cursor="Arrow" Controls:ControlsHelper.FocusBorderBrush="#FF454545" Controls:ControlsHelper.MouseOverBorderBrush="#FF454545" UndoLimit="0" IsTabStop="False" AllowDrop="False" Focusable="False" IsReadOnly="True" IsUndoEnabled="False" MinWidth="178" Grid.Row="2"/>
                 <Button x:Name="btnModRefresh" BorderBrush="#FF707070" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Style="{DynamicResource ButtonStyle1}" VerticalContentAlignment="Center" Width="22" Height="22" VerticalAlignment="Top" Click="BtnModRefresh_Click" ToolTip="Refresh mod explorer" Grid.Row="2">
                     <StackPanel>
@@ -217,7 +215,7 @@
                         </StackPanel>
                     </Button>
                     <Slider x:Name="slider" HorizontalAlignment="Right" Margin="0,6,-315,0" VerticalAlignment="Top" Height="21" Width="100" BorderBrush="#FFE2E2E2" Foreground="#FFD8D8D8" Background="{x:Null}" Controls:SliderHelper.EnableMouseWheel="MouseHover" Controls:SliderHelper.ThumbFillBrush="#FF919191" Controls:SliderHelper.ThumbFillHoverBrush="#FFD4D4D4" Controls:SliderHelper.TrackFillBrush="#FF707070" Controls:SliderHelper.TrackFillHoverBrush="#FF707070" Controls:SliderHelper.TrackFillPressedBrush="#FF707070" Controls:SliderHelper.TrackFillDisabledBrush="#FF707070" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" Controls:SliderHelper.TrackValueFillBrush="#FFD4D4D4" Controls:SliderHelper.TrackValueFillDisabledBrush="#FFD4D4D4" Controls:SliderHelper.TrackValueFillHoverBrush="#FFD4D4D4" Controls:SliderHelper.TrackValueFillPressedBrush="#FFD4D4D4" ValueChanged="Slider_ValueChanged" Value="0.5" LargeChange="0.1" Maximum="1" SmallChange="0.05" ToolTip="Volume" Grid.Column="0"/>
-                    <avalonedit:TextEditor x:Name="textEditor" SyntaxHighlighting="XML" Margin="650,111,-500,97" Foreground="#FFE2E2E2" Background="#FF454545" FontSize="11" HorizontalScrollBarVisibility="Auto" ShowLineNumbers="True" VerticalScrollBarVisibility="Auto" LineNumbersForeground="#FFE2E2E2" TextChanged="XMLEditor_TextChanged">
+                    <avalonedit:TextEditor x:Name="textEditor" SyntaxHighlighting="XML" Margin="650,111,-500,97" Foreground="#FFE2E2E2" Background="#FF454545" FontSize="11" HorizontalScrollBarVisibility="Auto" ShowLineNumbers="True" VerticalScrollBarVisibility="Auto" LineNumbersForeground="#FFE2E2E2" TextChanged="TextEditor_TextChanged">
                         <avalonedit:TextEditor.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Command="Cut" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />

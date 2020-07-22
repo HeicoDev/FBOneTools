@@ -5,6 +5,7 @@ using System.Windows;
 using System.Threading.Tasks;
 using Microsoft.Win32;
 using BFBC2_Toolkit.Data;
+using BFBC2_Toolkit.Helpers;
 
 namespace BFBC2_Toolkit.Functions
 {
@@ -22,7 +23,7 @@ namespace BFBC2_Toolkit.Functions
 
                 Dirs.ModName = iniFile.Read("Name", "ModInfo");
 
-                Tree.Populate(Elements.TreeViewModExplorer, Dirs.FilesPathMod);
+                Tree.Populate(UIElements.TreeViewModExplorer, Dirs.FilesPathMod);
 
                 Vars.IsModAvailable = true;
             }
@@ -87,7 +88,7 @@ namespace BFBC2_Toolkit.Functions
                             if (File.Exists(tempFile))
                                 await Task.Run(() => File.Delete(tempFile));
 
-                            Tree.Populate(Elements.TreeViewModExplorer, path);
+                            Tree.Populate(UIElements.TreeViewModExplorer, path);
 
                             Dirs.FilesPathMod = path;
                             Dirs.ModName = name;

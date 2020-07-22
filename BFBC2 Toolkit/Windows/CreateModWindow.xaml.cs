@@ -53,7 +53,7 @@ namespace BFBC2_Toolkit
 
                 Vars.IsModAvailable = true;
 
-                Tree.Populate(Elements.TreeViewModExplorer, projectPath);
+                Tree.Populate(UIElements.TreeViewModExplorer, projectPath);
 
                 Close();
             }

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using Microsoft.Win32;
 using BFBC2_Toolkit.Data;
+using BFBC2_Toolkit.Helpers;
 
 namespace BFBC2_Toolkit.Functions
 {
@@ -27,7 +28,7 @@ namespace BFBC2_Toolkit.Functions
 
                 await Task.Run(() => CleanUp.FilesAndDirs(Dirs.FilesPathData));
 
-                Tree.Populate(Elements.TreeViewDataExplorer, Dirs.FilesPathData);
+                Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.FilesPathData);
 
                 Vars.IsDataAvailable = true;
                 Vars.IsGameProfile = false;

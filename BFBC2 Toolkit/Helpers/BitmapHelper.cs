@@ -1,10 +1,9 @@
 ﻿using System.IO;
 using System.Windows.Media.Imaging;
-using BFBC2_Toolkit.Data;
 
-namespace BFBC2_Toolkit.Functions
+namespace BFBC2_Toolkit.Helpers
 {
-    public class Bitmap
+    public class BitmapHelper
     {
         public static BitmapImage LoadImage(string filePath)
         {

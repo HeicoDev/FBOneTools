@@ -8,11 +8,11 @@ using System.Windows;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
 [assembly: AssemblyTitle("BFBC2 Toolkit")]
-[assembly: AssemblyDescription("BFBC2 Toolkit")]
+[assembly: AssemblyDescription("Licensed under GNU GPLv3")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Nico Hellmund aka Heico")]
 [assembly: AssemblyProduct("BFBC2 Toolkit")]
-[assembly: AssemblyCopyright("Licensed under GNU GPLv3")]
+[assembly: AssemblyCopyright("(c) 2020 Nico Hellmund")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

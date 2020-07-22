@@ -117,11 +117,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\Bindings.cs" />
-    <Compile Include="Data\Elements.cs" />
+    <Compile Include="Data\CompletionData.cs" />
+    <Compile Include="Data\UIElements.cs" />
     <Compile Include="Data\Settings.cs" />
-    <Compile Include="Functions\Bitmap.cs" />
+    <Compile Include="Helpers\BitmapHelper.cs" />
     <Compile Include="Functions\Create.cs" />
-    <Compile Include="Functions\MediaStream.cs" />
+    <Compile Include="Helpers\MediaStreamHelper.cs" />
     <Compile Include="Data\Vars.cs" />
     <Compile Include="Functions\Fbrb.cs" />
     <Compile Include="Functions\Mod.cs" />
@@ -222,6 +223,27 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="BFBC2Toolkit\Docs\Credits.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BFBC2Toolkit\Docs\Licenses\AvalonEdit.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BFBC2Toolkit\Docs\Licenses\BFBC2Toolkit.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BFBC2Toolkit\Docs\Licenses\ControlzEx.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BFBC2Toolkit\Docs\Licenses\Icons8.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BFBC2Toolkit\Docs\Licenses\MahApps.Metro.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BFBC2Toolkit\Docs\ReadMe.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="BFBC2Toolkit\Scripts\fbrb.pyw">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

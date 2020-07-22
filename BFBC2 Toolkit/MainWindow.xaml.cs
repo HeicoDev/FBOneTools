@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Xml;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -7,17 +8,19 @@ using System.Windows.Media;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Diagnostics;
-using System.Xml;
 using Microsoft.Win32;
 using Microsoft.VisualBasic.FileIO;
 using MahApps.Metro.Controls;
+using ICSharpCode.AvalonEdit.Highlighting;
+using ICSharpCode.AvalonEdit.Highlighting.Xshd;
+using ICSharpCode.AvalonEdit.CodeCompletion;
+using ICSharpCode.AvalonEdit.Folding;
+using BFBC2_Toolkit.Windows;
 using BFBC2_Toolkit.Data;
 using BFBC2_Toolkit.Functions;
 using BFBC2_Toolkit.Tools;
-using BFBC2_Toolkit.Windows;
-using ICSharpCode.AvalonEdit.Highlighting;
-using ICSharpCode.AvalonEdit.Highlighting.Xshd;
-using ICSharpCode.AvalonEdit.Folding;
+using BFBC2_Toolkit.Helpers;
+using System.Collections.Generic;
 
 /// <summary>
 /// BFBC2 Toolkit 
@@ -36,6 +39,9 @@ namespace BFBC2_Toolkit
         public MainWindow()
         {
             InitializeComponent();
+
+            textEditor.TextArea.TextEntering += TextEditor_TextEntering;
+            textEditor.TextArea.TextEntered += TextEditor_TextEntered;
 
             #if DEBUG
             AppDomain.CurrentDomain.UnhandledException += (sender, arguments) =>
@@ -422,7 +428,7 @@ namespace BFBC2_Toolkit
 
                         try
                         {
-                            image.Source = Bitmap.LoadImage(selectedFilePath.Replace(".itexture", ".dds"));
+                            image.Source = BitmapHelper.LoadImage(selectedFilePath.Replace(".itexture", ".dds"));
                         }
                         catch
                         {
@@ -443,7 +449,7 @@ namespace BFBC2_Toolkit
 
                         try
                         {
-                            image.Source = Bitmap.LoadImage(selectedFilePath.Replace(".ps3texture", ".dds"));
+                            image.Source = BitmapHelper.LoadImage(selectedFilePath.Replace(".ps3texture", ".dds"));
                         }
                         catch
                         {
@@ -464,7 +470,7 @@ namespace BFBC2_Toolkit
 
                         try
                         {
-                            image.Source = Bitmap.LoadImage(selectedFilePath.Replace(".xenontexture", ".dds"));
+                            image.Source = BitmapHelper.LoadImage(selectedFilePath.Replace(".xenontexture", ".dds"));
                         }
                         catch
                         {
@@ -736,7 +742,25 @@ namespace BFBC2_Toolkit
             e.Handled = true;
         }
 
-        private void XMLEditor_TextChanged(object sender, EventArgs e)
+        private void TextEditor_TextEntering(object sender, TextCompositionEventArgs e)
+        {
+            if (e.Text.Length > 0 && UIElements.CodeComWindow != null)
+            {
+                if (!char.IsLetterOrDigit(e.Text[0]))
+                {
+                    // Whenever a non-letter is typed while the completion window is open,
+                    // insert the currently selected element.
+                    //UIElements.CodeComWindow.CompletionList.RequestInsertion(e);
+                }
+            }
+        }
+
+        private void TextEditor_TextEntered(object sender, TextCompositionEventArgs e)
+        {            
+            CompletionHandler.HandleInput(e.Text);
+        }
+
+        private void TextEditor_TextChanged(object sender, EventArgs e)
         {
             /*if (Vars.isDataTreeView == false || Vars.isGame == false)
                 btnSave.IsEnabled = true;
@@ -1009,13 +1033,13 @@ namespace BFBC2_Toolkit
             CleanUp.StartUp();
             SettingsHandler.Load();
 
-            Elements.TxtBoxEventLog = txtBoxEventLog;
-            Elements.TxtBoxInformation = txtBoxInformation;
-            Elements.TextEditor = textEditor;
-            Elements.TreeViewDataExplorer = treeViewDataExplorer;
-            Elements.TreeViewModExplorer = treeViewModExplorer;
-            Elements.MediaElement = mediaElement;
-            Elements.ImageElement = image;
+            UIElements.TxtBoxEventLog = txtBoxEventLog;
+            UIElements.TxtBoxInformation = txtBoxInformation;
+            UIElements.TextEditor = textEditor;
+            UIElements.TreeViewDataExplorer = treeViewDataExplorer;
+            UIElements.TreeViewModExplorer = treeViewModExplorer;
+            UIElements.MediaElement = mediaElement;
+            UIElements.ImageElement = image;
 
             Vars.SetFbrbFiles();
 
@@ -1053,8 +1077,7 @@ namespace BFBC2_Toolkit
            
             //I should move this text editor stuff to XAML
             textEditor.TextArea.TextView.LinkTextForegroundBrush = Brushes.DodgerBlue;
-            textEditor.TextArea.SelectionBrush = Brushes.LightGray;            
-            textEditor.TextArea.SelectionForeground = Brushes.Black;
+            textEditor.TextArea.SelectionBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF686868"));
             textEditor.TextArea.SelectionBorder.Brush = Brushes.Gray;
             textEditor.TextArea.SelectionBorder.LineJoin = PenLineJoin.Bevel;
             textEditor.Options.EnableEmailHyperlinks = false;
@@ -1079,7 +1102,7 @@ namespace BFBC2_Toolkit
 
             gridPreviewProp.ColumnDefinitions[0].Width = new GridLength(500, GridUnitType.Star);
             gridPreviewProp.ColumnDefinitions[2].Width = new GridLength(182, GridUnitType.Star);
-        }        
+        }       
     }
 }
 

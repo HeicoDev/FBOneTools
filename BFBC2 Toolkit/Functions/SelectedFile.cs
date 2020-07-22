@@ -8,6 +8,7 @@ using Microsoft.VisualBasic.FileIO;
 using Microsoft.Win32;
 using BFBC2_Toolkit.Data;
 using BFBC2_Toolkit.Tools;
+using BFBC2_Toolkit.Helpers;
 
 namespace BFBC2_Toolkit.Functions
 {
@@ -108,14 +109,14 @@ namespace BFBC2_Toolkit.Functions
                     selectedFilePath = Dirs.SelectedFilePathData;
 
                     if (ctvi != null)
-                        ctvi = Elements.TreeViewDataExplorer.SelectedItem as CustomTreeViewItem;
+                        ctvi = UIElements.TreeViewDataExplorer.SelectedItem as CustomTreeViewItem;
                 }
                 else
                 {
                     selectedFilePath = Dirs.SelectedFilePathMod;
 
                     if (ctvi != null)
-                        ctvi = Elements.TreeViewModExplorer.SelectedItem as CustomTreeViewItem;
+                        ctvi = UIElements.TreeViewModExplorer.SelectedItem as CustomTreeViewItem;
                 }
 
                 if (selectedFilePath.EndsWith(".dbx"))
@@ -138,8 +139,8 @@ namespace BFBC2_Toolkit.Functions
                         var process = Process.Start(Settings.PathToPython, "\"" + Dirs.scriptDBX + "\" \"" + path.Replace(@"\", @"\\") + "\"");
                         await Task.Run(() => process.WaitForExit());
 
-                        Elements.TextEditor.Text = await Task.Run(() => File.ReadAllText(path));
-                        Elements.TextEditor.ScrollToHome();
+                        UIElements.TextEditor.Text = await Task.Run(() => File.ReadAllText(path));
+                        UIElements.TextEditor.ScrollToHome();
 
                         Write.ToEventLog("", "done");
                     }
@@ -167,11 +168,11 @@ namespace BFBC2_Toolkit.Functions
 
                         try
                         {
-                            Elements.ImageElement.Source = Bitmap.LoadImage(path);
+                            UIElements.ImageElement.Source = BitmapHelper.LoadImage(path);
                         }
                         catch
                         {
-                            Elements.ImageElement.Visibility = Visibility.Hidden;
+                            UIElements.ImageElement.Visibility = Visibility.Hidden;
 
                             Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
                         }
@@ -228,11 +229,11 @@ namespace BFBC2_Toolkit.Functions
                 {
                     if (!Vars.IsGameProfile)
                     {
-                        if (Elements.TreeViewDataExplorer.SelectedItem != null)
+                        if (UIElements.TreeViewDataExplorer.SelectedItem != null)
                         {
                             await Task.Run(() => File.Delete(Dirs.SelectedFilePathData));
 
-                            var item = Elements.TreeViewDataExplorer.SelectedItem as CustomTreeViewItem;
+                            var item = UIElements.TreeViewDataExplorer.SelectedItem as CustomTreeViewItem;
                             var parent = item.ParentItem;
 
                             parent.Items.Remove(item);
@@ -245,11 +246,11 @@ namespace BFBC2_Toolkit.Functions
                 }
                 else if (explorer == "mod")
                 {
-                    if (Elements.TreeViewModExplorer.SelectedItem != null)
+                    if (UIElements.TreeViewModExplorer.SelectedItem != null)
                     {
                         await Task.Run(() => File.Delete(Dirs.SelectedFilePathMod));
 
-                        var item = Elements.TreeViewModExplorer.SelectedItem as CustomTreeViewItem;
+                        var item = UIElements.TreeViewModExplorer.SelectedItem as CustomTreeViewItem;
                         var parent = item.ParentItem;
 
                         parent.Items.Remove(item);
@@ -301,7 +302,7 @@ namespace BFBC2_Toolkit.Functions
                     MessageBox.Show("Unable to locate the original file!\nOpen the correct game profile or fbrb archive.", "Error!");
                 }
 
-                var item = Elements.TreeViewModExplorer.SelectedItem as CustomTreeViewItem;
+                var item = UIElements.TreeViewModExplorer.SelectedItem as CustomTreeViewItem;
 
                 item.IsSelected = false;
                 item.IsSelected = true;
@@ -354,7 +355,7 @@ namespace BFBC2_Toolkit.Functions
 
                 await Task.Run(() => File.Copy(Dirs.SelectedFilePathData, filePathMod));
 
-                Tree.Populate(Elements.TreeViewModExplorer, Dirs.FilesPathMod);
+                Tree.Populate(UIElements.TreeViewModExplorer, Dirs.FilesPathMod);
             }
             catch (Exception ex)
             {
@@ -370,9 +371,9 @@ namespace BFBC2_Toolkit.Functions
                 string selectedFilePath = "",
                        selectedFileName = "";
 
-                Elements.MediaElement.Stop();
-                Elements.MediaElement.Close();
-                Elements.MediaElement.Source = null;
+                UIElements.MediaElement.Stop();
+                UIElements.MediaElement.Close();
+                UIElements.MediaElement.Source = null;
 
                 if (Vars.IsDataTreeView)
                 {

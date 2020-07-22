@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace BFBC2_Toolkit
+namespace BFBC2_Toolkit.Helpers
 {
     public static class TreeViewItemHelper
     {

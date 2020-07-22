@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using System.Diagnostics;
+using MahApps.Metro.Controls;
 using BFBC2_Toolkit.Data;
 
 namespace BFBC2_Toolkit.Windows
@@ -13,6 +14,11 @@ namespace BFBC2_Toolkit.Windows
         private void InfoWindow_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             lblName.Content = "BFBC2 Toolkit " + Vars.VersionClient;
+        }
+
+        private void BtnCredits_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Process.Start(Dirs.docs);
         }
     }
 }

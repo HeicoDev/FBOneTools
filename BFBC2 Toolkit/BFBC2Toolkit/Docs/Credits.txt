@@ -1,0 +1,15 @@
+*BFBC2 Toolkit*
+
+//Credits
+
+-Frankelstner﻿ for his Python script which packs the .fbrb archive. Without his work in the BF Community "BFBC2 Toolkit" would not be possible! 
+-Napisal﻿ & bad .baubau﻿ for all the time they invested to figure out how Frostbite works. Without them I would not even know about BFBC2 modding.
+-Danny Beckett﻿ for providing the code of his IniFile﻿ class, which my tool uses to handle ini files.
+-Icons8﻿ for providing several icons, which my tool uses for some buttons.*
+-MahApps.Metro﻿ library © Copyright 2019 MahApps﻿ (license﻿)*
+-ControlzEx﻿ library © Copyright 2015-2019 Jan Karger, Bastian Schmidt (license﻿)*
+-AvalonEdit library © Copyright AvalonEdit Contributors (license﻿)*
+-Microsoft﻿ for the development environment "Visual Studio﻿".
+-DICE﻿ & Electronic Arts﻿ for the game "Battlefield﻿".
+
+*License can be found in ...\BFBC2Toolkit\Docs\Licenses

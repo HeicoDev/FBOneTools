@@ -1,9 +1,10 @@
 ﻿using System.Windows.Controls;
 using ICSharpCode.AvalonEdit;
+using ICSharpCode.AvalonEdit.CodeCompletion;
 
 namespace BFBC2_Toolkit.Data
 {
-    public class Elements
+    public class UIElements
     {
         public static RichTextBox TxtBoxEventLog { get; set; }
         public static RichTextBox TxtBoxInformation { get; set; }
@@ -12,5 +13,6 @@ namespace BFBC2_Toolkit.Data
         public static TreeView TreeViewModExplorer { get; set; }
         public static MediaElement MediaElement { get; set; }
         public static Image ImageElement { get; set; }
+        public static CompletionWindow CodeComWindow { get; set; }
     }
 }

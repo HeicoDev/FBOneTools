@@ -19,7 +19,7 @@ namespace BFBC2_Toolkit.Functions
                 else
                     selectedFilePath = Dirs.SelectedFilePathMod;
 
-                string textEditorText = Elements.TextEditor.Text;
+                string textEditorText = UIElements.TextEditor.Text;
 
                 if (selectedFilePath.EndsWith(".dbx"))
                 {

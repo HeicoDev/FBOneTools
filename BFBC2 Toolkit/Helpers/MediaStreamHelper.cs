@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using BFBC2_Toolkit.Functions;
 
-namespace BFBC2_Toolkit.Data
+namespace BFBC2_Toolkit.Helpers
 {
     public class MediaStream
     {
