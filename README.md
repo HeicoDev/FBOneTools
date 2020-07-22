@@ -1,14 +1,30 @@
 # BFBC2 Toolkit
 
-A collection of tools for the Frostbite 1 Engine. 
-Supports Battlefield: Bad Company, Bad Company 2 and 1943.
+A collection of tools for the Frostbite 1 Engine.\
+Supports Battlefield: Bad Company, Bad Company 2, 1943 and probably other Frostbite 1 games.
 
-For now you will need to build the tool on your own. 
+For now you will need to build the tool on your own.
 A proper build will be released on [Nexus Mods](https://www.nexusmods.com/battlefieldbadcompany2/mods/) soon.
 
 Note: The whole tool is still WIP so expect unfinished features, bugs and other issues!
 
 Features Preview: https://www.youtube.com/watch?v=-WeeXXNA87M
+
+# Supported File Formats
+
+* .fbrb - Extract & Archive
+* .dbx - Export & Import
+* .binkmemory - Export & Import
+* .itexture - Export & Import
+* .ps3texture & xenontexture - Export (partially)
+* .swfmovie - Export/Extract (for research only)
+* .terrainheightfield - Export
+
+Files that can be ported from console to PC via BFBC2 File Porter:
+* .terrainheightfield
+* .watermesh 
+* .visualwater
+* .ps3texture & .xenontexture (partially)
 
 # Build & Run Requirements
 
@@ -31,3 +47,7 @@ NuGet Packages:
 * [Danny Becket](https://stackoverflow.com/users/1563422/danny-beckett) - For providing the code of his IniFile class, which my tool uses to handle ini files.
 * [DICE](https://www.dice.se/) & [EA](https://www.ea.com/) - For the Frostbite Engine and game series "Battlefield".
 * [Microsoft](https://www.microsoft.com/) - For the development environment "Visual Studio".
+
+# Disclaimer
+
+BFBC2 Toolkit is licensed under GNU General Public License v3.0.
