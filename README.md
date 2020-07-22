@@ -15,17 +15,17 @@
 
 For now you will need to build the tool on your own. A proper build will be released on [Nexus Mods](https://www.nexusmods.com/battlefieldbadcompany2/mods/) soon.
 
-Note: The whole tool is still WIP so expect unfinished features, bugs and other issues!
+<b>Note:</b> The whole tool is still WIP so expect unfinished features, bugs and other issues!
 
-Features Preview: https://www.youtube.com/watch?v=-WeeXXNA87M
+<b>Features Preview:</b> https://www.youtube.com/watch?v=-WeeXXNA87M
 
 ## Supported File Formats
 
-* .fbrb - Extract & Archive
-* .dbx - Export & Import
-* .binkmemory - Export & Import
-* .itexture - Export & Import
-* .ps3texture & xenontexture - Export (partially)
+* .fbrb - Extract, Archive & View Content
+* .dbx - Export, Import, Preview & Editing
+* .binkmemory - Export, Import & Preview
+* .itexture - Export, Import & Preview
+* .ps3texture & xenontexture - Export & Preview (partially)
 * .swfmovie - Export/Extract (for research only)
 * .terrainheightfield - Export
 
@@ -58,13 +58,13 @@ NuGet Packages:
 * [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) library © Copyright 2019 MahApps ([license](https://github.com/MahApps/MahApps.Metro/blob/develop/LICENSE))
 * [ControlzEx](https://github.com/ControlzEx/ControlzEx) library © Copyright 2015-2019 Jan Karger, Bastian Schmidt ([license](https://github.com/ControlzEx/ControlzEx/blob/develop/LICENSE))
 * [AvalonEdit](https://github.com/icsharpcode/AvalonEdit) library © Copyright AvalonEdit Contributors ([license](https://github.com/icsharpcode/AvalonEdit/blob/master/LICENSE))
-* [DICE](https://www.dice.se/) & [EA](https://www.ea.com/) - For the Frostbite Engine and game series "Battlefield".
+* [DICE](https://www.dice.se/) & [Electronic Arts](https://www.ea.com/) - For the Frostbite Engine and game series "Battlefield".
 * [Microsoft](https://www.microsoft.com/) - For the development environment "Visual Studio".
 
 ## Disclaimer
 
 I'm not affiliated, associated, authorized, endorsed by, or in any way officially connected with Electronic Arts or DICE, or any of its subsidiaries or its affiliates.
-The names Electronic Arts and DICE as well as related names, marks, emblems and images such as Battlefield are registered trademarks of their respective owners.
+The names Electronic Arts and DICE as well as related emblems, images, marks and names a such as Battlefield and Frostbite are registered trademarks of their respective owners.
 
 Game files or any other form of copyrighted materials will NOT be shipped with this tool! Everybody must provide the game files on his own.
 I do NOT support piracy in any way, so if you face issues, first make sure that you own a legal copy of the game!
