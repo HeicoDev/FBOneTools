@@ -756,7 +756,7 @@ namespace BFBC2_Toolkit
         }
 
         private void TextEditor_TextEntered(object sender, TextCompositionEventArgs e)
-        {   
+        {           
             if (Settings.TxtEdCodeCompletion)
                 CompletionHandler.HandleInput(e.Text);
         }

@@ -4,6 +4,7 @@ using ICSharpCode.AvalonEdit.CodeCompletion;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Editing;
 using BFBC2_Toolkit.Functions;
+using System.Windows;
 
 namespace BFBC2_Toolkit.Data
 {
@@ -36,8 +37,7 @@ namespace BFBC2_Toolkit.Data
 
         public double Priority { get; }
 
-        public void Complete(TextArea textArea, ISegment completionSegment,
-            EventArgs insertionRequestEventArgs)
+        public void Complete(TextArea textArea, ISegment completionSegment, EventArgs insertionRequestEventArgs)
         {
             if (this.Symbol == "/")
                 this.Text += ">";
@@ -45,6 +45,9 @@ namespace BFBC2_Toolkit.Data
                 this.Text += "=\"\"";
 
             textArea.Document.Replace(completionSegment, this.Text);
+
+            if (Symbol == " ")
+                textArea.Caret.Offset -= 1;            
         }
     }
 
@@ -54,7 +57,13 @@ namespace BFBC2_Toolkit.Data
         {           
             try
             {
-                if (text == "<" || text == "/")
+                char previousChar = UIElements.TextEditor.TextArea.Document.GetCharAt(UIElements.TextEditor.TextArea.Caret.Offset - 2);
+
+                if (text == "/" && previousChar == ' ')
+                {
+                    UIElements.TextEditor.TextArea.Document.Insert(UIElements.TextEditor.TextArea.Caret.Offset, ">");
+                }
+                else if (text == "<" || text == "/")
                 {
                     //if (UIElements.CodeComWindow != null && !UIElements.CodeComWindow.CompletionList.ListBox.HasItems)
                     //    UIElements.CodeComWindow.Close();
@@ -73,8 +82,7 @@ namespace BFBC2_Toolkit.Data
                         UIElements.CodeComWindow = null;
                     };
                 }
-
-                if (text == " ")
+                else if (text == " " && previousChar != ' ')
                 {
                     UIElements.CodeComWindow = new CompletionWindow(UIElements.TextEditor.TextArea);
                     IList<ICompletionData> data = UIElements.CodeComWindow.CompletionList.CompletionData;
@@ -90,6 +98,10 @@ namespace BFBC2_Toolkit.Data
                     {
                         UIElements.CodeComWindow = null;
                     };
+                }
+                else if (text == " " && previousChar == ' ' && UIElements.CodeComWindow != null)
+                {
+                    UIElements.CodeComWindow.Close();
                 }
             }
             catch (Exception ex)
