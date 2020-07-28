@@ -55,7 +55,7 @@ namespace BFBC2_Toolkit.Functions
                             var iniFile = new IniFile(tempFile);
 
                             string name = iniFile.Read("Name", "ModInfo"),
-                                   path = Dirs.projects + @"\" + name;
+                                   path = Dirs.Projects + @"\" + name;
 
                             if (Directory.Exists(path))
                             {
@@ -111,8 +111,8 @@ namespace BFBC2_Toolkit.Functions
             {
                 await MediaStream.Dispose();
 
-                string zipFile = Dirs.outputMods + @"\" + Dirs.ModName + ".zip",
-                       projectPath = Dirs.projects + @"\" + Dirs.ModName;
+                string zipFile = Dirs.OutputMods + @"\" + Dirs.ModName + ".zip",
+                       projectPath = Dirs.Projects + @"\" + Dirs.ModName;
 
                 if (File.Exists(zipFile))
                     await Task.Run(() => File.Delete(zipFile));

@@ -18,7 +18,7 @@ namespace BFBC2_Toolkit.Windows
         {
             try
             {
-                using (var xr = new XmlTextReader(Dirs.configGames))
+                using (var xr = new XmlTextReader(Dirs.ConfigGames))
                 {
                     string name = "",
                            platform = "";

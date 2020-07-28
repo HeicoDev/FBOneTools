@@ -125,7 +125,7 @@ namespace BFBC2_Toolkit.Functions
                     if (fileName.EndsWith("." + format))
                     {
                         fileType = "Unknown";
-                        fileFormat = "Unknown";
+                        fileFormat = "." + format;
                         fileSupported = "No";
 
                         GetFileArchive(filePath);

@@ -33,6 +33,7 @@ namespace BFBC2_Toolkit.Data
         public ObservableCollection<CustomTreeViewItem> Items { get; set; }
 
         private static object _selectedItem = null;
+
         // This is public get-only here but you could implement a public setter which
         // also selects the item.
         // Also this should be moved to an instance property on a VM for the whole tree, 

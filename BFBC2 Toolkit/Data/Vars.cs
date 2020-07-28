@@ -4,9 +4,9 @@ namespace BFBC2_Toolkit.Data
 {
     public class Vars
     {
-        public static IDictionary<string, string> FbrbFiles = new Dictionary<string, string>();
+        public static IDictionary<string, string> FbrbFiles { get; } = new Dictionary<string, string>();
 
-        public static readonly string VersionClient = "1.0.0 Beta";
+        public static string VersionClient { get; } = "1.0.0 Beta";
 
         public static bool IsGameProfile { get; set; } = false;
         public static bool IsDataTreeView { get; set; } = false;
@@ -19,7 +19,7 @@ namespace BFBC2_Toolkit.Data
         public static int TextureHeight { get; set; }
         public static int MipmapCount { get; set; }
 
-        public static readonly string[] FileFormats = { "swfmovie", "dx10pixelshader", "havokphysicsdata", "treemeshset",
+        public static string[] FileFormats { get; } = { "swfmovie", "dx10pixelshader", "havokphysicsdata", "treemeshset",
                                                         "terrainheightfield", "itexture", "animtreeinfo", "irradiancevolume",
                                                         "visualterrain", "skinnedmeshset", "dx10vertexshader", "aimanimation",
                                                         "occludermesh", "dx9shaderdatabase", "wave", "terrainmaterialmap",
@@ -32,7 +32,7 @@ namespace BFBC2_Toolkit.Data
                                                         "ps3vertexshader", "ps3texture", "pathdatadefinition", "dbxdeleted", "resdeleted",
                                                         "nonres", "dbx", "bin", "dbmanifest", "ini", "txt" };
         
-        public static readonly string[] GameIds = { "BFBC2-PC", "BFBC2-Server-PC", "BFBC2-PS3", "BFBC2-Xbox", "BFBC-PS3", "BFBC-Xbox",
+        public static string[] GameIds { get; } = { "BFBC2-PC", "BFBC2-Server-PC", "BFBC2-PS3", "BFBC2-Xbox", "BFBC-PS3", "BFBC-Xbox",
                                                     "BF1943-PS3", "BF1943-Xbox" };
 
         public static void SetFbrbFiles()

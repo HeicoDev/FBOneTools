@@ -39,14 +39,14 @@ namespace BFBC2_Toolkit.Functions
                     gamePlatform = "PC";
                 }
 
-                if (Directory.Exists(Dirs.games + @"\" + gameId))
+                if (Directory.Exists(Dirs.Games + @"\" + gameId))
                 {
                     var result = MessageBox.Show("There is already a profile for this game!\nDo you want to overwrite it?", "Warning!", MessageBoxButton.YesNo);
 
                     if (result != MessageBoxResult.Yes)
                         return;
 
-                    await Task.Run(() => Directory.Delete(Dirs.games + @"\" + gameId, true));
+                    await Task.Run(() => Directory.Delete(Dirs.Games + @"\" + gameId, true));
                 }               
 
                 string path = ofd.FileName.Replace(ofd.SafeFileName, "");
@@ -71,16 +71,16 @@ namespace BFBC2_Toolkit.Functions
 
                             Write.ToEventLog("Extracting fbrb archive " + filesCountB + " of " + filesCountA + "...", "");
 
-                            var process = Process.Start(Settings.PathToPython, "\"" + Dirs.scriptArchive + "\" \"" + file.Replace(@"\", @"\\") + "\"");
+                            var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptArchive + "\" \"" + file.Replace(@"\", @"\\") + "\"");
                             await Task.Run(() => process.WaitForExit());
 
-                            await Task.Run(() => Directory.CreateDirectory(Dirs.games + @"\" + gameId + @"\" + kvp.Value));
+                            await Task.Run(() => Directory.CreateDirectory(Dirs.Games + @"\" + gameId + @"\" + kvp.Value));
 
                             foreach (string dir in Directory.GetDirectories(file.Replace(kvp.Key, kvp.Value), "*", SearchOption.AllDirectories))
-                                await Task.Run(() => Directory.CreateDirectory(dir.Replace(file.Replace(kvp.Key, kvp.Value), Dirs.games + @"\" + gameId + @"\" + kvp.Value)));
+                                await Task.Run(() => Directory.CreateDirectory(dir.Replace(file.Replace(kvp.Key, kvp.Value), Dirs.Games + @"\" + gameId + @"\" + kvp.Value)));
 
                             foreach (string filePath in Directory.GetFiles(file.Replace(kvp.Key, kvp.Value), "*.*", SearchOption.AllDirectories))
-                                await Task.Run(() => File.Copy(filePath, filePath.Replace(file.Replace(kvp.Key, kvp.Value), Dirs.games + @"\" + gameId + @"\" + kvp.Value), true));                           
+                                await Task.Run(() => File.Copy(filePath, filePath.Replace(file.Replace(kvp.Key, kvp.Value), Dirs.Games + @"\" + gameId + @"\" + kvp.Value), true));                           
 
                             break;
                         }
@@ -88,7 +88,7 @@ namespace BFBC2_Toolkit.Functions
                 }
 
                 var xmlDoc = new XmlDocument();
-                xmlDoc.Load(Dirs.configGames);
+                xmlDoc.Load(Dirs.ConfigGames);
                 var nodeList = xmlDoc.SelectNodes("/Games/Game");
 
                 bool profileEntryExists = false;
@@ -121,7 +121,7 @@ namespace BFBC2_Toolkit.Functions
                     xmlDoc.AppendChild(rootNode);
                 }
 
-                xmlDoc.Save(Dirs.configGames);
+                xmlDoc.Save(Dirs.ConfigGames);
             }
             catch (Exception ex)
             {
@@ -139,43 +139,43 @@ namespace BFBC2_Toolkit.Functions
 
                 if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "PC")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.games + @"\BFBC2-PC");
-                    Dirs.FilesPathData = Dirs.games + @"\BFBC2-PC";
+                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC2-PC");
+                    Dirs.FilesPathData = Dirs.Games + @"\BFBC2-PC";
                 }
                 else if (profile.Name == "Battlefield Bad Company 2 Server" && profile.Platform == "PC")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.games + @"\BFBC2-Server-PC");
-                    Dirs.FilesPathData = Dirs.games + @"\BFBC2-Server-PC";
+                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC2-Server-PC");
+                    Dirs.FilesPathData = Dirs.Games + @"\BFBC2-Server-PC";
                 }
                 else if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "PS3")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.games + @"\BFBC2-PS3");
-                    Dirs.FilesPathData = Dirs.games + @"\BFBC2-PS3";
+                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC2-PS3");
+                    Dirs.FilesPathData = Dirs.Games + @"\BFBC2-PS3";
                 }
                 else if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "Xbox")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.games + @"\BFBC2-Xbox");
-                    Dirs.FilesPathData = Dirs.games + @"\BFBC2-Xbox";
+                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC2-Xbox");
+                    Dirs.FilesPathData = Dirs.Games + @"\BFBC2-Xbox";
                 }
                 else if (profile.Name == "Battlefield Bad Company" && profile.Platform == "PS3")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.games + @"\BFBC-PS3");
-                    Dirs.FilesPathData = Dirs.games + @"\BFBC-PS3";
+                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC-PS3");
+                    Dirs.FilesPathData = Dirs.Games + @"\BFBC-PS3";
                 }
                 else if (profile.Name == "Battlefield Bad Company" && profile.Platform == "Xbox")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.games + @"\BFBC-Xbox");
-                    Dirs.FilesPathData = Dirs.games + @"\BFBC-Xbox";
+                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC-Xbox");
+                    Dirs.FilesPathData = Dirs.Games + @"\BFBC-Xbox";
                 }
                 else if (profile.Name == "Battlefield 1943" && profile.Platform == "PS3")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.games + @"\BF1943-PS3");
-                    Dirs.FilesPathData = Dirs.games + @"\BF1943-PS3";
+                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BF1943-PS3");
+                    Dirs.FilesPathData = Dirs.Games + @"\BF1943-PS3";
                 }
                 else if (profile.Name == "Battlefield 1943" && profile.Platform == "Xbox")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.games + @"\BF1943-Xbox");
-                    Dirs.FilesPathData = Dirs.games + @"\BF1943-Xbox";
+                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BF1943-Xbox");
+                    Dirs.FilesPathData = Dirs.Games + @"\BF1943-Xbox";
                 }
             }
             catch (Exception ex)
@@ -191,47 +191,47 @@ namespace BFBC2_Toolkit.Functions
             {
                 if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "PC")
                 {
-                    if (Directory.Exists(Dirs.games + @"\BFBC2-PC"))
-                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BFBC2-PC", true));
+                    if (Directory.Exists(Dirs.Games + @"\BFBC2-PC"))
+                        await Task.Run(() => Directory.Delete(Dirs.Games + @"\BFBC2-PC", true));
                 }
                 else if (profile.Name == "Battlefield Bad Company 2 Server" && profile.Platform == "PC")
                 {
-                    if (Directory.Exists(Dirs.games + @"\BFBC2-Server-PC"))
-                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BFBC2-Server-PC", true));
+                    if (Directory.Exists(Dirs.Games + @"\BFBC2-Server-PC"))
+                        await Task.Run(() => Directory.Delete(Dirs.Games + @"\BFBC2-Server-PC", true));
                 }
                 else if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "PS3")
                 {
-                    if (Directory.Exists(Dirs.games + @"\BFBC2-PS3"))
-                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BFBC2-PS3", true));
+                    if (Directory.Exists(Dirs.Games + @"\BFBC2-PS3"))
+                        await Task.Run(() => Directory.Delete(Dirs.Games + @"\BFBC2-PS3", true));
                 }
                 else if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "Xbox")
                 {
-                    if (Directory.Exists(Dirs.games + @"\BFBC2-Xbox"))
-                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BFBC2-Xbox", true));
+                    if (Directory.Exists(Dirs.Games + @"\BFBC2-Xbox"))
+                        await Task.Run(() => Directory.Delete(Dirs.Games + @"\BFBC2-Xbox", true));
                 }
                 else if (profile.Name == "Battlefield Bad Company" && profile.Platform == "PS3")
                 {
-                    if (Directory.Exists(Dirs.games + @"\BFBC-PS3"))
-                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BFBC-PS3", true));
+                    if (Directory.Exists(Dirs.Games + @"\BFBC-PS3"))
+                        await Task.Run(() => Directory.Delete(Dirs.Games + @"\BFBC-PS3", true));
                 }
                 else if (profile.Name == "Battlefield Bad Company" && profile.Platform == "Xbox")
                 {
-                    if (Directory.Exists(Dirs.games + @"\BFBC-Xbox"))
-                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BFBC-Xbox", true));
+                    if (Directory.Exists(Dirs.Games + @"\BFBC-Xbox"))
+                        await Task.Run(() => Directory.Delete(Dirs.Games + @"\BFBC-Xbox", true));
                 }
                 else if (profile.Name == "Battlefield 1943" && profile.Platform == "PS3")
                 {
-                    if (Directory.Exists(Dirs.games + @"\BF1943-PS3"))
-                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BF1943-PS3", true));
+                    if (Directory.Exists(Dirs.Games + @"\BF1943-PS3"))
+                        await Task.Run(() => Directory.Delete(Dirs.Games + @"\BF1943-PS3", true));
                 }
                 else if (profile.Name == "Battlefield 1943" && profile.Platform == "Xbox")
                 {
-                    if (Directory.Exists(Dirs.games + @"\BF1943-Xbox"))
-                        await Task.Run(() => Directory.Delete(Dirs.games + @"\BF1943-Xbox", true));
+                    if (Directory.Exists(Dirs.Games + @"\BF1943-Xbox"))
+                        await Task.Run(() => Directory.Delete(Dirs.Games + @"\BF1943-Xbox", true));
                 }
 
                 var xmlDoc = new XmlDocument();
-                xmlDoc.Load(Dirs.configGames);
+                xmlDoc.Load(Dirs.ConfigGames);
                 var nodeList = xmlDoc.SelectNodes("/Games/Game");
 
                 for (int i = 0; i < nodeList.Count; i++)
@@ -243,7 +243,7 @@ namespace BFBC2_Toolkit.Functions
                     }
                 }
 
-                xmlDoc.Save(Dirs.configGames);
+                xmlDoc.Save(Dirs.ConfigGames);
             }
             catch (Exception ex)
             {

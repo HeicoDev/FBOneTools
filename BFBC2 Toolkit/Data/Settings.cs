@@ -28,7 +28,7 @@ namespace BFBC2_Toolkit.Data
             try
             {
                 var xmlDocSettings = new XmlDocument();
-                xmlDocSettings.Load(Dirs.configSettings);
+                xmlDocSettings.Load(Dirs.ConfigSettings);
                 var nodeList = xmlDocSettings.SelectNodes("/Settings/Setting");
 
                 for (int i = 0; i < nodeList.Count; i++)
@@ -65,7 +65,7 @@ namespace BFBC2_Toolkit.Data
                     }
                 }
 
-                xmlDocSettings.Save(Dirs.configSettings);
+                xmlDocSettings.Save(Dirs.ConfigSettings);
             }
             catch (Exception ex)
             {
@@ -79,7 +79,7 @@ namespace BFBC2_Toolkit.Data
             try
             {
                 var xmlDocSettings = new XmlDocument();
-                xmlDocSettings.Load(Dirs.configSettings);
+                xmlDocSettings.Load(Dirs.ConfigSettings);
                 var nodeList = xmlDocSettings.SelectNodes("/Settings/Setting");
 
                 for (int i = 0; i < nodeList.Count; i++)

@@ -26,7 +26,7 @@ namespace BFBC2_Toolkit
         {
             try
             {
-                string projectPath = Dirs.projects + @"\" + txtBoxName.Text;
+                string projectPath = Dirs.Projects + @"\" + txtBoxName.Text;
 
                 if (Directory.Exists(projectPath))
                 {
@@ -38,7 +38,7 @@ namespace BFBC2_Toolkit
                         await Task.Run(() => Directory.Delete(projectPath, true));
                 }
 
-                await Task.Run(() => FileSystem.CopyDirectory(Dirs.templateMod, projectPath));
+                await Task.Run(() => FileSystem.CopyDirectory(Dirs.TemplateMod, projectPath));
 
                 var iniFile = new IniFile(projectPath + @"\ModInfo.ini");
                 iniFile.Write("Name", " " + txtBoxName.Text, "ModInfo");

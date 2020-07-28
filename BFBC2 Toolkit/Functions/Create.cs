@@ -11,37 +11,37 @@ namespace BFBC2_Toolkit.Functions
     {
         public static void PrecreateDirs()
         {
-            Directory.CreateDirectory(Dirs.games);
-            Directory.CreateDirectory(Dirs.logs);
-            Directory.CreateDirectory(Dirs.projects);
-            Directory.CreateDirectory(Dirs.output);
-            Directory.CreateDirectory(Dirs.outputDDS);
-            Directory.CreateDirectory(Dirs.outputHeightmap);
-            Directory.CreateDirectory(Dirs.outputiTexture);
-            Directory.CreateDirectory(Dirs.outputMods);
-            Directory.CreateDirectory(Dirs.outputVideo);
-            Directory.CreateDirectory(Dirs.outputXML);
-            Directory.CreateDirectory(Dirs.outputSwfMovie);
+            Directory.CreateDirectory(Dirs.Games);
+            Directory.CreateDirectory(Dirs.Logs);
+            Directory.CreateDirectory(Dirs.Projects);
+            Directory.CreateDirectory(Dirs.Output);
+            Directory.CreateDirectory(Dirs.OutputDDS);
+            Directory.CreateDirectory(Dirs.OutputHeightmap);
+            Directory.CreateDirectory(Dirs.OutputiTexture);
+            Directory.CreateDirectory(Dirs.OutputMods);
+            Directory.CreateDirectory(Dirs.OutputVideo);
+            Directory.CreateDirectory(Dirs.OutputXML);
+            Directory.CreateDirectory(Dirs.OutputSwfMovie);
         }
 
         public static void ConfigFiles()
         {
-            if (!File.Exists(Dirs.configGames))
+            if (!File.Exists(Dirs.ConfigGames))
             {
                 var xmlDoc = new XmlDocument();
                 xmlDoc.LoadXml("<Games>" +
                                "</Games>");
 
-                File.WriteAllText(Dirs.configGames, IndentXml(xmlDoc));
+                File.WriteAllText(Dirs.ConfigGames, IndentXml(xmlDoc));
             }
 
-            if (!File.Exists(Dirs.configSettings))
+            if (!File.Exists(Dirs.ConfigSettings))
             {
                 var xmlDoc = new XmlDocument();
                 xmlDoc.LoadXml("<Settings>" +
                                "</Settings>");
 
-                File.WriteAllText(Dirs.configSettings, IndentXml(xmlDoc));
+                File.WriteAllText(Dirs.ConfigSettings, IndentXml(xmlDoc));
             }
 
             CreateSettingsTemplate();
@@ -52,7 +52,7 @@ namespace BFBC2_Toolkit.Functions
             var settings = new Settings();
 
             var xmlDocSettings = new XmlDocument();
-            xmlDocSettings.Load(Dirs.configSettings);
+            xmlDocSettings.Load(Dirs.ConfigSettings);
             var nodeList = xmlDocSettings.SelectNodes("/Settings/Setting");
 
             foreach (var prop in settings.GetType().GetProperties())
@@ -88,7 +88,7 @@ namespace BFBC2_Toolkit.Functions
                 }
             }
 
-            xmlDocSettings.Save(Dirs.configSettings);
+            xmlDocSettings.Save(Dirs.ConfigSettings);
         }
 
         private static string IndentXml(XmlDocument xmlDoc)
@@ -106,7 +106,7 @@ namespace BFBC2_Toolkit.Functions
                 xmlDoc.Save(writer);
             }
 
-            //Very cheap 'hack' to avoid a null exception when loading "Select Game" window because I'm somehow unable to output a file in real utf-8 encoding. 
+            //Very cheap 'hack' to avoid a null exception when loading "Select Game" window because I'm somehow unable to Output a file in real utf-8 encoding. 
             //Working with xml is really a pain sometimes. I will try to look into a proper fix for this issue. 
             return sb.ToString().Replace("<?xml version=\"1.0\" encoding=\"utf-16\"?>", "<?xml version=\"1.0\" encoding=\"utf-8\"?>"); 
         }

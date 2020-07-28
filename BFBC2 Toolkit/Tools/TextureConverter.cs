@@ -20,7 +20,7 @@ namespace BFBC2_Toolkit.Tools
                            fileLocation = file.Replace(".dds", ".itexture");
 
                     if (copyToOutputFolder)
-                        fileLocation = Dirs.outputiTexture + @"\" + fileName;
+                        fileLocation = Dirs.OutputiTexture + @"\" + fileName;
 
                     File.Copy(file, fileLocation, true);
 
@@ -32,7 +32,7 @@ namespace BFBC2_Toolkit.Tools
                            fileLocation = file.Replace(".itexture", ".dds");
 
                     if (copyToOutputFolder)
-                        fileLocation = Dirs.outputDDS + @"\" + fileName;
+                        fileLocation = Dirs.OutputDDS + @"\" + fileName;
 
                     File.Copy(file, fileLocation, true);
 
@@ -44,7 +44,7 @@ namespace BFBC2_Toolkit.Tools
                            fileLocation = file.Replace(".ps3texture", ".dds");
 
                     if (copyToOutputFolder)
-                        fileLocation = Dirs.outputDDS + @"\" + fileName;
+                        fileLocation = Dirs.OutputDDS + @"\" + fileName;
 
                     File.Copy(file, fileLocation, true);
 
@@ -56,7 +56,7 @@ namespace BFBC2_Toolkit.Tools
                            fileLocation = file.Replace(".xenontexture", ".dds");
 
                     if (copyToOutputFolder)
-                        fileLocation = Dirs.outputDDS + @"\" + fileName;
+                        fileLocation = Dirs.OutputDDS + @"\" + fileName;
 
                     File.Copy(file, fileLocation, true);
 
@@ -68,7 +68,7 @@ namespace BFBC2_Toolkit.Tools
                            fileLocation = file.Replace(".terrainheightfield", ".raw");
 
                     if (copyToOutputFolder)
-                        fileLocation = Dirs.outputHeightmap + @"\" + fileName;
+                        fileLocation = Dirs.OutputHeightmap + @"\" + fileName;
 
                     File.Copy(file, fileLocation, true);
 

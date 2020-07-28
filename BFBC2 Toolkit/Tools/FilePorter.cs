@@ -45,7 +45,7 @@ namespace BFBC2_Toolkit.Tools
                     break;
             }           
 
-            string outputFile = Path.GetDirectoryName(filePath) + @"\output" + fileExtension;
+            string outputFile = Path.GetDirectoryName(filePath) + @"\Output" + fileExtension;
 
             if (File.Exists(outputFile))
                 File.Delete(outputFile);
@@ -61,11 +61,12 @@ namespace BFBC2_Toolkit.Tools
         {
             /* Experimental */
 
-            //Return unmodified data if PC header (4 zero bytes at position 41)
+            //Return unmodified data if PC header (4 zero bytes at position 41). The console files of BFBC2 also have 4 zero bytes at position 41.           
+            //TODO: Porting the heightmaps of BFBC2 from console to PC is probably unnecessary, but I will still try to look for a better check.
             if (fileData[41] == 0 && fileData[42] == 0 && fileData[43] == 0 && fileData[44] == 0)
                 return fileData;
 
-            //Extend header by 4 zero bytes at position 41 to fit the structure and size of the PC header
+            //Extend header by 4 zero bytes at position 41 to fit the structure and size of the PC header (TODO: Do only if BFBC or BF1943 file)
             byte[] fileHeader = fileData.Take(49).ToArray();
 
             fileHeader[45] = fileHeader[41];
@@ -120,7 +121,7 @@ namespace BFBC2_Toolkit.Tools
                 offset += 4;
             }
 
-            //The output file must have the same amount of bytes (or more!) as the file that will be replaced or the BFBC2 server/client will throw an exception.  
+            //The Output file must have the same amount of bytes (or more!) as the file that will be replaced or the BFBC2 server/client will throw an exception.  
             //Since we can't know the file that will be replaced, we just add some bloat (zero bytes) until we reach 10 MB at the bottom of the file (workaround).
             int bloatAmount = 10485760 - length;
 

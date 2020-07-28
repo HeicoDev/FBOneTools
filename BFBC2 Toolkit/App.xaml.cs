@@ -23,13 +23,13 @@ namespace BFBC2_Toolkit
                 string appName = "app";
                 var currentAssembly = Assembly.GetExecutingAssembly();
 
-                // Setup path to application config file in ./Config dir:
+                // Setup path to application Config file in ./Config dir:
                 AppDomainSetup setup = new AppDomainSetup();
                 setup.ApplicationBase = Environment.CurrentDirectory;
                 setup.ConfigurationFile = setup.ApplicationBase +
-                                    string.Format(@"\Config\app.config");
+                                    string.Format(@"\Config\app.Config");
 
-                // Create a new app domain using setup with new config file path:
+                // Create a new app domain using setup with new Config file path:
                 AppDomain newDomain = AppDomain.CreateDomain("NewAppDomain", null, setup);
                 int ret = newDomain.ExecuteAssemblyByName(currentAssembly.FullName, e.Args);
                 // Above causes recusive call to this method.

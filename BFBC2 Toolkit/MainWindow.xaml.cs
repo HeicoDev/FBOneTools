@@ -134,7 +134,7 @@ namespace BFBC2_Toolkit
             var ofd = new OpenFileDialog();
             ofd.Filter = "ini file (.ini)|*.ini";
             ofd.Title = "Select ModInfo.ini...";
-            ofd.InitialDirectory = Dirs.projects;
+            ofd.InitialDirectory = Dirs.Projects;
 
             if (ofd.ShowDialog() == true)
             {
@@ -279,7 +279,7 @@ namespace BFBC2_Toolkit
 
             EnableInterface(true);
 
-            Write.ToEventLog("Exported file to output folder.", "done");
+            Write.ToEventLog("Exported file to Output folder.", "done");
         }
 
         private async void BtnImport_Click(object sender, RoutedEventArgs e)
@@ -369,12 +369,12 @@ namespace BFBC2_Toolkit
 
                         if (!File.Exists(selectedFilePath.Replace(".dbx", ".xml")))
                         {
-                            var process = Process.Start(Settings.PathToPython, "\"" + Dirs.scriptDBX + "\" \"" + selectedFilePath + "\"");
+                            var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptDBX + "\" \"" + selectedFilePath + "\"");
                             await Task.Run(() => process.WaitForExit());
                         }
 
                         if (Settings.TxtEdHighlightSyntax)
-                            using (var reader = new XmlTextReader(Dirs.syntaxXML))
+                            using (var reader = new XmlTextReader(Dirs.SyntaxXML))
                                 textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
                         textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath.Replace(".dbx", ".xml")));
@@ -388,7 +388,7 @@ namespace BFBC2_Toolkit
                         Write.ToInfoBox(tvi);
 
                         if (Settings.TxtEdHighlightSyntax)
-                            using (var reader = new XmlTextReader(Dirs.syntaxXML))
+                            using (var reader = new XmlTextReader(Dirs.SyntaxXML))
                                 textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
                         textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath));
@@ -402,7 +402,7 @@ namespace BFBC2_Toolkit
                         Write.ToInfoBox(tvi);
 
                         if (Settings.TxtEdHighlightSyntax)
-                            using (var reader = new XmlTextReader(Dirs.syntaxINI))
+                            using (var reader = new XmlTextReader(Dirs.SyntaxINI))
                                 textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
                         textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath));

@@ -19,7 +19,7 @@ namespace BFBC2_Toolkit.Functions
                 if (Directory.Exists(Dirs.FilesPathData) && !Vars.IsGameProfile)
                     await Task.Run(() => Directory.Delete(Dirs.FilesPathData, true));
 
-                var process = Process.Start(Settings.PathToPython, "\"" + Dirs.scriptArchive + "\" \"" + ofd.FileName.Replace(@"\", @"\\") + "\"");
+                var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptArchive + "\" \"" + ofd.FileName.Replace(@"\", @"\\") + "\"");
                 await Task.Run(() => process.WaitForExit());
 
                 Dirs.FilesPathData = ofd.FileName.Replace(".fbrb", " FbRB");
@@ -46,7 +46,7 @@ namespace BFBC2_Toolkit.Functions
             {
                 await MediaStream.Dispose();
 
-                var process = Process.Start(Settings.PathToPython, "\"" + Dirs.scriptArchive + "\" \"" + Dirs.FilesPathData.Replace(@"\", @"\\") + "\"");
+                var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptArchive + "\" \"" + Dirs.FilesPathData.Replace(@"\", @"\\") + "\"");
                 await Task.Run(() => process.WaitForExit());
             }
             catch (Exception ex)

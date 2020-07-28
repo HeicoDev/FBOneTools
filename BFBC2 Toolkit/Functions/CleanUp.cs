@@ -50,8 +50,8 @@ namespace BFBC2_Toolkit.Functions
 
         public static void StartUp()
         {
-            if (File.Exists(Dirs.errorLog))
-                File.Delete(Dirs.errorLog);
+            if (File.Exists(Dirs.ErrorLog))
+                File.Delete(Dirs.ErrorLog);
         }
     }
 }

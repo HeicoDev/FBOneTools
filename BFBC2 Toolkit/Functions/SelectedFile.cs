@@ -37,53 +37,53 @@ namespace BFBC2_Toolkit.Functions
                     string path = selectedFilePath.Replace(".dbx", ".xml"),
                            name = selectedFileName.Replace(".dbx", ".xml");
 
-                    if (File.Exists(Dirs.outputXML + @"\" + name))
-                        await Task.Run(() => File.Delete(Dirs.outputXML + @"\" + name));
+                    if (File.Exists(Dirs.OutputXML + @"\" + name))
+                        await Task.Run(() => File.Delete(Dirs.OutputXML + @"\" + name));
 
-                    await Task.Run(() => File.Copy(path, Dirs.outputXML + @"\" + name));
+                    await Task.Run(() => File.Copy(path, Dirs.OutputXML + @"\" + name));
                 }
                 else if (selectedFilePath.EndsWith(".itexture"))
                 {
                     string path = selectedFilePath.Replace(".itexture", ".dds"),
                            name = selectedFileName.Replace(".itexture", ".dds");
 
-                    if (File.Exists(Dirs.outputDDS + @"\" + name))
-                        await Task.Run(() => File.Delete(Dirs.outputDDS + @"\" + name));
+                    if (File.Exists(Dirs.OutputDDS + @"\" + name))
+                        await Task.Run(() => File.Delete(Dirs.OutputDDS + @"\" + name));
 
-                    await Task.Run(() => File.Copy(path, Dirs.outputDDS + @"\" + name));
+                    await Task.Run(() => File.Copy(path, Dirs.OutputDDS + @"\" + name));
                 }
                 else if (selectedFilePath.EndsWith(".ps3texture"))
                 {
                     string path = selectedFilePath.Replace(".ps3texture", ".dds"),
                            name = selectedFileName.Replace(".ps3texture", ".dds");
 
-                    if (File.Exists(Dirs.outputDDS + @"\" + name))
-                        await Task.Run(() => File.Delete(Dirs.outputDDS + @"\" + name));
+                    if (File.Exists(Dirs.OutputDDS + @"\" + name))
+                        await Task.Run(() => File.Delete(Dirs.OutputDDS + @"\" + name));
 
-                    await Task.Run(() => File.Copy(path, Dirs.outputDDS + @"\" + name));
+                    await Task.Run(() => File.Copy(path, Dirs.OutputDDS + @"\" + name));
                 }
                 else if (selectedFilePath.EndsWith(".terrainheightfield"))
                 {
                     string path = selectedFilePath.Replace(".terrainheightfield", ".raw"),
                            name = selectedFileName.Replace(".terrainheightfield", ".raw");
 
-                    if (File.Exists(Dirs.outputHeightmap + @"\" + name))
-                        await Task.Run(() => File.Delete(Dirs.outputHeightmap + @"\" + name));
+                    if (File.Exists(Dirs.OutputHeightmap + @"\" + name))
+                        await Task.Run(() => File.Delete(Dirs.OutputHeightmap + @"\" + name));
 
-                    await Task.Run(() => File.Copy(path, Dirs.outputHeightmap + @"\" + name));
+                    await Task.Run(() => File.Copy(path, Dirs.OutputHeightmap + @"\" + name));
                 }
                 else if (selectedFilePath.EndsWith(".binkmemory"))
                 {
                     string name = selectedFileName.Replace(".binkmemory", ".bik");
 
-                    if (File.Exists(Dirs.outputVideo + @"\" + name))
-                        await Task.Run(() => File.Delete(Dirs.outputVideo + @"\" + name));
+                    if (File.Exists(Dirs.OutputVideo + @"\" + name))
+                        await Task.Run(() => File.Delete(Dirs.OutputVideo + @"\" + name));
 
-                    await Task.Run(() => File.Copy(selectedFilePath, Dirs.outputVideo + @"\" + name));
+                    await Task.Run(() => File.Copy(selectedFilePath, Dirs.OutputVideo + @"\" + name));
                 }
                 else if (selectedFilePath.EndsWith(".swfmovie"))
                 {
-                    var process = Process.Start(Settings.PathToPython, "\"" + Dirs.scriptSwfMovie + "\" \"" + selectedFilePath + "\" \"" + Dirs.outputSwfMovie + "\"");
+                    var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptSwfMovie + "\" \"" + selectedFilePath + "\" \"" + Dirs.OutputSwfMovie + "\"");
                     await Task.Run(() => process.WaitForExit());
                 }
             }
@@ -136,7 +136,7 @@ namespace BFBC2_Toolkit.Functions
 
                         await Task.Run(() => File.Copy(ofd.FileName, path));
 
-                        var process = Process.Start(Settings.PathToPython, "\"" + Dirs.scriptDBX + "\" \"" + path.Replace(@"\", @"\\") + "\"");
+                        var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptDBX + "\" \"" + path.Replace(@"\", @"\\") + "\"");
                         await Task.Run(() => process.WaitForExit());
 
                         UIElements.TextEditor.Text = await Task.Run(() => File.ReadAllText(path));

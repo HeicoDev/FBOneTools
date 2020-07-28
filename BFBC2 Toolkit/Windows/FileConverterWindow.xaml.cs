@@ -87,7 +87,7 @@ namespace BFBC2_Toolkit.Windows
                 }
                 else if (filePath.EndsWith(".dbx") || filePath.EndsWith(".xml"))
                 {
-                    var process = Process.Start(Settings.PathToPython, "\"" + Dirs.scriptDBX + "\" \"" + filePath + "\"");
+                    var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptDBX + "\" \"" + filePath + "\"");
                     await Task.Run(() => process.WaitForExit());
 
                     if (copyToOutputEnabled)
@@ -105,7 +105,7 @@ namespace BFBC2_Toolkit.Windows
                             targetFileName = Path.GetFileName(filePath.Replace(".xml", ".dbx"));
                         }
 
-                        string targetFilePath = Dirs.outputXML + @"\" + targetFileName;
+                        string targetFilePath = Dirs.OutputXML + @"\" + targetFileName;
 
                         if (File.Exists(targetFilePath))
                             await Task.Run(() => File.Delete(targetFilePath));
@@ -123,7 +123,7 @@ namespace BFBC2_Toolkit.Windows
                     string fileName = Path.GetFileName(targetFilePath);
 
                     if (copyToOutputEnabled)
-                        targetFilePath = Dirs.outputVideo + @"\" + fileName;
+                        targetFilePath = Dirs.OutputVideo + @"\" + fileName;
 
                     if (File.Exists(targetFilePath))
                         await Task.Run(() => File.Delete(targetFilePath));
@@ -135,9 +135,9 @@ namespace BFBC2_Toolkit.Windows
                     string targetFilePath = Path.GetDirectoryName(filePath);
 
                     if (copyToOutputEnabled)
-                        targetFilePath = Dirs.outputSwfMovie;
+                        targetFilePath = Dirs.OutputSwfMovie;
 
-                    var process = Process.Start(Settings.PathToPython, "\"" + Dirs.scriptSwfMovie + "\" \"" + filePath + "\" \"" + targetFilePath + "\"");
+                    var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptSwfMovie + "\" \"" + filePath + "\" \"" + targetFilePath + "\"");
                     await Task.Run(() => process.WaitForExit());
                 }
                 else
@@ -178,7 +178,7 @@ namespace BFBC2_Toolkit.Windows
         {
             try
             {                
-                Process.Start("explorer.exe", Dirs.output);
+                Process.Start("explorer.exe", Dirs.Output);
             }
             catch (Exception ex)
             {

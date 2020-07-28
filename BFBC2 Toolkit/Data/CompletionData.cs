@@ -4,7 +4,6 @@ using ICSharpCode.AvalonEdit.CodeCompletion;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Editing;
 using BFBC2_Toolkit.Functions;
-using System.Windows;
 
 namespace BFBC2_Toolkit.Data
 {
@@ -65,9 +64,6 @@ namespace BFBC2_Toolkit.Data
                 }
                 else if (text == "<" || text == "/")
                 {
-                    //if (UIElements.CodeComWindow != null && !UIElements.CodeComWindow.CompletionList.ListBox.HasItems)
-                    //    UIElements.CodeComWindow.Close();
-
                     UIElements.CodeComWindow = new CompletionWindow(UIElements.TextEditor.TextArea);
                     IList<ICompletionData> data = UIElements.CodeComWindow.CompletionList.CompletionData;
                     data.Add(new CompletionData("array", text));

@@ -18,7 +18,7 @@ namespace BFBC2_Toolkit.Windows
 
         private void BtnCredits_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Process.Start(Dirs.docs);
+            Process.Start(Dirs.Docs);
         }
     }
 }
