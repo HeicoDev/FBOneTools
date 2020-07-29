@@ -26,8 +26,8 @@ For now you will need to build the tool on your own. A proper build will be rele
 * .binkmemory - Export, Import & Preview
 * .itexture - Export, Import & Preview
 * .ps3texture & xenontexture - Export & Preview (partially)
+* .terrainheightfield - Export & Preview 
 * .swfmovie - Export/Extract (for research only)
-* .terrainheightfield - Export
 
 Files that can be ported from console to PC via BFBC2 File Porter:
 * .terrainheightfield
@@ -53,6 +53,7 @@ NuGet Packages:
 * Heico - Author of BFBC2 Toolkit
 * [Frankelstner](http://www.bfeditor.org/forums/index.php?/profile/6706-frankelstner/) - For his Python scripts that handle .fbrb & .dbx files. Without his work in the BF Community my tools would not be possible! 
 * [Napisal](https://www.youtube.com/channel/UCIcx-pztQ3rGfO3pbcd52OQ) & [bad .baubau](https://www.youtube.com/user/cssbaubau) - for all the time they invested to figure out how Frostbite works. Without them I would not even know about BFBC2 modding.
+* [Emil Hernvall](https://github.com/EmilHernvall) - For his Python script that can extract .swfmovie files.
 * [Danny Becket](https://stackoverflow.com/users/1563422/danny-beckett) - For providing the code of his IniFile class, which my tool uses to handle ini files.
 * [Icons8](https://icons8.de/) for providing several icons, which my tool uses for some buttons. ([license](https://creativecommons.org/licenses/by-nd/3.0/))
 * [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) library © Copyright 2019 MahApps ([license](https://github.com/MahApps/MahApps.Metro/blob/develop/LICENSE))
