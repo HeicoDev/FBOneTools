@@ -1,5 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using BFBC2_Toolkit.Data;
 
 namespace BFBC2_Toolkit.Helpers
 {
@@ -7,14 +10,30 @@ namespace BFBC2_Toolkit.Helpers
     {
         public static BitmapImage LoadImage(string filePath)
         {
-            MediaStream.stream = new FileStream(filePath, FileMode.Open);
+            MediaStream.CurrentStream = new FileStream(filePath, FileMode.Open);
 
             var bitmap = new BitmapImage();            
             bitmap.BeginInit();
             bitmap.CacheOption = BitmapCacheOption.None;
-            bitmap.StreamSource = MediaStream.stream;
+            bitmap.StreamSource = MediaStream.CurrentStream;
             bitmap.EndInit();
             bitmap.Freeze();
+
+            return bitmap;
+        }
+
+        public static BitmapSource LoadGrayscaleImage(string filePath)
+        {
+            int stride = (Vars.TextureWidth * 16 + 7) / 8;
+
+            byte[] fileData = { };
+
+            using (var br = new BinaryReader(File.OpenRead(filePath)))
+            {
+                fileData = br.ReadBytes(Convert.ToInt32(br.BaseStream.Length));
+            }
+
+            var bitmap = BitmapSource.Create(Vars.TextureWidth, Vars.TextureHeight, 96, 96, PixelFormats.Gray16, null, fileData, stride);
 
             return bitmap;
         }

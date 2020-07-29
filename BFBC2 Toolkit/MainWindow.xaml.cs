@@ -13,14 +13,13 @@ using Microsoft.VisualBasic.FileIO;
 using MahApps.Metro.Controls;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Highlighting.Xshd;
-using ICSharpCode.AvalonEdit.CodeCompletion;
 using ICSharpCode.AvalonEdit.Folding;
 using BFBC2_Toolkit.Windows;
 using BFBC2_Toolkit.Data;
 using BFBC2_Toolkit.Functions;
 using BFBC2_Toolkit.Tools;
 using BFBC2_Toolkit.Helpers;
-using System.Collections.Generic;
+using System.Windows.Media.Imaging;
 
 /// <summary>
 /// BFBC2 Toolkit 
@@ -334,17 +333,22 @@ namespace BFBC2_Toolkit
         {
             try
             {
+                await MediaStream.Dispose();
+
                 treeView.Focus();
 
                 var tvi = treeView.SelectedItem as CustomTreeViewItem;
 
                 if (tvi != null)
                 {
-                    progressRing.IsActive = true;                                        
+                    progressRing.IsActive = true;                    
 
                     string selectedFileName = tvi.Name,
                            selectedFilePath = tvi.Path,
+                           selectedFileExtension = Path.GetExtension(tvi.Path),
                            filesPath = String.Empty;
+
+                    await ChangeInterface(selectedFileExtension);
 
                     if (Vars.IsDataTreeView)
                     {
@@ -364,9 +368,6 @@ namespace BFBC2_Toolkit
 
                     if (selectedFileName.EndsWith(".dbx"))
                     {
-                        await ChangeInterface(".dbx");
-                        Write.ToInfoBox(tvi);
-
                         if (!File.Exists(selectedFilePath.Replace(".dbx", ".xml")))
                         {
                             var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptDBX + "\" \"" + selectedFilePath + "\"");
@@ -379,56 +380,50 @@ namespace BFBC2_Toolkit
 
                         textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath.Replace(".dbx", ".xml")));
                         textEditor.ScrollToHome();
+                        textEditor.Visibility = Visibility.Visible;
 
                         ApplyCodeFolding();
                     }
                     else if (selectedFileName.EndsWith(".dbmanifest"))
                     {
-                        await ChangeInterface(".dbmanifest");
-                        Write.ToInfoBox(tvi);
-
                         if (Settings.TxtEdHighlightSyntax)
                             using (var reader = new XmlTextReader(Dirs.SyntaxXML))
                                 textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
                         textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath));
                         textEditor.ScrollToHome();
+                        textEditor.Visibility = Visibility.Visible;
 
-                        ApplyCodeFolding();
+                        ApplyCodeFolding();                       
                     }
                     else if (selectedFileName.EndsWith(".ini"))
                     {
-                        await ChangeInterface(".ini");
-                        Write.ToInfoBox(tvi);
-
                         if (Settings.TxtEdHighlightSyntax)
                             using (var reader = new XmlTextReader(Dirs.SyntaxINI))
                                 textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
                         textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath));
                         textEditor.ScrollToHome();
+                        textEditor.Visibility = Visibility.Visible;
                     }
                     else if (selectedFileName.EndsWith(".txt"))
                     {
-                        await ChangeInterface(".txt");
-                        Write.ToInfoBox(tvi);
-
                         textEditor.SyntaxHighlighting = null;
 
                         textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath));
                         textEditor.ScrollToHome();
+                        textEditor.Visibility = Visibility.Visible;
                     }                    
-                    else if (selectedFileName.EndsWith(".itexture"))
-                    {
-                        await ChangeInterface(".itexture");
-
+                    else if (selectedFileName.EndsWith(".itexture") || selectedFileName.EndsWith(".ps3texture") || selectedFileName.EndsWith(".xenontexture"))
+                    {                        
                         string[] file = { selectedFilePath };
 
                         await Task.Run(() => TextureConverter.ConvertFile(file, false, false));
 
                         try
                         {
-                            image.Source = BitmapHelper.LoadImage(selectedFilePath.Replace(".itexture", ".dds"));
+                            image.Source = BitmapHelper.LoadImage(selectedFilePath.Replace(selectedFileExtension, ".dds"));
+                            image.Visibility = Visibility.Visible;
                         }
                         catch
                         {
@@ -436,89 +431,53 @@ namespace BFBC2_Toolkit
 
                             Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
                         }
-
-                        Write.ToInfoBox(tvi);
-                    }
-                    else if (selectedFileName.EndsWith(".ps3texture"))
-                    {
-                        await ChangeInterface(".ps3texture");
-
-                        string[] file = { selectedFilePath };
-
-                        await Task.Run(() => TextureConverter.ConvertFile(file, false, false));
-
-                        try
-                        {
-                            image.Source = BitmapHelper.LoadImage(selectedFilePath.Replace(".ps3texture", ".dds"));
-                        }
-                        catch
-                        {
-                            image.Visibility = Visibility.Hidden;
-
-                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
-                        }
-
-                        Write.ToInfoBox(tvi);
-                    }
-                    else if (selectedFileName.EndsWith(".xenontexture"))
-                    {
-                        await ChangeInterface(".xenontexture");
-
-                        string[] file = { selectedFilePath };
-
-                        await Task.Run(() => TextureConverter.ConvertFile(file, false, false));
-
-                        try
-                        {
-                            image.Source = BitmapHelper.LoadImage(selectedFilePath.Replace(".xenontexture", ".dds"));
-                        }
-                        catch
-                        {
-                            image.Visibility = Visibility.Hidden;
-
-                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
-                        }
-
-                        Write.ToInfoBox(tvi);
                     }
                     else if (selectedFileName.EndsWith(".terrainheightfield"))
-                    {
-                        await ChangeInterface(".terrainheightfield");
-                        Write.ToInfoBox(tvi);
-
+                    {                                              
                         string[] file = { selectedFilePath };
 
-                        if (!File.Exists(selectedFilePath.Replace(".terrainheightfield", ".raw")))
-                            await Task.Run(() => TextureConverter.ConvertFile(file, false, false));
+                        await Task.Run(() => TextureConverter.ConvertFile(file, false, false));
+
+                        try
+                        {                            
+                            image.Source = BitmapHelper.LoadGrayscaleImage(selectedFilePath.Replace(selectedFileExtension, ".raw"));
+                            image.Visibility = Visibility.Visible;
+                        }
+                        catch
+                        {
+                            image.Visibility = Visibility.Hidden;
+
+                            Write.ToEventLog("Unable to load heightmap preview! Exporting should still work fine.", "warning");
+                        }
                     }
                     else if (selectedFileName.EndsWith(".binkmemory"))
-                    {
-                        await ChangeInterface(".binkmemory");
-                        Write.ToInfoBox(tvi);
+                    {                                                
+                        string mp4 = selectedFilePath.Replace(selectedFileExtension, ".mp4"),
+                               bik = selectedFilePath.Replace(selectedFileExtension, ".bik");
 
-                        string mp4 = selectedFilePath.Replace(".binkmemory", ".mp4"),
-                               bik = selectedFilePath.Replace(".binkmemory", ".bik");
+                        try
+                        {
+                            if (!File.Exists(bik))
+                                await Task.Run(() => File.Copy(selectedFilePath, bik));
 
-                        if (!File.Exists(bik))
-                            await Task.Run(() => File.Copy(selectedFilePath, bik));
+                            if (File.Exists(mp4))
+                                await Task.Run(() => File.Delete(mp4));
 
-                        if (File.Exists(mp4))
-                            await Task.Run(() => File.Delete(mp4));
+                            await Task.Run(() => FileSystem.RenameFile(bik, selectedFileName.Replace(selectedFileExtension, ".mp4")));
 
-                        await Task.Run(() => FileSystem.RenameFile(bik, selectedFileName.Replace(".binkmemory", ".mp4")));
+                            Play.Video(mp4);
 
-                        Play.Video(mp4);
+                            mediaElement.Visibility = Visibility.Visible;
+                        }
+                        catch
+                        {
+                            mediaElement.Visibility = Visibility.Hidden;
+
+                            Write.ToEventLog("Unable to load video preview! Exporting & importing should still work fine.", "warning");
+                        }
                     }
-                    else if (selectedFileName.EndsWith(".swfmovie"))
-                    {
-                        await ChangeInterface(".swfmovie");
-                        Write.ToInfoBox(tvi);
-                    }
-                    else
-                    {
-                        await ChangeInterface("");
-                        Write.ToInfoBox(tvi);
-                    }
+
+                    Write.ToInfoBox(tvi);
 
                     progressRing.IsActive = false;
                 }
@@ -796,7 +755,6 @@ namespace BFBC2_Toolkit
                 btnPlayMedia.Visibility = Visibility.Hidden;
                 btnPauseMedia.Visibility = Visibility.Hidden;
                 btnStopMedia.Visibility = Visibility.Hidden;
-                textEditor.Visibility = Visibility.Visible;
                 btnSave.Visibility = Visibility.Visible;
                 btnUndo.Visibility = Visibility.Visible;
                 btnRedo.Visibility = Visibility.Visible;
@@ -821,8 +779,28 @@ namespace BFBC2_Toolkit
                 btnSave.Visibility = Visibility.Hidden;
                 btnUndo.Visibility = Visibility.Hidden;
                 btnRedo.Visibility = Visibility.Hidden;
+                btnSearch.Visibility = Visibility.Hidden;              
+
+                mediaElement.Stop();
+                mediaElement.Close();
+                mediaElement.Source = null;
+
+                await MediaStream.Dispose();
+            }
+            else if (format == ".terrainheightfield")
+            {
+                txtPreview.Text = "Heightmap Preview";
+                textEditor.Text = "";
+                textEditor.Visibility = Visibility.Hidden;
+                mediaElement.Visibility = Visibility.Hidden;
+                slider.Visibility = Visibility.Hidden;
+                btnPlayMedia.Visibility = Visibility.Hidden;
+                btnPauseMedia.Visibility = Visibility.Hidden;
+                btnStopMedia.Visibility = Visibility.Hidden;
+                btnSave.Visibility = Visibility.Hidden;
+                btnUndo.Visibility = Visibility.Hidden;
+                btnRedo.Visibility = Visibility.Hidden;
                 btnSearch.Visibility = Visibility.Hidden;
-                image.Visibility = Visibility.Visible;               
 
                 mediaElement.Stop();
                 mediaElement.Close();
@@ -840,13 +818,10 @@ namespace BFBC2_Toolkit
                 btnUndo.Visibility = Visibility.Hidden;
                 btnRedo.Visibility = Visibility.Hidden;
                 btnSearch.Visibility = Visibility.Hidden;
-                mediaElement.Visibility = Visibility.Visible;
                 slider.Visibility = Visibility.Visible;
                 btnPlayMedia.Visibility = Visibility.Visible;
                 btnPauseMedia.Visibility = Visibility.Visible;
                 btnStopMedia.Visibility = Visibility.Visible;
-
-                await MediaStream.Dispose();
             }
             else
             {

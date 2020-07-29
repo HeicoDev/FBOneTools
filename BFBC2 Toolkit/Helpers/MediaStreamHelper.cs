@@ -7,17 +7,17 @@ namespace BFBC2_Toolkit.Helpers
 {
     public class MediaStream
     {
-        public static Stream stream;
+        public static Stream CurrentStream { get; set; }
 
         public static async Task Dispose()
         {
             try
             {
-                if (stream != null)
+                if (CurrentStream != null)
                 {
-                    stream.Close();
-                    stream.Dispose();
-                    stream = null;
+                    CurrentStream.Close();
+                    CurrentStream.Dispose();
+                    CurrentStream = null;
                     await Task.Run(() => GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced, true));
                 }
             }

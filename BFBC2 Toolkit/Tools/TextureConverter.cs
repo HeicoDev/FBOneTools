@@ -72,23 +72,7 @@ namespace BFBC2_Toolkit.Tools
 
                     File.Copy(file, fileLocation, true);
 
-                    byte[] hexMain = { };
-
-                    using (var br = new BinaryReader(File.OpenRead(fileLocation)))
-                        hexMain = br.ReadBytes(Convert.ToInt32(br.BaseStream.Length));
-
-                    int headerLength = 49;
-
-                    if (hexMain[0] != 0)
-                        headerLength = 45;
-
-                    hexMain = hexMain.Skip(headerLength).ToArray();
-
-                    using (var bw = new BinaryWriter(File.OpenWrite(fileLocation)))
-                    {
-                        bw.BaseStream.Position = 0x0;
-                        bw.Write(hexMain);
-                    }
+                    ConvertFileToRaw(fileLocation, isStandalone);
                 }
             }
         }
@@ -317,6 +301,33 @@ namespace BFBC2_Toolkit.Tools
             {
                 if (File.Exists(fileLocation))
                     File.Delete(fileLocation);
+            }
+        }
+
+        private static void ConvertFileToRaw(string fileLocation, bool isStandalone)
+        {
+            byte[] hexMain = { };
+
+            using (var br = new BinaryReader(File.OpenRead(fileLocation)))
+                hexMain = br.ReadBytes(Convert.ToInt32(br.BaseStream.Length));
+
+            if (!isStandalone)
+            {
+                Vars.TextureWidth = BitConverter.ToInt32(hexMain, 24);
+                Vars.TextureHeight = BitConverter.ToInt32(hexMain, 37);
+            }
+
+            int headerLength = 49;
+
+            if (hexMain[0] != 0)
+                headerLength = 45;
+
+            hexMain = hexMain.Skip(headerLength).ToArray();
+
+            using (var bw = new BinaryWriter(File.OpenWrite(fileLocation)))
+            {
+                bw.BaseStream.Position = 0x0;
+                bw.Write(hexMain);
             }
         }
 
