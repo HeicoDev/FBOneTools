@@ -26,7 +26,7 @@ For now you will need to build the tool on your own. A proper build will be rele
 * .binkmemory - Export, Import & Preview
 * .itexture - Export, Import & Preview
 * .ps3texture & xenontexture - Export & Preview (partially)
-* .terrainheightfield - Export & Preview 
+* .terrainheightfield - Export & Preview (16 bpp grayscale image only)
 * .swfmovie - Export/Extract (for research only)
 
 Files that can be ported from console to PC via BFBC2 File Porter:
@@ -61,6 +61,12 @@ NuGet Packages:
 * [AvalonEdit](https://github.com/icsharpcode/AvalonEdit) library © Copyright AvalonEdit Contributors ([license](https://github.com/icsharpcode/AvalonEdit/blob/master/LICENSE))
 * [DICE](https://www.dice.se/) & [Electronic Arts](https://www.ea.com/) - For the Frostbite Engine and game series "Battlefield".
 * [Microsoft](https://www.microsoft.com/) - For the development environment "Visual Studio".
+
+## Support & Contact
+
+If you need support, you can join [Battlefield Modding Discord](https://discord.me/battlefieldmodding) and contact me there or just contact me directly: Heico#5562.
+
+If you enjoy my work and want to provide support, you can do so by reporting bugs, giving feedback, making suggestions, contributing to this project, helping to increase its popularity or by [donating](https://www.nexusmods.com/users/45260312) me a cup of coffee. Donations are completely optional and in no way required, but are still very much appreciated! All donations will either help to keep up and expand our servers (game servers, websites, Discord bots etc.) or for a cup of coffee that keeps me awake while working. Additionally, as a form of gratitude and recognition, donaters can contact me on Discord to receive the "Donater" role and VIP access to our game servers. 
 
 ## Disclaimer
 
