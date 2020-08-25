@@ -12,14 +12,14 @@ namespace BFBC2_Toolkit.Functions
 {
     public class Profile
     {        
-        public static async Task Add(OpenFileDialog ofd)
+        public static async Task<bool> Add(OpenFileDialog ofd)
         {
             try
             {
                 if (ofd.SafeFileName != "BFBC2Game.exe" && ofd.SafeFileName != "Frost.Game.Main_Win32_Final.exe")
                 {
                     Write.ToEventLog("Not a valid game or server executable!", "warning");
-                    return;
+                    return true;
                 }
 
                 string gameId = "",
@@ -44,7 +44,7 @@ namespace BFBC2_Toolkit.Functions
                     var result = MessageBox.Show("There is already a profile for this game!\nDo you want to overwrite it?", "Warning!", MessageBoxButton.YesNo);
 
                     if (result != MessageBoxResult.Yes)
-                        return;
+                        return true;
 
                     await Task.Run(() => Directory.Delete(Dirs.Games + @"\" + gameId, true));
                 }               
@@ -122,15 +122,19 @@ namespace BFBC2_Toolkit.Functions
                 }
 
                 xmlDoc.Save(Dirs.ConfigGames);
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to create game profile! See error.log", "error");
+
+                return true;
             }
         }
 
-        public static async Task Load(GameProfile profile)
+        public static async Task<bool> Load(GameProfile profile)
         {
             try
             {
@@ -177,15 +181,19 @@ namespace BFBC2_Toolkit.Functions
                     Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BF1943-Xbox");
                     Dirs.FilesPathData = Dirs.Games + @"\BF1943-Xbox";
                 }
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to create game profile! See error.log", "error");
+
+                return true;
             }
         }
 
-        public static async Task Delete(GameProfile profile)
+        public static async Task<bool> Delete(GameProfile profile)
         {
             try
             {
@@ -244,11 +252,15 @@ namespace BFBC2_Toolkit.Functions
                 }
 
                 xmlDoc.Save(Dirs.ConfigGames);
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to delete game profile! See error.log", "error");
+
+                return true;
             }
         }
 

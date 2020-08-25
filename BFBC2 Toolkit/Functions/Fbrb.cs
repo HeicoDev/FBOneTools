@@ -10,7 +10,7 @@ namespace BFBC2_Toolkit.Functions
 {
     public class Fbrb
     {
-        public static async Task Extract(OpenFileDialog ofd)
+        public static async Task<bool> Extract(OpenFileDialog ofd)
         {
             try
             {
@@ -32,15 +32,19 @@ namespace BFBC2_Toolkit.Functions
 
                 Vars.IsDataAvailable = true;
                 Vars.IsGameProfile = false;
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to extract fbrb file! See error.log", "error");
+
+                return true;
             }
         }
 
-        public static async Task Archive()
+        public static async Task<bool> Archive()
         {
             try
             {
@@ -48,11 +52,15 @@ namespace BFBC2_Toolkit.Functions
 
                 var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptArchive + "\" \"" + Dirs.FilesPathData.Replace(@"\", @"\\") + "\"");
                 await Task.Run(() => process.WaitForExit());
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to archive fbrb file! See error.log", "error");
+
+                return true;
             }
         }
     }

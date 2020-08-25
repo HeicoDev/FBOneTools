@@ -21,12 +21,25 @@ namespace BFBC2_Toolkit.Functions
             }
         }
 
+        public static void ToErrorLog(string ex)
+        {
+            //Create detailed error log in error.log
+            using (StreamWriter sw = new StreamWriter(Dirs.ErrorLog, true))
+            {
+                sw.WriteLine("#Error Log**************************Error Log**************************Error Log#");
+                sw.WriteLine("Name: BFBC2 Toolkit");
+                sw.WriteLine($"Ver: { Vars.VersionClient }");
+                sw.WriteLine($"Date: { DateTime.Now }");
+                sw.WriteLine($"Error: { ex }");
+            }
+        }
+
         public static void ToEventLog(string log, string result)
         {
             var bc = new BrushConverter();
             var tr = new TextRange(UIElements.TxtBoxEventLog.Document.ContentEnd, UIElements.TxtBoxEventLog.Document.ContentEnd);
 
-            switch (result)
+            switch (result.ToLower())
             {
                 case "done":
                     tr.Text = $"[{ DateTime.Now }] ";

@@ -6,7 +6,7 @@ namespace BFBC2_Toolkit.Data
     {
         public static IDictionary<string, string> FbrbFiles { get; } = new Dictionary<string, string>();
 
-        public static string VersionClient { get; } = "1.0.0 Beta";
+        public static string VersionClient { get; } = "1.0.0";
 
         public static bool IsGameProfile { get; set; } = false;
         public static bool IsDataTreeView { get; set; } = false;

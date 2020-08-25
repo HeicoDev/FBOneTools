@@ -121,7 +121,7 @@ namespace BFBC2_Toolkit.Tools
                 offset += 4;
             }
 
-            //The Output file must have the same amount of bytes (or more!) as the file that will be replaced or the BFBC2 server/client will throw an exception.  
+            //The output file must have the same amount of bytes (or more!) as the file that will be replaced or the BFBC2 server/client will throw an exception.  
             //Since we can't know the file that will be replaced, we just add some bloat (zero bytes) until we reach 10 MB at the bottom of the file (workaround).
             int bloatAmount = 10485760 - length;
 

@@ -9,8 +9,8 @@
         Title="Select Game" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterOwner" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="443" Height="330" WindowStyle="ToolWindow" ResizeMode="NoResize" Topmost="True" Loaded="SelectGameWindow_Loaded">
     <Grid>
         <Controls:ProgressRing x:Name="progressRing" Foreground="#FFE2E2E2" Height="19" Margin="0,0,95,8" Width="19" VerticalAlignment="Bottom" HorizontalAlignment="Right" MinHeight="19" MinWidth="19" IsActive="False"/>
-        <Button x:Name="btnSelectGame" Foreground="#FFE2E2E2" HorizontalAlignment="Left" Content="Select Game" FontWeight="Bold" FontSize="11" Width="80" Margin="10,0,0,8" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" OverridesDefaultStyle="True" Style="{DynamicResource ButtonStyle1}" Height="20" Padding="1,0,1,1" Click="BtnSelectGame_Click" VerticalAlignment="Bottom"/>
-        <Button x:Name="btnCancel" Foreground="#FFE2E2E2" HorizontalAlignment="Right" Content="Cancel" FontWeight="Bold" FontSize="11" Width="80" Margin="0,0,10,8" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" OverridesDefaultStyle="True" Style="{DynamicResource ButtonStyle1}" Click="BtnCancel_Click" Height="20" Padding="1,0,1,1" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnSelectGame" Foreground="#FFE2E2E2" HorizontalAlignment="Left" Content="Select Game" FontWeight="Bold" FontSize="11" Width="80" Margin="10,0,0,8" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" OverridesDefaultStyle="True" Style="{DynamicResource ButtonStyle1}" Height="20" Padding="1,0,1,1" Click="BtnSelectGame_Click" VerticalAlignment="Bottom" ToolTip="Load selected game profile" />
+        <Button x:Name="btnCancel" Foreground="#FFE2E2E2" HorizontalAlignment="Right" Content="Cancel" FontWeight="Bold" FontSize="11" Width="80" Margin="0,0,10,8" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" OverridesDefaultStyle="True" Style="{DynamicResource ButtonStyle1}" Click="BtnCancel_Click" Height="20" Padding="1,0,1,1" VerticalAlignment="Bottom" ToolTip="Close window" />
         <DataGrid x:Name="dataGrid" Margin="10,10,10,35" Background="#FF454545" BorderBrush="#FF454545" Foreground="#FFE2E2E2" FontSize="11" IsReadOnly="True" AutoGenerateColumns="False" RowHeight="20" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FF707070" SelectionMode="Single" CanUserReorderColumns="False" CanUserSortColumns="False" ColumnHeaderStyle="{DynamicResource ColumnHeaderStyle1}" >
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">
@@ -52,7 +52,6 @@
                     </Style.Triggers>
                 </Style>
             </DataGrid.RowStyle>
-
             <DataGrid.Columns>
                 <DataGridTextColumn Header=" Name" Width="*" MinWidth="80" Binding="{Binding Name}">
                     <DataGridTextColumn.HeaderStyle>
@@ -82,9 +81,6 @@
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnDeleteGame" Foreground="#FFE2E2E2" HorizontalAlignment="Left" Content="Delete Game" FontWeight="Bold" FontSize="11" Width="80" Margin="95,0,0,8" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" OverridesDefaultStyle="True" Style="{DynamicResource ButtonStyle1}" Height="20" Padding="1,0,1,1" Click="BtnDeleteGame_Click" VerticalAlignment="Bottom"/>
-
-
+        <Button x:Name="btnDeleteGame" Foreground="#FFE2E2E2" HorizontalAlignment="Left" Content="Delete Game" FontWeight="Bold" FontSize="11" Width="80" Margin="95,0,0,8" Background="#FF454545" Controls:ButtonHelper.CornerRadius="3" OverridesDefaultStyle="True" Style="{DynamicResource ButtonStyle1}" Height="20" Padding="1,0,1,1" Click="BtnDeleteGame_Click" VerticalAlignment="Bottom" ToolTip="Delete selected game profile" />
     </Grid>
-
 </Controls:MetroWindow>

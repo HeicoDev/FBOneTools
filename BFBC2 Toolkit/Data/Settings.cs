@@ -23,7 +23,7 @@ namespace BFBC2_Toolkit.Data
 
     public class SettingsHandler
     {
-        public static void Save()
+        public static bool Save()
         {
             try
             {
@@ -66,15 +66,19 @@ namespace BFBC2_Toolkit.Data
                 }
 
                 xmlDocSettings.Save(Dirs.ConfigSettings);
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to save settings! See error.log", "Error");
+                MessageBox.Show("Unable to save settings! See error.log", "error");
+
+                return true;
             }
         }
 
-        public static void Load()
+        public static bool Load()
         {
             try
             {
@@ -115,48 +119,61 @@ namespace BFBC2_Toolkit.Data
                             break;
                     }
                 }
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
-                MessageBox.Show("Unable to load settings! See error.log", "Error");
+                MessageBox.Show("Unable to load settings! See error.log", "error");
+
+                return true;
             }
         }
 
         public static string ChangePythonPath()
         {
-            var ofd = new OpenFileDialog();
-            ofd.Filter = "exe file (.exe)|*.exe";
-            ofd.Title = "Select pythonw.exe...";
-
-            if (ofd.ShowDialog() == true)
+            try
             {
-                string path = ofd.FileName;
+                var ofd = new OpenFileDialog();
+                ofd.Filter = "exe file (.exe)|*.exe";
+                ofd.Title = "Select pythonw.exe...";
 
-                if (path.EndsWith("pythonw.exe"))
+                if (ofd.ShowDialog() == true)
                 {
-                    Settings.PathToPython = path;
+                    string path = ofd.FileName;
 
-                    return path;
-                }
-                else
-                {
-                    path = Path.GetDirectoryName(path) + @"\pythonw.exe";
-
-                    if (File.Exists(path))
-                    {                       
+                    if (path.EndsWith("pythonw.exe"))
+                    {
                         Settings.PathToPython = path;
 
                         return path;
                     }
                     else
                     {
-                        return String.Empty;
+                        path = Path.GetDirectoryName(path) + @"\pythonw.exe";
+
+                        if (File.Exists(path))
+                        {
+                            Settings.PathToPython = path;
+
+                            return path;
+                        }
+                        else
+                        {
+                            return String.Empty;
+                        }
                     }
                 }
-            }
 
-            return String.Empty;
+                return String.Empty;
+            }
+            catch (Exception ex)
+            {
+                Write.ToErrorLog(ex);
+
+                return String.Empty;
+            }
         }
     }
 }

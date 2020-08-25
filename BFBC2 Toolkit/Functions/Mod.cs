@@ -11,7 +11,7 @@ namespace BFBC2_Toolkit.Functions
 {
     public class Mod
     {
-        public static async Task OpenProject(OpenFileDialog ofd)
+        public static async Task<bool> OpenProject(OpenFileDialog ofd)
         {
             try
             {
@@ -26,15 +26,19 @@ namespace BFBC2_Toolkit.Functions
                 Tree.Populate(UIElements.TreeViewModExplorer, Dirs.FilesPathMod);
 
                 Vars.IsModAvailable = true;
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to open mod project! See error.log", "error");
+
+                return true;
             }
         }
 
-        public static async Task Extract(OpenFileDialog ofd)
+        public static async Task<bool> Extract(OpenFileDialog ofd)
         {
             try
             {
@@ -74,7 +78,7 @@ namespace BFBC2_Toolkit.Functions
 
                                     Write.ToEventLog("Extraction aborted.", "");
 
-                                    return;
+                                    return true;
                                 }
                             }
                             else
@@ -97,15 +101,19 @@ namespace BFBC2_Toolkit.Functions
                         }
                     }
                 }
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to extract mod project! See error.log", "error");
+
+                return true;
             }
         }
 
-        public static async Task Archive()
+        public static async Task<bool> Archive()
         {
             try
             {
@@ -117,16 +125,18 @@ namespace BFBC2_Toolkit.Functions
                 if (File.Exists(zipFile))
                     await Task.Run(() => File.Delete(zipFile));
 
-                Write.ToEventLog("Cleaning up files...", "");
-
                 await Task.Run(() => CleanUp.FilesAndDirs(projectPath));
 
                 await Task.Run(() => ZipFile.CreateFromDirectory(projectPath, zipFile));
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to archive mod project! See error.log", "error");
+
+                return true;
             }
         }
     }

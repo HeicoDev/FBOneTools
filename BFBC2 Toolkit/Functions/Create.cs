@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using System.Windows;
 using System.Xml;
 using BFBC2_Toolkit.Data;
 

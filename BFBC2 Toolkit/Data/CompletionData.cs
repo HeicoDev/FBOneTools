@@ -103,7 +103,7 @@ namespace BFBC2_Toolkit.Data
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to open code completion window! See error.log", "Error");
+                Write.ToEventLog("Unable to open code completion window! See error.log", "error");
             }
         }
     }

@@ -14,7 +14,7 @@ namespace BFBC2_Toolkit.Functions
 {
     public class SelectedFile
     {        
-        public static async Task Export()
+        public static async Task<bool> Export()
         {
             try
             {
@@ -86,15 +86,19 @@ namespace BFBC2_Toolkit.Functions
                     var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptSwfMovie + "\" \"" + selectedFilePath + "\" \"" + Dirs.OutputSwfMovie + "\"");
                     await Task.Run(() => process.WaitForExit());
                 }
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to export file! See error.log", "error");
+
+                return true;
             }
         }
 
-        public static async Task Import()
+        public static async Task<bool> Import()
         {
             try
             {
@@ -108,14 +112,14 @@ namespace BFBC2_Toolkit.Functions
                 {
                     selectedFilePath = Dirs.SelectedFilePathData;
 
-                    if (ctvi != null)
+                    if (UIElements.TreeViewDataExplorer.SelectedItem != null)
                         ctvi = UIElements.TreeViewDataExplorer.SelectedItem as CustomTreeViewItem;
                 }
                 else
                 {
                     selectedFilePath = Dirs.SelectedFilePathMod;
 
-                    if (ctvi != null)
+                    if (UIElements.TreeViewModExplorer.SelectedItem != null)
                         ctvi = UIElements.TreeViewModExplorer.SelectedItem as CustomTreeViewItem;
                 }
 
@@ -127,8 +131,6 @@ namespace BFBC2_Toolkit.Functions
 
                     if (ofd.ShowDialog() == true)
                     {
-                        Write.ToEventLog("Importing file...", "");
-
                         string path = selectedFilePath.Replace(".dbx", ".xml");
 
                         if (File.Exists(path))
@@ -141,8 +143,12 @@ namespace BFBC2_Toolkit.Functions
 
                         UIElements.TextEditor.Text = await Task.Run(() => File.ReadAllText(path));
                         UIElements.TextEditor.ScrollToHome();
+                    }
+                    else
+                    {
+                        Write.ToEventLog("Importing aborted.", "");
 
-                        Write.ToEventLog("", "done");
+                        return true;
                     }
                 }
                 else if (selectedFilePath.EndsWith(".itexture"))
@@ -153,8 +159,6 @@ namespace BFBC2_Toolkit.Functions
 
                     if (ofd.ShowDialog() == true)
                     {
-                        Write.ToEventLog("Importing file...", "");
-
                         string path = selectedFilePath.Replace(".itexture", ".dds");
 
                         if (File.Exists(path))
@@ -164,7 +168,7 @@ namespace BFBC2_Toolkit.Functions
 
                         string[] file = { path };
 
-                        await Task.Run(() => TextureConverter.ConvertFile(file, true, false));
+                        await Task.Run(() => TextureConverter.ConvertFile(file, false, false));
 
                         try
                         {
@@ -178,10 +182,15 @@ namespace BFBC2_Toolkit.Functions
                         }
 
                         Write.ToInfoBox(ctvi);
-                        Write.ToEventLog("", "done");
+                    }
+                    else
+                    {
+                        Write.ToEventLog("Importing aborted.", "");
+
+                        return true;
                     }
                 }
-                else if (selectedFilePath.EndsWith(".bik"))
+                else if (selectedFilePath.EndsWith(".binkmemory"))
                 {
                     var ofd = new OpenFileDialog();
                     ofd.Filter = "bik file (.bik)|*.bik";
@@ -189,8 +198,6 @@ namespace BFBC2_Toolkit.Functions
 
                     if (ofd.ShowDialog() == true)
                     {
-                        Write.ToEventLog("Importing file...", "");
-
                         await RenameToBik();
 
                         string path = selectedFilePath.Replace(".binkmemory", ".mp4");
@@ -209,19 +216,27 @@ namespace BFBC2_Toolkit.Functions
                         await Task.Run(() => File.Copy(ofd.FileName, selectedFilePath));
 
                         Play.Video(path);
+                    }
+                    else
+                    {
+                        Write.ToEventLog("Importing aborted.", "");
 
-                        Write.ToEventLog("", "done");
+                        return true;
                     }
                 }
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to import file! See error.log", "error");
+
+                return true;
             }
         }
 
-        public static async Task DeleteFile(string explorer)
+        public static async Task<bool> DeleteFile(string explorer)
         {
             try
             {
@@ -229,42 +244,42 @@ namespace BFBC2_Toolkit.Functions
                 {
                     if (!Vars.IsGameProfile)
                     {
-                        if (UIElements.TreeViewDataExplorer.SelectedItem != null)
-                        {
-                            await Task.Run(() => File.Delete(Dirs.SelectedFilePathData));
+                        await Task.Run(() => File.Delete(Dirs.SelectedFilePathData));
 
-                            var item = UIElements.TreeViewDataExplorer.SelectedItem as CustomTreeViewItem;
-                            var parent = item.ParentItem;
-
-                            parent.Items.Remove(item);
-                        }
-                    }
-                    else
-                    {
-                        Write.ToEventLog("You can't delete a file from a game profile!", "warning");
-                    }
-                }
-                else if (explorer == "mod")
-                {
-                    if (UIElements.TreeViewModExplorer.SelectedItem != null)
-                    {
-                        await Task.Run(() => File.Delete(Dirs.SelectedFilePathMod));
-
-                        var item = UIElements.TreeViewModExplorer.SelectedItem as CustomTreeViewItem;
+                        var item = UIElements.TreeViewDataExplorer.SelectedItem as CustomTreeViewItem;
                         var parent = item.ParentItem;
 
                         parent.Items.Remove(item);
                     }
+                    else
+                    {
+                        Write.ToEventLog("You can't delete a file from a game profile!", "warning");
+
+                        return true;
+                    }
                 }
+                else if (explorer == "mod")
+                {
+                    await Task.Run(() => File.Delete(Dirs.SelectedFilePathMod));
+
+                    var item = UIElements.TreeViewModExplorer.SelectedItem as CustomTreeViewItem;
+                    var parent = item.ParentItem;
+
+                    parent.Items.Remove(item);
+                }
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to delete file! See error.log", "error");
+
+                return true;
             }
         }
 
-        public static async Task RestoreFile()
+        public static async Task<bool> RestoreFile()
         {
             try
             {
@@ -306,15 +321,19 @@ namespace BFBC2_Toolkit.Functions
 
                 item.IsSelected = false;
                 item.IsSelected = true;
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to restore file! See error.log", "error");
+
+                return true;
             }
         }
 
-        public static async Task CopyToMod()
+        public static async Task<bool> CopyToMod()
         {
             try
             {
@@ -356,15 +375,19 @@ namespace BFBC2_Toolkit.Functions
                 await Task.Run(() => File.Copy(Dirs.SelectedFilePathData, filePathMod));
 
                 Tree.Populate(UIElements.TreeViewModExplorer, Dirs.FilesPathMod);
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to copy file to mod project! See error.log", "error");
+
+                return true;
             }
         }
 
-        public static async Task RenameToBik()
+        public static async Task<bool> RenameToBik()
         {
             try
             {
@@ -392,11 +415,15 @@ namespace BFBC2_Toolkit.Functions
 
                 if (File.Exists(selectedFilePath.Replace(".binkmemory", ".mp4")))
                     await Task.Run(() => FileSystem.RenameFile(selectedFilePath.Replace(".binkmemory", ".mp4"), selectedFileName.Replace(".binkmemory", ".bik")));
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to rename file! See error.log", "error");
+                Write.ToEventLog("Unable to rename previously selected file! See error.log", "error");
+
+                return true;
             }
         }
 

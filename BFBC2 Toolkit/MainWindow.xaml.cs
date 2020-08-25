@@ -19,7 +19,6 @@ using BFBC2_Toolkit.Data;
 using BFBC2_Toolkit.Functions;
 using BFBC2_Toolkit.Tools;
 using BFBC2_Toolkit.Helpers;
-using System.Windows.Media.Imaging;
 
 /// <summary>
 /// BFBC2 Toolkit 
@@ -39,15 +38,18 @@ namespace BFBC2_Toolkit
         {
             InitializeComponent();
 
-            textEditor.TextArea.TextEntering += TextEditor_TextEntering;
+            //textEditor.TextArea.TextEntering += TextEditor_TextEntering;
             textEditor.TextArea.TextEntered += TextEditor_TextEntered;
-
-            #if DEBUG
+           
             AppDomain.CurrentDomain.UnhandledException += (sender, arguments) =>
             {
+                #if DEBUG
                 MessageBox.Show("Unhandled exception: " + arguments.ExceptionObject);
-            };
-            #endif
+                #endif
+
+                Write.ToEventLog("An unhandled exception has occurred! See error.log", "error");
+                Write.ToErrorLog("Unhandled exception: " + arguments.ExceptionObject);
+            };            
         }
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -93,13 +95,14 @@ namespace BFBC2_Toolkit
 
                 progressRing.IsActive = true;
 
-                await Profile.Add(ofd);
+                bool hasErrorOccurred = await Profile.Add(ofd);
 
                 progressRing.IsActive = false;
 
                 EnableInterface(true);
 
-                Write.ToEventLog("You can select your game profile now.", "done");
+                if (!hasErrorOccurred)
+                    Write.ToEventLog("You can select your game profile now.", "done");
             }           
 
             //Maybe load game profile afterwards?
@@ -145,7 +148,7 @@ namespace BFBC2_Toolkit
 
                     progressRing.IsActive = true;
 
-                    await Mod.OpenProject(ofd);
+                    bool hasErrorOccurred = await Mod.OpenProject(ofd);
 
                     btnArchiveMod.IsEnabled = true;
 
@@ -153,7 +156,8 @@ namespace BFBC2_Toolkit
 
                     EnableInterface(true);
 
-                    Write.ToEventLog("", "done");
+                    if (!hasErrorOccurred)
+                        Write.ToEventLog("", "done");
                 }
             }
         }
@@ -172,7 +176,7 @@ namespace BFBC2_Toolkit
 
                 progressRing.IsActive = true;
 
-                await Mod.Extract(ofd);
+                bool hasErrorOccurred = await Mod.Extract(ofd);
 
                 btnArchiveMod.IsEnabled = true;
 
@@ -180,7 +184,8 @@ namespace BFBC2_Toolkit
 
                 EnableInterface(true);
 
-                Write.ToEventLog("", "done");
+                if (!hasErrorOccurred)
+                    Write.ToEventLog("", "done");
             }
         }
 
@@ -192,13 +197,14 @@ namespace BFBC2_Toolkit
 
             progressRing.IsActive = true;
 
-            await Mod.Archive();
+            bool hasErrorOccurred = await Mod.Archive();
 
             progressRing.IsActive = false;
 
             EnableInterface(true);
 
-            Write.ToEventLog("", "done");
+            if (!hasErrorOccurred)
+                Write.ToEventLog("", "done");
         }
 
         private async void BtnExtractFbrb_Click(object sender, RoutedEventArgs e)
@@ -215,7 +221,7 @@ namespace BFBC2_Toolkit
 
                 progressRing.IsActive = true;
 
-                await Fbrb.Extract(ofd);
+                bool hasErrorOccurred = await Fbrb.Extract(ofd);
 
                 btnArchiveFbrb.IsEnabled = true;
 
@@ -223,7 +229,8 @@ namespace BFBC2_Toolkit
 
                 EnableInterface(true);
 
-                Write.ToEventLog("", "done");
+                if (!hasErrorOccurred)
+                    Write.ToEventLog("", "done");
             }
         }
 
@@ -235,13 +242,14 @@ namespace BFBC2_Toolkit
 
             progressRing.IsActive = true;
 
-            await Fbrb.Archive();
+            bool hasErrorOccurred = await Fbrb.Archive();
 
             progressRing.IsActive = false;
 
             EnableInterface(true);
 
-            Write.ToEventLog("", "done");
+            if (!hasErrorOccurred)
+                Write.ToEventLog("", "done");
         }
 
         private async void BtnCopyToMod_Click(object sender, RoutedEventArgs e)
@@ -254,13 +262,14 @@ namespace BFBC2_Toolkit
 
                 progressRing.IsActive = true;
 
-                await SelectedFile.CopyToMod();
+                bool hasErrorOccurred = await SelectedFile.CopyToMod();
 
                 progressRing.IsActive = false;
 
                 EnableInterface(true);
 
-                Write.ToEventLog("", "done");
+                if (!hasErrorOccurred)
+                    Write.ToEventLog("", "done");
             }
         }
 
@@ -272,13 +281,14 @@ namespace BFBC2_Toolkit
 
             progressRing.IsActive = true;
 
-            await SelectedFile.Export();
+            bool hasErrorOccurred = await SelectedFile.Export();
 
             progressRing.IsActive = false;
 
             EnableInterface(true);
 
-            Write.ToEventLog("Exported file to Output folder.", "done");
+            if (!hasErrorOccurred)
+                Write.ToEventLog("Exported file to Output folder.", "done");
         }
 
         private async void BtnImport_Click(object sender, RoutedEventArgs e)
@@ -289,13 +299,14 @@ namespace BFBC2_Toolkit
 
             progressRing.IsActive = true;
 
-            await SelectedFile.Import();
+            bool hasErrorOccurred = await SelectedFile.Import();
 
             progressRing.IsActive = false;
 
             EnableInterface(true);
 
-            Write.ToEventLog("Imported file successfully.", "done");
+            if (!hasErrorOccurred)
+                Write.ToEventLog("Imported file successfully.", "done");
         }
 
         private void BtnOpenFileLocation_Click(object sender, RoutedEventArgs e)
@@ -368,7 +379,7 @@ namespace BFBC2_Toolkit
 
                     if (selectedFileName.EndsWith(".dbx"))
                     {
-                        if (!File.Exists(selectedFilePath.Replace(".dbx", ".xml")))
+                        if (!File.Exists(selectedFilePath.Replace(selectedFileExtension, ".xml")))
                         {
                             var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptDBX + "\" \"" + selectedFilePath + "\"");
                             await Task.Run(() => process.WaitForExit());
@@ -378,7 +389,7 @@ namespace BFBC2_Toolkit
                             using (var reader = new XmlTextReader(Dirs.SyntaxXML))
                                 textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
-                        textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath.Replace(".dbx", ".xml")));
+                        textEditor.Text = await Task.Run(() => File.ReadAllText(selectedFilePath.Replace(selectedFileExtension, ".xml")));
                         textEditor.ScrollToHome();
                         textEditor.Visibility = Visibility.Visible;
 
@@ -505,13 +516,14 @@ namespace BFBC2_Toolkit
 
             progressRing.IsActive = true;
 
-            await Save.TextEditorChanges();
+            bool hasErrorOccurred = await Save.TextEditorChanges();
 
             progressRing.IsActive = false;
 
             EnableInterface(true);
 
-            Write.ToEventLog("", "done");
+            if (!hasErrorOccurred)
+                Write.ToEventLog("", "done");
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
@@ -559,93 +571,172 @@ namespace BFBC2_Toolkit
 
         private void BtnDataRefresh_Click(object sender, RoutedEventArgs e)
         {
+            if (!treeViewDataExplorer.HasItems)
+                return;
+
+            bool hasErrorOccurred = false;
+
+            Write.ToEventLog("Refreshing data explorer...", "");
+
             EnableInterface(false);
 
             progressRing.IsActive = true;
 
-            if (treeViewDataExplorer.HasItems)
+            try
+            {               
                 Tree.Populate(treeViewDataExplorer, Dirs.FilesPathData);
+            }
+            catch (Exception ex)
+            {
+                Write.ToErrorLog(ex);
+                Write.ToEventLog("Unable to refresh data explorer! See error.log", "error");
+
+                hasErrorOccurred = true;
+            }
 
             progressRing.IsActive = false;
 
             EnableInterface(true);
+
+            if (!hasErrorOccurred)
+                Write.ToEventLog("", "done");
         }
 
         private void BtnModRefresh_Click(object sender, RoutedEventArgs e)
         {
+            if (!treeViewModExplorer.HasItems)
+                return;
+
+            bool hasErrorOccurred = false;
+
+            Write.ToEventLog("Refreshing mod explorer...", "");
+
             EnableInterface(false);
 
             progressRing.IsActive = true;
 
-            if (treeViewModExplorer.HasItems)
+            try
+            {
                 Tree.Populate(treeViewModExplorer, Dirs.FilesPathMod);
+            }
+            catch (Exception ex)
+            {
+                Write.ToErrorLog(ex);
+                Write.ToEventLog("Unable to refresh data explorer! See error.log", "error");
+
+                hasErrorOccurred = true;
+            }
 
             progressRing.IsActive = false;
 
             EnableInterface(true);
+
+            if (!hasErrorOccurred)
+                Write.ToEventLog("", "done");
         }
 
         private async void BtnDataDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (treeViewDataExplorer.SelectedItem == null)
+                return;
+
+            Write.ToEventLog("Deleting selected file...", "");
+
             EnableInterface(false);
 
             progressRing.IsActive = true;
 
-            await SelectedFile.DeleteFile("data");
+            bool hasErrorOccurred = await SelectedFile.DeleteFile("data");
 
             progressRing.IsActive = false;
 
             EnableInterface(true);
+
+            if (!hasErrorOccurred)
+                Write.ToEventLog("", "done");
         }
 
         private async void BtnModDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (treeViewModExplorer.SelectedItem == null)
+                return;
+
+            Write.ToEventLog("Deleting selected file...", "");
+
             EnableInterface(false);
 
             progressRing.IsActive = true;
 
-            await SelectedFile.DeleteFile("mod");
+            bool hasErrorOccurred = await SelectedFile.DeleteFile("mod");
 
             progressRing.IsActive = false;
 
             EnableInterface(true);
+
+            if (!hasErrorOccurred)
+                Write.ToEventLog("", "done");
         }
 
         private async void BtnModRestore_Click(object sender, RoutedEventArgs e)
         {
-            if (treeViewModExplorer.SelectedItem != null)
-            {
-                Write.ToEventLog("Restoring original file...", "");
+            if (treeViewModExplorer.SelectedItem == null)
+                return;
 
-                EnableInterface(false);
+            Write.ToEventLog("Restoring original file...", "");
 
-                progressRing.IsActive = true;
+            EnableInterface(false);
 
-                await ChangeInterface("");
+            progressRing.IsActive = true;
 
-                await SelectedFile.RestoreFile();
+            await ChangeInterface("");
 
-                progressRing.IsActive = false;
+            bool hasErrorOccurred = await SelectedFile.RestoreFile();
 
-                EnableInterface(true);
+            progressRing.IsActive = false;
 
+            EnableInterface(true);
+
+            if (!hasErrorOccurred)
                 Write.ToEventLog("", "done");
-            }
         }        
 
         private void BtnVisitHeico_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://www.nexusmods.com/battlefieldbadcompany2/users/45260312");
+            try
+            {
+                Process.Start("https://www.nexusmods.com/battlefieldbadcompany2/users/45260312");
+            }
+            catch (Exception ex)
+            {
+                Write.ToErrorLog(ex);
+                Write.ToEventLog("Unable to open link! See error.log", "error");
+            }
         }
 
         private void BtnJoinDiscord_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://discord.me/battlefieldmodding");
+            try
+            {
+                Process.Start("https://discord.me/battlefieldmodding");
+            }
+            catch (Exception ex)
+            {
+                Write.ToErrorLog(ex);
+                Write.ToEventLog("Unable to open link! See error.log", "error");
+            }
         }
 
         private void BtnReportBug_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://github.com/HeicoDev/BFBC2Toolkit/issues");
+            try
+            {
+                Process.Start("https://www.nexusmods.com/battlefieldbadcompany2/mods/15?tab=bugs");
+            }
+            catch (Exception ex)
+            {
+                Write.ToErrorLog(ex);
+                Write.ToEventLog("Unable to open link! See error.log", "error");
+            }
         }
 
         private void BtnInfo_Click(object sender, RoutedEventArgs e)
@@ -986,30 +1077,37 @@ namespace BFBC2_Toolkit
 
         private async Task InitializeStartup()
         {
-            if (!File.Exists(Settings.PathToPython))
-            {
-                MessageBox.Show("Unable to locate Python 2.7 installation!\nPlease select pythonw.exe...", "Error");
-
-                string path = SettingsHandler.ChangePythonPath();
-
-                if (path == String.Empty)
-                {
-                    MessageBox.Show("Unable to locate pythonw.exe!\nPress 'OK' to close the app.", "Error");
-
-                    Environment.Exit(0);
-                }
-                else
-                {
-                    SettingsHandler.Save();
-                }
-            }
-
             try
             {
+                if (!File.Exists(Settings.PathToPython))
+                {
+                    MessageBox.Show("Unable to locate Python 2.7 installation!\nPlease select pythonw.exe...", "Error");
+
+                    string path = SettingsHandler.ChangePythonPath();
+
+                    if (path == String.Empty)
+                    {
+                        MessageBox.Show("Unable to locate pythonw.exe!\nPress 'OK' to close the app.", "Error");
+
+                        Environment.Exit(0);
+                    }
+                    else
+                    {
+                        bool hasErrorOccurredOnSave = SettingsHandler.Save();
+
+                        if (hasErrorOccurredOnSave)
+                            Environment.Exit(0);
+                    }
+                }
+           
                 await Task.Run(() => Create.PrecreateDirs());
                 await Task.Run(() => Create.ConfigFiles());
                 await Task.Run(() => CleanUp.StartUp());
-                SettingsHandler.Load();
+
+                bool hasErrorOccurredOnLoad = SettingsHandler.Load();
+
+                if (hasErrorOccurredOnLoad)
+                    Environment.Exit(0);
             }
             catch (Exception ex)
             {

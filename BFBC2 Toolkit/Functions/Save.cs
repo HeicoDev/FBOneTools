@@ -8,7 +8,7 @@ namespace BFBC2_Toolkit.Functions
 {
     public class Save
     {
-        public static async Task TextEditorChanges()
+        public static async Task<bool> TextEditorChanges()
         {
             try
             {                
@@ -34,11 +34,15 @@ namespace BFBC2_Toolkit.Functions
                 {
                     await Task.Run(() => File.WriteAllText(selectedFilePath, textEditorText));
                 }
+
+                return false;
             }
             catch (Exception ex)
             {
                 Write.ToErrorLog(ex);
                 Write.ToEventLog("Unable to save text editor changes! See error.log", "error");
+
+                return true;
             }
         }
     }

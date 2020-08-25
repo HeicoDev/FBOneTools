@@ -12,6 +12,6 @@
         <Label x:Name="lblAuthor" Content="By Nico Hellmund" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
         <Label x:Name="lblAka" Content="Aka Heico" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
         <Label x:Name="lblCopyright" Content="Copyright © 2020" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
-        <Button x:Name="btnCredits" Background="#FF454545" Content="Credits &amp; Licenses" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontWeight="Bold" FontSize="11" HorizontalAlignment="Center" Margin="10,0,10,6" Width="224" BorderBrush="#FF707070" Style="{DynamicResource ButtonStyle1}" VerticalAlignment="Bottom" Height="21" ToolTip="Open the Docs folder which contains the credits and licenses" Click="BtnCredits_Click"/>
+        <Button x:Name="btnCredits" Background="#FF454545" Content="Credits &amp; Licenses" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontWeight="Bold" FontSize="11" HorizontalAlignment="Center" Margin="10,0,10,8" Width="224" BorderBrush="#FF707070" Style="{DynamicResource ButtonStyle1}" VerticalAlignment="Bottom" Height="21" ToolTip="Open the Docs folder which contains the credits and licenses" Click="BtnCredits_Click"/>
     </Grid>
 </Controls:MetroWindow>
