@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using BFBC2_Toolkit.Data.Files;
 
 namespace BFBC2_Toolkit.Data
 {
-    public class Vars
+    public class Globals
     {
         public static IDictionary<string, string> FbrbFiles { get; } = new Dictionary<string, string>();
 
@@ -11,13 +12,9 @@ namespace BFBC2_Toolkit.Data
         public static bool IsGameProfile { get; set; } = false;
         public static bool IsDataTreeView { get; set; } = false;
         public static bool IsDataAvailable { get; set; } = false;    
-        public static bool IsModAvailable { get; set; } = false;        
+        public static bool IsModAvailable { get; set; } = false;
 
-        public static string TextureFormat { get; set; }
-
-        public static int TextureWidth { get; set; }
-        public static int TextureHeight { get; set; }
-        public static int MipmapCount { get; set; }
+        public static Texture SelectedTexture { get; set; }
 
         public static string[] FileFormats { get; } = { "swfmovie", "dx10pixelshader", "havokphysicsdata", "treemeshset",
                                                         "terrainheightfield", "itexture", "animtreeinfo", "irradiancevolume",

@@ -25,7 +25,7 @@ namespace BFBC2_Toolkit.Functions
 
                 Tree.Populate(UIElements.TreeViewModExplorer, Dirs.FilesPathMod);
 
-                Vars.IsModAvailable = true;
+                Globals.IsModAvailable = true;
 
                 return false;
             }
@@ -97,7 +97,7 @@ namespace BFBC2_Toolkit.Functions
                             Dirs.FilesPathMod = path;
                             Dirs.ModName = name;
 
-                            Vars.IsModAvailable = true;                            
+                            Globals.IsModAvailable = true;                            
                         }
                     }
                 }

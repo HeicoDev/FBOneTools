@@ -63,7 +63,7 @@
                     <RowDefinition Height="147*" MinHeight="100" />
                 </Grid.RowDefinitions>
                 <GridSplitter x:Name="gridSplitter" HorizontalAlignment="Stretch" Height="5" Margin="6,0,0,0" VerticalAlignment="Center" ShowsPreview="True" Grid.Row="1" Background="#FF292929"/>
-                <TreeView x:Name="treeViewModExplorer" Margin="7,27,0,7" Background="#FFE2E2E2" BorderBrush="#FFE2E2E2" Foreground="#FFE2E2E2" FontSize="11" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" SelectedItemChanged="ModExplorer_ItemChanged" Style="{DynamicResource TreeViewStyle}" Grid.Row="2">
+                <TreeView x:Name="treeViewModExplorer" Margin="7,27,0,7" Background="#FFE2E2E2" BorderBrush="#FFE2E2E2" Foreground="#FFE2E2E2" FontSize="11" FontWeight="Bold" Style="{DynamicResource TreeViewStyle}" SelectedItemChanged="ModExplorer_ItemChanged" Grid.Row="2">
                     <TreeView.ItemTemplate>
                         <HierarchicalDataTemplate DataType="{x:Type data:CustomTreeViewItem}" ItemsSource="{Binding Items}">
                             <StackPanel Orientation="Horizontal">

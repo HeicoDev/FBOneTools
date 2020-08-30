@@ -116,14 +116,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data\Bindings.cs" />
     <Compile Include="Data\CompletionData.cs" />
+    <Compile Include="Data\CustomTreeViewItem.cs" />
+    <Compile Include="Data\Files\Texture.cs" />
+    <Compile Include="Data\GameProfile.cs" />
     <Compile Include="Data\UIElements.cs" />
     <Compile Include="Data\Settings.cs" />
     <Compile Include="Helpers\BitmapHelper.cs" />
     <Compile Include="Functions\Create.cs" />
     <Compile Include="Helpers\MediaStreamHelper.cs" />
-    <Compile Include="Data\Vars.cs" />
+    <Compile Include="Data\Globals.cs" />
     <Compile Include="Functions\Fbrb.cs" />
     <Compile Include="Functions\Mod.cs" />
     <Compile Include="Functions\Play.cs" />
@@ -136,7 +138,7 @@
     <Compile Include="Windows\CreateModWindow.xaml.cs">
       <DependentUpon>CreateModWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Data\FileHeaders.cs" />
+    <Compile Include="Data\Files\TextureHeader.cs" />
     <Compile Include="Functions\IniFile.cs" />
     <Compile Include="Tools\TextureConverter.cs" />
     <Compile Include="Windows\CustomizerWindow.xaml.cs">

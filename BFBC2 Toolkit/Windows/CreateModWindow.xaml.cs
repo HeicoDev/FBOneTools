@@ -51,7 +51,7 @@ namespace BFBC2_Toolkit
                 Dirs.ModName = iniFile.Read("Name", "ModInfo");
                 Dirs.FilesPathMod = projectPath;
 
-                Vars.IsModAvailable = true;
+                Globals.IsModAvailable = true;
 
                 Tree.Populate(UIElements.TreeViewModExplorer, projectPath);
 

@@ -24,7 +24,7 @@ namespace BFBC2_Toolkit.Helpers
 
         public static BitmapSource LoadGrayscaleImage(string filePath)
         {
-            int stride = (Vars.TextureWidth * 16 + 7) / 8;
+            int stride = (Globals.SelectedTexture.Width * 16 + 7) / 8;
 
             byte[] fileData = { };
 
@@ -33,7 +33,7 @@ namespace BFBC2_Toolkit.Helpers
                 fileData = br.ReadBytes(Convert.ToInt32(br.BaseStream.Length));
             }
 
-            var bitmap = BitmapSource.Create(Vars.TextureWidth, Vars.TextureHeight, 96, 96, PixelFormats.Gray16, null, fileData, stride);
+            var bitmap = BitmapSource.Create(Globals.SelectedTexture.Width, Globals.SelectedTexture.Height, 96, 96, PixelFormats.Gray16, null, fileData, stride);
 
             return bitmap;
         }

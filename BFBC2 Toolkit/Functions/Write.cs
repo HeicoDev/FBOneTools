@@ -15,7 +15,7 @@ namespace BFBC2_Toolkit.Functions
             {
                 sw.WriteLine("#Error Log**************************Error Log**************************Error Log#");
                 sw.WriteLine("Name: BFBC2 Toolkit");
-                sw.WriteLine($"Ver: { Vars.VersionClient }");
+                sw.WriteLine($"Ver: { Globals.VersionClient }");
                 sw.WriteLine($"Date: { DateTime.Now }");
                 sw.WriteLine($"Error: { ex }");
             }
@@ -28,7 +28,7 @@ namespace BFBC2_Toolkit.Functions
             {
                 sw.WriteLine("#Error Log**************************Error Log**************************Error Log#");
                 sw.WriteLine("Name: BFBC2 Toolkit");
-                sw.WriteLine($"Ver: { Vars.VersionClient }");
+                sw.WriteLine($"Ver: { Globals.VersionClient }");
                 sw.WriteLine($"Date: { DateTime.Now }");
                 sw.WriteLine($"Error: { ex }");
             }
@@ -88,12 +88,12 @@ namespace BFBC2_Toolkit.Functions
                 case "Texture":
                     UIElements.TxtBoxInformation.Document.Blocks.Clear();
                     UIElements.TxtBoxInformation.Document.PageWidth = ctvi.Name.Length * 15;
-                    UIElements.TxtBoxInformation.AppendText($"Name:\r{ ctvi.Name }\r\rType:\r{ ctvi.Type }\r\rFormat:\r{ ctvi.Format }\r{ Vars.TextureFormat }\r\rResolution:\r{ Vars.TextureWidth }x{ Vars.TextureHeight }\r\rMipmaps:\r{ Vars.MipmapCount }\r\rArchive:\r{ ctvi.Archive }\r\rSupported:\r{ ctvi.Supported }");
+                    UIElements.TxtBoxInformation.AppendText($"Name:\r{ ctvi.Name }\r\rType:\r{ ctvi.Type }\r\rFormat:\r{ ctvi.Format }\r{ Globals.SelectedTexture.Format }\r\rResolution:\r{ Globals.SelectedTexture.Width }x{ Globals.SelectedTexture.Height }\r\rMipmaps:\r{ Globals.SelectedTexture.MipmapCount }\r\rArchive:\r{ ctvi.Archive }\r\rSupported:\r{ ctvi.Supported }");
                     break;
                 case "Heightmap":
                     UIElements.TxtBoxInformation.Document.Blocks.Clear();
                     UIElements.TxtBoxInformation.Document.PageWidth = ctvi.Name.Length * 15;
-                    UIElements.TxtBoxInformation.AppendText($"Name:\r{ ctvi.Name }\r\rType:\r{ ctvi.Type }\r\rResolution:\r{ Vars.TextureWidth }x{ Vars.TextureHeight }\r\rArchive:\r{ ctvi.Archive }\r\rSupported:\r{ ctvi.Supported }");
+                    UIElements.TxtBoxInformation.AppendText($"Name:\r{ ctvi.Name }\r\rType:\r{ ctvi.Type }\r\rResolution:\r{ Globals.SelectedTexture.Width }x{ Globals.SelectedTexture.Height }\r\rArchive:\r{ ctvi.Archive }\r\rSupported:\r{ ctvi.Supported }");
                     break;
                 default:
                     UIElements.TxtBoxInformation.Document.Blocks.Clear();

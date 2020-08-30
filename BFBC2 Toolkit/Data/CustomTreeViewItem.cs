@@ -3,17 +3,6 @@ using System.ComponentModel;
 
 namespace BFBC2_Toolkit.Data
 {
-    public class Bindings
-    {
-
-    }
-
-    public class GameProfile
-    {
-        public string Name { get; set; }
-        public string Platform { get; set; }
-    }
-
     public class CustomTreeViewItem : INotifyPropertyChanged
     {
         public CustomTreeViewItem()

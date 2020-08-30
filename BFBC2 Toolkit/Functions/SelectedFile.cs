@@ -21,7 +21,7 @@ namespace BFBC2_Toolkit.Functions
                 string selectedFilePath = String.Empty,
                        selectedFileName = String.Empty;
 
-                if (Vars.IsDataTreeView)
+                if (Globals.IsDataTreeView)
                 {
                     selectedFilePath = Dirs.SelectedFilePathData;
                     selectedFileName = Dirs.SelectedFileNameData;
@@ -108,7 +108,7 @@ namespace BFBC2_Toolkit.Functions
 
                 var ctvi = new CustomTreeViewItem();
 
-                if (Vars.IsDataTreeView)
+                if (Globals.IsDataTreeView)
                 {
                     selectedFilePath = Dirs.SelectedFilePathData;
 
@@ -242,7 +242,7 @@ namespace BFBC2_Toolkit.Functions
             {
                 if (explorer == "data")
                 {
-                    if (!Vars.IsGameProfile)
+                    if (!Globals.IsGameProfile)
                     {
                         await Task.Run(() => File.Delete(Dirs.SelectedFilePathData));
 
@@ -287,9 +287,9 @@ namespace BFBC2_Toolkit.Functions
 
                 string filePathData = "";
 
-                if (!Vars.IsGameProfile)
+                if (!Globals.IsGameProfile)
                 {
-                    foreach (KeyValuePair<string, string> kvp in Vars.FbrbFiles)
+                    foreach (KeyValuePair<string, string> kvp in Globals.FbrbFiles)
                     {
                         if (Dirs.FilePath.Contains(kvp.Value))
                         {
@@ -343,9 +343,9 @@ namespace BFBC2_Toolkit.Functions
 
                 string filePathMod = Dirs.FilesPathMod + @"\" + Dirs.FilePath;
 
-                if (!Vars.IsGameProfile)
+                if (!Globals.IsGameProfile)
                 {
-                    foreach (KeyValuePair<string, string> kvp in Vars.FbrbFiles)
+                    foreach (KeyValuePair<string, string> kvp in Globals.FbrbFiles)
                     {
                         if (Dirs.FilesPathData.EndsWith(kvp.Value))
                         {
@@ -356,7 +356,7 @@ namespace BFBC2_Toolkit.Functions
                 }
                 else
                 {
-                    foreach (string gameId in Vars.GameIds)
+                    foreach (string gameId in Globals.GameIds)
                     {
                         if (filePathMod.Contains(gameId))
                         {
@@ -398,7 +398,7 @@ namespace BFBC2_Toolkit.Functions
                 UIElements.MediaElement.Close();
                 UIElements.MediaElement.Source = null;
 
-                if (Vars.IsDataTreeView)
+                if (Globals.IsDataTreeView)
                 {
                     selectedFilePath = Dirs.SelectedFilePathData;
                     selectedFileName = Dirs.SelectedFileNameData;
@@ -433,7 +433,7 @@ namespace BFBC2_Toolkit.Functions
             {
                 string selectedFilePath = "";
 
-                if (Vars.IsDataTreeView)
+                if (Globals.IsDataTreeView)
                     selectedFilePath = Dirs.SelectedFilePathData;
                 else
                     selectedFilePath = Dirs.SelectedFilePathMod;

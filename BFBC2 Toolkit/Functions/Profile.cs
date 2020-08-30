@@ -63,7 +63,7 @@ namespace BFBC2_Toolkit.Functions
 
                 foreach (string file in files)
                 {
-                    foreach (KeyValuePair<string, string> kvp in Vars.FbrbFiles)
+                    foreach (KeyValuePair<string, string> kvp in Globals.FbrbFiles)
                     {
                         if (file.EndsWith(kvp.Key))
                         {
@@ -138,7 +138,7 @@ namespace BFBC2_Toolkit.Functions
         {
             try
             {
-                if (Directory.Exists(Dirs.FilesPathData) && Vars.IsGameProfile == false)
+                if (Directory.Exists(Dirs.FilesPathData) && Globals.IsGameProfile == false)
                     await Task.Run(() => Directory.Delete(Dirs.FilesPathData, true));
 
                 if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "PC")
@@ -270,7 +270,7 @@ namespace BFBC2_Toolkit.Functions
 
             foreach (string file in files)
             {
-                foreach (KeyValuePair<string, string> kvp in Vars.FbrbFiles)
+                foreach (KeyValuePair<string, string> kvp in Globals.FbrbFiles)
                 {
                     if (file.EndsWith(kvp.Key))
                     {

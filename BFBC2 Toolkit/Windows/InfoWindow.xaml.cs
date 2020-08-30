@@ -13,7 +13,7 @@ namespace BFBC2_Toolkit.Windows
 
         private void InfoWindow_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            lblName.Content = "BFBC2 Toolkit " + Vars.VersionClient;
+            lblName.Content = "BFBC2 Toolkit " + Globals.VersionClient;
         }
 
         private void BtnCredits_Click(object sender, System.Windows.RoutedEventArgs e)

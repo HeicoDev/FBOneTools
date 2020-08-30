@@ -309,14 +309,14 @@
                                         <VisualState x:Name="Indeterminate" />
                                     </VisualStateGroup>
                                 </VisualStateManager.VisualStateGroups>
-                                <Path x:Name="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="1,1,1,1" Data="M 4 0 L 8 4 L 4 8 Z">
+                                <Path x:Name="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="1,1,1,1" Data="M 2 2 L 7 7 L 2 12 Z">
                                     <Path.Fill>
-                                        <SolidColorBrush Color="{DynamicResource GlyphColor}" />
+                                        <SolidColorBrush Color="#FFE0E0E0" />
                                     </Path.Fill>
                                 </Path>
-                                <Path x:Name="Expanded" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="1,1,1,1" Data="M 0 4 L 8 4 L 4 8 Z" Visibility="Hidden">
+                                <Path x:Name="Expanded" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="1,1,1,1" Data="M 1 10 L 7 3 L 7 10 Z" Visibility="Hidden">
                                     <Path.Fill>
-                                        <SolidColorBrush Color="{DynamicResource GlyphColor}" />
+                                        <SolidColorBrush Color="#FFE0E0E0" />
                                     </Path.Fill>
                                 </Path>
                             </Grid>
@@ -350,8 +350,8 @@
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition MinWidth="19" Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
@@ -394,13 +394,12 @@
                                     <Setter TargetName="PART_Header" Property="MinHeight" Value="19" />
                                 </MultiTrigger>
                                 <Trigger Property="IsSelected" Value="True">
-                                    <Setter Property="Background" Value="#FF686868" />
-                                    <Setter Property="BorderBrush" Value="#FF686868" />
+                                    <Setter Property="Background" Value="#FF5D5D5D" />
+                                    <Setter Property="BorderBrush" Value="#FF5D5D5D" />
                                 </Trigger>
                                 <MultiTrigger>
                                     <MultiTrigger.Conditions>
                                         <Condition Property="helpers:TreeViewItemHelper.IsMouseDirectlyOverItem" Value="True" />
-                                        <Condition Property="IsSelected" Value="False" />
                                     </MultiTrigger.Conditions>
                                     <Setter Property="Background" Value="#FF686868" />
                                     <Setter Property="BorderBrush" Value="#FF686868" />

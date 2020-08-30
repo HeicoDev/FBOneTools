@@ -67,8 +67,8 @@ namespace BFBC2_Toolkit.Windows
 
                 await Profile.Load(selectedProfile);
 
-                Vars.IsDataAvailable = true;
-                Vars.IsGameProfile = true;
+                Globals.IsDataAvailable = true;
+                Globals.IsGameProfile = true;
 
                 progressRing.IsActive = false;
 

@@ -14,7 +14,7 @@ namespace BFBC2_Toolkit.Functions
             {                
                 string selectedFilePath = "";
 
-                if (Vars.IsDataTreeView)
+                if (Globals.IsDataTreeView)
                     selectedFilePath = Dirs.SelectedFilePathData;
                 else
                     selectedFilePath = Dirs.SelectedFilePathMod;

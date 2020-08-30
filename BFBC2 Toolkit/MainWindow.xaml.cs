@@ -115,7 +115,7 @@ namespace BFBC2_Toolkit
             selectGameWindow.Owner = this;
             selectGameWindow.ShowDialog();
 
-            if (Vars.IsGameProfile)
+            if (Globals.IsGameProfile)
                 btnArchiveFbrb.IsEnabled = false;
         }
 
@@ -254,7 +254,7 @@ namespace BFBC2_Toolkit
 
         private async void BtnCopyToMod_Click(object sender, RoutedEventArgs e)
         {
-            if (Vars.IsDataTreeView && Vars.IsModAvailable && treeViewDataExplorer.SelectedItem != null)
+            if (Globals.IsDataTreeView && Globals.IsModAvailable && treeViewDataExplorer.SelectedItem != null)
             {
                 Write.ToEventLog("Copying file...", "");
 
@@ -316,7 +316,7 @@ namespace BFBC2_Toolkit
 
         private async void DataExplorer_ItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            Vars.IsDataTreeView = true;
+            Globals.IsDataTreeView = true;
 
             if (Dirs.SelectedFilePathData != null && Dirs.SelectedFilePathData.EndsWith(".binkmemory"))
                 await SelectedFile.RenameToBik();
@@ -329,7 +329,7 @@ namespace BFBC2_Toolkit
 
         private async void ModExplorer_ItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            Vars.IsDataTreeView = false;
+            Globals.IsDataTreeView = false;
 
             if (Dirs.SelectedFilePathMod != null && Dirs.SelectedFilePathMod.EndsWith(".binkmemory"))
                 await SelectedFile.RenameToBik();
@@ -361,7 +361,7 @@ namespace BFBC2_Toolkit
 
                     await ChangeInterface(selectedFileExtension);
 
-                    if (Vars.IsDataTreeView)
+                    if (Globals.IsDataTreeView)
                     {
                         Dirs.SelectedFileNameData = selectedFileName;
                         Dirs.SelectedFilePathData = selectedFilePath;
@@ -504,7 +504,7 @@ namespace BFBC2_Toolkit
 
         private async void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (Vars.IsGameProfile)
+            if (Globals.IsGameProfile)
             {
                 Write.ToEventLog("You can't edit a file from a game profile!", "warning");
                 return;
@@ -961,15 +961,15 @@ namespace BFBC2_Toolkit
                 btnModRefresh.IsEnabled = true;
                 btnSave.IsEnabled = true;
 
-                if (Vars.IsModAvailable)
+                if (Globals.IsModAvailable)
                     btnArchiveMod.IsEnabled = true;
 
-                if (Vars.IsDataAvailable && !Vars.IsGameProfile)
+                if (Globals.IsDataAvailable && !Globals.IsGameProfile)
                     btnArchiveFbrb.IsEnabled = true;
 
                 string selectedFileName = "";
 
-                if (Vars.IsDataTreeView)
+                if (Globals.IsDataTreeView)
                     selectedFileName = Dirs.SelectedFilePathData;
                 else
                     selectedFileName = Dirs.SelectedFilePathMod;
@@ -1009,7 +1009,7 @@ namespace BFBC2_Toolkit
         {
             if (format == ".dbx")
             {
-                if (Vars.IsDataTreeView && Vars.IsGameProfile)
+                if (Globals.IsDataTreeView && Globals.IsGameProfile)
                     btnImport.IsEnabled = false;
                 else
                     btnImport.IsEnabled = true;
@@ -1025,7 +1025,7 @@ namespace BFBC2_Toolkit
             }
             else if (format == ".itexture" || format == ".ps3texture" || format == ".xenontexture" || format == ".terrainheightfield")
             {
-                if (Vars.IsDataTreeView && Vars.IsGameProfile)
+                if (Globals.IsDataTreeView && Globals.IsGameProfile)
                     btnImport.IsEnabled = false;
                 else if (format == ".itexture")
                     btnImport.IsEnabled = true;
@@ -1037,7 +1037,7 @@ namespace BFBC2_Toolkit
             }
             else if (format == ".binkmemory")
             {
-                if (Vars.IsDataTreeView && Vars.IsGameProfile)
+                if (Globals.IsDataTreeView && Globals.IsGameProfile)
                     btnImport.IsEnabled = false;
                 else
                     btnImport.IsEnabled = true;
@@ -1055,7 +1055,7 @@ namespace BFBC2_Toolkit
             {
                 string selectedFileName = "";
 
-                if (Vars.IsDataTreeView)
+                if (Globals.IsDataTreeView)
                     selectedFileName = Dirs.SelectedFilePathData;
                 else
                     selectedFileName = Dirs.SelectedFilePathMod;
@@ -1124,7 +1124,7 @@ namespace BFBC2_Toolkit
             UIElements.MediaElement = mediaElement;
             UIElements.ImageElement = image;
 
-            Vars.SetFbrbFiles();
+            Globals.SetFbrbFiles();
 
             image.Margin = new Thickness(0, 31, 0, 27);
             mediaElement.Margin = new Thickness(0, 31, 0, 27);

@@ -16,7 +16,7 @@ namespace BFBC2_Toolkit.Functions
             {
                 await MediaStream.Dispose();
 
-                if (Directory.Exists(Dirs.FilesPathData) && !Vars.IsGameProfile)
+                if (Directory.Exists(Dirs.FilesPathData) && !Globals.IsGameProfile)
                     await Task.Run(() => Directory.Delete(Dirs.FilesPathData, true));
 
                 var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptArchive + "\" \"" + ofd.FileName.Replace(@"\", @"\\") + "\"");
@@ -30,8 +30,8 @@ namespace BFBC2_Toolkit.Functions
 
                 Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.FilesPathData);
 
-                Vars.IsDataAvailable = true;
-                Vars.IsGameProfile = false;
+                Globals.IsDataAvailable = true;
+                Globals.IsGameProfile = false;
 
                 return false;
             }

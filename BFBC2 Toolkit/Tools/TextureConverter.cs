@@ -3,6 +3,7 @@ using System.Data;
 using System.Linq;
 using System.IO;
 using BFBC2_Toolkit.Data;
+using BFBC2_Toolkit.Data.Files;
 using BFBC2_Toolkit.Functions;
 
 namespace BFBC2_Toolkit.Tools
@@ -96,40 +97,44 @@ namespace BFBC2_Toolkit.Tools
 
             if (format == 49)
             {
-                hexHeader = StringToByteArray(FileHeaders.iTextureDXT1);
+                hexHeader = StringToByteArray(TextureHeader.ITextureDXT1);
                 mipmapMinSize = 8;
                 textureFormat = "DXT1 BC1";
             }
             else if (format == 51)
             {
-                hexHeader = StringToByteArray(FileHeaders.iTextureDXT3);
+                hexHeader = StringToByteArray(TextureHeader.ITextureDXT3);
                 textureFormat = "DXT3 BC2";
             }
             else if (format == 53)
             {
-                hexHeader = StringToByteArray(FileHeaders.iTextureDXT5);
+                hexHeader = StringToByteArray(TextureHeader.ITextureDXT5);
                 textureFormat = "DXT5 BC3";
             }
             else if (format == 32)
             {
                 if (hexMain[88] == 32)
                 {
-                    hexHeader = StringToByteArray(FileHeaders.iTextureARGB);
+                    hexHeader = StringToByteArray(TextureHeader.ITextureARGB);
                     textureFormat = "ARGB8888";
                 }
                 else if (hexMain[88] == 8)
                 {
-                    hexHeader = StringToByteArray(FileHeaders.iTextureGray);
+                    hexHeader = StringToByteArray(TextureHeader.ITextureGray);
                     textureFormat = "Grayscale";
                 }
             }
 
             if (!isStandalone)
             {
-                Vars.TextureFormat = textureFormat;
-                Vars.TextureWidth = width;
-                Vars.TextureHeight = height;
-                Vars.MipmapCount = mipmapCount;
+                var texture = new Texture();
+
+                texture.Format = textureFormat;
+                texture.Width = width;
+                texture.Height = height;
+                texture.MipmapCount = mipmapCount;
+
+                Globals.SelectedTexture = texture;
             }
 
             if (hexHeader.Length > 0)
@@ -214,36 +219,40 @@ namespace BFBC2_Toolkit.Tools
 
             if (format == 0 || format == 18)        
             {
-                hexHeader = StringToByteArray(FileHeaders.ddsDXT1);
+                hexHeader = StringToByteArray(TextureHeader.DdsDXT1);
                 textureFormat = "DXT1 BC1";
             }
             else if (format == 1)                  
             {
-                hexHeader = StringToByteArray(FileHeaders.ddsDXT3);
+                hexHeader = StringToByteArray(TextureHeader.DdsDXT3);
                 textureFormat = "DXT3 BC2";
             }
             else if (format == 2 || format == 19 || format == 20 || format == 13)
             {
-                hexHeader = StringToByteArray(FileHeaders.ddsDXT5);
+                hexHeader = StringToByteArray(TextureHeader.DdsDXT5);
                 textureFormat = "DXT5 BC3";
             }
             else if (format == 9) 
             {
-                hexHeader = StringToByteArray(FileHeaders.ddsARGB);
+                hexHeader = StringToByteArray(TextureHeader.DdsARGB);
                 textureFormat = "ARGB8888";
             }
             else if (format == 10) 
             {
-                hexHeader = StringToByteArray(FileHeaders.ddsGray);
+                hexHeader = StringToByteArray(TextureHeader.DdsGray);
                 textureFormat = "Grayscale";
             }
 
             if (!isStandalone)
             {
-                Vars.TextureFormat = textureFormat;
-                Vars.TextureWidth = width;
-                Vars.TextureHeight = height;
-                Vars.MipmapCount = mipmapCount;
+                var texture = new Texture();
+
+                texture.Format = textureFormat;
+                texture.Width = width;
+                texture.Height = height;
+                texture.MipmapCount = mipmapCount;
+
+                Globals.SelectedTexture = texture;
             }
 
             if (hexHeader.Length > 0)
@@ -312,8 +321,12 @@ namespace BFBC2_Toolkit.Tools
 
             if (!isStandalone)
             {
-                Vars.TextureWidth = BitConverter.ToInt32(hexMain, 24);
-                Vars.TextureHeight = BitConverter.ToInt32(hexMain, 37);
+                var texture = new Texture();
+
+                texture.Width = BitConverter.ToInt32(hexMain, 24);
+                texture.Height = BitConverter.ToInt32(hexMain, 37);
+
+                Globals.SelectedTexture = texture;
             }
 
             int headerLength = 49;
