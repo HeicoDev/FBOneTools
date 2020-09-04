@@ -1,11 +1,17 @@
 <div align="center">
   <a href="https://github.com/HeicoDev/BFBC2Toolkit">
-    <img alt="BFBC2Toolkit" width="200" heigth="200" src="https://i.ibb.co/ZJ4Z4sp/Battlefield-Modding-Icon.png">
+    <img alt="FBOneTools" width="200" heigth="200" src="https://i.ibb.co/ZJ4Z4sp/Battlefield-Modding-Icon.png">
   </a>
   <h1>FBOneTools</h1>
   <p>
     A collection of tools for the Frostbite 1 Engine.
   </p>
+  <p>
+    Includes a modding tool, a mod manager and more!
+  </p>
+  <a href="https://github.com/HeicoDev/BFBC2Toolkit">
+    <img alt="BFBC2Toolkit" width="700" heigth="700" src="https://staticdelivery.nexusmods.com/mods/2608/images/15/15-1599015893-189713593.png">
+  </a>
   <h1>BFBC2 Toolkit</h1>
   <p>
     A modding tool for the Frostbite 1 Engine.
@@ -62,6 +68,9 @@ NuGet Packages:
 * [ControlzEx 3.0.2.4](https://www.nuget.org/packages/ControlzEx/3.0.2.4)
 
 <div align="center">
+  <a href="https://github.com/HeicoDev/BFBC2Toolkit">
+    <img alt="BFBC2Toolkit" width="700" heigth="700" src="https://staticdelivery.nexusmods.com/mods/2608/images/4/4-1547014090-799561424.jpeg">
+  </a>
   <h1>BFBC2 Mod Loader</h1>
   <p>
     A mod manager that allows you to install your client & server side mods easy & fast without modifying or replacing original game files. Works with Singleplayer, Multiplayer & Vietnam Add-On!
@@ -79,7 +88,7 @@ You can download the latest stable build on [Nexus Mods](https://www.nexusmods.c
 * Does not modify original archives/files except two tiny text files 
 * Detects conflicts and blocks installation so you don't mess up your mod archive
 * Disable & enable all mods and revert modified files back to original without deleting all mods
-* A server and map browser that let you easily download and install custom maps
+* A server and map browser that allows you to easily download and install custom maps
 * UI for managing your mods (enable/disable and delete single mods, change load order etc.)
 
 ## Build & Run Requirements
