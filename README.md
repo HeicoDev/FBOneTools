@@ -1,8 +1,8 @@
 <div align="center">
   <a href="https://github.com/HeicoDev/BFBC2Toolkit">
-    <img alt="BFBC2 Toolkit" width="200" heigth="200" src="https://i.ibb.co/ZJ4Z4sp/Battlefield-Modding-Icon.png">
+    <img alt="BFBC2Toolkit" width="200" heigth="200" src="https://i.ibb.co/ZJ4Z4sp/Battlefield-Modding-Icon.png">
   </a>
-  <h1>BFBC2 Toolkit</h1>
+  <h1>BFBC2Toolkit</h1>
   <p>
     A collection of tools for the Frostbite 1 Engine.
   </p>
@@ -50,7 +50,7 @@ NuGet Packages:
 
 ## Credits
 
-* Heico - Author of BFBC2 Toolkit
+* Heico - Author of BFBC2Toolkit
 * [Frankelstner](http://www.bfeditor.org/forums/index.php?/profile/6706-frankelstner/) - For his Python scripts that handle .fbrb & .dbx files. Without his work in the BF Community my tools would not be possible! 
 * [Napisal](https://www.youtube.com/channel/UCIcx-pztQ3rGfO3pbcd52OQ) & [bad .baubau](https://www.youtube.com/user/cssbaubau) - for all the time they invested to figure out how Frostbite works. Without them I would not even know about BFBC2 modding.
 * [Emil Hernvall](https://github.com/EmilHernvall) - For his Python script that can extract .swfmovie files.
@@ -76,4 +76,4 @@ The names Electronic Arts and DICE as well as related emblems, images, marks and
 Game files or any other form of copyrighted materials will NOT be shipped with this tool! Everybody must provide the game files on his own.
 I do NOT support piracy in any way, so if you face issues, first make sure that you own a legal copy of the game!
 
-BFBC2 Toolkit © 2020 Nico Hellmund is licensed under GNU General Public License v3.0.
+BFBC2Toolkit © 2020 Nico Hellmund is licensed under GNU General Public License v3.0.
