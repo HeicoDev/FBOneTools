@@ -111,11 +111,11 @@ namespace BFBC2ModLoader.Functions
         {
             try
             {
-                if (!File.Exists(Environment.CurrentDirectory + @"\BFBC2ModLoader.exe") && !File.Exists(Environment.CurrentDirectory + @"\DotNetZip.dll"))
+                if (!File.Exists(Environment.CurrentDirectory + @"\BFBC2 Mod Loader.exe") && !File.Exists(Environment.CurrentDirectory + @"\DotNetZip.dll"))
                     return;
 
-                if (File.Exists(Environment.CurrentDirectory + @"\BFBC2ModLoader.exe"))
-                    File.Delete(Environment.CurrentDirectory + @"\BFBC2ModLoader.exe");
+                if (File.Exists(Environment.CurrentDirectory + @"\BFBC2 Mod Loader.exe"))
+                    File.Delete(Environment.CurrentDirectory + @"\BFBC2 Mod Loader.exe");
                 if (File.Exists(Environment.CurrentDirectory + @"\DotNetZip.dll"))
                     File.Delete(Environment.CurrentDirectory + @"\DotNetZip.dll");
                 if (Directory.Exists(Environment.CurrentDirectory + @"\package\levels\mods_common"))
