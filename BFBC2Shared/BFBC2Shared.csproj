@@ -47,6 +47,7 @@
     <Compile Include="Data\SharedDirs.cs" />
     <Compile Include="Data\SharedGlobals.cs" />
     <Compile Include="Data\SharedUIElements.cs" />
+    <Compile Include="Functions\IniFile.cs" />
     <Compile Include="Functions\Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

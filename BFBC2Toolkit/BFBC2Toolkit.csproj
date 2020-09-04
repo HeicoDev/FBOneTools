@@ -139,7 +139,6 @@
       <DependentUpon>CreateModWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\Files\TextureHeader.cs" />
-    <Compile Include="Functions\IniFile.cs" />
     <Compile Include="Tools\TextureConverter.cs" />
     <Compile Include="Windows\CustomizerWindow.xaml.cs">
       <DependentUpon>CustomizerWindow.xaml</DependentUpon>

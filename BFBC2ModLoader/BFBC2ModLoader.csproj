@@ -99,7 +99,6 @@
     <Compile Include="Functions\Create.cs" />
     <Compile Include="Functions\Delete.cs" />
     <Compile Include="Functions\FileDownloader.cs" />
-    <Compile Include="Functions\IniFile.cs" />
     <Compile Include="Functions\Install.cs" />
     <Compile Include="Functions\Load.cs" />
     <Compile Include="Functions\Misc.cs" />

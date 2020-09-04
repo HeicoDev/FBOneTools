@@ -3,9 +3,9 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace BFBC2Toolkit.Functions
+namespace BFBC2Shared.Functions
 {
-    class IniFile   // revision 11
+    public class IniFile   // revision 11
     {
         string Path;
         string EXE = Assembly.GetExecutingAssembly().GetName().Name;
