@@ -16,7 +16,7 @@ namespace BFBC2ModLoader.Functions
 
                 using (WebClient wc = new WebClient())
                 {
-                    wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/BFBC2_Mod_Loader/master/BFBC2ModLoader/Config/update.config", Dirs.ModsCommon + @"\tempUpdate.config");
+                    wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/FBOneTools/master/BFBC2ModLoader/BFBC2ModLoader/Config/update.config", Dirs.ModsCommon + @"\tempUpdate.config");
 
                     if (File.Exists(Dirs.UpdateXML))
                         File.Delete(Dirs.UpdateXML);
@@ -38,13 +38,13 @@ namespace BFBC2ModLoader.Functions
 
                         if (Globals.IsClient == true)
                         {
-                            wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/BFBC2_Mod_Loader/master/BFBC2ModLoader/Loader/client/modded/bundleManifest", Dirs.ModsCommon + @"\tempBundleManifest");
-                            wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/BFBC2_Mod_Loader/master/BFBC2ModLoader/Loader/client/modded/package.mft", Dirs.ModsCommon + @"\tempPackage.mft");
+                            wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/FBOneTools/master/BFBC2ModLoader/BFBC2ModLoader/Loader/client/modded/bundleManifest", Dirs.ModsCommon + @"\tempBundleManifest");
+                            wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/FBOneTools/master/BFBC2ModLoader/BFBC2ModLoader/Loader/client/modded/package.mft", Dirs.ModsCommon + @"\tempPackage.mft");
                         }
                         else
                         {
-                            wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/BFBC2_Mod_Loader/master/BFBC2ModLoader/Loader/server/modded/bundleManifest", Dirs.ModsCommon + @"\tempBundleManifest");
-                            wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/BFBC2_Mod_Loader/master/BFBC2ModLoader/Loader/server/modded/package.mft", Dirs.ModsCommon + @"\tempPackage.mft");
+                            wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/FBOneTools/master/BFBC2ModLoader/BFBC2ModLoader/Loader/server/modded/bundleManifest", Dirs.ModsCommon + @"\tempBundleManifest");
+                            wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/FBOneTools/master/BFBC2ModLoader/BFBC2ModLoader/Loader/server/modded/package.mft", Dirs.ModsCommon + @"\tempPackage.mft");
                         }
 
                         if (File.Exists(Dirs.BundleManiModded))
@@ -66,28 +66,28 @@ namespace BFBC2ModLoader.Functions
                             File.Copy(Dirs.BundleManiModded, Dirs.BundleManiRoot);
                         }
 
-                        wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/BFBC2_Mod_Loader/master/BFBC2ModLoader/Config/news.config", Dirs.ModsCommon + @"\tempNews.config");
+                        wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/FBOneTools/master/BFBC2ModLoader/BFBC2ModLoader/Config/news.config", Dirs.ModsCommon + @"\tempNews.config");
 
                         if (File.Exists(Dirs.LatestNewsXML))
                             File.Delete(Dirs.LatestNewsXML);
                         if (File.Exists(Dirs.ModsCommon + @"\tempNews.config"))
                             File.Move(Dirs.ModsCommon + @"\tempNews.config", Dirs.LatestNewsXML);
 
-                        wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/BFBC2_Mod_Loader/master/BFBC2ModLoader/Config/listMaps.config", Dirs.ModsCommon + @"\tempListMaps.config");
+                        wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/FBOneTools/master/BFBC2ModLoader/BFBC2ModLoader/Config/listMaps.config", Dirs.ModsCommon + @"\tempListMaps.config");
 
                         if (File.Exists(Dirs.ListMapsXML))
                             File.Delete(Dirs.ListMapsXML);
                         if (File.Exists(Dirs.ModsCommon + @"\tempListMaps.config"))
                             File.Move(Dirs.ModsCommon + @"\tempListMaps.config", Dirs.ListMapsXML);
 
-                        wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/BFBC2_Mod_Loader/master/BFBC2ModLoader/Config/listModes.config", Dirs.ModsCommon + @"\tempListModes.config");
+                        wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/FBOneTools/master/BFBC2ModLoader/BFBC2ModLoader/Config/listModes.config", Dirs.ModsCommon + @"\tempListModes.config");
 
                         if (File.Exists(Dirs.ListModesXML))
                             File.Delete(Dirs.ListModesXML);
                         if (File.Exists(Dirs.ModsCommon + @"\tempListModes.config"))
                             File.Move(Dirs.ModsCommon + @"\tempListModes.config", Dirs.ListModesXML);
 
-                        wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/BFBC2_Mod_Loader/master/BFBC2ModLoader/Config/servers.config", Dirs.ModsCommon + @"\tempServers.config");
+                        wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/FBOneTools/master/BFBC2ModLoader/BFBC2ModLoader/Config/servers.config", Dirs.ModsCommon + @"\tempServers.config");
 
                         if (File.Exists(Dirs.ServersXML))
                             File.Delete(Dirs.ServersXML);
@@ -96,11 +96,11 @@ namespace BFBC2ModLoader.Functions
 
                         if (Globals.IsClient == true)
                         {
-                            wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/BFBC2_Mod_Loader/master/BFBC2ModLoader/Config/mapsClient.config", Dirs.ModsCommon + @"\tempMaps.config");
+                            wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/FBOneTools/master/BFBC2ModLoader/BFBC2ModLoader/Config/mapsClient.config", Dirs.ModsCommon + @"\tempMaps.config");
                         }
                         else
                         {
-                            wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/BFBC2_Mod_Loader/master/BFBC2ModLoader/Config/mapsServer.config", Dirs.ModsCommon + @"\tempMaps.config");
+                            wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/FBOneTools/master/BFBC2ModLoader/BFBC2ModLoader/Config/mapsServer.config", Dirs.ModsCommon + @"\tempMaps.config");
                         }
 
                         if (File.Exists(Dirs.MapsXML))
@@ -139,6 +139,7 @@ namespace BFBC2ModLoader.Functions
                         }
                     }
                 }
+
                 if (b == true)
                 {
                     break;
