@@ -5,6 +5,7 @@ using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using System.Xml;
 using BFBC2ModLoader.Data;
+using BFBC2Shared.Functions;
 
 namespace BFBC2ModLoader.Functions
 {
@@ -38,8 +39,8 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not load news.config! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not load news.config! See error.log", "error");
             }
         }
 
@@ -68,8 +69,8 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not load update.config! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not load update.config! See error.log", "error");
             }
         }
 
@@ -137,8 +138,8 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not load mods.config! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not load mods.config! See error.log", "error");
             }
         }
 
@@ -172,8 +173,8 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not load settings.config! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not load settings.config! See error.log", "error");
 
                 return true;
             }
@@ -241,8 +242,8 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not load maps.config! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not load maps.config! See error.log", "error");
             }
         }
 
@@ -342,8 +343,8 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not load servers.config! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not load servers.config! See error.log", "error");
             }
         }
     }

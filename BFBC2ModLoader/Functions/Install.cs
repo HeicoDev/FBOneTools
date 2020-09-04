@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using BFBC2ModLoader.Data;
+using BFBC2Shared.Functions;
 
 namespace BFBC2ModLoader.Functions
 {
@@ -41,8 +42,8 @@ namespace BFBC2ModLoader.Functions
                 }
                 catch (Exception ex)
                 {
-                    Write.ToErrorLog(ex);
-                    Write.ToEventLog("Could not extract archive to workspace! See error.log", "error");
+                    Log.Error(ex.ToString());
+                    Log.Write("Could not extract archive to workspace! See error.log", "error");
                 }
 
                 //Check if valid mod/ModInfo.ini exists & directories correct
@@ -50,7 +51,7 @@ namespace BFBC2ModLoader.Functions
                 {
                     Delete.TempFiles();
 
-                    Write.ToEventLog("Not a valid BFBC2 mod. Aborted installation!", "warning");
+                    Log.Write("Not a valid BFBC2 mod. Aborted installation!", "warning");
 
                     return;
                 }
@@ -74,7 +75,7 @@ namespace BFBC2ModLoader.Functions
                 {
                     Delete.TempFiles();
 
-                    Write.ToEventLog("Not a valid BFBC2 mod. Aborted installation!", "warning");
+                    Log.Write("Not a valid BFBC2 mod. Aborted installation!", "warning");
 
                     return;
                 }
@@ -94,7 +95,7 @@ namespace BFBC2ModLoader.Functions
                 {
                     Delete.TempFiles();
 
-                    Write.ToEventLog("Not a valid BFBC2 mod. Aborted installation!", "warning");
+                    Log.Write("Not a valid BFBC2 mod. Aborted installation!", "warning");
 
                     return;
                 }
@@ -172,7 +173,7 @@ namespace BFBC2ModLoader.Functions
                 if (b == true)
                 {
                     //Overwrite dialog box
-                    Write.ToEventLog("Conflict detected! You may try to merge the files manually.", "warning");
+                    Log.Write("Conflict detected! You may try to merge the files manually.", "warning");
 
                     var result = MessageBox.Show("Conflict detected! Do you want to overwrite the existing files?\nIf you just update a mod go ahead and click 'Yes'.\nOverwriting other mods is not recommended, but you can still try it.\nIf you face any issues, try to change the load order or just delete this mod again. Click 'No' to not install this mod.", "Conflict detected!", MessageBoxButton.YesNo);
 
@@ -186,7 +187,7 @@ namespace BFBC2ModLoader.Functions
                     {
                         Delete.TempFiles();
 
-                        Write.ToEventLog("Click 'Install Mod' to select the mod you want to install.", "");
+                        Log.Write("Click 'Install Mod' to select the mod you want to install.");
                     }
                 }
                 else
@@ -200,8 +201,8 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Ops, something went wrong! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Ops, something went wrong! See error.log", "error");
             }
         }
 
@@ -374,8 +375,8 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not (re)install mods! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not (re)install mods! See error.log", "error");
             }
         }
     }

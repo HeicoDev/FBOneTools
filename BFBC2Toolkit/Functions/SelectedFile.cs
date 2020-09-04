@@ -9,6 +9,7 @@ using Microsoft.Win32;
 using BFBC2Toolkit.Data;
 using BFBC2Toolkit.Tools;
 using BFBC2Toolkit.Helpers;
+using BFBC2Shared.Functions;
 
 namespace BFBC2Toolkit.Functions
 {
@@ -91,8 +92,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to export file! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to export file! See error.log", "error");
 
                 return true;
             }
@@ -146,7 +147,7 @@ namespace BFBC2Toolkit.Functions
                     }
                     else
                     {
-                        Write.ToEventLog("Importing aborted.", "");
+                        Log.Write("Importing aborted.");
 
                         return true;
                     }
@@ -178,14 +179,14 @@ namespace BFBC2Toolkit.Functions
                         {
                             UIElements.ImageElement.Visibility = Visibility.Hidden;
 
-                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
+                            Log.Write("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
                         }
 
                         Write.ToInfoBox(ctvi);
                     }
                     else
                     {
-                        Write.ToEventLog("Importing aborted.", "");
+                        Log.Write("Importing aborted.");
 
                         return true;
                     }
@@ -219,7 +220,7 @@ namespace BFBC2Toolkit.Functions
                     }
                     else
                     {
-                        Write.ToEventLog("Importing aborted.", "");
+                        Log.Write("Importing aborted.");
 
                         return true;
                     }
@@ -229,8 +230,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to import file! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to import file! See error.log", "error");
 
                 return true;
             }
@@ -253,7 +254,7 @@ namespace BFBC2Toolkit.Functions
                     }
                     else
                     {
-                        Write.ToEventLog("You can't delete a file from a game profile!", "warning");
+                        Log.Write("You can't delete a file from a game profile!", "warning");
 
                         return true;
                     }
@@ -272,8 +273,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to delete file! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to delete file! See error.log", "error");
 
                 return true;
             }
@@ -326,8 +327,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to restore file! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to restore file! See error.log", "error");
 
                 return true;
             }
@@ -380,8 +381,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to copy file to mod project! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to copy file to mod project! See error.log", "error");
 
                 return true;
             }
@@ -420,8 +421,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to rename previously selected file! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to rename previously selected file! See error.log", "error");
 
                 return true;
             }
@@ -442,8 +443,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to open file location! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to open file location! See error.log", "error");
             }
         }
     }

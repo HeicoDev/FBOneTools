@@ -19,6 +19,8 @@ using BFBC2Toolkit.Data;
 using BFBC2Toolkit.Functions;
 using BFBC2Toolkit.Tools;
 using BFBC2Toolkit.Helpers;
+using BFBC2Shared.Data;
+using BFBC2Shared.Functions;
 
 /// <summary>
 /// BFBC2 Toolkit 
@@ -47,8 +49,8 @@ namespace BFBC2Toolkit
                 MessageBox.Show("Unhandled exception: " + arguments.ExceptionObject);
                 #endif
 
-                Write.ToEventLog("An unhandled exception has occurred! See error.log", "error");
-                Write.ToErrorLog("Unhandled exception: " + arguments.ExceptionObject);
+                Log.Write("An unhandled exception has occurred! See error.log", "error");
+                Log.Error("Unhandled exception: " + arguments.ExceptionObject);
             };            
         }
 
@@ -102,7 +104,7 @@ namespace BFBC2Toolkit
                 EnableInterface(true);
 
                 if (!hasErrorOccurred)
-                    Write.ToEventLog("You can select your game profile now.", "done");
+                    Log.Write("You can select your game profile now.", "done");
             }           
 
             //Maybe load game profile afterwards?
@@ -142,7 +144,7 @@ namespace BFBC2Toolkit
             {
                 if (ofd.FileName.Contains("ModInfo.ini"))
                 {
-                    Write.ToEventLog("Loading mod files...", "");
+                    Log.Write("Loading mod files...");
 
                     EnableInterface(false);
 
@@ -157,7 +159,7 @@ namespace BFBC2Toolkit
                     EnableInterface(true);
 
                     if (!hasErrorOccurred)
-                        Write.ToEventLog("", "done");
+                        Log.Write("", "done");
                 }
             }
         }
@@ -170,7 +172,7 @@ namespace BFBC2Toolkit
 
             if (ofd.ShowDialog() == true)
             {
-                Write.ToEventLog("Extracting mod archive...", "");
+                Log.Write("Extracting mod archive...");
 
                 EnableInterface(false);
 
@@ -185,13 +187,13 @@ namespace BFBC2Toolkit
                 EnableInterface(true);
 
                 if (!hasErrorOccurred)
-                    Write.ToEventLog("", "done");
+                    Log.Write("", "done");
             }
         }
 
         private async void BtnArchiveMod_Click(object sender, RoutedEventArgs e)
         {
-            Write.ToEventLog("Archiving mod...", "");
+            Log.Write("Archiving mod...");
 
             EnableInterface(false);
 
@@ -204,7 +206,7 @@ namespace BFBC2Toolkit
             EnableInterface(true);
 
             if (!hasErrorOccurred)
-                Write.ToEventLog("", "done");
+                Log.Write("", "done");
         }
 
         private async void BtnExtractFbrb_Click(object sender, RoutedEventArgs e)
@@ -215,7 +217,7 @@ namespace BFBC2Toolkit
 
             if (ofd.ShowDialog() == true)
             {
-                Write.ToEventLog("This may take a while. Extracting fbrb archive, please wait...", "");
+                Log.Write("This may take a while. Extracting fbrb archive, please wait...");
 
                 EnableInterface(false);
 
@@ -230,13 +232,13 @@ namespace BFBC2Toolkit
                 EnableInterface(true);
 
                 if (!hasErrorOccurred)
-                    Write.ToEventLog("", "done");
+                    Log.Write("", "done");
             }
         }
 
         private async void BtnArchiveFbrb_Click(object sender, RoutedEventArgs e)
         {
-            Write.ToEventLog("This may take a while. Archiving fbrb archive, please wait...", "");
+            Log.Write("This may take a while. Archiving fbrb archive, please wait...");
 
             EnableInterface(false);
 
@@ -249,14 +251,14 @@ namespace BFBC2Toolkit
             EnableInterface(true);
 
             if (!hasErrorOccurred)
-                Write.ToEventLog("", "done");
+                Log.Write("", "done");
         }
 
         private async void BtnCopyToMod_Click(object sender, RoutedEventArgs e)
         {
             if (Globals.IsDataTreeView && Globals.IsModAvailable && treeViewDataExplorer.SelectedItem != null)
             {
-                Write.ToEventLog("Copying file...", "");
+                Log.Write("Copying file...");
 
                 EnableInterface(false);
 
@@ -269,13 +271,13 @@ namespace BFBC2Toolkit
                 EnableInterface(true);
 
                 if (!hasErrorOccurred)
-                    Write.ToEventLog("", "done");
+                    Log.Write("", "done");
             }
         }
 
         private async void BtnExport_Click(object sender, RoutedEventArgs e)
         {
-            Write.ToEventLog("Exporting file...", "");
+            Log.Write("Exporting file...");
 
             EnableInterface(false);
 
@@ -288,12 +290,12 @@ namespace BFBC2Toolkit
             EnableInterface(true);
 
             if (!hasErrorOccurred)
-                Write.ToEventLog("Exported file to Output folder.", "done");
+                Log.Write("Exported file to Output folder.", "done");
         }
 
         private async void BtnImport_Click(object sender, RoutedEventArgs e)
         {
-            Write.ToEventLog("Importing file...", "");
+            Log.Write("Importing file...");
 
             EnableInterface(false);
 
@@ -306,7 +308,7 @@ namespace BFBC2Toolkit
             EnableInterface(true);
 
             if (!hasErrorOccurred)
-                Write.ToEventLog("Imported file successfully.", "done");
+                Log.Write("Imported file successfully.", "done");
         }
 
         private void BtnOpenFileLocation_Click(object sender, RoutedEventArgs e)
@@ -440,7 +442,7 @@ namespace BFBC2Toolkit
                         {
                             image.Visibility = Visibility.Hidden;
 
-                            Write.ToEventLog("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
+                            Log.Write("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
                         }
                     }
                     else if (selectedFileName.EndsWith(".terrainheightfield"))
@@ -458,7 +460,7 @@ namespace BFBC2Toolkit
                         {
                             image.Visibility = Visibility.Hidden;
 
-                            Write.ToEventLog("Unable to load heightmap preview! Exporting should still work fine.", "warning");
+                            Log.Write("Unable to load heightmap preview! Exporting should still work fine.", "warning");
                         }
                     }
                     else if (selectedFileName.EndsWith(".binkmemory"))
@@ -484,7 +486,7 @@ namespace BFBC2Toolkit
                         {
                             mediaElement.Visibility = Visibility.Hidden;
 
-                            Write.ToEventLog("Unable to load video preview! Exporting & importing should still work fine.", "warning");
+                            Log.Write("Unable to load video preview! Exporting & importing should still work fine.", "warning");
                         }
                     }
 
@@ -495,8 +497,8 @@ namespace BFBC2Toolkit
             }
             catch (Exception ex)
             {                
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to handle selected file! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to handle selected file! See error.log", "error");
 
                 progressRing.IsActive = false;
             }
@@ -506,11 +508,11 @@ namespace BFBC2Toolkit
         {
             if (Globals.IsGameProfile)
             {
-                Write.ToEventLog("You can't edit a file from a game profile!", "warning");
+                Log.Write("You can't edit a file from a game profile!", "warning");
                 return;
             }
 
-            Write.ToEventLog("Saving file...", "");
+            Log.Write("Saving file...");
 
             EnableInterface(false);
 
@@ -523,7 +525,7 @@ namespace BFBC2Toolkit
             EnableInterface(true);
 
             if (!hasErrorOccurred)
-                Write.ToEventLog("", "done");
+                Log.Write("", "done");
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
@@ -576,7 +578,7 @@ namespace BFBC2Toolkit
 
             bool hasErrorOccurred = false;
 
-            Write.ToEventLog("Refreshing data explorer...", "");
+            Log.Write("Refreshing data explorer...");
 
             EnableInterface(false);
 
@@ -588,8 +590,8 @@ namespace BFBC2Toolkit
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to refresh data explorer! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to refresh data explorer! See error.log", "error");
 
                 hasErrorOccurred = true;
             }
@@ -599,7 +601,7 @@ namespace BFBC2Toolkit
             EnableInterface(true);
 
             if (!hasErrorOccurred)
-                Write.ToEventLog("", "done");
+                Log.Write("", "done");
         }
 
         private void BtnModRefresh_Click(object sender, RoutedEventArgs e)
@@ -609,7 +611,7 @@ namespace BFBC2Toolkit
 
             bool hasErrorOccurred = false;
 
-            Write.ToEventLog("Refreshing mod explorer...", "");
+            Log.Write("Refreshing mod explorer...");
 
             EnableInterface(false);
 
@@ -621,8 +623,8 @@ namespace BFBC2Toolkit
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to refresh data explorer! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to refresh data explorer! See error.log", "error");
 
                 hasErrorOccurred = true;
             }
@@ -632,7 +634,7 @@ namespace BFBC2Toolkit
             EnableInterface(true);
 
             if (!hasErrorOccurred)
-                Write.ToEventLog("", "done");
+                Log.Write("", "done");
         }
 
         private async void BtnDataDelete_Click(object sender, RoutedEventArgs e)
@@ -640,7 +642,7 @@ namespace BFBC2Toolkit
             if (treeViewDataExplorer.SelectedItem == null)
                 return;
 
-            Write.ToEventLog("Deleting selected file...", "");
+            Log.Write("Deleting selected file...");
 
             EnableInterface(false);
 
@@ -653,7 +655,7 @@ namespace BFBC2Toolkit
             EnableInterface(true);
 
             if (!hasErrorOccurred)
-                Write.ToEventLog("", "done");
+                Log.Write("", "done");
         }
 
         private async void BtnModDelete_Click(object sender, RoutedEventArgs e)
@@ -661,7 +663,7 @@ namespace BFBC2Toolkit
             if (treeViewModExplorer.SelectedItem == null)
                 return;
 
-            Write.ToEventLog("Deleting selected file...", "");
+            Log.Write("Deleting selected file...");
 
             EnableInterface(false);
 
@@ -674,7 +676,7 @@ namespace BFBC2Toolkit
             EnableInterface(true);
 
             if (!hasErrorOccurred)
-                Write.ToEventLog("", "done");
+                Log.Write("", "done");
         }
 
         private async void BtnModRestore_Click(object sender, RoutedEventArgs e)
@@ -682,7 +684,7 @@ namespace BFBC2Toolkit
             if (treeViewModExplorer.SelectedItem == null)
                 return;
 
-            Write.ToEventLog("Restoring original file...", "");
+            Log.Write("Restoring original file...");
 
             EnableInterface(false);
 
@@ -697,7 +699,7 @@ namespace BFBC2Toolkit
             EnableInterface(true);
 
             if (!hasErrorOccurred)
-                Write.ToEventLog("", "done");
+                Log.Write("", "done");
         }        
 
         private void BtnVisitHeico_Click(object sender, RoutedEventArgs e)
@@ -708,8 +710,8 @@ namespace BFBC2Toolkit
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to open link! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to open link! See error.log", "error");
             }
         }
 
@@ -721,8 +723,8 @@ namespace BFBC2Toolkit
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to open link! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to open link! See error.log", "error");
             }
         }
 
@@ -734,8 +736,8 @@ namespace BFBC2Toolkit
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to open link! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to open link! See error.log", "error");
             }
         }
 
@@ -1079,6 +1081,18 @@ namespace BFBC2Toolkit
         {
             try
             {
+                SharedUIElements.TxtBoxEventLog = txtBoxEventLog;
+                UIElements.TxtBoxInformation = txtBoxInformation;
+                UIElements.TextEditor = textEditor;
+                UIElements.TreeViewDataExplorer = treeViewDataExplorer;
+                UIElements.TreeViewModExplorer = treeViewModExplorer;
+                UIElements.MediaElement = mediaElement;
+                UIElements.ImageElement = image;
+
+                Dirs.SetSharedVars();
+                Globals.SetSharedVars();
+                Globals.SetFbrbFiles();
+
                 if (!File.Exists(Settings.PathToPython))
                 {
                     MessageBox.Show("Unable to locate Python 2.7 installation!\nPlease select pythonw.exe...", "Error");
@@ -1111,20 +1125,10 @@ namespace BFBC2Toolkit
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
+                Log.Error(ex.ToString());
                 MessageBox.Show("Unable to initialize startup! See error.log\nPress 'OK' to close the app.", "Error");
                 Environment.Exit(0);
-            }
-
-            UIElements.TxtBoxEventLog = txtBoxEventLog;
-            UIElements.TxtBoxInformation = txtBoxInformation;
-            UIElements.TextEditor = textEditor;
-            UIElements.TreeViewDataExplorer = treeViewDataExplorer;
-            UIElements.TreeViewModExplorer = treeViewModExplorer;
-            UIElements.MediaElement = mediaElement;
-            UIElements.ImageElement = image;
-
-            Globals.SetFbrbFiles();
+            }           
 
             image.Margin = new Thickness(0, 31, 0, 27);
             mediaElement.Margin = new Thickness(0, 31, 0, 27);

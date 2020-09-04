@@ -7,6 +7,7 @@ using Microsoft.VisualBasic.FileIO;
 using MahApps.Metro.Controls;
 using BFBC2Toolkit.Data;
 using BFBC2Toolkit.Functions;
+using BFBC2Shared.Functions;
 
 namespace BFBC2Toolkit
 {
@@ -59,8 +60,8 @@ namespace BFBC2Toolkit
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to create mod! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to create mod! See error.log", "error");
 
                 Close();
             }

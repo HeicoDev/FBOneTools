@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Win32;
 using BFBC2Toolkit.Data;
 using BFBC2Toolkit.Helpers;
+using BFBC2Shared.Functions;
 
 namespace BFBC2Toolkit.Functions
 {
@@ -31,8 +32,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to open mod project! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to open mod project! See error.log", "error");
 
                 return true;
             }
@@ -76,7 +77,7 @@ namespace BFBC2Toolkit.Functions
                                     if (File.Exists(tempFile))
                                         await Task.Run(() => File.Delete(tempFile));
 
-                                    Write.ToEventLog("Extraction aborted.", "");
+                                    Log.Write("Extraction aborted.");
 
                                     return true;
                                 }
@@ -106,8 +107,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to extract mod project! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to extract mod project! See error.log", "error");
 
                 return true;
             }
@@ -133,8 +134,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to archive mod project! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to archive mod project! See error.log", "error");
 
                 return true;
             }

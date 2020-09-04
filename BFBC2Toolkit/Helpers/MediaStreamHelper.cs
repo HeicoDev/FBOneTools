@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-using BFBC2Toolkit.Functions;
+using BFBC2Shared.Functions;
 
 namespace BFBC2Toolkit.Helpers
 {
@@ -23,8 +23,8 @@ namespace BFBC2Toolkit.Helpers
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Ops, something went wrong! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Ops, something went wrong! See error.log", "error");
             }
         }
     }

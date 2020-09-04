@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using Microsoft.Win32;
-using BFBC2ModLoader.Functions;
+using BFBC2Shared.Functions;
 
 namespace BFBC2ModLoader.Data
 {
@@ -54,7 +54,7 @@ namespace BFBC2ModLoader.Data
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
+                Log.Error(ex.ToString());
 
                 return String.Empty;
             }

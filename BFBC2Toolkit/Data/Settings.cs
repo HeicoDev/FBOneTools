@@ -3,7 +3,7 @@ using System.IO;
 using System.Windows;
 using System.Xml;
 using Microsoft.Win32;
-using BFBC2Toolkit.Functions;
+using BFBC2Shared.Functions;
 
 namespace BFBC2Toolkit.Data
 {
@@ -71,7 +71,7 @@ namespace BFBC2Toolkit.Data
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
+                Log.Error(ex.ToString());
                 MessageBox.Show("Unable to save settings! See error.log", "error");
 
                 return true;
@@ -124,7 +124,7 @@ namespace BFBC2Toolkit.Data
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
+                Log.Error(ex.ToString());
                 MessageBox.Show("Unable to load settings! See error.log", "error");
 
                 return true;
@@ -170,7 +170,7 @@ namespace BFBC2Toolkit.Data
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
+                Log.Error(ex.ToString());
 
                 return String.Empty;
             }

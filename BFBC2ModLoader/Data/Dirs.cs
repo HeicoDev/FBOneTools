@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using BFBC2Shared.Data;
 
 namespace BFBC2ModLoader.Data
 {
@@ -35,10 +36,14 @@ namespace BFBC2ModLoader.Data
         public static string BundleManiOriginal { get; set; } = Environment.CurrentDirectory + @"\BFBC2ModLoader\Loader\client\original\bundleManifest";
         public static string BundleManiModded { get; set; } = Environment.CurrentDirectory + @"\BFBC2ModLoader\Loader\client\modded\bundleManifest";
         public static string MapZIP { get; } = Environment.CurrentDirectory + @"\BFBC2ModLoader\Download\map.zip";
-        public static string LogoPng { get; } = Environment.CurrentDirectory + @"\BFBC2ModLoader\Resources\Images\logo.png";
-        public static string ErrorLog { get; } = Environment.CurrentDirectory + @"\BFBC2ModLoader\Logs\error.log";
+        public static string LogoPng { get; } = Environment.CurrentDirectory + @"\BFBC2ModLoader\Resources\Images\logo.png";        
         public static string Logs { get; } = Environment.CurrentDirectory + @"\BFBC2ModLoader\Logs";
         public static string Downloads { get; } = Environment.CurrentDirectory + @"\BFBC2ModLoader\Download";
+
+        public static void SetSharedVars()
+        {
+            SharedDirs.ErrorLog = Environment.CurrentDirectory + @"\BFBC2ModLoader\Logs\error.log";
+        }
 
         public static void AddFbrbDirs()
         {

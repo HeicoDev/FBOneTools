@@ -1,5 +1,6 @@
 ﻿using System;
 using BFBC2ModLoader.Data;
+using BFBC2Shared.Functions;
 
 namespace BFBC2ModLoader.Functions
 {
@@ -21,8 +22,8 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not add order numbers! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not add order numbers! See error.log", "error");
             }
         }
     }

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
 using MahApps.Metro.Controls;
-using BFBC2Toolkit.Functions;
 using BFBC2Toolkit.Data;
 using BFBC2Toolkit.Tools;
+using BFBC2Shared.Functions;
 
 namespace BFBC2Toolkit.Windows
 {
@@ -150,7 +150,7 @@ namespace BFBC2Toolkit.Windows
                 skippedFiles++;
 
                 lblMain.Content = "Unable to convert file! See error.log";
-                Write.ToErrorLog(ex);               
+                Log.Error(ex.ToString());               
             }
         }
 
@@ -182,7 +182,7 @@ namespace BFBC2Toolkit.Windows
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
+                Log.Error(ex.ToString());
                 lblMain.Content = "Unable to open folder! See error.log";
             }
         }

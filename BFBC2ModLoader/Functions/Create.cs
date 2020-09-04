@@ -2,6 +2,7 @@
 using System.IO;
 using System.Xml;
 using BFBC2ModLoader.Data;
+using BFBC2Shared.Functions;
 
 namespace BFBC2ModLoader.Functions
 {
@@ -27,8 +28,8 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not create config files! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not create config files! See error.log", "error");
             }
         }        
 
@@ -47,8 +48,8 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not precreate dirs! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not precreate dirs! See error.log", "error");
             }
         }
     }

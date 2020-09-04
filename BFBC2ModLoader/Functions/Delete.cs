@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using BFBC2ModLoader.Data;
+using BFBC2Shared.Data;
+using BFBC2Shared.Functions;
 
 namespace BFBC2ModLoader.Functions
 {
@@ -56,8 +58,8 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to delete files! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to delete files! See error.log", "error");
             }
         }
 
@@ -76,8 +78,8 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not remove temp files! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not remove temp files! See error.log", "error");
             }
         }
 
@@ -102,8 +104,8 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to cleanup files! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to cleanup files! See error.log", "error");
             }
         }
         
@@ -132,8 +134,8 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to delete old version! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to delete old version! See error.log", "error");
             }
         }
 
@@ -141,13 +143,13 @@ namespace BFBC2ModLoader.Functions
         {
             try
             {
-                if (File.Exists(Dirs.ErrorLog))
-                    File.Delete(Dirs.ErrorLog);
+                if (File.Exists(SharedDirs.ErrorLog))
+                    File.Delete(SharedDirs.ErrorLog);
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not delete log files! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not delete log files! See error.log", "error");
             }
         }
     }

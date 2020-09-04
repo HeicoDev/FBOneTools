@@ -13,6 +13,7 @@ using MahApps.Metro.Controls;
 using BFBC2ModLoader.Functions;
 using BFBC2ModLoader.Data;
 using BFBC2ModLoader.Windows;
+using BFBC2Shared.Functions;
 
 /// <summary>
 /// BFBC2 Mod Loader
@@ -37,19 +38,14 @@ namespace BFBC2ModLoader
                 MessageBox.Show("Unhandled exception: " + arguments.ExceptionObject);
                 #endif
 
-                Write.ToEventLog("An unhandled exception has occurred! See error.log", "error");
-                Write.ToErrorLog("Unhandled exception: " + arguments.ExceptionObject);
+                Log.Write("An unhandled exception has occurred! See error.log", "error");
+                Log.Error("Unhandled exception: " + arguments.ExceptionObject);
             };
         }
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            Opacity = 0;
-
-            await InitializeStartup();
-
-            Opacity = 100;
-            Activate();
+            await InitializeStartup();            
         }
 
         private async void MainWindow_Closing(object sender, CancelEventArgs e)
@@ -69,13 +65,17 @@ namespace BFBC2ModLoader
 
         private async Task InitializeStartup()
         {
+            Opacity = 0;
+
             var windowStartup = new WindowStartup();
             windowStartup.Owner = this;
             windowStartup.Show();            
 
             UIElements.SetElements(txtBoxEventLog, txtBoxModInfo, txtBoxServerInfo, txtBoxMapInfo, dataGridModManager, dataGridServerBrowser, dataGridMapBrowser);
+            Dirs.SetSharedVars();
+            Globals.SetSharedVars();           
 
-            Write.ToEventLog("Click 'Install Mod' to select the mod you want to install.", "");
+            Log.Write("Click 'Install Mod' to select the mod you want to install.");
 
             if (File.Exists(Environment.CurrentDirectory + @"\BFBC2Game.exe"))
             {
@@ -101,7 +101,7 @@ namespace BFBC2ModLoader
 
                 windowStartup.Close();
 
-                Write.ToEventLog("BFBC2 Mod Loader is not installed correctly!", "warning");
+                Log.Write("BFBC2 Mod Loader is not installed correctly!", "warning");
 
                 return;
             }
@@ -151,7 +151,7 @@ namespace BFBC2ModLoader
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
+                Log.Error(ex.ToString());
                 MessageBox.Show("Unable to initialize startup! See error.log\nPress 'OK' to close the app.", "Error");
                 Environment.Exit(0);
             }
@@ -195,6 +195,8 @@ namespace BFBC2ModLoader
             }
 
             windowStartup.Close();
+            Opacity = 100;
+            Activate();
         }
 
         private async void BtnInstallMod_Click(object sender, RoutedEventArgs e)
@@ -204,7 +206,7 @@ namespace BFBC2ModLoader
             ofd.Filter = "zip file (.zip)|*.zip";
             ofd.Title = "Select mod...";
 
-            Write.ToEventLog("Installing mod, please wait...", "");
+            Log.Write("Installing mod, please wait...");
 
             EnableAllButtons(false);
             EnableAllTabs("ModManager", false);
@@ -215,7 +217,7 @@ namespace BFBC2ModLoader
             if (ofd.ShowDialog() == true)
                 await Install.Mod(ofd.FileName, true);
             else
-                Write.ToEventLog("Click 'Install Mod' to select the mod you want to install.", "");                                   
+                Log.Write("Click 'Install Mod' to select the mod you want to install.");                                   
 
             EnableAllButtons(true);
             EnableAllTabs("", true);
@@ -223,7 +225,7 @@ namespace BFBC2ModLoader
             dataGridModManager.IsEnabled = true;
             progressRingMM.IsActive = false;
 
-            Write.ToEventLog("", "done");
+            Log.Write("", "done");
         }       
 
         private void BtnEnableMods_Click(object sender, RoutedEventArgs e)
@@ -250,12 +252,12 @@ namespace BFBC2ModLoader
                 EnableAllButtons(true);
                 EnableAllTabs("", true);
 
-                Write.ToEventLog("Enabled all mods.", "");
+                Log.Write("Enabled all mods.");
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not enable mods! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not enable mods! See error.log", "error");
             }
         }
 
@@ -287,12 +289,12 @@ namespace BFBC2ModLoader
 
                 EnableAllTabs("ModManager", false);
 
-                Write.ToEventLog("Disabled all mods.", "");
+                Log.Write("Disabled all mods.");
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not disable mods! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not disable mods! See error.log", "error");
             }
         }
 
@@ -301,7 +303,7 @@ namespace BFBC2ModLoader
             //Delete mods
             try
             {
-                Write.ToEventLog("Deleting mods...", "");
+                Log.Write("Deleting mods...");
 
                 var result = MessageBox.Show("Do you really want to delete ALL mods?", "Delete all mods?", MessageBoxButton.YesNo);
 
@@ -313,17 +315,17 @@ namespace BFBC2ModLoader
 
                     EnableAllButtons(true);
 
-                    Write.ToEventLog("All mods deleted.", "done");
+                    Log.Write("All mods deleted.", "done");
                 }
                 else
                 {
-                    Write.ToEventLog("Aborted!", "done");
+                    Log.Write("Aborted!", "done");
                 }
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to open message box! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to open message box! See error.log", "error");
             }
         }
 
@@ -353,13 +355,13 @@ namespace BFBC2ModLoader
                 dataGridModManager.SelectedItem = dataGridModManager.Items[rowIndex - 1];
 
                 if (Globals.HasModMoved == false)
-                    Write.ToEventLog("Moved mod up or down. Don't forget to apply changes!", "warning");
+                    Log.Write("Moved mod up or down. Don't forget to apply changes!", "warning");
 
                 Globals.HasModMoved = true;
             }
             catch
             {
-                Write.ToEventLog("Could not move mod up! No mod is selected or installed?", "warning");
+                Log.Write("Could not move mod up! No mod is selected or installed?", "warning");
             }
         }
 
@@ -389,13 +391,13 @@ namespace BFBC2ModLoader
                 dataGridModManager.SelectedItem = dataGridModManager.Items[rowIndex + 1];
 
                 if (Globals.HasModMoved == false)
-                    Write.ToEventLog("Moved mod up or down. Don't forget to apply changes!", "warning");
+                    Log.Write("Moved mod up or down. Don't forget to apply changes!", "warning");
 
                 Globals.HasModMoved = true;
             }
             catch
             {
-                Write.ToEventLog("Could not move mod down! No mod is selected or installed?", "warning");
+                Log.Write("Could not move mod down! No mod is selected or installed?", "warning");
             }
         }
 
@@ -404,8 +406,8 @@ namespace BFBC2ModLoader
             //Apply
             try
             {
-                Write.ToEventLog("This may take a while. Do NOT close the application!", "");
-                Write.ToEventLog("Applying changes, please wait...", "");
+                Log.Write("This may take a while. Do NOT close the application!");
+                Log.Write("Applying changes, please wait...");
 
                 EnableAllButtons(false);
 
@@ -425,12 +427,12 @@ namespace BFBC2ModLoader
                 Globals.HasModMoved = false;
                 Globals.HasModBeenUnChecked = false;
 
-                Write.ToEventLog("Changes have been applied.", "done");
+                Log.Write("Changes have been applied.", "done");
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not apply changes! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not apply changes! See error.log", "error");
             }
         }
 
@@ -439,7 +441,7 @@ namespace BFBC2ModLoader
             //Reset
             try
             {
-                Write.ToEventLog("Resetting changes, please wait...", "");
+                Log.Write("Resetting changes, please wait...");
 
                 EnableAllButtons(false);
 
@@ -451,12 +453,12 @@ namespace BFBC2ModLoader
                 Globals.HasModMoved = false;
                 Globals.HasModBeenUnChecked = false;
 
-                Write.ToEventLog("Changes have been reset.", "done");
+                Log.Write("Changes have been reset.", "done");
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not reset changes! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not reset changes! See error.log", "error");
             }
         }
 
@@ -479,8 +481,8 @@ namespace BFBC2ModLoader
                     }
                     else
                     {
-                        Write.ToEventLog("This may take a while. Do NOT close the application!", "");
-                        Write.ToEventLog("Deleting mod, please wait...", "");
+                        Log.Write("This may take a while. Do NOT close the application!");
+                        Log.Write("Deleting mod, please wait...");
 
                         var item = dataGridModManager.SelectedItem as ModManagerItem;
                         var item1 = dataGridMapBrowser.SelectedItem as MapBrowserItem;
@@ -515,12 +517,12 @@ namespace BFBC2ModLoader
                             }
                         }
 
-                        Write.ToEventLog("Mod deleted.", "done");
+                        Log.Write("Mod deleted.", "done");
                     }
                 }
                 else
                 {
-                    Write.ToEventLog("No mod is selected.", "warning");
+                    Log.Write("No mod is selected.", "warning");
                 }
 
                 EnableAllButtons(true);
@@ -531,8 +533,8 @@ namespace BFBC2ModLoader
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to delete selected mod! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to delete selected mod! See error.log", "error");
             }
         }
 
@@ -619,15 +621,15 @@ namespace BFBC2ModLoader
                             {
                                 bCount++;
 
-                                Write.ToEventLog("This may take a while. Do NOT close the application!", "");
-                                Write.ToEventLog("Downloading mod " + bCount + " of " + aCount + ", please wait...", "");
+                                Log.Write("This may take a while. Do NOT close the application!");
+                                Log.Write("Downloading mod " + bCount + " of " + aCount + ", please wait...");
 
                                 string reqLink = itemMB.MapLink;
 
                                 await Task.Run(() => FileDownloader.DownloadFileFromURLToPath(reqLink, Dirs.MapZIP));
 
-                                Write.ToEventLog("This may take a while. Do NOT close the application!", "");
-                                Write.ToEventLog("Installing mod " + bCount + " of " + aCount + ", please wait...", "");
+                                Log.Write("This may take a while. Do NOT close the application!");
+                                Log.Write("Installing mod " + bCount + " of " + aCount + ", please wait...");
 
                                 await Install.Mod(Dirs.MapZIP, false);
                             }
@@ -642,7 +644,7 @@ namespace BFBC2ModLoader
 
                         MessageBox.Show("All files were successfully downloaded and installed! If you suddenly can not join the server in the future anymore, make sure to come back, select the server and press 'Install Maps' again, maybe new mods have been installed for the server. Also do not forget to update the mods if updates are available. Then you should be able to join the server again.", "Installation done!", MessageBoxButton.OK);
 
-                        Write.ToEventLog("", "done");
+                        Log.Write("", "done");
                     }
                     else
                     {
@@ -656,14 +658,14 @@ namespace BFBC2ModLoader
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not download or install mod! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not download or install mod! See error.log", "error");
             }
         }
 
         private async void BtnRefresh_Click(object sender, RoutedEventArgs e)
         {
-            Write.ToEventLog("Refreshing server list...", "");
+            Log.Write("Refreshing server list...");
 
             EnableAllButtons(false);
             EnableAllTabs("ServerBrowser", false);
@@ -679,7 +681,7 @@ namespace BFBC2ModLoader
             dataGridServerBrowser.IsEnabled = true;
             progressRingSB.IsActive = false;
 
-            Write.ToEventLog("", "done");
+            Log.Write("", "done");
         }
 
         private async void BtnInstallMap_Click(object sender, RoutedEventArgs e)
@@ -762,21 +764,21 @@ namespace BFBC2ModLoader
                     {
                         bCount++;
 
-                        Write.ToEventLog("This may take a while. Do NOT close the application!", "");
-                        Write.ToEventLog("Downloading resource " + bCount + " of " + aCount + ", please wait...", "");
+                        Log.Write("This may take a while. Do NOT close the application!");
+                        Log.Write("Downloading resource " + bCount + " of " + aCount + ", please wait...");
 
                         string reqLink = itemMB.MapLink;
 
                         await Task.Run(() => FileDownloader.DownloadFileFromURLToPath(reqLink, Dirs.MapZIP));
 
-                        Write.ToEventLog("This may take a while. Do NOT close the application!", "");
-                        Write.ToEventLog("Installing resource " + bCount + " of " + aCount + ", please wait...", "");
+                        Log.Write("This may take a while. Do NOT close the application!");
+                        Log.Write("Installing resource " + bCount + " of " + aCount + ", please wait...");
 
                         await Install.Mod(Dirs.MapZIP, false);
                     }
                 }
-                Write.ToEventLog("This may take a while. Do NOT close the application!", "");
-                Write.ToEventLog("Downloading map, please wait...", "");
+                Log.Write("This may take a while. Do NOT close the application!");
+                Log.Write("Downloading map, please wait...");
 
                 var itemMBSelected = dataGridMapBrowser.SelectedItem as MapBrowserItem;
 
@@ -784,8 +786,8 @@ namespace BFBC2ModLoader
 
                 await Task.Run(() => FileDownloader.DownloadFileFromURLToPath(link, Dirs.MapZIP));
 
-                Write.ToEventLog("This may take a while. Do NOT close the application!", "");
-                Write.ToEventLog("Installing map, please wait...", "");
+                Log.Write("This may take a while. Do NOT close the application!");
+                Log.Write("Installing map, please wait...");
 
                 await Install.Mod(Dirs.MapZIP, false);
 
@@ -795,12 +797,12 @@ namespace BFBC2ModLoader
                 dataGridMapBrowser.IsEnabled = true;
                 progressRingMB.IsActive = false;
 
-                Write.ToEventLog("", "done");
+                Log.Write("", "done");
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not download or install map! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not download or install map! See error.log", "error");
             }
         }
 
@@ -847,15 +849,15 @@ namespace BFBC2ModLoader
                             {
                                 bCount++;
 
-                                Write.ToEventLog("This may take a while. Do NOT close the application.", "");
-                                Write.ToEventLog("Downloading map " + bCount + " of " + aCount + ", please wait...", "");
+                                Log.Write("This may take a while. Do NOT close the application.");
+                                Log.Write("Downloading map " + bCount + " of " + aCount + ", please wait...");
 
                                 string link = itemMB.MapLink;
 
                                 await Task.Run(() => FileDownloader.DownloadFileFromURLToPath(link, Dirs.MapZIP));
 
-                                Write.ToEventLog("This may take a while. Do NOT close the application.", "");
-                                Write.ToEventLog("Installing map " + bCount + " of " + aCount + ", please wait...", "");
+                                Log.Write("This may take a while. Do NOT close the application.");
+                                Log.Write("Installing map " + bCount + " of " + aCount + ", please wait...");
 
                                 await Install.Mod(Dirs.MapZIP, false);
                             }
@@ -871,12 +873,12 @@ namespace BFBC2ModLoader
 
                 Globals.MapUpdatesAvailable = false;
 
-                Write.ToEventLog("", "done");
+                Log.Write("", "done");
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Could not download or install map! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Could not download or install map! See error.log", "error");
             }
         }       
 
@@ -894,12 +896,12 @@ namespace BFBC2ModLoader
 
         private void BtnCheckUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Write.ToEventLog("Checking for updates...", "");
+            Log.Write("Checking for updates...");
 
             Check.Update();
             Check.MapUpdate();
 
-            Write.ToEventLog("", "done");
+            Log.Write("", "done");
         }
 
         private void ChkBoxAutoCheckUpdates_Checked(object sender, RoutedEventArgs e)
@@ -932,8 +934,8 @@ namespace BFBC2ModLoader
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to start the game! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to start the game! See error.log", "error");
             }
         }
 
@@ -959,8 +961,8 @@ namespace BFBC2ModLoader
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to open link! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to open link! See error.log", "error");
             }
         }
 
@@ -972,8 +974,8 @@ namespace BFBC2ModLoader
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to open link! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to open link! See error.log", "error");
             }
         }
 
@@ -985,8 +987,8 @@ namespace BFBC2ModLoader
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to open link! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to open link! See error.log", "error");
             }
         }        
 
@@ -1024,8 +1026,8 @@ namespace BFBC2ModLoader
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to load preview image! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to load preview image! See error.log", "error");
             }
         }
 
@@ -1059,7 +1061,7 @@ namespace BFBC2ModLoader
             if (item.ModImage != "")
                 imgBoxModManager.Source = new BitmapImage(new Uri(item.ModImage));
 
-            Write.ToModInfo();
+            Write.ModInfo();
         }
 
         private void DataGridMapBrowser_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -1112,7 +1114,7 @@ namespace BFBC2ModLoader
                 }
             }
             
-            Write.ToServerInfo();
+            Write.ServerInfo();
 
             btnInstallMods.IsEnabled = true;
         }        
@@ -1150,7 +1152,7 @@ namespace BFBC2ModLoader
             EnableAllTabs("ModManager", false);
 
             if (Globals.HasModBeenUnChecked == false)
-                Write.ToEventLog("Mod enabled/disabled. Don't forget to apply changes!", "warning");
+                Log.Write("Mod enabled/disabled. Don't forget to apply changes!", "warning");
 
             Globals.HasModBeenUnChecked = true;
         }
@@ -1322,9 +1324,9 @@ namespace BFBC2ModLoader
                 btnInstallMap.IsEnabled = true;
 
             if (btnInstallMap.IsEnabled)
-                Write.ToMapInfo("No");
+                Write.MapInfo("No");
             else
-                Write.ToMapInfo("Yes");
+                Write.MapInfo("Yes");
         }        
     }
 }

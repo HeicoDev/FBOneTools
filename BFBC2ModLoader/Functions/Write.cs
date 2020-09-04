@@ -1,91 +1,17 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
 using System.Windows;
 using System.Windows.Documents;
-using System.Windows.Media;
 using BFBC2ModLoader.Data;
+using BFBC2Shared.Functions;
 
 namespace BFBC2ModLoader.Functions
 {
     public class Write
     {
-        public static void ToErrorLog(Exception ex)
-        {
-            //Create detailed error log in error.log
-            using (StreamWriter sw = new StreamWriter(Dirs.ErrorLog, true))
-            {
-                sw.WriteLine("#Error Log**************************Error Log**************************Error Log#");
-                sw.WriteLine("Name: BFBC2 Mod Loader");
-                sw.WriteLine($"Ver: { Globals.VersionClient }");
-                sw.WriteLine($"Date: { DateTime.Now }");
-                sw.WriteLine($"Error: { ex }");
-            }
-        }
-
-        public static void ToErrorLog(string ex)
-        {
-            //Create detailed error log in error.log
-            using (StreamWriter sw = new StreamWriter(Dirs.ErrorLog, true))
-            {
-                sw.WriteLine("#Error Log**************************Error Log**************************Error Log#");
-                sw.WriteLine("Name: BFBC2 Mod Loader");
-                sw.WriteLine($"Ver: { Globals.VersionClient }");
-                sw.WriteLine($"Date: { DateTime.Now }");
-                sw.WriteLine($"Error: { ex }");
-            }
-        }
-
-        public static void ToEventLog(string log, string result)
-        {
-            var bc = new BrushConverter();
-            var tr = new TextRange(UIElements.TxtBoxEventLog.Document.ContentEnd, UIElements.TxtBoxEventLog.Document.ContentEnd);
-
-            switch (result.ToLower())
-            {
-                case "done":
-                    tr.Text = $"[{ DateTime.Now }] ";
-                    tr.ApplyPropertyValue(TextElement.ForegroundProperty, bc.ConvertToString("#FFE2E2E2"));
-                    tr = new TextRange(UIElements.TxtBoxEventLog.Document.ContentEnd, UIElements.TxtBoxEventLog.Document.ContentEnd);
-                    tr.Text = "Done! ";
-                    tr.ApplyPropertyValue(TextElement.ForegroundProperty, bc.ConvertFromString("#FF41BB41"));
-                    tr = new TextRange(UIElements.TxtBoxEventLog.Document.ContentEnd, UIElements.TxtBoxEventLog.Document.ContentEnd);
-                    tr.Text = $"{log}\r";
-                    tr.ApplyPropertyValue(TextElement.ForegroundProperty, bc.ConvertToString("#FFE2E2E2"));
-                    break;
-                case "error":
-                    tr.Text = $"[{ DateTime.Now }] ";
-                    tr.ApplyPropertyValue(TextElement.ForegroundProperty, bc.ConvertToString("#FFE2E2E2"));
-                    tr = new TextRange(UIElements.TxtBoxEventLog.Document.ContentEnd, UIElements.TxtBoxEventLog.Document.ContentEnd);
-                    tr.Text = "Error: ";
-                    tr.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.Tomato);
-                    tr = new TextRange(UIElements.TxtBoxEventLog.Document.ContentEnd, UIElements.TxtBoxEventLog.Document.ContentEnd);
-                    tr.Text = $"{log}\r";
-                    tr.ApplyPropertyValue(TextElement.ForegroundProperty, bc.ConvertToString("#FFE2E2E2"));
-                    break;
-                case "warning":
-                    tr.Text = $"[{ DateTime.Now }] ";
-                    tr.ApplyPropertyValue(TextElement.ForegroundProperty, bc.ConvertToString("#FFE2E2E2"));
-                    tr = new TextRange(UIElements.TxtBoxEventLog.Document.ContentEnd, UIElements.TxtBoxEventLog.Document.ContentEnd);
-                    tr.Text = "Warning: ";
-                    tr.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.Gold);
-                    tr = new TextRange(UIElements.TxtBoxEventLog.Document.ContentEnd, UIElements.TxtBoxEventLog.Document.ContentEnd);
-                    tr.Text = $"{log}\r";
-                    tr.ApplyPropertyValue(TextElement.ForegroundProperty, bc.ConvertToString("#FFE2E2E2"));
-                    break;
-                default:
-                    tr.Text = $"[{ DateTime.Now }] { log }\r";
-                    tr.ApplyPropertyValue(TextElement.ForegroundProperty, bc.ConvertToString("#FFE2E2E2"));
-                    break;
-            }
-
-            UIElements.TxtBoxEventLog.ScrollToEnd();
-            UIElements.TxtBoxEventLog.LineUp();
-        }
-
         private static string ModLink;
 
-        public static void ToModInfo()
+        public static void ModInfo()
         {
             var item = UIElements.DataGridModManager.SelectedItem as ModManagerItem;
             int length = item.ModAuthor.Length;
@@ -131,12 +57,12 @@ namespace BFBC2ModLoader.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to open link! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to open link! See error.log", "error");
             }
         }
 
-        public static void ToServerInfo()
+        public static void ServerInfo()
         {
             var item = UIElements.DataGridServerBrowser.SelectedItem as ServerBrowserItem;
             int length = item.ServerMap.Length;
@@ -154,11 +80,10 @@ namespace BFBC2ModLoader.Functions
             UIElements.TxtBoxServerInfo.ScrollToHome();
         }
 
-        public static void ToMapInfo(string installed)
+        public static void MapInfo(string isInstalled)
         {
             var item = UIElements.DataGridMapBrowser.SelectedItem as MapBrowserItem;
             int length = item.MapAuthor.Length;
-            string isInstalled = installed;
 
             if (item.MapName.Length > length)
                 length = item.MapName.Length;

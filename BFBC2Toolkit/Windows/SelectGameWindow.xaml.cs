@@ -4,6 +4,7 @@ using System.Xml;
 using MahApps.Metro.Controls;
 using BFBC2Toolkit.Data;
 using BFBC2Toolkit.Functions;
+using BFBC2Shared.Functions;
 
 namespace BFBC2Toolkit.Windows
 {
@@ -50,8 +51,8 @@ namespace BFBC2Toolkit.Windows
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to load game profiles! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to load game profiles! See error.log", "error");
 
                 Close();
             }

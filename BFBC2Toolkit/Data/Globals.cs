@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using BFBC2Toolkit.Data.Files;
+using BFBC2Shared.Data;
 
 namespace BFBC2Toolkit.Data
 {
     public class Globals
     {
         public static IDictionary<string, string> FbrbFiles { get; } = new Dictionary<string, string>();
-
-        public static string VersionClient { get; } = "1.0.0";
 
         public static bool IsGameProfile { get; set; } = false;
         public static bool IsDataTreeView { get; set; } = false;
@@ -31,6 +30,12 @@ namespace BFBC2Toolkit.Data
         
         public static string[] GameIds { get; } = { "BFBC2-PC", "BFBC2-Server-PC", "BFBC2-PS3", "BFBC2-Xbox", "BFBC-PS3", "BFBC-Xbox",
                                                     "BF1943-PS3", "BF1943-Xbox" };
+
+        public static void SetSharedVars()
+        {
+            SharedGlobals.ClientName = "BFBC2 Toolkit";
+            SharedGlobals.ClientVersion = "1.0.0";
+        }
 
         public static void SetFbrbFiles()
         {

@@ -350,6 +350,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BFBC2Shared\BFBC2Shared.csproj">
+      <Project>{67fec8b4-5ee0-47db-a269-e9d4072c6dfd}</Project>
+      <Name>BFBC2Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

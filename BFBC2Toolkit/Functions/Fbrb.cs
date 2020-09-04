@@ -5,6 +5,7 @@ using System.Diagnostics;
 using Microsoft.Win32;
 using BFBC2Toolkit.Data;
 using BFBC2Toolkit.Helpers;
+using BFBC2Shared.Functions;
 
 namespace BFBC2Toolkit.Functions
 {
@@ -24,7 +25,7 @@ namespace BFBC2Toolkit.Functions
 
                 Dirs.FilesPathData = ofd.FileName.Replace(".fbrb", " FbRB");
 
-                Write.ToEventLog("Cleaning up files, please wait...", "");
+                Log.Write("Cleaning up files, please wait...");
 
                 await Task.Run(() => CleanUp.FilesAndDirs(Dirs.FilesPathData));
 
@@ -37,8 +38,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to extract fbrb file! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to extract fbrb file! See error.log", "error");
 
                 return true;
             }
@@ -57,8 +58,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to archive fbrb file! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to archive fbrb file! See error.log", "error");
 
                 return true;
             }

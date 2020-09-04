@@ -3,6 +3,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using BFBC2Toolkit.Data;
+using BFBC2Shared.Functions;
 
 namespace BFBC2Toolkit.Functions
 {
@@ -39,8 +40,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to save text editor changes! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to save text editor changes! See error.log", "error");
 
                 return true;
             }

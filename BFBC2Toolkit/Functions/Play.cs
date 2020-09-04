@@ -1,5 +1,6 @@
 ﻿using System;
 using BFBC2Toolkit.Data;
+using BFBC2Shared.Functions;
 
 namespace BFBC2Toolkit.Functions
 {
@@ -16,7 +17,7 @@ namespace BFBC2Toolkit.Functions
             }
             catch
             {
-                Write.ToEventLog("Unable to load video preview! Exporting and importing should still work fine.", "warning");
+                Log.Write("Unable to load video preview! Exporting and importing should still work fine.", "warning");
             }
         }
     }

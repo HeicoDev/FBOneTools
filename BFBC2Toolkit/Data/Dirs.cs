@@ -1,4 +1,5 @@
 ﻿using System;
+using BFBC2Shared.Data;
 
 namespace BFBC2Toolkit.Data
 {
@@ -38,10 +39,14 @@ namespace BFBC2Toolkit.Data
         public static string ConfigGames { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\games.Config";
         public static string ConfigSettings { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\settings.Config";
         public static string Logs { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Logs";
-        public static string ErrorLog { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Logs\error.log";
         public static string Projects { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Projects";
         public static string Games { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Games";
         public static string TemplateMod { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Templates\Mod";       
         public static string Docs { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Docs";
+
+        public static void SetSharedVars()
+        {
+            SharedDirs.ErrorLog = Environment.CurrentDirectory + @"\BFBC2Toolkit\Logs\error.log";
+        }
     }
 }

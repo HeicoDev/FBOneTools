@@ -3,6 +3,8 @@ using System.IO;
 using System.Net;
 using System.Windows;
 using BFBC2ModLoader.Data;
+using BFBC2Shared.Data;
+using BFBC2Shared.Functions;
 
 namespace BFBC2ModLoader.Functions
 {
@@ -25,16 +27,16 @@ namespace BFBC2ModLoader.Functions
 
                     Load.UpdateXML();
 
-                    if (Globals.VersionClient != Globals.VersionClientNew)
+                    if (SharedGlobals.ClientVersion != Globals.VersionClientNew)
                     {
-                        Write.ToEventLog("An update for BFBC2 Mod Loader is available.", "");
+                        Log.Write("An update for BFBC2 Mod Loader is available.");
 
                         MessageBox.Show("An update for BFBC2 Mod Loader is available.\nVisit Nexus Mods to download the latest version.", "Update available");
                     }
 
                     if (versionServerOld != Globals.VersionServer)
                     {
-                        Write.ToEventLog("Downloading updated lists for server and map browser...", "");
+                        Log.Write("Downloading updated lists for server and map browser...");
 
                         if (Globals.IsClient == true)
                         {
@@ -108,14 +110,14 @@ namespace BFBC2ModLoader.Functions
                         if (File.Exists(Dirs.ModsCommon + @"\tempMaps.config"))
                             File.Move(Dirs.ModsCommon + @"\tempMaps.config", Dirs.MapsXML);
 
-                        Write.ToEventLog("", "done");
+                        Log.Write("", "done");
                     }
                 }             
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Update failed! No internet connection? See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Update failed! No internet connection? See error.log", "error");
             }
         }
 
@@ -150,7 +152,7 @@ namespace BFBC2ModLoader.Functions
             {
                 Globals.MapUpdatesAvailable = true;
 
-                Write.ToEventLog("An update for one or more maps is available.", "");
+                Log.Write("An update for one or more maps is available.");
 
                 MessageBox.Show("An update for one or more maps is available.\nNavigate to the Map Browser to update the maps.", "Map updates available");
             }

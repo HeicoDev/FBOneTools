@@ -1,6 +1,5 @@
-﻿using System;
-using System.IO;
-using BFBC2Toolkit.Data;
+﻿using System.IO;
+using BFBC2Shared.Data;
 
 namespace BFBC2Toolkit.Functions
 {
@@ -50,8 +49,8 @@ namespace BFBC2Toolkit.Functions
 
         public static void StartUp()
         {
-            if (File.Exists(Dirs.ErrorLog))
-                File.Delete(Dirs.ErrorLog);
+            if (File.Exists(SharedDirs.ErrorLog))
+                File.Delete(SharedDirs.ErrorLog);
         }
     }
 }

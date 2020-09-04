@@ -1,10 +1,10 @@
 ﻿using System.Windows.Controls;
+using BFBC2Shared.Data;
 
 namespace BFBC2ModLoader.Data
 {
     public class UIElements
     {
-        public static RichTextBox TxtBoxEventLog { get; set; }
         public static RichTextBox TxtBoxModInfo { get; set; }
         public static RichTextBox TxtBoxServerInfo { get; set; }
         public static RichTextBox TxtBoxMapInfo { get; set; }
@@ -14,7 +14,7 @@ namespace BFBC2ModLoader.Data
 
         public static void SetElements(RichTextBox rtbEventLog, RichTextBox rtbModInfo, RichTextBox rtbServerInfo, RichTextBox rtbMapInfo, DataGrid dgModManager, DataGrid dgServerBrowser, DataGrid dgMapBrowser)
         {
-            TxtBoxEventLog = rtbEventLog;
+            SharedUIElements.TxtBoxEventLog = rtbEventLog;
             TxtBoxModInfo = rtbModInfo;
             TxtBoxServerInfo = rtbServerInfo;
             TxtBoxMapInfo = rtbMapInfo;

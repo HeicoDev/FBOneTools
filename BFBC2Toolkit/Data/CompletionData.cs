@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using ICSharpCode.AvalonEdit.CodeCompletion;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Editing;
-using BFBC2Toolkit.Functions;
+using BFBC2Shared.Functions;
 
 namespace BFBC2Toolkit.Data
 {
@@ -102,8 +102,8 @@ namespace BFBC2Toolkit.Data
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to open code completion window! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to open code completion window! See error.log", "error");
             }
         }
     }

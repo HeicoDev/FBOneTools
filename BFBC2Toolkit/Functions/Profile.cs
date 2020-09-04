@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using Microsoft.Win32;
 using BFBC2Toolkit.Data;
+using BFBC2Shared.Functions;
 
 namespace BFBC2Toolkit.Functions
 {
@@ -18,7 +19,7 @@ namespace BFBC2Toolkit.Functions
             {
                 if (ofd.SafeFileName != "BFBC2Game.exe" && ofd.SafeFileName != "Frost.Game.Main_Win32_Final.exe")
                 {
-                    Write.ToEventLog("Not a valid game or server executable!", "warning");
+                    Log.Write("Not a valid game or server executable!", "warning");
                     return true;
                 }
 
@@ -51,15 +52,15 @@ namespace BFBC2Toolkit.Functions
 
                 string path = ofd.FileName.Replace(ofd.SafeFileName, "");
 
-                Write.ToEventLog("Searching for fbrb archives...", "");
+                Log.Write("Searching for fbrb archives...");
 
                 var files = await Task.Run(() => Directory.EnumerateFiles(path, "*.fbrb", SearchOption.AllDirectories));
 
                 int filesCountA = await Task.Run(() => CountFbrbArchives(files)),
                     filesCountB = 0;                
 
-                Write.ToEventLog("Found " + filesCountA + " fbrb archives.", "");
-                Write.ToEventLog("This will take a while. Do NOT close the application!", "");
+                Log.Write("Found " + filesCountA + " fbrb archives.");
+                Log.Write("This will take a while. Do NOT close the application!");
 
                 foreach (string file in files)
                 {
@@ -69,7 +70,7 @@ namespace BFBC2Toolkit.Functions
                         {
                             filesCountB++;
 
-                            Write.ToEventLog("Extracting fbrb archive " + filesCountB + " of " + filesCountA + "...", "");
+                            Log.Write("Extracting fbrb archive " + filesCountB + " of " + filesCountA + "...");
 
                             var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptArchive + "\" \"" + file.Replace(@"\", @"\\") + "\"");
                             await Task.Run(() => process.WaitForExit());
@@ -127,8 +128,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to create game profile! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to create game profile! See error.log", "error");
 
                 return true;
             }
@@ -186,8 +187,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to load game profile! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to load game profile! See error.log", "error");
 
                 return true;
             }
@@ -257,8 +258,8 @@ namespace BFBC2Toolkit.Functions
             }
             catch (Exception ex)
             {
-                Write.ToErrorLog(ex);
-                Write.ToEventLog("Unable to delete game profile! See error.log", "error");
+                Log.Error(ex.ToString());
+                Log.Write("Unable to delete game profile! See error.log", "error");
 
                 return true;
             }

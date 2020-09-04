@@ -195,7 +195,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BFBC2Shared\BFBC2Shared.csproj">
+      <Project>{67fec8b4-5ee0-47db-a269-e9d4072c6dfd}</Project>
+      <Name>BFBC2Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="BFBC2ModLoader\Docs\Credits.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

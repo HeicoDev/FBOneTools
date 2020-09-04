@@ -4,7 +4,7 @@ using System.Windows;
 using Microsoft.Win32;
 using MahApps.Metro.Controls;
 using BFBC2Toolkit.Tools;
-using BFBC2Toolkit.Functions;
+using BFBC2Shared.Functions;
 
 namespace BFBC2Toolkit.Windows
 {
@@ -60,7 +60,7 @@ namespace BFBC2Toolkit.Windows
                 catch (Exception ex)
                 {
                     lblMain.Content = "Unable to convert file! See error.log";
-                    Write.ToErrorLog(ex);
+                    Log.Error(ex.ToString());
                 }
 
                 filesCountA++;
