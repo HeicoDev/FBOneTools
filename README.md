@@ -64,11 +64,8 @@ NuGet Packages:
 <div align="center">
   <h1>BFBC2 Mod Loader</h1>
   <p>
-    A mod manager that allows you to install your client & server side mods easy & fast without modifying or replacing original game files.
-  </p>
-  <p>
-    Works with Singleplayer, Multiplayer & Vietnam Add-On!
-  </p>   
+    A mod manager that allows you to install your client & server side mods easy & fast without modifying or replacing original game files. Works with Singleplayer, Multiplayer & Vietnam Add-On!
+  </p> 
 </div>
 
 ## Download
