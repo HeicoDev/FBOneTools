@@ -1,10 +1,20 @@
 <div align="center">
   <a href="https://github.com/HeicoDev/BFBC2Toolkit">
-    <img alt="BFBC2Toolkit" width="200" heigth="200" src="https://i.ibb.co/ZJ4Z4sp/Battlefield-Modding-Icon.png">
+    <img alt="FBOneTools" width="200" heigth="200" src="https://i.ibb.co/ZJ4Z4sp/Battlefield-Modding-Icon.png">
   </a>
-  <h1>BFBC2Toolkit</h1>
+  <h1>FBOneTools</h1>
   <p>
     A collection of tools for the Frostbite 1 Engine.
+  </p>
+  <p>
+    Includes a modding tool, a mod manager and more!
+  </p>
+  <a href="https://github.com/HeicoDev/BFBC2Toolkit">
+    <img alt="BFBC2Toolkit" width="700" heigth="700" src="https://staticdelivery.nexusmods.com/mods/2608/images/15/15-1599015893-189713593.png">
+  </a>
+  <h1>BFBC2 Toolkit</h1>
+  <p>
+    A modding tool for the Frostbite 1 Engine.
   </p>
   <p>
     Supports Battlefield: Bad Company, Bad Company 2, 1943 and probably other Frostbite 1 games.
@@ -57,14 +67,53 @@ NuGet Packages:
 * [MahApps.Metro 1.6.5](https://www.nuget.org/packages/MahApps.Metro/1.6.5)
 * [ControlzEx 3.0.2.4](https://www.nuget.org/packages/ControlzEx/3.0.2.4)
 
+<div align="center">
+  <a href="https://github.com/HeicoDev/BFBC2Toolkit">
+    <img alt="BFBC2Toolkit" width="700" heigth="700" src="https://staticdelivery.nexusmods.com/mods/2608/images/4/4-1547014090-799561424.jpeg">
+  </a>
+  <h1>BFBC2 Mod Loader</h1>
+  <p>
+    A mod manager that allows you to install your client & server side mods easy & fast without modifying or replacing original game files. Works with Singleplayer, Multiplayer & Vietnam Add-On!
+  </p> 
+</div>
+
+## Download
+
+You can download the latest stable build on [Nexus Mods](https://www.nexusmods.com/battlefieldbadcompany2/mods/4)
+
+## Features
+
+* Easy & fast installation of BFBC2 Mod Loader compatible mods
+* Modifies only a few mod archives instead of ~1000 original game archives
+* Does not modify original archives/files except two tiny text files 
+* Detects conflicts and blocks installation so you don't mess up your mod archive
+* Disable & enable all mods and revert modified files back to original without deleting all mods
+* A server and map browser that allows you to easily download and install custom maps
+* UI for managing your mods (enable/disable and delete single mods, change load order etc.)
+
+## Build & Run Requirements
+
+* [Visual Studio 2017](https://visualstudio.microsoft.com/vs/older-downloads/)
+* [.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49982)
+* [Python 2.7](https://www.python.org/downloads/release/python-2718/)
+
+NuGet Packages:
+* [MahApps.Metro 1.6.5](https://www.nuget.org/packages/MahApps.Metro/1.6.5)
+* [ControlzEx 3.0.2.4](https://www.nuget.org/packages/ControlzEx/3.0.2.4)
+
+<div align="center">
+  <h1>General</h1>
+</div>
+
 ## Credits
 
-* Heico - Author of BFBC2Toolkit
+* [Heico](https://www.nexusmods.com/users/45260312) - Author of FBOneTools
 * [Frankelstner](http://www.bfeditor.org/forums/index.php?/profile/6706-frankelstner/) - For his Python scripts that handle .fbrb & .dbx files. Without his work in the BF Community my tools would not be possible! 
 * [Napisal](https://www.youtube.com/channel/UCIcx-pztQ3rGfO3pbcd52OQ) & [bad .baubau](https://www.youtube.com/user/cssbaubau) - for all the time they invested to figure out how Frostbite works. Without them I would not even know about BFBC2 modding.
 * [Emil Hernvall](https://github.com/EmilHernvall) - For his Python script that can extract .swfmovie files.
-* [Danny Becket](https://stackoverflow.com/users/1563422/danny-beckett) - For providing the code of his IniFile class, which my tool uses to handle ini files.
-* [Icons8](https://icons8.de/) for providing several icons, which my tool uses for some buttons. ([license](https://creativecommons.org/licenses/by-nd/3.0/))
+* [Danny Becket](https://stackoverflow.com/users/1563422/danny-beckett) - For providing the code of his IniFile class, which my tools use to handle ini files.
+* [Yasirkula](https://github.com/yasirkula) for providing the code of his FileDownloader class, which BFBC2 Mod Loader uses to download large files from Google Drive.
+* [Icons8](https://icons8.de/) for providing several icons, which my tools use for some buttons. ([license](https://creativecommons.org/licenses/by-nd/3.0/))
 * [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) library © Copyright 2019 MahApps ([license](https://github.com/MahApps/MahApps.Metro/blob/develop/LICENSE))
 * [ControlzEx](https://github.com/ControlzEx/ControlzEx) library © Copyright 2015-2019 Jan Karger, Bastian Schmidt ([license](https://github.com/ControlzEx/ControlzEx/blob/develop/LICENSE))
 * [AvalonEdit](https://github.com/icsharpcode/AvalonEdit) library © Copyright AvalonEdit Contributors ([license](https://github.com/icsharpcode/AvalonEdit/blob/master/LICENSE))
@@ -82,7 +131,7 @@ If you enjoy my work and want to provide support, you can do so by reporting bug
 I'm not affiliated, associated, authorized, endorsed by, or in any way officially connected with Electronic Arts or DICE, or any of its subsidiaries or its affiliates.
 The names Electronic Arts and DICE as well as related emblems, images, marks and names a such as Battlefield and Frostbite are registered trademarks of their respective owners.
 
-Game files or any other form of copyrighted materials will NOT be shipped with this tool! Everybody must provide the game files on his own.
+Game files or any other form of copyrighted materials will NOT be shipped with these tools! Everybody must provide the game files on his own.
 I do NOT support piracy in any way, so if you face issues, first make sure that you own a legal copy of the game!
 
-BFBC2Toolkit © 2020 Nico Hellmund is licensed under GNU General Public License v3.0.
+FBOneTools © 2020 Nico Hellmund is licensed under GNU General Public License v3.0.
