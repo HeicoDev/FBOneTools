@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BFBC2Toolkit", "BFBC2Toolki
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BFBC2ModLoader", "BFBC2ModLoader\BFBC2ModLoader.csproj", "{A029EB10-D673-44A9-9D69-BB7D7F280945}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BFBC2Shared", "BFBC2Shared\BFBC2Shared.csproj", "{67FEC8B4-5EE0-47DB-A269-E9D4072C6DFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{A029EB10-D673-44A9-9D69-BB7D7F280945}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A029EB10-D673-44A9-9D69-BB7D7F280945}.Release|x86.ActiveCfg = Release|Any CPU
 		{A029EB10-D673-44A9-9D69-BB7D7F280945}.Release|x86.Build.0 = Release|Any CPU
+		{67FEC8B4-5EE0-47DB-A269-E9D4072C6DFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67FEC8B4-5EE0-47DB-A269-E9D4072C6DFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67FEC8B4-5EE0-47DB-A269-E9D4072C6DFD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{67FEC8B4-5EE0-47DB-A269-E9D4072C6DFD}.Debug|x86.Build.0 = Debug|Any CPU
+		{67FEC8B4-5EE0-47DB-A269-E9D4072C6DFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67FEC8B4-5EE0-47DB-A269-E9D4072C6DFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67FEC8B4-5EE0-47DB-A269-E9D4072C6DFD}.Release|x86.ActiveCfg = Release|Any CPU
+		{67FEC8B4-5EE0-47DB-A269-E9D4072C6DFD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
