@@ -1,0 +1,379 @@
+Signature 03a85b3eb1bf28114cd5be8b993596ac6fa2d80e
+Authorative
+
+BundleSource game:build_overlay-00.fbrb
+BundleTarget package:mods/build_overlay-00.fbrb
+BundleTarget game:build_overlay-00.fbrb
+
+BundleSource game:overlay-00.fbrb
+BundleTarget package:mods/overlay-00.fbrb
+BundleTarget game:overlay-00.fbrb
+
+BundleSource game:vo-00.fbrb
+BundleTarget package:mods/vo-00.fbrb
+BundleTarget game:vo-00.fbrb
+
+BundleSource game:async/startup-00.fbrb
+BundleTarget package:mods/startup-00.fbrb
+BundleTarget game:async/startup-00.fbrb
+
+BundleSource game:levels/mp_001/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_001/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_001sr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_001sr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_001sdm/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_001sdm/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_002/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_002/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_002sr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_002sr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_003/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_003/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_003sr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_003sr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_004/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_004/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_004sdm/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_004sdm/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_005/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_005/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_005gr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_005gr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_005sr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_005sr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_006/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_006/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_006cq/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_006cq/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_006sdm/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_006sdm/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_007/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_007/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_007gr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_007gr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_007sdm/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_007sdm/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_008/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_008/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_008cq/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_008cq/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_008sdm/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_008sdm/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_009cq/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_009cq/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_009sr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_009sr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_009sdm/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_009sdm/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_009gr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_009gr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_012cq/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_012cq/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_012gr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_012gr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_012sr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_012sr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_sp_001cq/level-00.fbrb
+BundleTarget game:levels/mp_sp_001cq/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/mp_sp_002gr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_sp_002gr/level-00.fbrb
+BundleTarget game:levels/mp2_common/level-00.fbrb
+
+BundleSource game:levels/mp_sp_002sr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_sp_002sr/level-00.fbrb
+BundleTarget game:levels/mp2_common/level-00.fbrb
+
+BundleSource game:levels/mp_sp_002sdm/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_sp_002sdm/level-00.fbrb
+BundleTarget game:levels/mp2_common/level-00.fbrb
+
+BundleSource game:levels/mp_sp_003gr/level-00.fbrb
+BundleTarget game:levels/mp_sp_003gr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/mp_sp_004cq/level-00.fbrb
+BundleTarget game:levels/mp_sp_004cq/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/mp_sp_005cq/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_sp_005cq/level-00.fbrb
+BundleTarget game:levels/mp2_common/level-00.fbrb
+
+BundleSource game:levels/mp_sp_005sdm/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_sp_005sdm/level-00.fbrb
+BundleTarget game:levels/mp2_common/level-00.fbrb
+
+BundleSource game:levels/mp_sp_006cq/level-00.fbrb
+BundleTarget game:levels/mp_sp_006cq/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/mp_sp_008/level-00.fbrb
+BundleTarget game:levels/mp_sp_008/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/bc1_oasis_cq/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/bc1_oasis_cq/level-00.fbrb
+BundleTarget game:levels/mp2_common/level-00.fbrb
+
+BundleSource game:levels/bc1_oasis_gr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/bc1_oasis_gr/level-00.fbrb
+BundleTarget game:levels/mp2_common/level-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sdm/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/bc1_oasis_sdm/level-00.fbrb
+BundleTarget game:levels/mp2_common/level-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/bc1_oasis_sr/level-00.fbrb
+BundleTarget game:levels/mp2_common/level-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_cq/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/bc1_harvest_day_cq/level-00.fbrb
+BundleTarget game:levels/mp2_common/level-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_gr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/bc1_harvest_day_gr/level-00.fbrb
+BundleTarget game:levels/mp2_common/level-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sdm/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/bc1_harvest_day_sdm/level-00.fbrb
+BundleTarget game:levels/mp2_common/level-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/bc1_harvest_day_sr/level-00.fbrb
+BundleTarget game:levels/mp2_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_002r/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_002r/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_002cq/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_002cq/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_002sdm/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_002sdm/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_002sr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_002sr/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_003r/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_003r/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_003cq/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_003cq/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_003sdm/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_003sdm/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_003sr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_003sr/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_005r/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_005r/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_005cq/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_005cq/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_005sdm/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_005sdm/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_005sr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_005sr/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_006r/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_006r/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_006cq/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_006cq/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_006sdm/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_006sdm/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_006sr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_006sr/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_007r/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_007r/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_007cq/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_007cq/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_007sdm/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_007sdm/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_007sr/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/nam_mp_007sr/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/air_mp_sp_001cq/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/air_mp_sp_001cq/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+BundleTarget game:levels/nam_common/level-00.fbrb
+
+BundleSource game:levels/air_mp_sp_004cq/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/air_mp_sp_004cq/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/air_mp_004/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/air_mp_004/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/air_mp_006/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/air_mp_006/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/mp_napimap_001/level-00.fbrb
+BundleTarget package:mods/level-00.fbrb
+BundleTarget game:levels/mp_napimap_001/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb

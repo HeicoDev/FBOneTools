@@ -1,4 +1,4 @@
-BFBC2 Toolkit - Copyright (c) 2020 Nico Hellmund - https://github.com/HeicoDev/BFBC2Toolkit
+BFBC2 Toolkit - Copyright (c) 2020 Nico Hellmund - https://github.com/HeicoDev/FBOneTools
 
 //Credits
 

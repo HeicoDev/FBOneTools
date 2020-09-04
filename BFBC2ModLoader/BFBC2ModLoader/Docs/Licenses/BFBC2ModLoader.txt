@@ -1,4 +1,4 @@
-BFBC2 Toolkit - Copyright (c) 2020 Nico Hellmund - https://github.com/HeicoDev/FBOneTools
+BFBC2 Mod Loader - Copyright (c) 2020 Nico Hellmund - https://github.com/HeicoDev/FBOneTools
 
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007

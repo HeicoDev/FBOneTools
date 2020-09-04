@@ -1,0 +1,3493 @@
+Signature 5249bb609f4373dc8180e76dc0b8e30b0ffec087
+Authorative
+
+BundleSource game:streaming_vo_de-00.fbrb
+BundleTarget package:streaming_vo_de-00.fbrb
+BundleTarget game:streaming_vo_de-00.fbrb
+
+BundleSource game:streaming_vo_es-00.fbrb
+BundleTarget package:streaming_vo_es-00.fbrb
+BundleTarget game:streaming_vo_es-00.fbrb
+
+BundleSource game:streaming_vo_en-00.fbrb
+BundleTarget package:streaming_vo_en-00.fbrb
+BundleTarget game:streaming_vo_en-00.fbrb
+
+BundleSource game:streaming_vo_pl-00.fbrb
+BundleTarget package:streaming_vo_pl-00.fbrb
+BundleTarget game:streaming_vo_pl-00.fbrb
+
+BundleSource game:streaming_sounds-00.fbrb
+BundleTarget package:streaming_sounds-00.fbrb
+BundleTarget game:streaming_sounds-00.fbrb
+
+BundleSource game:streaming_vo_ru-00.fbrb
+BundleTarget package:streaming_vo_ru-00.fbrb
+BundleTarget game:streaming_vo_ru-00.fbrb
+
+BundleSource game:streaming_vo_fr-00.fbrb
+BundleTarget package:streaming_vo_fr-00.fbrb
+BundleTarget game:streaming_vo_fr-00.fbrb
+
+BundleSource game:streaming_vo_it-00.fbrb
+BundleTarget package:streaming_vo_it-00.fbrb
+BundleTarget game:streaming_vo_it-00.fbrb
+
+BundleSource game:vo-00.fbrb
+BundleTarget package:vo-00.fbrb
+BundleTarget game:vo-00.fbrb
+
+BundleSource game:build_overlay-00.fbrb
+BundleTarget package:build_overlay-00.fbrb
+
+BundleSource game:async/weapon/bu_rif_g3_assault_kobra-00.fbrb
+BundleTarget package:async/weapon/bu_rif_g3_assault_kobra-00.fbrb
+BundleTarget game:async/weapon/bu_rif_g3_assault_kobra-00.fbrb
+
+BundleSource game:async/weapon/nam_gadget_wrench-00.fbrb
+BundleTarget package:async/weapon/nam_gadget_wrench-00.fbrb
+
+BundleSource game:async/weapon/nam_gadget_defib-00.fbrb
+BundleTarget package:async/weapon/nam_gadget_defib-00.fbrb
+
+BundleSource game:async/weapon/nam_lmg_rpk-00.fbrb
+BundleTarget package:async/weapon/nam_lmg_rpk-00.fbrb
+
+BundleSource game:async/weapon/nam_shg_870_slug-00.fbrb
+BundleTarget package:async/weapon/nam_shg_870_slug-00.fbrb
+
+BundleSource game:async/weapon/bu_sni_m95_frag-00.fbrb
+BundleTarget package:async/weapon/bu_sni_m95_frag-00.fbrb
+
+BundleSource game:async/weapon/bu_rif_g3_kobra-00.fbrb
+BundleTarget package:async/weapon/bu_rif_g3_kobra-00.fbrb
+BundleTarget game:async/weapon/bu_rif_g3_kobra-00.fbrb
+
+BundleSource game:async/weapon/nam_hg_1911-00.fbrb
+BundleTarget package:async/weapon/nam_hg_1911-00.fbrb
+
+BundleSource game:async/weapon/mec_sni_gol_scoped-00.fbrb
+BundleTarget package:async/weapon/mec_sni_gol_scoped-00.fbrb
+BundleTarget game:async/weapon/mec_sni_gol_scoped-00.fbrb
+
+BundleSource game:async/weapon/nam_gadget_mortar-00.fbrb
+BundleTarget package:async/weapon/nam_gadget_mortar-00.fbrb
+
+BundleSource game:async/weapon/nam_knife_us-00.fbrb
+BundleTarget package:async/weapon/nam_knife_us-00.fbrb
+
+BundleSource game:async/weapon/nam_gadget_medkit-00.fbrb
+BundleTarget package:async/weapon/nam_gadget_medkit-00.fbrb
+
+BundleSource game:async/weapon/bu_rif_g3_scoped-00.fbrb
+BundleTarget package:async/weapon/bu_rif_g3_scoped-00.fbrb
+BundleTarget game:async/weapon/bu_rif_g3_scoped-00.fbrb
+
+BundleSource game:async/weapon/nam_flamethower_m1-00.fbrb
+BundleTarget package:async/weapon/nam_flamethower_m1-00.fbrb
+
+BundleSource game:async/weapon/m1garand_assault-00.fbrb
+BundleTarget package:async/weapon/m1garand_assault-00.fbrb
+BundleTarget game:async/weapon/m1garand_assault-00.fbrb
+
+BundleSource game:async/weapon/nam_smg_uzi-00.fbrb
+BundleTarget package:async/weapon/nam_smg_uzi-00.fbrb
+
+BundleSource game:async/weapon/m1911a1-00.fbrb
+BundleTarget package:async/weapon/m1911a1-00.fbrb
+BundleTarget game:async/weapon/m1911a1-00.fbrb
+
+BundleSource game:async/weapon/nam_rif_m1garand-00.fbrb
+BundleTarget package:async/weapon/nam_rif_m1garand-00.fbrb
+
+BundleSource game:async/weapon/nam_hg_tt33-00.fbrb
+BundleTarget package:async/weapon/nam_hg_tt33-00.fbrb
+
+BundleSource game:async/weapon/type5-00.fbrb
+BundleTarget package:async/weapon/type5-00.fbrb
+BundleTarget game:async/weapon/type5-00.fbrb
+
+BundleSource game:async/weapon/nam_gadget_ammobox-00.fbrb
+BundleTarget package:async/weapon/nam_gadget_ammobox-00.fbrb
+
+BundleSource game:async/weapon/ai_type5-00.fbrb
+BundleTarget package:async/weapon/ai_type5-00.fbrb
+BundleTarget game:async/weapon/ai_type5-00.fbrb
+
+BundleSource game:async/weapon/nam_at_rpg7-00.fbrb
+BundleTarget package:async/weapon/nam_at_rpg7-00.fbrb
+
+BundleSource game:async/weapon/nam_rif_m14-00.fbrb
+BundleTarget package:async/weapon/nam_rif_m14-00.fbrb
+
+BundleSource game:async/weapon/nam_sni_svd-00.fbrb
+BundleTarget package:async/weapon/nam_sni_svd-00.fbrb
+
+BundleSource game:async/weapon/nam_smg_ppsh-00.fbrb
+BundleTarget package:async/weapon/nam_smg_ppsh-00.fbrb
+
+BundleSource game:async/weapon/nam_rif_m16a1-00.fbrb
+BundleTarget package:async/weapon/nam_rif_m16a1-00.fbrb
+
+BundleSource game:async/weapon/mec_sni_gol_kobra-00.fbrb
+BundleTarget package:async/weapon/mec_sni_gol_kobra-00.fbrb
+BundleTarget game:async/weapon/mec_sni_gol_kobra-00.fbrb
+
+BundleSource game:async/weapon/nam_shg_870_frag-00.fbrb
+BundleTarget package:async/weapon/nam_shg_870_frag-00.fbrb
+
+BundleSource game:async/weapon/m1garand-00.fbrb
+BundleTarget package:async/weapon/m1garand-00.fbrb
+BundleTarget game:async/weapon/m1garand-00.fbrb
+
+BundleSource game:async/weapon/bu_rif_g3-00.fbrb
+BundleTarget package:async/weapon/bu_rif_g3-00.fbrb
+BundleTarget game:async/weapon/bu_rif_g3-00.fbrb
+
+BundleSource game:async/weapon/nam_rif_ak47-00.fbrb
+BundleTarget package:async/weapon/nam_rif_ak47-00.fbrb
+
+BundleSource game:async/weapon/nam_sni_m21-00.fbrb
+BundleTarget package:async/weapon/nam_sni_m21-00.fbrb
+
+BundleSource game:async/weapon/mec_sni_gol-00.fbrb
+BundleTarget package:async/weapon/mec_sni_gol-00.fbrb
+BundleTarget game:async/weapon/mec_sni_gol-00.fbrb
+
+BundleSource game:async/weapon/nam_at_mine-00.fbrb
+BundleTarget package:async/weapon/nam_at_mine-00.fbrb
+
+BundleSource game:async/weapon/bu_rif_g3_assault_scoped-00.fbrb
+BundleTarget package:async/weapon/bu_rif_g3_assault_scoped-00.fbrb
+BundleTarget game:async/weapon/bu_rif_g3_assault_scoped-00.fbrb
+
+BundleSource game:async/weapon/nam_lmg_m60-00.fbrb
+BundleTarget package:async/weapon/nam_lmg_m60-00.fbrb
+
+BundleSource game:async/weapon/type5_rgl-00.fbrb
+BundleTarget package:async/weapon/type5_rgl-00.fbrb
+BundleTarget game:async/weapon/type5_rgl-00.fbrb
+
+BundleSource game:async/weapon/bu_rif_g3_assault-00.fbrb
+BundleTarget package:async/weapon/bu_rif_g3_assault-00.fbrb
+BundleTarget game:async/weapon/bu_rif_g3_assault-00.fbrb
+
+BundleSource game:async/weapon/nam_shg_870-00.fbrb
+BundleTarget package:async/weapon/nam_shg_870-00.fbrb
+
+BundleSource game:async/weapon/nam_handgrenade-00.fbrb
+BundleTarget package:async/weapon/nam_handgrenade-00.fbrb
+
+BundleSource game:async/weapon/nam_smg_m1a1-00.fbrb
+BundleTarget package:async/weapon/nam_smg_m1a1-00.fbrb
+
+BundleSource game:async/weapon/nam_lmg_xm22-00.fbrb
+BundleTarget package:async/weapon/nam_lmg_xm22-00.fbrb
+
+BundleSource game:async/weapon/nam_smg_mac10-00.fbrb
+BundleTarget package:async/weapon/nam_smg_mac10-00.fbrb
+
+BundleSource game:async/weapon/nam_sni_m40-00.fbrb
+BundleTarget package:async/weapon/nam_sni_m40-00.fbrb
+
+BundleSource game:async/weapon/nam_gadget_tnt-00.fbrb
+BundleTarget package:async/weapon/nam_gadget_tnt-00.fbrb
+
+BundleSource game:async/weapon/nam_gl_m79-00.fbrb
+BundleTarget package:async/weapon/nam_gl_m79-00.fbrb
+
+BundleSource game:async/ondemand_sounds-00.fbrb
+BundleTarget package:async/ondemand_sounds-00.fbrb
+BundleTarget game:async/ondemand_sounds-00.fbrb
+
+BundleSource game:async/startup-00.fbrb
+BundleTarget package:async/startup-00.fbrb
+BundleTarget game:async/startup-00.fbrb
+
+BundleSource game:async/ondemand_awards-00.fbrb
+BundleTarget package:async/ondemand_awards-00.fbrb
+BundleTarget game:async/ondemand_awards-00.fbrb
+
+BundleSource game:menu/main/eula_jp-00.fbrb
+BundleTarget package:menu/main/eula_jp-00.fbrb
+BundleTarget game:menu/main/eula_jp-00.fbrb
+
+BundleSource game:menu/main/eula_ru-00.fbrb
+BundleTarget package:menu/main/eula_ru-00.fbrb
+BundleTarget game:menu/main/eula_ru-00.fbrb
+
+BundleSource game:menu/main/eula_pl-00.fbrb
+BundleTarget package:menu/main/eula_pl-00.fbrb
+BundleTarget game:menu/main/eula_pl-00.fbrb
+
+BundleSource game:menu/main/eula_es-00.fbrb
+BundleTarget package:menu/main/eula_es-00.fbrb
+BundleTarget game:menu/main/eula_es-00.fbrb
+
+BundleSource game:menu/main/eula_it-00.fbrb
+BundleTarget package:menu/main/eula_it-00.fbrb
+BundleTarget game:menu/main/eula_it-00.fbrb
+
+BundleSource game:menu/main/eula_fr-00.fbrb
+BundleTarget package:menu/main/eula_fr-00.fbrb
+BundleTarget game:menu/main/eula_fr-00.fbrb
+
+BundleSource game:menu/main/mainmenu-00.fbrb
+BundleTarget package:menu/main/mainmenu-00.fbrb
+BundleTarget game:menu/main/mainmenu-00.fbrb
+
+BundleSource game:menu/main/eula_de-00.fbrb
+BundleTarget package:menu/main/eula_de-00.fbrb
+BundleTarget game:menu/main/eula_de-00.fbrb
+
+BundleSource game:menu/main/eula_us-00.fbrb
+BundleTarget package:menu/main/eula_us-00.fbrb
+BundleTarget game:menu/main/eula_us-00.fbrb
+
+BundleSource game:menu/shared/fonts_fr-00.fbrb
+BundleTarget package:menu/shared/fonts_fr-00.fbrb
+BundleTarget game:menu/shared/fonts_fr-00.fbrb
+
+BundleSource game:menu/shared/fonts_jp-00.fbrb
+BundleTarget package:menu/shared/fonts_jp-00.fbrb
+BundleTarget game:menu/shared/fonts_jp-00.fbrb
+
+BundleSource game:menu/shared/fonts_us-00.fbrb
+BundleTarget package:menu/shared/fonts_us-00.fbrb
+BundleTarget game:menu/shared/fonts_us-00.fbrb
+
+BundleSource game:menu/shared/fonts_sd_fr-00.fbrb
+BundleTarget package:menu/shared/fonts_sd_fr-00.fbrb
+
+BundleSource game:menu/shared/fonts_sd_de-00.fbrb
+BundleTarget package:menu/shared/fonts_sd_de-00.fbrb
+
+BundleSource game:menu/shared/fonts_sd_es-00.fbrb
+BundleTarget package:menu/shared/fonts_sd_es-00.fbrb
+
+BundleSource game:menu/shared/fonts_sd_jp-00.fbrb
+BundleTarget package:menu/shared/fonts_sd_jp-00.fbrb
+
+BundleSource game:menu/shared/fonts_ru-00.fbrb
+BundleTarget package:menu/shared/fonts_ru-00.fbrb
+BundleTarget game:menu/shared/fonts_ru-00.fbrb
+
+BundleSource game:menu/shared/fonts_es-00.fbrb
+BundleTarget package:menu/shared/fonts_es-00.fbrb
+BundleTarget game:menu/shared/fonts_es-00.fbrb
+
+BundleSource game:menu/shared/fonts_sd_ru-00.fbrb
+BundleTarget package:menu/shared/fonts_sd_ru-00.fbrb
+
+BundleSource game:menu/shared/fonts_sd_pl-00.fbrb
+BundleTarget package:menu/shared/fonts_sd_pl-00.fbrb
+
+BundleSource game:menu/shared/fonts_it-00.fbrb
+BundleTarget package:menu/shared/fonts_it-00.fbrb
+BundleTarget game:menu/shared/fonts_it-00.fbrb
+
+BundleSource game:menu/shared/fonts_pl-00.fbrb
+BundleTarget package:menu/shared/fonts_pl-00.fbrb
+BundleTarget game:menu/shared/fonts_pl-00.fbrb
+
+BundleSource game:menu/shared/fonts_de-00.fbrb
+BundleTarget package:menu/shared/fonts_de-00.fbrb
+BundleTarget game:menu/shared/fonts_de-00.fbrb
+
+BundleSource game:menu/shared/fonts_sd_us-00.fbrb
+BundleTarget package:menu/shared/fonts_sd_us-00.fbrb
+
+BundleSource game:menu/shared/fonts_sd_it-00.fbrb
+BundleTarget package:menu/shared/fonts_sd_it-00.fbrb
+
+BundleSource game:levels/mp_001sdm/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_001sdm/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_001sdm/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_001sdm/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_001sdm/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_001sdm/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_001sdm/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_003sr/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_003sr/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_003sr/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_003sr/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_003sr/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_003sr/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_003sr/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_005gr/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_005gr/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_005gr/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_005gr/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_005gr/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_005gr/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_005gr/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_007gr/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_007gr/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_007gr/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_007gr/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_007gr/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_007gr/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_007gr/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_008cq/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_008cq/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_008cq/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_008cq/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_008cq/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_008cq/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_008cq/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_008sdm/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_008sdm/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_008sdm/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_008sdm/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_008sdm/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_008sdm/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_008sdm/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_009sr/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_009sr/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_009sr/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_009sr/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_009sr/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_009sr/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_009sr/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_012cq/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_012cq/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_012cq/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_012cq/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_012cq/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_012cq/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_012cq/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_001/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_001/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_001/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_001/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_001/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_001/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_001/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_001sr/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_001sr/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_001sr/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_001sr/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_001sr/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_001sr/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_001sr/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_002/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_002/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_002/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_002/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_002/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_002/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_002/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_002sr/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_002sr/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_002sr/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_002sr/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_002sr/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_002sr/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_002sr/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_003/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_003/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_003/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_003/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_003/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_003/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_003/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_004/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_004/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_004/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_004/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_004/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_004/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_004/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_004sdm/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_004sdm/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_004sdm/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_004sdm/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_004sdm/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_004sdm/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_004sdm/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_005/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_005/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_005/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_005/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_005/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_005/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_005/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_005sr/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_005sr/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_005sr/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_005sr/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_005sr/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_005sr/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_005sr/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_006/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_006/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_006/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_006/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_006/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_006/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_006/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_006cq/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_006cq/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_006cq/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_006cq/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_006cq/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_006cq/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_006cq/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_006sdm/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_006sdm/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_006sdm/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_006sdm/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_006sdm/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_006sdm/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_006sdm/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_007/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_007/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_007/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_007/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_007/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_007/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_007/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_007sdm/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_007sdm/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_007sdm/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_007sdm/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_007sdm/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_007sdm/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_007sdm/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_008/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_008/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_008/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_008/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_008/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_008/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_008/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_009cq/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_009cq/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_009cq/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_009cq/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_009cq/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_009cq/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_009cq/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_009gr/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_009gr/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_009gr/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_009gr/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_009gr/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_009gr/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_009gr/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_009sdm/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_009sdm/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_009sdm/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_009sdm/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_009sdm/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_009sdm/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_009sdm/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_012gr/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_012gr/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_012gr/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_012gr/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_012gr/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_012gr/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_012gr/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_012sr/vo/de-00.fbrb
+BundleTarget package:levels/mp1_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_012sr/vo/fr-00.fbrb
+BundleTarget package:levels/mp1_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_012sr/vo/en-00.fbrb
+BundleTarget package:levels/mp1_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_012sr/vo/it-00.fbrb
+BundleTarget package:levels/mp1_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_012sr/vo/pl-00.fbrb
+BundleTarget package:levels/mp1_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_012sr/vo/ru-00.fbrb
+BundleTarget package:levels/mp1_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_012sr/vo/es-00.fbrb
+BundleTarget package:levels/mp1_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_sp_002gr/vo/de-00.fbrb
+BundleTarget package:levels/mp2_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_sp_002gr/ingame-00.fbrb
+BundleTarget package:levels/mp_sp_002gr/ingame-00.fbrb
+BundleTarget package:levels/mp2_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_sp_002gr/terrain-00.fbrb
+BundleTarget package:levels/mp_sp_002gr/terrain-00.fbrb
+BundleTarget package:levels/mp2_common/terrain-00.fbrb
+
+BundleSource game:levels/mp_sp_002gr/vo/pl-00.fbrb
+BundleTarget package:levels/mp2_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_sp_002gr/vo/ru-00.fbrb
+BundleTarget package:levels/mp2_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_sp_002gr/level-00.fbrb
+BundleTarget package:levels/mp_sp_002gr/level-00.fbrb
+BundleTarget package:levels/mp2_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_sp_002gr/vo/fr-00.fbrb
+BundleTarget package:levels/mp2_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_sp_002gr/vo/it-00.fbrb
+BundleTarget package:levels/mp2_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_sp_002gr/loader-00.fbrb
+BundleTarget package:levels/mp_sp_002gr/loader-00.fbrb
+BundleTarget package:levels/mp2_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_sp_002gr/vo/en-00.fbrb
+BundleTarget package:levels/mp2_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_sp_002gr/vo/es-00.fbrb
+BundleTarget package:levels/mp2_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_sp_002sr/vo/it-00.fbrb
+BundleTarget package:levels/mp2_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_sp_002sr/vo/fr-00.fbrb
+BundleTarget package:levels/mp2_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_sp_002sr/vo/de-00.fbrb
+BundleTarget package:levels/mp2_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_sp_002sr/vo/pl-00.fbrb
+BundleTarget package:levels/mp2_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_sp_002sr/level-00.fbrb
+BundleTarget package:levels/mp_sp_002sr/level-00.fbrb
+BundleTarget package:levels/mp2_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_sp_002sr/vo/es-00.fbrb
+BundleTarget package:levels/mp2_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_sp_002sr/loader-00.fbrb
+BundleTarget package:levels/mp_sp_002sr/loader-00.fbrb
+BundleTarget package:levels/mp2_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_sp_002sr/vo/ru-00.fbrb
+BundleTarget package:levels/mp2_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_sp_002sr/vo/en-00.fbrb
+BundleTarget package:levels/mp2_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_sp_002sr/ingame-00.fbrb
+BundleTarget package:levels/mp_sp_002sr/ingame-00.fbrb
+BundleTarget package:levels/mp2_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_sp_002sr/terrain-00.fbrb
+BundleTarget package:levels/mp_sp_002sr/terrain-00.fbrb
+BundleTarget package:levels/mp2_common/terrain-00.fbrb
+
+BundleSource game:levels/mp_sp_002sdm/vo/pl-00.fbrb
+BundleTarget package:levels/mp2_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_sp_002sdm/terrain-00.fbrb
+BundleTarget package:levels/mp_sp_002sdm/terrain-00.fbrb
+BundleTarget package:levels/mp2_common/terrain-00.fbrb
+
+BundleSource game:levels/mp_sp_002sdm/vo/it-00.fbrb
+BundleTarget package:levels/mp2_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_sp_002sdm/vo/de-00.fbrb
+BundleTarget package:levels/mp2_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_sp_002sdm/vo/es-00.fbrb
+BundleTarget package:levels/mp2_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_sp_002sdm/level-00.fbrb
+BundleTarget package:levels/mp_sp_002sdm/level-00.fbrb
+BundleTarget package:levels/mp2_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_sp_002sdm/ingame-00.fbrb
+BundleTarget package:levels/mp_sp_002sdm/ingame-00.fbrb
+BundleTarget package:levels/mp2_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_sp_002sdm/vo/en-00.fbrb
+BundleTarget package:levels/mp2_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_sp_002sdm/vo/fr-00.fbrb
+BundleTarget package:levels/mp2_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_sp_002sdm/vo/ru-00.fbrb
+BundleTarget package:levels/mp2_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_sp_002sdm/loader-00.fbrb
+BundleTarget package:levels/mp_sp_002sdm/loader-00.fbrb
+BundleTarget package:levels/mp2_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_sp_005cq/vo/it-00.fbrb
+BundleTarget package:levels/mp2_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_sp_005cq/vo/fr-00.fbrb
+BundleTarget package:levels/mp2_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_sp_005cq/vo/de-00.fbrb
+BundleTarget package:levels/mp2_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_sp_005cq/vo/pl-00.fbrb
+BundleTarget package:levels/mp2_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_sp_005cq/level-00.fbrb
+BundleTarget package:levels/mp_sp_005cq/level-00.fbrb
+BundleTarget package:levels/mp2_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_sp_005cq/vo/es-00.fbrb
+BundleTarget package:levels/mp2_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_sp_005cq/loader-00.fbrb
+BundleTarget package:levels/mp_sp_005cq/loader-00.fbrb
+BundleTarget package:levels/mp2_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_sp_005cq/vo/ru-00.fbrb
+BundleTarget package:levels/mp2_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_sp_005cq/vo/en-00.fbrb
+BundleTarget package:levels/mp2_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_sp_005cq/ingame-00.fbrb
+BundleTarget package:levels/mp_sp_005cq/ingame-00.fbrb
+BundleTarget package:levels/mp2_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_sp_005cq/terrain-00.fbrb
+BundleTarget package:levels/mp_sp_005cq/terrain-00.fbrb
+BundleTarget package:levels/mp2_common/terrain-00.fbrb
+
+BundleSource game:levels/mp_sp_005sdm/vo/de-00.fbrb
+BundleTarget package:levels/mp2_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/mp_sp_005sdm/ingame-00.fbrb
+BundleTarget package:levels/mp_sp_005sdm/ingame-00.fbrb
+BundleTarget package:levels/mp2_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_sp_005sdm/vo/pl-00.fbrb
+BundleTarget package:levels/mp2_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/mp_sp_005sdm/terrain-00.fbrb
+BundleTarget package:levels/mp_sp_005sdm/terrain-00.fbrb
+BundleTarget package:levels/mp2_common/terrain-00.fbrb
+
+BundleSource game:levels/mp_sp_005sdm/vo/it-00.fbrb
+BundleTarget package:levels/mp2_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/mp_sp_005sdm/level-00.fbrb
+BundleTarget package:levels/mp_sp_005sdm/level-00.fbrb
+BundleTarget package:levels/mp2_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_sp_005sdm/vo/ru-00.fbrb
+BundleTarget package:levels/mp2_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/mp_sp_005sdm/vo/fr-00.fbrb
+BundleTarget package:levels/mp2_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/mp_sp_005sdm/loader-00.fbrb
+BundleTarget package:levels/mp_sp_005sdm/loader-00.fbrb
+BundleTarget package:levels/mp2_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_sp_005sdm/vo/es-00.fbrb
+BundleTarget package:levels/mp2_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/mp_sp_005sdm/vo/en-00.fbrb
+BundleTarget package:levels/mp2_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/bc1_oasis_cq/vo/pl-00.fbrb
+BundleTarget package:levels/mp2_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/bc1_oasis_cq/vo/es-00.fbrb
+BundleTarget package:levels/mp2_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/bc1_oasis_cq/vo/de-00.fbrb
+BundleTarget package:levels/mp2_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/bc1_oasis_cq/vo/it-00.fbrb
+BundleTarget package:levels/mp2_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/bc1_oasis_cq/ingame-00.fbrb
+BundleTarget package:levels/bc1_oasis_cq/ingame-00.fbrb
+BundleTarget package:levels/mp2_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/bc1_oasis_cq/loader-00.fbrb
+BundleTarget package:levels/bc1_oasis_cq/loader-00.fbrb
+BundleTarget package:levels/mp2_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/bc1_oasis_cq/terrain-00.fbrb
+BundleTarget package:levels/bc1_oasis_cq/terrain-00.fbrb
+BundleTarget package:levels/mp2_common/terrain-00.fbrb
+
+BundleSource game:levels/bc1_oasis_cq/vo/en-00.fbrb
+BundleTarget package:levels/mp2_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/bc1_oasis_cq/level-00.fbrb
+BundleTarget package:levels/bc1_oasis_cq/level-00.fbrb
+BundleTarget package:levels/mp2_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/bc1_oasis_cq/vo/ru-00.fbrb
+BundleTarget package:levels/mp2_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/bc1_oasis_cq/vo/fr-00.fbrb
+BundleTarget package:levels/mp2_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/bc1_oasis_gr/terrain-00.fbrb
+BundleTarget package:levels/bc1_oasis_gr/terrain-00.fbrb
+BundleTarget package:levels/mp2_common/terrain-00.fbrb
+
+BundleSource game:levels/bc1_oasis_gr/ingame-00.fbrb
+BundleTarget package:levels/bc1_oasis_gr/ingame-00.fbrb
+BundleTarget package:levels/mp2_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/bc1_oasis_gr/loader-00.fbrb
+BundleTarget package:levels/bc1_oasis_gr/loader-00.fbrb
+BundleTarget package:levels/mp2_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/bc1_oasis_gr/vo/fr-00.fbrb
+BundleTarget package:levels/mp2_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/bc1_oasis_gr/vo/de-00.fbrb
+BundleTarget package:levels/mp2_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/bc1_oasis_gr/vo/pl-00.fbrb
+BundleTarget package:levels/mp2_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/bc1_oasis_gr/level-00.fbrb
+BundleTarget package:levels/bc1_oasis_gr/level-00.fbrb
+BundleTarget package:levels/mp2_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/bc1_oasis_gr/vo/en-00.fbrb
+BundleTarget package:levels/mp2_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/bc1_oasis_gr/vo/es-00.fbrb
+BundleTarget package:levels/mp2_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/bc1_oasis_gr/vo/it-00.fbrb
+BundleTarget package:levels/mp2_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/bc1_oasis_gr/vo/ru-00.fbrb
+BundleTarget package:levels/mp2_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sdm/terrain-00.fbrb
+BundleTarget package:levels/bc1_oasis_sdm/terrain-00.fbrb
+BundleTarget package:levels/mp2_common/terrain-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sdm/ingame-00.fbrb
+BundleTarget package:levels/bc1_oasis_sdm/ingame-00.fbrb
+BundleTarget package:levels/mp2_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sdm/loader-00.fbrb
+BundleTarget package:levels/bc1_oasis_sdm/loader-00.fbrb
+BundleTarget package:levels/mp2_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sdm/vo/en-00.fbrb
+BundleTarget package:levels/mp2_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sdm/vo/fr-00.fbrb
+BundleTarget package:levels/mp2_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sdm/vo/it-00.fbrb
+BundleTarget package:levels/mp2_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sdm/vo/de-00.fbrb
+BundleTarget package:levels/mp2_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sdm/vo/es-00.fbrb
+BundleTarget package:levels/mp2_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sdm/level-00.fbrb
+BundleTarget package:levels/bc1_oasis_sdm/level-00.fbrb
+BundleTarget package:levels/mp2_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sdm/vo/ru-00.fbrb
+BundleTarget package:levels/mp2_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sdm/vo/pl-00.fbrb
+BundleTarget package:levels/mp2_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sr/vo/pl-00.fbrb
+BundleTarget package:levels/mp2_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sr/terrain-00.fbrb
+BundleTarget package:levels/bc1_oasis_sr/terrain-00.fbrb
+BundleTarget package:levels/mp2_common/terrain-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sr/level-00.fbrb
+BundleTarget package:levels/bc1_oasis_sr/level-00.fbrb
+BundleTarget package:levels/mp2_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sr/vo/en-00.fbrb
+BundleTarget package:levels/mp2_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sr/vo/de-00.fbrb
+BundleTarget package:levels/mp2_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sr/vo/es-00.fbrb
+BundleTarget package:levels/mp2_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sr/vo/it-00.fbrb
+BundleTarget package:levels/mp2_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sr/vo/fr-00.fbrb
+BundleTarget package:levels/mp2_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sr/vo/ru-00.fbrb
+BundleTarget package:levels/mp2_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sr/ingame-00.fbrb
+BundleTarget package:levels/bc1_oasis_sr/ingame-00.fbrb
+BundleTarget package:levels/mp2_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/bc1_oasis_sr/loader-00.fbrb
+BundleTarget package:levels/bc1_oasis_sr/loader-00.fbrb
+BundleTarget package:levels/mp2_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_cq/terrain-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_cq/terrain-00.fbrb
+BundleTarget package:levels/mp2_common/terrain-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_cq/vo/es-00.fbrb
+BundleTarget package:levels/mp2_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_cq/vo/it-00.fbrb
+BundleTarget package:levels/mp2_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_cq/loader-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_cq/loader-00.fbrb
+BundleTarget package:levels/mp2_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_cq/vo/fr-00.fbrb
+BundleTarget package:levels/mp2_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_cq/vo/en-00.fbrb
+BundleTarget package:levels/mp2_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_cq/vo/pl-00.fbrb
+BundleTarget package:levels/mp2_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_cq/vo/ru-00.fbrb
+BundleTarget package:levels/mp2_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_cq/level-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_cq/level-00.fbrb
+BundleTarget package:levels/mp2_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_cq/vo/de-00.fbrb
+BundleTarget package:levels/mp2_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_cq/ingame-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_cq/ingame-00.fbrb
+BundleTarget package:levels/mp2_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_gr/vo/fr-00.fbrb
+BundleTarget package:levels/mp2_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_gr/vo/de-00.fbrb
+BundleTarget package:levels/mp2_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_gr/ingame-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_gr/ingame-00.fbrb
+BundleTarget package:levels/mp2_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_gr/vo/es-00.fbrb
+BundleTarget package:levels/mp2_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_gr/vo/en-00.fbrb
+BundleTarget package:levels/mp2_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_gr/loader-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_gr/loader-00.fbrb
+BundleTarget package:levels/mp2_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_gr/vo/ru-00.fbrb
+BundleTarget package:levels/mp2_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_gr/vo/it-00.fbrb
+BundleTarget package:levels/mp2_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_gr/level-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_gr/level-00.fbrb
+BundleTarget package:levels/mp2_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_gr/vo/pl-00.fbrb
+BundleTarget package:levels/mp2_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_gr/terrain-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_gr/terrain-00.fbrb
+BundleTarget package:levels/mp2_common/terrain-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sdm/terrain-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_sdm/terrain-00.fbrb
+BundleTarget package:levels/mp2_common/terrain-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sdm/level-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_sdm/level-00.fbrb
+BundleTarget package:levels/mp2_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sdm/vo/en-00.fbrb
+BundleTarget package:levels/mp2_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sdm/vo/de-00.fbrb
+BundleTarget package:levels/mp2_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sdm/vo/pl-00.fbrb
+BundleTarget package:levels/mp2_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sdm/vo/fr-00.fbrb
+BundleTarget package:levels/mp2_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sdm/vo/ru-00.fbrb
+BundleTarget package:levels/mp2_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sdm/loader-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_sdm/loader-00.fbrb
+BundleTarget package:levels/mp2_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sdm/ingame-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_sdm/ingame-00.fbrb
+BundleTarget package:levels/mp2_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sdm/vo/es-00.fbrb
+BundleTarget package:levels/mp2_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sdm/vo/it-00.fbrb
+BundleTarget package:levels/mp2_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sr/level-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_sr/level-00.fbrb
+BundleTarget package:levels/mp2_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sr/vo/de-00.fbrb
+BundleTarget package:levels/mp2_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sr/vo/it-00.fbrb
+BundleTarget package:levels/mp2_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sr/vo/ru-00.fbrb
+BundleTarget package:levels/mp2_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sr/vo/fr-00.fbrb
+BundleTarget package:levels/mp2_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sr/vo/en-00.fbrb
+BundleTarget package:levels/mp2_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sr/vo/es-00.fbrb
+BundleTarget package:levels/mp2_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sr/terrain-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_sr/terrain-00.fbrb
+BundleTarget package:levels/mp2_common/terrain-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sr/loader-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_sr/loader-00.fbrb
+BundleTarget package:levels/mp2_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sr/vo/pl-00.fbrb
+BundleTarget package:levels/mp2_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/bc1_harvest_day_sr/ingame-00.fbrb
+BundleTarget package:levels/bc1_harvest_day_sr/ingame-00.fbrb
+BundleTarget package:levels/mp2_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_002r/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_002r/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_002r/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_002r/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_002r/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_002r/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_002r/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_002r/level-00.fbrb
+BundleTarget package:levels/nam_mp_002r/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_002r/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_002r/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_002r/loader-00.fbrb
+BundleTarget package:levels/nam_mp_002r/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_002r/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_002r/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_002cq/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_002cq/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_002cq/loader-00.fbrb
+BundleTarget package:levels/nam_mp_002cq/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_002cq/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_002cq/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_002cq/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_002cq/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_002cq/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_002cq/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_002cq/level-00.fbrb
+BundleTarget package:levels/nam_mp_002cq/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_002cq/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_002cq/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_002cq/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_002sdm/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_002sdm/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_002sdm/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_002sdm/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_002sdm/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_002sdm/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_002sdm/loader-00.fbrb
+BundleTarget package:levels/nam_mp_002sdm/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_002sdm/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_002sdm/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_002sdm/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_002sdm/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_002sdm/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_002sdm/level-00.fbrb
+BundleTarget package:levels/nam_mp_002sdm/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_002sr/loader-00.fbrb
+BundleTarget package:levels/nam_mp_002sr/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_002sr/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_002sr/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_002sr/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_002sr/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_002sr/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_002sr/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_002sr/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_002sr/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_002sr/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_002sr/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_002sr/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_002sr/level-00.fbrb
+BundleTarget package:levels/nam_mp_002sr/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_003r/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_003r/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_003r/level-00.fbrb
+BundleTarget package:levels/nam_mp_003r/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_003r/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_003r/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_003r/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_003r/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_003r/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_003r/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_003r/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_003r/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_003r/loader-00.fbrb
+BundleTarget package:levels/nam_mp_003r/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_003r/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_003cq/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_003cq/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_003cq/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_003cq/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_003cq/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_003cq/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_003cq/loader-00.fbrb
+BundleTarget package:levels/nam_mp_003cq/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_003cq/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_003cq/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_003cq/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_003cq/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_003cq/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_003cq/level-00.fbrb
+BundleTarget package:levels/nam_mp_003cq/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_003sdm/loader-00.fbrb
+BundleTarget package:levels/nam_mp_003sdm/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_003sdm/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_003sdm/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_003sdm/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_003sdm/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_003sdm/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_003sdm/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_003sdm/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_003sdm/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_003sdm/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_003sdm/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_003sdm/level-00.fbrb
+BundleTarget package:levels/nam_mp_003sdm/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_003sdm/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_003sr/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_003sr/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_003sr/level-00.fbrb
+BundleTarget package:levels/nam_mp_003sr/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_003sr/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_003sr/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_003sr/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_003sr/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_003sr/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_003sr/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_003sr/loader-00.fbrb
+BundleTarget package:levels/nam_mp_003sr/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_003sr/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_003sr/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_003sr/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_005r/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_005r/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_005r/loader-00.fbrb
+BundleTarget package:levels/nam_mp_005r/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_005r/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_005r/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_005r/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_005r/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_005r/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_005r/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_005r/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_005r/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_005r/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_005r/level-00.fbrb
+BundleTarget package:levels/nam_mp_005r/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_005cq/loader-00.fbrb
+BundleTarget package:levels/nam_mp_005cq/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_005cq/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_005cq/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_005cq/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_005cq/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_005cq/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_005cq/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_005cq/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_005cq/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_005cq/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_005cq/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_005cq/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_005cq/level-00.fbrb
+BundleTarget package:levels/nam_mp_005cq/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_005sdm/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_005sdm/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_005sdm/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_005sdm/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_005sdm/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_005sdm/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_005sdm/loader-00.fbrb
+BundleTarget package:levels/nam_mp_005sdm/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_005sdm/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_005sdm/level-00.fbrb
+BundleTarget package:levels/nam_mp_005sdm/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_005sdm/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_005sdm/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_005sdm/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_005sdm/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_005sr/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_005sr/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_005sr/loader-00.fbrb
+BundleTarget package:levels/nam_mp_005sr/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_005sr/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_005sr/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_005sr/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_005sr/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_005sr/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_005sr/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_005sr/level-00.fbrb
+BundleTarget package:levels/nam_mp_005sr/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_005sr/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_005sr/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_005sr/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_006r/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_006r/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_006r/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_006r/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_006r/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_006r/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_006r/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_006r/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_006r/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_006r/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_006r/level-00.fbrb
+BundleTarget package:levels/nam_mp_006r/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_006r/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_006r/loader-00.fbrb
+BundleTarget package:levels/nam_mp_006r/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_006cq/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_006cq/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_006cq/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_006cq/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_006cq/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_006cq/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_006cq/loader-00.fbrb
+BundleTarget package:levels/nam_mp_006cq/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_006cq/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_006cq/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_006cq/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_006cq/level-00.fbrb
+BundleTarget package:levels/nam_mp_006cq/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_006cq/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_006cq/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_006sdm/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_006sdm/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_006sdm/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_006sdm/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_006sdm/loader-00.fbrb
+BundleTarget package:levels/nam_mp_006sdm/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_006sdm/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_006sdm/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_006sdm/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_006sdm/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_006sdm/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_006sdm/level-00.fbrb
+BundleTarget package:levels/nam_mp_006sdm/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_006sdm/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_006sdm/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_006sr/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_006sr/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_006sr/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_006sr/level-00.fbrb
+BundleTarget package:levels/nam_mp_006sr/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_006sr/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_006sr/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_006sr/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_006sr/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_006sr/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_006sr/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_006sr/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_006sr/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_006sr/loader-00.fbrb
+BundleTarget package:levels/nam_mp_006sr/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_007r/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_007r/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_007r/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_007r/level-00.fbrb
+BundleTarget package:levels/nam_mp_007r/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_007r/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_007r/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_007r/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_007r/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_007r/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_007r/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_007r/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_007r/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_007r/loader-00.fbrb
+BundleTarget package:levels/nam_mp_007r/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_007cq/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_007cq/loader-00.fbrb
+BundleTarget package:levels/nam_mp_007cq/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_007cq/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_007cq/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_007cq/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_007cq/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_007cq/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_007cq/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_007cq/level-00.fbrb
+BundleTarget package:levels/nam_mp_007cq/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_007cq/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_007cq/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_007cq/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_007cq/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_007sdm/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_007sdm/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_007sdm/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/nam_mp_007sdm/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_007sdm/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_007sdm/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_007sdm/level-00.fbrb
+BundleTarget package:levels/nam_mp_007sdm/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_007sdm/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_007sdm/loader-00.fbrb
+BundleTarget package:levels/nam_mp_007sdm/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_007sdm/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_007sdm/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_007sdm/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_007sdm/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_007sr/vo/es-00.fbrb
+BundleTarget package:levels/nam_common/vo/es-00.fbrb
+BundleTarget game:levels/mp_common/vo/es-00.fbrb
+
+BundleSource game:levels/nam_mp_007sr/vo/de-00.fbrb
+BundleTarget package:levels/nam_common/vo/de-00.fbrb
+BundleTarget game:levels/mp_common/vo/de-00.fbrb
+
+BundleSource game:levels/nam_mp_007sr/vo/it-00.fbrb
+BundleTarget package:levels/nam_common/vo/it-00.fbrb
+BundleTarget game:levels/mp_common/vo/it-00.fbrb
+
+BundleSource game:levels/nam_mp_007sr/loader-00.fbrb
+BundleTarget package:levels/nam_mp_007sr/loader-00.fbrb
+BundleTarget package:levels/nam_common/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/nam_mp_007sr/vo/fr-00.fbrb
+BundleTarget package:levels/nam_common/vo/fr-00.fbrb
+BundleTarget game:levels/mp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/nam_mp_007sr/vo/ru-00.fbrb
+BundleTarget package:levels/nam_common/vo/ru-00.fbrb
+BundleTarget game:levels/mp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/nam_mp_007sr/vo/pl-00.fbrb
+BundleTarget package:levels/nam_common/vo/pl-00.fbrb
+BundleTarget game:levels/mp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/nam_mp_007sr/level-00.fbrb
+BundleTarget package:levels/nam_mp_007sr/level-00.fbrb
+BundleTarget package:levels/nam_common/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/nam_mp_007sr/terrain-00.fbrb
+BundleTarget package:levels/nam_mp_007sr/terrain-00.fbrb
+BundleTarget package:levels/nam_common/terrain-00.fbrb
+
+BundleSource game:levels/nam_mp_007sr/ingame-00.fbrb
+BundleTarget package:levels/nam_mp_007sr/ingame-00.fbrb
+BundleTarget package:levels/nam_common/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/nam_mp_007sr/vo/en-00.fbrb
+BundleTarget package:levels/nam_common/vo/en-00.fbrb
+BundleTarget game:levels/mp_common/vo/en-00.fbrb
+
+BundleSource game:levels/mp_001sdm/loader-00.fbrb
+BundleTarget package:levels/mp_001sdm/loader-00.fbrb
+BundleTarget game:levels/mp_001/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_001sdm/level-00.fbrb
+BundleTarget package:levels/mp_001sdm/level-00.fbrb
+BundleTarget game:levels/mp_001/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_001sdm/terrain-00.fbrb
+BundleTarget package:levels/mp_001sdm/terrain-00.fbrb
+BundleTarget game:levels/mp_001/terrain-00.fbrb
+
+BundleSource game:levels/mp_001sdm/ingame-00.fbrb
+BundleTarget package:levels/mp_001sdm/ingame-00.fbrb
+BundleTarget game:levels/mp_001/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_003sr/terrain-00.fbrb
+BundleTarget package:levels/mp_003sr/terrain-00.fbrb
+BundleTarget game:levels/mp_003/terrain-00.fbrb
+
+BundleSource game:levels/mp_003sr/ingame-00.fbrb
+BundleTarget package:levels/mp_003sr/ingame-00.fbrb
+BundleTarget game:levels/mp_003/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_003sr/level-00.fbrb
+BundleTarget package:levels/mp_003sr/level-00.fbrb
+BundleTarget game:levels/mp_003/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_003sr/loader-00.fbrb
+BundleTarget package:levels/mp_003sr/loader-00.fbrb
+BundleTarget game:levels/mp_003/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_005gr/level-00.fbrb
+BundleTarget package:levels/mp_005gr/level-00.fbrb
+BundleTarget game:levels/mp_005/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_005gr/terrain-00.fbrb
+BundleTarget package:levels/mp_005gr/terrain-00.fbrb
+BundleTarget game:levels/mp_005/terrain-00.fbrb
+
+BundleSource game:levels/mp_005gr/ingame-00.fbrb
+BundleTarget package:levels/mp_005gr/ingame-00.fbrb
+BundleTarget game:levels/mp_005/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_005gr/loader-00.fbrb
+BundleTarget package:levels/mp_005gr/loader-00.fbrb
+BundleTarget game:levels/mp_005/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_007gr/terrain-00.fbrb
+BundleTarget package:levels/mp_007gr/terrain-00.fbrb
+BundleTarget game:levels/mp_007/terrain-00.fbrb
+
+BundleSource game:levels/mp_007gr/ingame-00.fbrb
+BundleTarget package:levels/mp_007gr/ingame-00.fbrb
+BundleTarget game:levels/mp_007/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_007gr/level-00.fbrb
+BundleTarget package:levels/mp_007gr/level-00.fbrb
+BundleTarget game:levels/mp_007/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_007gr/loader-00.fbrb
+BundleTarget package:levels/mp_007gr/loader-00.fbrb
+BundleTarget game:levels/mp_007/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_008cq/loader-00.fbrb
+BundleTarget package:levels/mp_008cq/loader-00.fbrb
+BundleTarget game:levels/mp_008/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_008cq/level-00.fbrb
+BundleTarget package:levels/mp_008cq/level-00.fbrb
+BundleTarget game:levels/mp_008/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_008cq/terrain-00.fbrb
+BundleTarget package:levels/mp_008cq/terrain-00.fbrb
+BundleTarget game:levels/mp_008/terrain-00.fbrb
+
+BundleSource game:levels/mp_008cq/ingame-00.fbrb
+BundleTarget package:levels/mp_008cq/ingame-00.fbrb
+BundleTarget game:levels/mp_008/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_008sdm/loader-00.fbrb
+BundleTarget package:levels/mp_008sdm/loader-00.fbrb
+BundleTarget game:levels/mp_008/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_008sdm/terrain-00.fbrb
+BundleTarget package:levels/mp_008sdm/terrain-00.fbrb
+BundleTarget game:levels/mp_008/terrain-00.fbrb
+
+BundleSource game:levels/mp_008sdm/level-00.fbrb
+BundleTarget package:levels/mp_008sdm/level-00.fbrb
+BundleTarget game:levels/mp_008/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_008sdm/ingame-00.fbrb
+BundleTarget package:levels/mp_008sdm/ingame-00.fbrb
+BundleTarget game:levels/mp_008/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_009sr/level-00.fbrb
+BundleTarget package:levels/mp_009sr/level-00.fbrb
+BundleTarget game:levels/mp_009gr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_009sr/terrain-00.fbrb
+BundleTarget package:levels/mp_009sr/terrain-00.fbrb
+BundleTarget game:levels/mp_009gr/terrain-00.fbrb
+
+BundleSource game:levels/mp_009sr/ingame-00.fbrb
+BundleTarget package:levels/mp_009sr/ingame-00.fbrb
+BundleTarget game:levels/mp_009gr/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_009sr/loader-00.fbrb
+BundleTarget package:levels/mp_009sr/loader-00.fbrb
+BundleTarget game:levels/mp_009gr/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_012cq/terrain-00.fbrb
+BundleTarget package:levels/mp_012cq/terrain-00.fbrb
+BundleTarget game:levels/mp_012gr/terrain-00.fbrb
+
+BundleSource game:levels/mp_012cq/ingame-00.fbrb
+BundleTarget package:levels/mp_012cq/ingame-00.fbrb
+BundleTarget game:levels/mp_012gr/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_012cq/loader-00.fbrb
+BundleTarget package:levels/mp_012cq/loader-00.fbrb
+BundleTarget game:levels/mp_012gr/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_012cq/level-00.fbrb
+BundleTarget package:levels/mp_012cq/level-00.fbrb
+BundleTarget game:levels/mp_012gr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_001/loader-00.fbrb
+BundleTarget package:levels/mp_001/loader-00.fbrb
+BundleTarget game:levels/mp_001/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_001/ingame-00.fbrb
+BundleTarget package:levels/mp_001/ingame-00.fbrb
+BundleTarget game:levels/mp_001/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_001/level-00.fbrb
+BundleTarget package:levels/mp_001/level-00.fbrb
+BundleTarget game:levels/mp_001/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_001/terrain-00.fbrb
+BundleTarget package:levels/mp_001/terrain-00.fbrb
+BundleTarget game:levels/mp_001/terrain-00.fbrb
+
+BundleSource game:levels/mp_001sr/level-00.fbrb
+BundleTarget package:levels/mp_001sr/level-00.fbrb
+BundleTarget game:levels/mp_001sr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_001sr/terrain-00.fbrb
+BundleTarget package:levels/mp_001sr/terrain-00.fbrb
+BundleTarget game:levels/mp_001sr/terrain-00.fbrb
+
+BundleSource game:levels/mp_001sr/ingame-00.fbrb
+BundleTarget package:levels/mp_001sr/ingame-00.fbrb
+BundleTarget game:levels/mp_001sr/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_001sr/loader-00.fbrb
+BundleTarget package:levels/mp_001sr/loader-00.fbrb
+BundleTarget game:levels/mp_001sr/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_002/terrain-00.fbrb
+BundleTarget package:levels/mp_002/terrain-00.fbrb
+BundleTarget game:levels/mp_002/terrain-00.fbrb
+
+BundleSource game:levels/mp_002/level-00.fbrb
+BundleTarget package:levels/mp_002/level-00.fbrb
+BundleTarget game:levels/mp_002/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_002/loader-00.fbrb
+BundleTarget package:levels/mp_002/loader-00.fbrb
+BundleTarget game:levels/mp_002/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_002/ingame-00.fbrb
+BundleTarget package:levels/mp_002/ingame-00.fbrb
+BundleTarget game:levels/mp_002/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_002sr/terrain-00.fbrb
+BundleTarget package:levels/mp_002sr/terrain-00.fbrb
+BundleTarget game:levels/mp_002sr/terrain-00.fbrb
+
+BundleSource game:levels/mp_002sr/ingame-00.fbrb
+BundleTarget package:levels/mp_002sr/ingame-00.fbrb
+BundleTarget game:levels/mp_002sr/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_002sr/loader-00.fbrb
+BundleTarget package:levels/mp_002sr/loader-00.fbrb
+BundleTarget game:levels/mp_002sr/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_002sr/level-00.fbrb
+BundleTarget package:levels/mp_002sr/level-00.fbrb
+BundleTarget game:levels/mp_002sr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_003/terrain-00.fbrb
+BundleTarget package:levels/mp_003/terrain-00.fbrb
+BundleTarget game:levels/mp_003/terrain-00.fbrb
+
+BundleSource game:levels/mp_003/level-00.fbrb
+BundleTarget package:levels/mp_003/level-00.fbrb
+BundleTarget game:levels/mp_003/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_003/ingame-00.fbrb
+BundleTarget package:levels/mp_003/ingame-00.fbrb
+BundleTarget game:levels/mp_003/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_003/loader-00.fbrb
+BundleTarget package:levels/mp_003/loader-00.fbrb
+BundleTarget game:levels/mp_003/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_004/ingame-00.fbrb
+BundleTarget package:levels/mp_004/ingame-00.fbrb
+BundleTarget game:levels/mp_004/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_004/terrain-00.fbrb
+BundleTarget package:levels/mp_004/terrain-00.fbrb
+BundleTarget game:levels/mp_004/terrain-00.fbrb
+
+BundleSource game:levels/mp_004/level-00.fbrb
+BundleTarget package:levels/mp_004/level-00.fbrb
+BundleTarget game:levels/mp_004/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_004/loader-00.fbrb
+BundleTarget package:levels/mp_004/loader-00.fbrb
+BundleTarget game:levels/mp_004/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_004sdm/level-00.fbrb
+BundleTarget package:levels/mp_004sdm/level-00.fbrb
+BundleTarget game:levels/mp_004sdm/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_004sdm/ingame-00.fbrb
+BundleTarget package:levels/mp_004sdm/ingame-00.fbrb
+BundleTarget game:levels/mp_004sdm/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_004sdm/loader-00.fbrb
+BundleTarget package:levels/mp_004sdm/loader-00.fbrb
+BundleTarget game:levels/mp_004sdm/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_004sdm/terrain-00.fbrb
+BundleTarget package:levels/mp_004sdm/terrain-00.fbrb
+BundleTarget game:levels/mp_004sdm/terrain-00.fbrb
+
+BundleSource game:levels/mp_005/level-00.fbrb
+BundleTarget package:levels/mp_005/level-00.fbrb
+BundleTarget game:levels/mp_005/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_005/terrain-00.fbrb
+BundleTarget package:levels/mp_005/terrain-00.fbrb
+BundleTarget game:levels/mp_005/terrain-00.fbrb
+
+BundleSource game:levels/mp_005/loader-00.fbrb
+BundleTarget package:levels/mp_005/loader-00.fbrb
+BundleTarget game:levels/mp_005/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_005/ingame-00.fbrb
+BundleTarget package:levels/mp_005/ingame-00.fbrb
+BundleTarget game:levels/mp_005/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_005sr/ingame-00.fbrb
+BundleTarget package:levels/mp_005sr/ingame-00.fbrb
+BundleTarget game:levels/mp_005sr/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_005sr/loader-00.fbrb
+BundleTarget package:levels/mp_005sr/loader-00.fbrb
+BundleTarget game:levels/mp_005sr/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_005sr/level-00.fbrb
+BundleTarget package:levels/mp_005sr/level-00.fbrb
+BundleTarget game:levels/mp_005sr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_005sr/terrain-00.fbrb
+BundleTarget package:levels/mp_005sr/terrain-00.fbrb
+BundleTarget game:levels/mp_005sr/terrain-00.fbrb
+
+BundleSource game:levels/mp_006/loader-00.fbrb
+BundleTarget package:levels/mp_006/loader-00.fbrb
+BundleTarget game:levels/mp_006/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_006/level-00.fbrb
+BundleTarget package:levels/mp_006/level-00.fbrb
+BundleTarget game:levels/mp_006/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_006/ingame-00.fbrb
+BundleTarget package:levels/mp_006/ingame-00.fbrb
+BundleTarget game:levels/mp_006/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_006/terrain-00.fbrb
+BundleTarget package:levels/mp_006/terrain-00.fbrb
+BundleTarget game:levels/mp_006/terrain-00.fbrb
+
+BundleSource game:levels/mp_006cq/level-00.fbrb
+BundleTarget package:levels/mp_006cq/level-00.fbrb
+BundleTarget game:levels/mp_006cq/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_006cq/terrain-00.fbrb
+BundleTarget package:levels/mp_006cq/terrain-00.fbrb
+BundleTarget game:levels/mp_006cq/terrain-00.fbrb
+
+BundleSource game:levels/mp_006cq/ingame-00.fbrb
+BundleTarget package:levels/mp_006cq/ingame-00.fbrb
+BundleTarget game:levels/mp_006cq/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_006cq/loader-00.fbrb
+BundleTarget package:levels/mp_006cq/loader-00.fbrb
+BundleTarget game:levels/mp_006cq/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_006sdm/ingame-00.fbrb
+BundleTarget package:levels/mp_006sdm/ingame-00.fbrb
+BundleTarget game:levels/mp_006sdm/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_006sdm/terrain-00.fbrb
+BundleTarget package:levels/mp_006sdm/terrain-00.fbrb
+BundleTarget game:levels/mp_006sdm/terrain-00.fbrb
+
+BundleSource game:levels/mp_006sdm/loader-00.fbrb
+BundleTarget package:levels/mp_006sdm/loader-00.fbrb
+BundleTarget game:levels/mp_006sdm/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_006sdm/level-00.fbrb
+BundleTarget package:levels/mp_006sdm/level-00.fbrb
+BundleTarget game:levels/mp_006sdm/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_007/ingame-00.fbrb
+BundleTarget package:levels/mp_007/ingame-00.fbrb
+BundleTarget game:levels/mp_007/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_007/loader-00.fbrb
+BundleTarget package:levels/mp_007/loader-00.fbrb
+BundleTarget game:levels/mp_007/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_007/level-00.fbrb
+BundleTarget package:levels/mp_007/level-00.fbrb
+BundleTarget game:levels/mp_007/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_007/terrain-00.fbrb
+BundleTarget package:levels/mp_007/terrain-00.fbrb
+BundleTarget game:levels/mp_007/terrain-00.fbrb
+
+BundleSource game:levels/mp_007sdm/ingame-00.fbrb
+BundleTarget package:levels/mp_007sdm/ingame-00.fbrb
+BundleTarget game:levels/mp_007sdm/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_007sdm/terrain-00.fbrb
+BundleTarget package:levels/mp_007sdm/terrain-00.fbrb
+BundleTarget game:levels/mp_007sdm/terrain-00.fbrb
+
+BundleSource game:levels/mp_007sdm/loader-00.fbrb
+BundleTarget package:levels/mp_007sdm/loader-00.fbrb
+BundleTarget game:levels/mp_007sdm/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_007sdm/level-00.fbrb
+BundleTarget package:levels/mp_007sdm/level-00.fbrb
+BundleTarget game:levels/mp_007sdm/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_008/level-00.fbrb
+BundleTarget package:levels/mp_008/level-00.fbrb
+BundleTarget game:levels/mp_008/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_008/loader-00.fbrb
+BundleTarget package:levels/mp_008/loader-00.fbrb
+BundleTarget game:levels/mp_008/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_008/ingame-00.fbrb
+BundleTarget package:levels/mp_008/ingame-00.fbrb
+BundleTarget game:levels/mp_008/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_008/terrain-00.fbrb
+BundleTarget package:levels/mp_008/terrain-00.fbrb
+BundleTarget game:levels/mp_008/terrain-00.fbrb
+
+BundleSource game:levels/mp_009cq/ingame-00.fbrb
+BundleTarget package:levels/mp_009cq/ingame-00.fbrb
+BundleTarget game:levels/mp_009cq/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_009cq/level-00.fbrb
+BundleTarget package:levels/mp_009cq/level-00.fbrb
+BundleTarget game:levels/mp_009cq/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_009cq/loader-00.fbrb
+BundleTarget package:levels/mp_009cq/loader-00.fbrb
+BundleTarget game:levels/mp_009cq/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_009cq/terrain-00.fbrb
+BundleTarget package:levels/mp_009cq/terrain-00.fbrb
+BundleTarget game:levels/mp_009cq/terrain-00.fbrb
+
+BundleSource game:levels/mp_009gr/ingame-00.fbrb
+BundleTarget package:levels/mp_009gr/ingame-00.fbrb
+BundleTarget game:levels/mp_009gr/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_009gr/loader-00.fbrb
+BundleTarget package:levels/mp_009gr/loader-00.fbrb
+BundleTarget game:levels/mp_009gr/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_009gr/level-00.fbrb
+BundleTarget package:levels/mp_009gr/level-00.fbrb
+BundleTarget game:levels/mp_009gr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_009gr/terrain-00.fbrb
+BundleTarget package:levels/mp_009gr/terrain-00.fbrb
+BundleTarget game:levels/mp_009gr/terrain-00.fbrb
+
+BundleSource game:levels/mp_009sdm/loader-00.fbrb
+BundleTarget package:levels/mp_009sdm/loader-00.fbrb
+BundleTarget game:levels/mp_009sdm/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_009sdm/level-00.fbrb
+BundleTarget package:levels/mp_009sdm/level-00.fbrb
+BundleTarget game:levels/mp_009sdm/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_009sdm/terrain-00.fbrb
+BundleTarget package:levels/mp_009sdm/terrain-00.fbrb
+BundleTarget game:levels/mp_009sdm/terrain-00.fbrb
+
+BundleSource game:levels/mp_009sdm/ingame-00.fbrb
+BundleTarget package:levels/mp_009sdm/ingame-00.fbrb
+BundleTarget game:levels/mp_009sdm/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_012gr/level-00.fbrb
+BundleTarget package:levels/mp_012gr/level-00.fbrb
+BundleTarget game:levels/mp_012gr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_012gr/terrain-00.fbrb
+BundleTarget package:levels/mp_012gr/terrain-00.fbrb
+BundleTarget game:levels/mp_012gr/terrain-00.fbrb
+
+BundleSource game:levels/mp_012gr/ingame-00.fbrb
+BundleTarget package:levels/mp_012gr/ingame-00.fbrb
+BundleTarget game:levels/mp_012gr/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_012gr/loader-00.fbrb
+BundleTarget package:levels/mp_012gr/loader-00.fbrb
+BundleTarget game:levels/mp_012gr/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_012sr/ingame-00.fbrb
+BundleTarget package:levels/mp_012sr/ingame-00.fbrb
+BundleTarget game:levels/mp_012sr/ingame-00.fbrb
+BundleTarget game:levels/mp_common/ingame-00.fbrb
+
+BundleSource game:levels/mp_012sr/loader-00.fbrb
+BundleTarget package:levels/mp_012sr/loader-00.fbrb
+BundleTarget game:levels/mp_012sr/loader-00.fbrb
+BundleTarget game:levels/mp_common/loader-00.fbrb
+
+BundleSource game:levels/mp_012sr/level-00.fbrb
+BundleTarget package:levels/mp_012sr/level-00.fbrb
+BundleTarget game:levels/mp_012sr/level-00.fbrb
+BundleTarget game:levels/mp_common/level-00.fbrb
+
+BundleSource game:levels/mp_012sr/terrain-00.fbrb
+BundleTarget package:levels/mp_012sr/terrain-00.fbrb
+BundleTarget game:levels/mp_012sr/terrain-00.fbrb
+
+BundleSource game:levels/sp_01/ingame-00.fbrb
+BundleTarget package:levels/sp_01/ingame-00.fbrb
+BundleTarget game:levels/sp_01/ingame-00.fbrb
+BundleTarget game:levels/sp_common/ingame-00.fbrb
+
+BundleSource game:levels/sp_01/terrain-00.fbrb
+BundleTarget package:levels/sp_01/terrain-00.fbrb
+BundleTarget game:levels/sp_01/terrain-00.fbrb
+
+BundleSource game:levels/sp_01/loader-00.fbrb
+BundleTarget package:levels/sp_01/loader-00.fbrb
+BundleTarget game:levels/sp_01/loader-00.fbrb
+BundleTarget game:levels/sp_common/loader-00.fbrb
+
+BundleSource game:levels/sp_01/level-00.fbrb
+BundleTarget package:levels/sp_01/level-00.fbrb
+BundleTarget game:levels/sp_01/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/sp_02/level-00.fbrb
+BundleTarget package:levels/sp_02/level-00.fbrb
+BundleTarget game:levels/sp_02/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/sp_02/ingame-00.fbrb
+BundleTarget package:levels/sp_02/ingame-00.fbrb
+BundleTarget game:levels/sp_02/ingame-00.fbrb
+BundleTarget game:levels/sp_common/ingame-00.fbrb
+
+BundleSource game:levels/sp_02/terrain-00.fbrb
+BundleTarget package:levels/sp_02/terrain-00.fbrb
+BundleTarget game:levels/sp_02/terrain-00.fbrb
+
+BundleSource game:levels/sp_02/loader-00.fbrb
+BundleTarget package:levels/sp_02/loader-00.fbrb
+BundleTarget game:levels/sp_02/loader-00.fbrb
+BundleTarget game:levels/sp_common/loader-00.fbrb
+
+BundleSource game:levels/sp_03/loader-00.fbrb
+BundleTarget package:levels/sp_03/loader-00.fbrb
+BundleTarget game:levels/sp_03/loader-00.fbrb
+BundleTarget game:levels/sp_common/loader-00.fbrb
+
+BundleSource game:levels/sp_03/level-00.fbrb
+BundleTarget package:levels/sp_03/level-00.fbrb
+BundleTarget game:levels/sp_03/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/sp_03/terrain-00.fbrb
+BundleTarget package:levels/sp_03/terrain-00.fbrb
+BundleTarget game:levels/sp_03/terrain-00.fbrb
+
+BundleSource game:levels/sp_03/ingame-00.fbrb
+BundleTarget package:levels/sp_03/ingame-00.fbrb
+BundleTarget game:levels/sp_03/ingame-00.fbrb
+BundleTarget game:levels/sp_common/ingame-00.fbrb
+
+BundleSource game:levels/sp_003_b/level-00.fbrb
+BundleTarget package:levels/sp_003_b/level-00.fbrb
+BundleTarget game:levels/sp_003_b/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/sp_003_b/terrain-00.fbrb
+BundleTarget package:levels/sp_003_b/terrain-00.fbrb
+BundleTarget game:levels/sp_003_b/terrain-00.fbrb
+
+BundleSource game:levels/sp_003_b/ingame-00.fbrb
+BundleTarget package:levels/sp_003_b/ingame-00.fbrb
+BundleTarget game:levels/sp_003_b/ingame-00.fbrb
+BundleTarget game:levels/sp_common/ingame-00.fbrb
+
+BundleSource game:levels/sp_003_b/loader-00.fbrb
+BundleTarget package:levels/sp_003_b/loader-00.fbrb
+BundleTarget game:levels/sp_003_b/loader-00.fbrb
+BundleTarget game:levels/sp_common/loader-00.fbrb
+
+BundleSource game:levels/sp_04/level-00.fbrb
+BundleTarget package:levels/sp_04/level-00.fbrb
+BundleTarget game:levels/sp_04/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/sp_04/ingame-00.fbrb
+BundleTarget package:levels/sp_04/ingame-00.fbrb
+BundleTarget game:levels/sp_04/ingame-00.fbrb
+BundleTarget game:levels/sp_common/ingame-00.fbrb
+
+BundleSource game:levels/sp_04/loader-00.fbrb
+BundleTarget package:levels/sp_04/loader-00.fbrb
+BundleTarget game:levels/sp_04/loader-00.fbrb
+BundleTarget game:levels/sp_common/loader-00.fbrb
+
+BundleSource game:levels/sp_04/terrain-00.fbrb
+BundleTarget package:levels/sp_04/terrain-00.fbrb
+BundleTarget game:levels/sp_04/terrain-00.fbrb
+
+BundleSource game:levels/sp_004_b/ingame-00.fbrb
+BundleTarget package:levels/sp_004_b/ingame-00.fbrb
+BundleTarget game:levels/sp_004_b/ingame-00.fbrb
+BundleTarget game:levels/sp_common/ingame-00.fbrb
+
+BundleSource game:levels/sp_004_b/level-00.fbrb
+BundleTarget package:levels/sp_004_b/level-00.fbrb
+BundleTarget game:levels/sp_004_b/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/sp_004_b/loader-00.fbrb
+BundleTarget package:levels/sp_004_b/loader-00.fbrb
+BundleTarget game:levels/sp_004_b/loader-00.fbrb
+BundleTarget game:levels/sp_common/loader-00.fbrb
+
+BundleSource game:levels/sp_004_b/terrain-00.fbrb
+BundleTarget package:levels/sp_004_b/terrain-00.fbrb
+BundleTarget game:levels/sp_004_b/terrain-00.fbrb
+
+BundleSource game:levels/sp_005/terrain-00.fbrb
+BundleTarget package:levels/sp_005/terrain-00.fbrb
+BundleTarget game:levels/sp_005/terrain-00.fbrb
+
+BundleSource game:levels/sp_005/level-00.fbrb
+BundleTarget package:levels/sp_005/level-00.fbrb
+BundleTarget game:levels/sp_005/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/sp_005/ingame-00.fbrb
+BundleTarget package:levels/sp_005/ingame-00.fbrb
+BundleTarget game:levels/sp_005/ingame-00.fbrb
+BundleTarget game:levels/sp_common/ingame-00.fbrb
+
+BundleSource game:levels/sp_005/loader-00.fbrb
+BundleTarget package:levels/sp_005/loader-00.fbrb
+BundleTarget game:levels/sp_005/loader-00.fbrb
+BundleTarget game:levels/sp_common/loader-00.fbrb
+
+BundleSource game:levels/sp_005_b/loader-00.fbrb
+BundleTarget package:levels/sp_005_b/loader-00.fbrb
+BundleTarget game:levels/sp_005_b/loader-00.fbrb
+BundleTarget game:levels/sp_common/loader-00.fbrb
+
+BundleSource game:levels/sp_005_b/level-00.fbrb
+BundleTarget package:levels/sp_005_b/level-00.fbrb
+BundleTarget game:levels/sp_005_b/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/sp_005_b/terrain-00.fbrb
+BundleTarget package:levels/sp_005_b/terrain-00.fbrb
+BundleTarget game:levels/sp_005_b/terrain-00.fbrb
+
+BundleSource game:levels/sp_005_b/ingame-00.fbrb
+BundleTarget package:levels/sp_005_b/ingame-00.fbrb
+BundleTarget game:levels/sp_005_b/ingame-00.fbrb
+BundleTarget game:levels/sp_common/ingame-00.fbrb
+
+BundleSource game:levels/sp_006/level-00.fbrb
+BundleTarget package:levels/sp_006/level-00.fbrb
+BundleTarget game:levels/sp_006/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/sp_006/loader-00.fbrb
+BundleTarget package:levels/sp_006/loader-00.fbrb
+BundleTarget game:levels/sp_006/loader-00.fbrb
+BundleTarget game:levels/sp_common/loader-00.fbrb
+
+BundleSource game:levels/sp_006/ingame-00.fbrb
+BundleTarget package:levels/sp_006/ingame-00.fbrb
+BundleTarget game:levels/sp_006/ingame-00.fbrb
+BundleTarget game:levels/sp_common/ingame-00.fbrb
+
+BundleSource game:levels/sp_006/terrain-00.fbrb
+BundleTarget package:levels/sp_006/terrain-00.fbrb
+BundleTarget game:levels/sp_006/terrain-00.fbrb
+
+BundleSource game:levels/sp_007/loader-00.fbrb
+BundleTarget package:levels/sp_007/loader-00.fbrb
+BundleTarget game:levels/sp_007/loader-00.fbrb
+BundleTarget game:levels/sp_common/loader-00.fbrb
+
+BundleSource game:levels/sp_007/ingame-00.fbrb
+BundleTarget package:levels/sp_007/ingame-00.fbrb
+BundleTarget game:levels/sp_007/ingame-00.fbrb
+BundleTarget game:levels/sp_common/ingame-00.fbrb
+
+BundleSource game:levels/sp_007/level-00.fbrb
+BundleTarget package:levels/sp_007/level-00.fbrb
+BundleTarget game:levels/sp_007/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/sp_007/terrain-00.fbrb
+BundleTarget package:levels/sp_007/terrain-00.fbrb
+BundleTarget game:levels/sp_007/terrain-00.fbrb
+
+BundleSource game:levels/sp_008/loader-00.fbrb
+BundleTarget package:levels/sp_008/loader-00.fbrb
+BundleTarget game:levels/sp_008/loader-00.fbrb
+BundleTarget game:levels/sp_common/loader-00.fbrb
+
+BundleSource game:levels/sp_008/level-00.fbrb
+BundleTarget package:levels/sp_008/level-00.fbrb
+BundleTarget game:levels/sp_008/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/sp_008/ingame-00.fbrb
+BundleTarget package:levels/sp_008/ingame-00.fbrb
+BundleTarget game:levels/sp_008/ingame-00.fbrb
+BundleTarget game:levels/sp_common/ingame-00.fbrb
+
+BundleSource game:levels/sp_008/terrain-00.fbrb
+BundleTarget package:levels/sp_008/terrain-00.fbrb
+BundleTarget game:levels/sp_008/terrain-00.fbrb
+
+BundleSource game:levels/sp_008_b/terrain-00.fbrb
+BundleTarget package:levels/sp_008_b/terrain-00.fbrb
+BundleTarget game:levels/sp_008_b/terrain-00.fbrb
+
+BundleSource game:levels/sp_008_b/ingame-00.fbrb
+BundleTarget package:levels/sp_008_b/ingame-00.fbrb
+BundleTarget game:levels/sp_008_b/ingame-00.fbrb
+BundleTarget game:levels/sp_common/ingame-00.fbrb
+
+BundleSource game:levels/sp_008_b/loader-00.fbrb
+BundleTarget package:levels/sp_008_b/loader-00.fbrb
+BundleTarget game:levels/sp_008_b/loader-00.fbrb
+BundleTarget game:levels/sp_common/loader-00.fbrb
+
+BundleSource game:levels/sp_008_b/level-00.fbrb
+BundleTarget package:levels/sp_008_b/level-00.fbrb
+BundleTarget game:levels/sp_008_b/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/sp_009/ingame-00.fbrb
+BundleTarget package:levels/sp_009/ingame-00.fbrb
+BundleTarget game:levels/sp_009/ingame-00.fbrb
+BundleTarget game:levels/sp_common/ingame-00.fbrb
+
+BundleSource game:levels/sp_009/loader-00.fbrb
+BundleTarget package:levels/sp_009/loader-00.fbrb
+BundleTarget game:levels/sp_009/loader-00.fbrb
+BundleTarget game:levels/sp_common/loader-00.fbrb
+
+BundleSource game:levels/sp_009/level-00.fbrb
+BundleTarget package:levels/sp_009/level-00.fbrb
+BundleTarget game:levels/sp_009/level-00.fbrb
+BundleTarget game:levels/sp_common/level-00.fbrb
+
+BundleSource game:levels/sp_009/terrain-00.fbrb
+BundleTarget package:levels/sp_009/terrain-00.fbrb
+BundleTarget game:levels/sp_009/terrain-00.fbrb
+
+BundleSource game:levels/sp_003_b/vo/de-00.fbrb
+BundleTarget game:levels/sp_common/vo/de-00.fbrb
+
+BundleSource game:levels/sp_003_b/vo/en-00.fbrb
+BundleTarget game:levels/sp_common/vo/en-00.fbrb
+
+BundleSource game:levels/sp_003_b/vo/es-00.fbrb
+BundleTarget game:levels/sp_common/vo/es-00.fbrb
+
+BundleSource game:levels/sp_003_b/vo/fr-00.fbrb
+BundleTarget game:levels/sp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/sp_003_b/vo/it-00.fbrb
+BundleTarget game:levels/sp_common/vo/it-00.fbrb
+
+BundleSource game:levels/sp_003_b/vo/pl-00.fbrb
+BundleTarget game:levels/sp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/sp_003_b/vo/ru-00.fbrb
+BundleTarget game:levels/sp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/sp_004_b/vo/de-00.fbrb
+BundleTarget game:levels/sp_common/vo/de-00.fbrb
+
+BundleSource game:levels/sp_004_b/vo/en-00.fbrb
+BundleTarget game:levels/sp_common/vo/en-00.fbrb
+
+BundleSource game:levels/sp_004_b/vo/es-00.fbrb
+BundleTarget game:levels/sp_common/vo/es-00.fbrb
+
+BundleSource game:levels/sp_004_b/vo/fr-00.fbrb
+BundleTarget game:levels/sp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/sp_004_b/vo/it-00.fbrb
+BundleTarget game:levels/sp_common/vo/it-00.fbrb
+
+BundleSource game:levels/sp_004_b/vo/pl-00.fbrb
+BundleTarget game:levels/sp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/sp_004_b/vo/ru-00.fbrb
+BundleTarget game:levels/sp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/sp_005/vo/de-00.fbrb
+BundleTarget game:levels/sp_common/vo/de-00.fbrb
+
+BundleSource game:levels/sp_005/vo/en-00.fbrb
+BundleTarget game:levels/sp_common/vo/en-00.fbrb
+
+BundleSource game:levels/sp_005/vo/es-00.fbrb
+BundleTarget game:levels/sp_common/vo/es-00.fbrb
+
+BundleSource game:levels/sp_005/vo/fr-00.fbrb
+BundleTarget game:levels/sp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/sp_005/vo/it-00.fbrb
+BundleTarget game:levels/sp_common/vo/it-00.fbrb
+
+BundleSource game:levels/sp_005/vo/pl-00.fbrb
+BundleTarget game:levels/sp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/sp_005/vo/ru-00.fbrb
+BundleTarget game:levels/sp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/sp_005_b/vo/de-00.fbrb
+BundleTarget game:levels/sp_common/vo/de-00.fbrb
+
+BundleSource game:levels/sp_005_b/vo/en-00.fbrb
+BundleTarget game:levels/sp_common/vo/en-00.fbrb
+
+BundleSource game:levels/sp_005_b/vo/es-00.fbrb
+BundleTarget game:levels/sp_common/vo/es-00.fbrb
+
+BundleSource game:levels/sp_005_b/vo/fr-00.fbrb
+BundleTarget game:levels/sp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/sp_005_b/vo/it-00.fbrb
+BundleTarget game:levels/sp_common/vo/it-00.fbrb
+
+BundleSource game:levels/sp_005_b/vo/pl-00.fbrb
+BundleTarget game:levels/sp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/sp_005_b/vo/ru-00.fbrb
+BundleTarget game:levels/sp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/sp_006/vo/de-00.fbrb
+BundleTarget game:levels/sp_common/vo/de-00.fbrb
+
+BundleSource game:levels/sp_006/vo/en-00.fbrb
+BundleTarget game:levels/sp_common/vo/en-00.fbrb
+
+BundleSource game:levels/sp_006/vo/es-00.fbrb
+BundleTarget game:levels/sp_common/vo/es-00.fbrb
+
+BundleSource game:levels/sp_006/vo/fr-00.fbrb
+BundleTarget game:levels/sp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/sp_006/vo/it-00.fbrb
+BundleTarget game:levels/sp_common/vo/it-00.fbrb
+
+BundleSource game:levels/sp_006/vo/pl-00.fbrb
+BundleTarget game:levels/sp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/sp_006/vo/ru-00.fbrb
+BundleTarget game:levels/sp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/sp_007/vo/de-00.fbrb
+BundleTarget game:levels/sp_common/vo/de-00.fbrb
+
+BundleSource game:levels/sp_007/vo/en-00.fbrb
+BundleTarget game:levels/sp_common/vo/en-00.fbrb
+
+BundleSource game:levels/sp_007/vo/es-00.fbrb
+BundleTarget game:levels/sp_common/vo/es-00.fbrb
+
+BundleSource game:levels/sp_007/vo/fr-00.fbrb
+BundleTarget game:levels/sp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/sp_007/vo/it-00.fbrb
+BundleTarget game:levels/sp_common/vo/it-00.fbrb
+
+BundleSource game:levels/sp_007/vo/pl-00.fbrb
+BundleTarget game:levels/sp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/sp_007/vo/ru-00.fbrb
+BundleTarget game:levels/sp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/sp_008/vo/de-00.fbrb
+BundleTarget game:levels/sp_common/vo/de-00.fbrb
+
+BundleSource game:levels/sp_008/vo/en-00.fbrb
+BundleTarget game:levels/sp_common/vo/en-00.fbrb
+
+BundleSource game:levels/sp_008/vo/es-00.fbrb
+BundleTarget game:levels/sp_common/vo/es-00.fbrb
+
+BundleSource game:levels/sp_008/vo/fr-00.fbrb
+BundleTarget game:levels/sp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/sp_008/vo/it-00.fbrb
+BundleTarget game:levels/sp_common/vo/it-00.fbrb
+
+BundleSource game:levels/sp_008/vo/pl-00.fbrb
+BundleTarget game:levels/sp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/sp_008/vo/ru-00.fbrb
+BundleTarget game:levels/sp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/sp_008_b/vo/de-00.fbrb
+BundleTarget game:levels/sp_common/vo/de-00.fbrb
+
+BundleSource game:levels/sp_008_b/vo/en-00.fbrb
+BundleTarget game:levels/sp_common/vo/en-00.fbrb
+
+BundleSource game:levels/sp_008_b/vo/es-00.fbrb
+BundleTarget game:levels/sp_common/vo/es-00.fbrb
+
+BundleSource game:levels/sp_008_b/vo/fr-00.fbrb
+BundleTarget game:levels/sp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/sp_008_b/vo/it-00.fbrb
+BundleTarget game:levels/sp_common/vo/it-00.fbrb
+
+BundleSource game:levels/sp_008_b/vo/pl-00.fbrb
+BundleTarget game:levels/sp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/sp_008_b/vo/ru-00.fbrb
+BundleTarget game:levels/sp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/sp_009/vo/de-00.fbrb
+BundleTarget game:levels/sp_common/vo/de-00.fbrb
+
+BundleSource game:levels/sp_009/vo/en-00.fbrb
+BundleTarget game:levels/sp_common/vo/en-00.fbrb
+
+BundleSource game:levels/sp_009/vo/es-00.fbrb
+BundleTarget game:levels/sp_common/vo/es-00.fbrb
+
+BundleSource game:levels/sp_009/vo/fr-00.fbrb
+BundleTarget game:levels/sp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/sp_009/vo/it-00.fbrb
+BundleTarget game:levels/sp_common/vo/it-00.fbrb
+
+BundleSource game:levels/sp_009/vo/pl-00.fbrb
+BundleTarget game:levels/sp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/sp_009/vo/ru-00.fbrb
+BundleTarget game:levels/sp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/sp_01/vo/de-00.fbrb
+BundleTarget game:levels/sp_common/vo/de-00.fbrb
+
+BundleSource game:levels/sp_01/vo/en-00.fbrb
+BundleTarget game:levels/sp_common/vo/en-00.fbrb
+
+BundleSource game:levels/sp_01/vo/es-00.fbrb
+BundleTarget game:levels/sp_common/vo/es-00.fbrb
+
+BundleSource game:levels/sp_01/vo/fr-00.fbrb
+BundleTarget game:levels/sp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/sp_01/vo/it-00.fbrb
+BundleTarget game:levels/sp_common/vo/it-00.fbrb
+
+BundleSource game:levels/sp_01/vo/pl-00.fbrb
+BundleTarget game:levels/sp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/sp_01/vo/ru-00.fbrb
+BundleTarget game:levels/sp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/sp_02/vo/de-00.fbrb
+BundleTarget game:levels/sp_common/vo/de-00.fbrb
+
+BundleSource game:levels/sp_02/vo/en-00.fbrb
+BundleTarget game:levels/sp_common/vo/en-00.fbrb
+
+BundleSource game:levels/sp_02/vo/es-00.fbrb
+BundleTarget game:levels/sp_common/vo/es-00.fbrb
+
+BundleSource game:levels/sp_02/vo/fr-00.fbrb
+BundleTarget game:levels/sp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/sp_02/vo/it-00.fbrb
+BundleTarget game:levels/sp_common/vo/it-00.fbrb
+
+BundleSource game:levels/sp_02/vo/pl-00.fbrb
+BundleTarget game:levels/sp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/sp_02/vo/ru-00.fbrb
+BundleTarget game:levels/sp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/sp_03/vo/de-00.fbrb
+BundleTarget game:levels/sp_common/vo/de-00.fbrb
+
+BundleSource game:levels/sp_03/vo/en-00.fbrb
+BundleTarget game:levels/sp_common/vo/en-00.fbrb
+
+BundleSource game:levels/sp_03/vo/es-00.fbrb
+BundleTarget game:levels/sp_common/vo/es-00.fbrb
+
+BundleSource game:levels/sp_03/vo/fr-00.fbrb
+BundleTarget game:levels/sp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/sp_03/vo/it-00.fbrb
+BundleTarget game:levels/sp_common/vo/it-00.fbrb
+
+BundleSource game:levels/sp_03/vo/pl-00.fbrb
+BundleTarget game:levels/sp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/sp_03/vo/ru-00.fbrb
+BundleTarget game:levels/sp_common/vo/ru-00.fbrb
+
+BundleSource game:levels/sp_04/vo/de-00.fbrb
+BundleTarget game:levels/sp_common/vo/de-00.fbrb
+
+BundleSource game:levels/sp_04/vo/en-00.fbrb
+BundleTarget game:levels/sp_common/vo/en-00.fbrb
+
+BundleSource game:levels/sp_04/vo/es-00.fbrb
+BundleTarget game:levels/sp_common/vo/es-00.fbrb
+
+BundleSource game:levels/sp_04/vo/fr-00.fbrb
+BundleTarget game:levels/sp_common/vo/fr-00.fbrb
+
+BundleSource game:levels/sp_04/vo/it-00.fbrb
+BundleTarget game:levels/sp_common/vo/it-00.fbrb
+
+BundleSource game:levels/sp_04/vo/pl-00.fbrb
+BundleTarget game:levels/sp_common/vo/pl-00.fbrb
+
+BundleSource game:levels/sp_04/vo/ru-00.fbrb
+BundleTarget game:levels/sp_common/vo/ru-00.fbrb
+
