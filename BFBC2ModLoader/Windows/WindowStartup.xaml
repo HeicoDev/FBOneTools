@@ -1,0 +1,14 @@
+﻿<Controls:MetroWindow x:Name="Startup" x:Class="BFBC2ModLoader.Windows.WindowStartup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BFBC2ModLoader.Windows"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        ShowTitleBar="False" WindowTransitionsEnabled="False" Background="#FF292929" BorderBrush="#FF141414" WindowStartupLocation="CenterOwner" ResizeBorderThickness="2,3,2,2" FontWeight="Bold" Width="250" Height="142" WindowStyle="None" ResizeMode="NoResize" ShowCloseButton="False">
+    <Grid>
+        <Label x:Name="lblStartup" Content="Preparing startup, please wait..." HorizontalAlignment="Left" Margin="36,104,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
+        <Controls:ProgressRing x:Name="progressRing" IsActive="True" Foreground="#FFE2E2E2" Height="45" Margin="0" Width="45"/>
+    </Grid>
+</Controls:MetroWindow>

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BFBC2Toolkit", "BFBC2Toolkit\BFBC2Toolkit.csproj", "{BA979951-A8E7-4000-A681-12CE16685B5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BFBC2ModLoader", "BFBC2ModLoader\BFBC2ModLoader.csproj", "{A029EB10-D673-44A9-9D69-BB7D7F280945}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,14 @@ Global
 		{BA979951-A8E7-4000-A681-12CE16685B5C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA979951-A8E7-4000-A681-12CE16685B5C}.Release|x86.ActiveCfg = Release|x86
 		{BA979951-A8E7-4000-A681-12CE16685B5C}.Release|x86.Build.0 = Release|x86
+		{A029EB10-D673-44A9-9D69-BB7D7F280945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A029EB10-D673-44A9-9D69-BB7D7F280945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A029EB10-D673-44A9-9D69-BB7D7F280945}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A029EB10-D673-44A9-9D69-BB7D7F280945}.Debug|x86.Build.0 = Debug|Any CPU
+		{A029EB10-D673-44A9-9D69-BB7D7F280945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A029EB10-D673-44A9-9D69-BB7D7F280945}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A029EB10-D673-44A9-9D69-BB7D7F280945}.Release|x86.ActiveCfg = Release|Any CPU
+		{A029EB10-D673-44A9-9D69-BB7D7F280945}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

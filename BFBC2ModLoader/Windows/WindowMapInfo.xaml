@@ -1,0 +1,20 @@
+﻿<Controls:MetroWindow x:Class="BFBC2ModLoader.Windows.WindowMapInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BFBC2ModLoader"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        Title="Map Info" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterOwner" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="210" Height="242" WindowStyle="ToolWindow" ResizeMode="NoResize" Topmost="True">
+    <Grid>
+        <Label x:Name="lblA" Content="CQ = Conquest" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
+        <Label x:Name="lblB" Content="RUSH = Rush" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
+        <Label x:Name="lblC" Content="SQRUSH = Squad Rush" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
+        <Label x:Name="lblD" Content="SQDM = Squad Deathmatch" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
+        <Label x:Name="lblE" Content="NAM = Vietnam" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
+        <Label x:Name="lblF" Content="WW2 = World War 2" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
+        <Label x:Name="lblG" Content="AS = Air Support" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
+        <Label x:Name="lblH" Content="NO = Night Operations" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
+    </Grid>
+</Controls:MetroWindow>
