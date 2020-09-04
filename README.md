@@ -8,16 +8,25 @@
   </p>
   <p>
     Supports Battlefield: Bad Company, Bad Company 2, 1943 and probably other Frostbite 1 games.
-  </p>  
+  </p>   
 </div>
 
-## Description
+## Download
 
-For now you will need to build the tool on your own. A proper build will be released on [Nexus Mods](https://www.nexusmods.com/battlefieldbadcompany2/mods/) soon.
+You can download the latest stable build on [Nexus Mods](https://www.nexusmods.com/battlefieldbadcompany2/mods/15)
 
-<b>Note:</b> The whole tool is still WIP so expect unfinished features, bugs and other issues!
+## Features
 
-<b>Features Preview:</b> https://www.youtube.com/watch?v=-WeeXXNA87M
+* Game profiles for BFBC2 and its server
+* Create mods for [BFBC2 Mod Loader](https://www.nexusmods.com/battlefieldbadcompany2/mods/4) with a few clicks 
+* Edit .fbrb archives directly similar to how it works with Mod Tools v2/v3
+* Edit .dbx files with the built-in text editor
+* Preview textures, videos, heightmaps and several text formats
+* Convert several game files with BFBC2 File Converter
+* Port several game files from console to PC with BFBC2 File Porter (experimental)
+* Includes all the features of Mod Tools v2/v3 and more...
+
+Watch a preview of the features on [YouTube](https://www.youtube.com/watch?v=-WeeXXNA87M)
 
 ## Supported File Formats
 
@@ -25,7 +34,7 @@ For now you will need to build the tool on your own. A proper build will be rele
 * .dbx - Export, Import, Preview & Editing
 * .binkmemory - Export, Import & Preview
 * .itexture - Export, Import & Preview
-* .ps3texture & xenontexture - Export & Preview (partially)
+* .ps3texture & .xenontexture - Export & Preview (partially)
 * .terrainheightfield - Export & Preview (16 bpp grayscale image only)
 * .swfmovie - Export/Extract (for research only)
 
