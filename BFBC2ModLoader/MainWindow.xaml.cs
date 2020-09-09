@@ -100,9 +100,11 @@ namespace BFBC2ModLoader
                 frmModsDisabled.Visibility = Visibility.Hidden;
                 lblModsDisabled.Visibility = Visibility.Hidden;
 
-                windowStartup.Close();
-
                 Log.Write("BFBC2 Mod Loader is not installed correctly!", "warning");
+
+                windowStartup.Close();
+                Opacity = 100;
+                Activate();
 
                 return;
             }
