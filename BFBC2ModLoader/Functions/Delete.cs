@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using BFBC2ModLoader.Data;
+using BFBC2ModLoader.Data.Bindings;
 using BFBC2Shared.Data;
 using BFBC2Shared.Functions;
 

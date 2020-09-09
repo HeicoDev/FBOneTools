@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using BFBC2ModLoader.Data;
+using BFBC2ModLoader.Data.Bindings;
 using BFBC2Shared.Functions;
 
 namespace BFBC2ModLoader.Functions

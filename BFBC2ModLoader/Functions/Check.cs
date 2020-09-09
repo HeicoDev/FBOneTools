@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Windows;
 using BFBC2ModLoader.Data;
+using BFBC2ModLoader.Data.Bindings;
 using BFBC2Shared.Data;
 using BFBC2Shared.Functions;
 

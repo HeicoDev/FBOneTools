@@ -73,6 +73,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\Bindings\MapBrowserItem.cs" />
+    <Compile Include="Data\Bindings\ModManagerItem.cs" />
+    <Compile Include="Data\Bindings\ServerBrowserItem.cs" />
     <Compile Include="Data\Settings.cs" />
     <Compile Include="Windows\WindowAppInfo.xaml.cs">
       <DependentUpon>WindowAppInfo.xaml</DependentUpon>
@@ -91,7 +94,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Data\Bindings.cs" />
     <Compile Include="Data\Dirs.cs" />
     <Compile Include="Data\UIElements.cs" />
     <Compile Include="Data\Globals.cs" />

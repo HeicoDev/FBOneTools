@@ -12,6 +12,7 @@ using Microsoft.Win32;
 using MahApps.Metro.Controls;
 using BFBC2ModLoader.Functions;
 using BFBC2ModLoader.Data;
+using BFBC2ModLoader.Data.Bindings;
 using BFBC2ModLoader.Windows;
 using BFBC2Shared.Functions;
 

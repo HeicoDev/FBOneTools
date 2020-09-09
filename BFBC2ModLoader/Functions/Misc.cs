@@ -1,5 +1,6 @@
 ﻿using System;
 using BFBC2ModLoader.Data;
+using BFBC2ModLoader.Data.Bindings;
 using BFBC2Shared.Functions;
 
 namespace BFBC2ModLoader.Functions
