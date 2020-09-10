@@ -19,7 +19,7 @@ namespace BFBC2Toolkit.Functions
                 if (Directory.Exists(Dirs.FilesPathData) && !Globals.IsGameProfile)
                     await Task.Run(() => Directory.Delete(Dirs.FilesPathData, true));
 
-                await Python.ExecuteScript(Dirs.ScriptArchive, ofd.FileName);
+                await Python.ExecuteScript(Dirs.ScriptFbrb, ofd.FileName);
 
                 Dirs.FilesPathData = ofd.FileName.Replace(".fbrb", " FbRB");
 
@@ -49,7 +49,7 @@ namespace BFBC2Toolkit.Functions
             {
                 await MediaStream.Dispose();
 
-                await Python.ExecuteScript(Dirs.ScriptArchive, Dirs.FilesPathData);
+                await Python.ExecuteScript(Dirs.ScriptFbrb, Dirs.FilesPathData);
 
                 return false;
             }

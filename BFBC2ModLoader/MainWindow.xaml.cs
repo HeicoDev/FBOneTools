@@ -73,9 +73,10 @@ namespace BFBC2ModLoader
             windowStartup.Owner = this;
             windowStartup.Show();            
 
-            UIElements.SetElements(txtBoxEventLog, txtBoxModInfo, txtBoxServerInfo, txtBoxMapInfo, dataGridModManager, dataGridServerBrowser, dataGridMapBrowser);
+            UIElements.SetElements(txtBoxEventLog, txtBoxModInfo, txtBoxServerInfo, txtBoxMapInfo, dataGridModManager, dataGridServerBrowser, dataGridMapBrowser);            
+            Globals.SetSharedVars();
             Dirs.SetSharedVars();
-            Globals.SetSharedVars();           
+            Dirs.SetFbrbDirsAndFiles();
 
             Log.Write("Click 'Install Mod' to select the mod you want to install.");
 
@@ -109,10 +110,7 @@ namespace BFBC2ModLoader
 
                 return;
             }
-
-            //dataGridModManager.IsEnabled = false;
-
-            Dirs.AddFbrbDirs();
+            
             Delete.OldVersion();
             Delete.LogFiles();
             Create.PrecreateDirs();            
@@ -123,42 +121,48 @@ namespace BFBC2ModLoader
             Load.ModsXML();
             Load.MapsXML();            
 
-            //dataGridModManager.IsEnabled = true;
-
-            try
+            if (!File.Exists(SharedSettings.PathToPython))
             {
-                if (!File.Exists(SharedSettings.PathToPython))
+                MessageBox.Show("Unable to locate Python 2.7 installation!\nPlease select pythonw.exe...", "Error");
+
+                string path = Python.ChangePath();
+
+                if (path == String.Empty)
                 {
-                    MessageBox.Show("Unable to locate Python 2.7 installation!\nPlease select pythonw.exe...", "Error");
+                    MessageBox.Show("Unable to locate pythonw.exe!\nPress 'OK' to close the app.", "Error");
 
-                    string path = Python.ChangePath();
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    bool isCorrectPythonVersion = Python.CheckVersion();
 
-                    if (path == String.Empty)
+                    if (!isCorrectPythonVersion)
                     {
-                        MessageBox.Show("Unable to locate pythonw.exe!\nPress 'OK' to close the app.", "Error");
+                        MessageBox.Show("Incorrect version of Python detected!\nIt must be version 2.7!\nPress 'OK' to close the app.", "Error");
 
                         Environment.Exit(0);
                     }
-                    else
-                    {
-                        bool hasErrorOccurredOnSave = Save.ConfigXML();
 
-                        if (hasErrorOccurredOnSave)
-                            Environment.Exit(0);
+                    bool hasErrorOccurredOnSave = Save.ConfigXML();
+
+                    if (hasErrorOccurredOnSave)
+                    {
+                        MessageBox.Show("Unable to save settings.config! See error.log\nPress 'OK' to close the app.", "Error");
+
+                        Environment.Exit(0);
                     }
                 }
-
-                bool hasErrorOccurredOnLoad = Load.ConfigXML();
-
-                if (hasErrorOccurredOnLoad)
-                    Environment.Exit(0);
             }
-            catch (Exception ex)
+
+            bool hasErrorOccurredOnLoad = Load.ConfigXML();
+
+            if (hasErrorOccurredOnLoad)
             {
-                Log.Error(ex.ToString());
-                MessageBox.Show("Unable to initialize startup! See error.log\nPress 'OK' to close the app.", "Error");
+                MessageBox.Show("Unable to load settings.config! See error.log\nPress 'OK' to close the app.", "Error");
+
                 Environment.Exit(0);
-            }
+            }         
 
             txtBoxPathToPython.Text = SharedSettings.PathToPython;
             chkBoxAutoCheckUpdates.IsChecked = Settings.IsAutoUpdateCheckEnabled;
@@ -891,11 +895,24 @@ namespace BFBC2ModLoader
             string path = Python.ChangePath();
 
             if (path == String.Empty)
+            {
                 MessageBox.Show("Unable to locate pythonw.exe!", "Error");
+            }
             else
-                txtBoxPathToPython.Text = path;
+            {
+                bool isCorrectPythonVersion = Python.CheckVersion();
 
-            Save.ConfigXML();
+                if (isCorrectPythonVersion)
+                {
+                    txtBoxPathToPython.Text = path;
+
+                    Save.ConfigXML();
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect version of Python detected!\nIt must be version 2.7!", "Error");
+                }
+            }
         }
 
         private void BtnCheckUpdate_Click(object sender, RoutedEventArgs e)
@@ -1065,7 +1082,7 @@ namespace BFBC2ModLoader
             if (item.ModImage != "")
                 imgBoxModManager.Source = new BitmapImage(new Uri(item.ModImage));
 
-            Write.ModInfo();
+            Write.ToModInfo();
         }
 
         private void DataGridMapBrowser_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -1118,7 +1135,7 @@ namespace BFBC2ModLoader
                 }
             }
             
-            Write.ServerInfo();
+            Write.ToServerInfo();
 
             btnInstallMods.IsEnabled = true;
         }        
@@ -1328,9 +1345,9 @@ namespace BFBC2ModLoader
                 btnInstallMap.IsEnabled = true;
 
             if (btnInstallMap.IsEnabled)
-                Write.MapInfo("No");
+                Write.ToMapInfo("No");
             else
-                Write.MapInfo("Yes");
+                Write.ToMapInfo("Yes");
         }        
     }
 }

@@ -12,7 +12,7 @@ namespace BFBC2ModLoader.Functions
     {
         private static string ModLink;
 
-        public static void ModInfo()
+        public static void ToModInfo()
         {
             var item = UIElements.DataGridModManager.SelectedItem as ModManagerItem;
             int length = item.ModAuthor.Length;
@@ -63,7 +63,7 @@ namespace BFBC2ModLoader.Functions
             }
         }
 
-        public static void ServerInfo()
+        public static void ToServerInfo()
         {
             var item = UIElements.DataGridServerBrowser.SelectedItem as ServerBrowserItem;
             int length = item.ServerMap.Length;
@@ -81,7 +81,7 @@ namespace BFBC2ModLoader.Functions
             UIElements.TxtBoxServerInfo.ScrollToHome();
         }
 
-        public static void MapInfo(string isInstalled)
+        public static void ToMapInfo(string isInstalled)
         {
             var item = UIElements.DataGridMapBrowser.SelectedItem as MapBrowserItem;
             int length = item.MapAuthor.Length;

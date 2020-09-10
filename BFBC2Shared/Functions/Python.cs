@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
+using System.Windows;
 using BFBC2Shared.Data;
 using Microsoft.Win32;
 
@@ -72,6 +73,30 @@ namespace BFBC2Shared.Functions
                 Log.Error(ex.ToString());
 
                 return String.Empty;
+            }
+        }
+
+        public static bool CheckVersion()
+        {
+            var processInfo = new ProcessStartInfo();
+            processInfo.FileName = @"cmd.exe"; // Specify exe name.
+            processInfo.Arguments = String.Format(@"/c {0}\{1} ", Path.GetDirectoryName(SharedSettings.PathToPython), "python --version");
+            processInfo.UseShellExecute = false;
+            processInfo.RedirectStandardOutput = false;
+            processInfo.RedirectStandardError = true;
+            processInfo.CreateNoWindow = true;
+
+            using (var process = Process.Start(processInfo))
+            {
+                using (StreamReader reader = process.StandardError)
+                {
+                    string result = reader.ReadToEnd();
+
+                    if (result.StartsWith("Python 2.7"))
+                        return true;
+                    else
+                        return false;
+                }
             }
         }
     }

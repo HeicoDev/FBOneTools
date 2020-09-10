@@ -31,7 +31,7 @@ namespace BFBC2Toolkit.Data
         public static string OutputMods { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Output\Mods";
         public static string OutputSwfMovie { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Output\SwfMovie";
         public static string Scripts { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts";
-        public static string ScriptArchive { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts\fbrb.pyw";
+        public static string ScriptFbrb { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts\fbrb.pyw";
         public static string ScriptDBX { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts\dbx.pyw";
         public static string ScriptSwfMovie { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts\swfmovie.pyw";
         public static string SyntaxXML { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\SyntaxXML.Config";

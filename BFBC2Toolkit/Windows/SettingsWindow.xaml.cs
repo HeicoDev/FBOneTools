@@ -112,12 +112,29 @@ namespace BFBC2Toolkit.Windows
 
         private void BtnSelectPathToPython_Click(object sender, RoutedEventArgs e)
         {
+            string pathOld = SharedSettings.PathToPython;
+
             string path = Python.ChangePath();
 
             if (path == String.Empty)
-                MessageBox.Show("Unable to locate pythonw.exe!", "Error");            
+            {
+                MessageBox.Show("Unable to locate pythonw.exe!", "Error");
+            }
             else
-                txtBoxPathToPython.Text = path;
+            {
+                bool isCorrectPythonVersion = Python.CheckVersion();
+
+                if (isCorrectPythonVersion)
+                {
+                    txtBoxPathToPython.Text = path;
+                }
+                else
+                {
+                    SharedSettings.PathToPython = pathOld;
+
+                    MessageBox.Show("Incorrect version of Python detected!\nIt must be version 2.7!", "Error");
+                }
+            }
         }
 
         private void BtnSaveClose_Click(object sender, RoutedEventArgs e)

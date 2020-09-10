@@ -22,7 +22,7 @@ namespace BFBC2ModLoader.Data
         public static string LatestNewsXML { get; } = Environment.CurrentDirectory + @"\BFBC2ModLoader\Config\news.config";
         public static string UpdateXML { get; } = Environment.CurrentDirectory + @"\BFBC2ModLoader\Config\update.config";
         public static string ScriptServer { get; } = Environment.CurrentDirectory + @"\BFBC2ModLoader\Scripts\server.pyw";
-        public static string ScriptArchive { get; } = Environment.CurrentDirectory + @"\BFBC2ModLoader\Scripts\fbrb.pyw";
+        public static string ScriptFbrb { get; } = Environment.CurrentDirectory + @"\BFBC2ModLoader\Scripts\fbrb.pyw";
         public static string ServerInfo { get; } = Environment.CurrentDirectory + @"\serverInfo.txt";
         public static string TempServer { get; } = Environment.CurrentDirectory + @"\tempServer.txt";
         public static string ModsCommon { get; } = Environment.CurrentDirectory + @"\package\mods";
@@ -45,7 +45,7 @@ namespace BFBC2ModLoader.Data
             SharedDirs.ErrorLog = Environment.CurrentDirectory + @"\BFBC2ModLoader\Logs\error.log";
         }
 
-        public static void AddFbrbDirs()
+        public static void SetFbrbDirsAndFiles()
         {
             FbrbDirs.Add("level-00 FbRB", Environment.CurrentDirectory + @"\package\mods\level-00 FbRB");
             FbrbDirs.Add("terrain-00 FbRB", Environment.CurrentDirectory + @"\package\mods\terrain-00 FbRB");

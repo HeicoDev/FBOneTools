@@ -71,7 +71,7 @@ namespace BFBC2Toolkit.Functions
 
                             Log.Write("Extracting fbrb archive " + filesCountB + " of " + filesCountA + "...");
 
-                            await Python.ExecuteScript(Dirs.ScriptArchive, file);
+                            await Python.ExecuteScript(Dirs.ScriptFbrb, file);
 
                             await Task.Run(() => Directory.CreateDirectory(Dirs.Games + @"\" + gameId + @"\" + kvp.Value));
 

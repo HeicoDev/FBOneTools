@@ -285,7 +285,7 @@ namespace BFBC2ModLoader.Functions
                 {
                     if (Directory.Exists(Dirs.ExtractPath + @"\" + kvp.Key))
                     {
-                        await Python.ExecuteScript(Dirs.ScriptArchive, kvp.Value);
+                        await Python.ExecuteScript(Dirs.ScriptFbrb, kvp.Value);
                     }
                 }
 
@@ -379,7 +379,7 @@ namespace BFBC2ModLoader.Functions
                     {
                         if (Directory.EnumerateFileSystemEntries(kvp.Value).Any())
                         {
-                            await Python.ExecuteScript(Dirs.ScriptArchive, kvp.Value);
+                            await Python.ExecuteScript(Dirs.ScriptFbrb, kvp.Value);
                         }
                     }
                 }

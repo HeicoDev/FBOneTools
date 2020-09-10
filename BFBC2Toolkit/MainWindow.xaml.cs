@@ -1078,56 +1078,73 @@ namespace BFBC2Toolkit
 
         private async Task InitializeStartup()
         {
+            SharedUIElements.TxtBoxEventLog = txtBoxEventLog;
+            UIElements.TxtBoxInformation = txtBoxInformation;
+            UIElements.TextEditor = textEditor;
+            UIElements.TreeViewDataExplorer = treeViewDataExplorer;
+            UIElements.TreeViewModExplorer = treeViewModExplorer;
+            UIElements.MediaElement = mediaElement;
+            UIElements.ImageElement = image;
+
+            Dirs.SetSharedVars();
+            Globals.SetSharedVars();
+            Globals.SetFbrbFiles();
+
             try
             {
-                SharedUIElements.TxtBoxEventLog = txtBoxEventLog;
-                UIElements.TxtBoxInformation = txtBoxInformation;
-                UIElements.TextEditor = textEditor;
-                UIElements.TreeViewDataExplorer = treeViewDataExplorer;
-                UIElements.TreeViewModExplorer = treeViewModExplorer;
-                UIElements.MediaElement = mediaElement;
-                UIElements.ImageElement = image;
-
-                Dirs.SetSharedVars();
-                Globals.SetSharedVars();
-                Globals.SetFbrbFiles();
-
-                if (!File.Exists(SharedSettings.PathToPython))
-                {
-                    MessageBox.Show("Unable to locate Python 2.7 installation!\nPlease select pythonw.exe...", "Error");
-
-                    string path = Python.ChangePath();
-
-                    if (path == String.Empty)
-                    {
-                        MessageBox.Show("Unable to locate pythonw.exe!\nPress 'OK' to close the app.", "Error");
-
-                        Environment.Exit(0);
-                    }
-                    else
-                    {
-                        bool hasErrorOccurredOnSave = SettingsHandler.Save();
-
-                        if (hasErrorOccurredOnSave)
-                            Environment.Exit(0);
-                    }
-                }
-           
-                await Task.Run(() => Create.PrecreateDirs());
-                await Task.Run(() => Create.ConfigFiles());
                 await Task.Run(() => CleanUp.StartUp());
-
-                bool hasErrorOccurredOnLoad = SettingsHandler.Load();
-
-                if (hasErrorOccurredOnLoad)
-                    Environment.Exit(0);
+                await Task.Run(() => Create.PrecreateDirs());
+                await Task.Run(() => Create.ConfigFiles());               
             }
             catch (Exception ex)
             {
                 Log.Error(ex.ToString());
                 MessageBox.Show("Unable to initialize startup! See error.log\nPress 'OK' to close the app.", "Error");
                 Environment.Exit(0);
-            }           
+            }
+
+            bool hasErrorOccurredOnLoad = SettingsHandler.Load();
+
+            if (hasErrorOccurredOnLoad)
+            {
+                MessageBox.Show("Unable to load settings.config! See error.log\nPress 'OK' to close the app.", "Error");
+
+                Environment.Exit(0);
+            }
+
+            if (!File.Exists(SharedSettings.PathToPython))
+            {
+                MessageBox.Show("Unable to locate Python 2.7 installation!\nPlease select pythonw.exe...", "Error");
+
+                string path = Python.ChangePath();
+
+                if (path == String.Empty)
+                {
+                    MessageBox.Show("Unable to locate pythonw.exe!\nPress 'OK' to close the app.", "Error");
+
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    bool isCorrectPythonVersion = Python.CheckVersion();
+
+                    if (!isCorrectPythonVersion)
+                    {
+                        MessageBox.Show("Incorrect version of Python detected!\nIt must be version 2.7!\nPress 'OK' to close the app.", "Error");
+
+                        Environment.Exit(0);
+                    }
+
+                    bool hasErrorOccurredOnSave = SettingsHandler.Save();
+
+                    if (hasErrorOccurredOnSave)
+                    {
+                        MessageBox.Show("Unable to load settings.config! See error.log\nPress 'OK' to close the app.", "Error");
+
+                        Environment.Exit(0);
+                    }
+                }
+            }            
 
             image.Margin = new Thickness(0, 31, 0, 27);
             mediaElement.Margin = new Thickness(0, 31, 0, 27);
