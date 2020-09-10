@@ -15,6 +15,7 @@ using BFBC2ModLoader.Data;
 using BFBC2ModLoader.Data.Bindings;
 using BFBC2ModLoader.Windows;
 using BFBC2Shared.Functions;
+using BFBC2Shared.Data;
 
 /// <summary>
 /// BFBC2 Mod Loader
@@ -126,11 +127,11 @@ namespace BFBC2ModLoader
 
             try
             {
-                if (!File.Exists(Settings.PathToPython))
+                if (!File.Exists(SharedSettings.PathToPython))
                 {
                     MessageBox.Show("Unable to locate Python 2.7 installation!\nPlease select pythonw.exe...", "Error");
 
-                    string path = SettingsHandler.ChangePythonPath();
+                    string path = Python.ChangePath();
 
                     if (path == String.Empty)
                     {
@@ -159,7 +160,7 @@ namespace BFBC2ModLoader
                 Environment.Exit(0);
             }
 
-            txtBoxPathToPython.Text = Settings.PathToPython;
+            txtBoxPathToPython.Text = SharedSettings.PathToPython;
             chkBoxAutoCheckUpdates.IsChecked = Settings.IsAutoUpdateCheckEnabled;
 
             await Load.ServersXML();
@@ -887,7 +888,7 @@ namespace BFBC2ModLoader
 
         private void BtnSelectPathToPython_Click(object sender, RoutedEventArgs e)
         {
-            string path = SettingsHandler.ChangePythonPath();
+            string path = Python.ChangePath();
 
             if (path == String.Empty)
                 MessageBox.Show("Unable to locate pythonw.exe!", "Error");

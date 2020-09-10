@@ -46,9 +46,11 @@
   <ItemGroup>
     <Compile Include="Data\SharedDirs.cs" />
     <Compile Include="Data\SharedGlobals.cs" />
+    <Compile Include="Data\SharedSettings.cs" />
     <Compile Include="Data\SharedUIElements.cs" />
     <Compile Include="Functions\IniFile.cs" />
     <Compile Include="Functions\Log.cs" />
+    <Compile Include="Functions\Python.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

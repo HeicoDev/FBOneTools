@@ -3,6 +3,7 @@ using System.Text;
 using System.Xml;
 using BFBC2ModLoader.Data;
 using BFBC2ModLoader.Data.Bindings;
+using BFBC2Shared.Data;
 using BFBC2Shared.Functions;
 
 namespace BFBC2ModLoader.Functions
@@ -66,7 +67,7 @@ namespace BFBC2ModLoader.Functions
                     xw.WriteAttributeString("autoUpdateCheckEnabled", Settings.IsAutoUpdateCheckEnabled.ToString());
                     xw.WriteEndElement();
                     xw.WriteStartElement("config");
-                    xw.WriteAttributeString("pathToPython", Settings.PathToPython);
+                    xw.WriteAttributeString("pathToPython", SharedSettings.PathToPython);
                     xw.WriteEndElement();
                     xw.WriteEndElement();
                 }

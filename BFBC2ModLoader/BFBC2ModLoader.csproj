@@ -104,7 +104,6 @@
     <Compile Include="Functions\Install.cs" />
     <Compile Include="Functions\Load.cs" />
     <Compile Include="Functions\Misc.cs" />
-    <Compile Include="Functions\Python.cs" />
     <Compile Include="Functions\Save.cs" />
     <Compile Include="Functions\Write.cs" />
     <Compile Include="MainWindow.xaml.cs">

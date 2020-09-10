@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -219,7 +218,8 @@ namespace BFBC2ModLoader.Functions
                 {
                     foreach (ZipArchiveEntry entry in zipArchive.Entries)
                     {
-                        if (entry.Name == String.Empty) continue;
+                        if (entry.Name == String.Empty)
+                            continue;
 
                         await Task.Run(() => Directory.CreateDirectory(Path.Combine(archivePath, entry.FullName).Replace(entry.Name, "")));
                         await Task.Run(() => Directory.CreateDirectory(Path.Combine(Dirs.ModsFolder + "\\" + modName, entry.FullName).Replace(entry.Name, "")));
@@ -281,7 +281,18 @@ namespace BFBC2ModLoader.Functions
             }
             else
             {
-                await Python.Archive();         
+                foreach (KeyValuePair<string, string> kvp in Dirs.FbrbDirs)
+                {
+                    if (Directory.Exists(Dirs.ExtractPath + @"\" + kvp.Key))
+                    {
+                        await Python.ExecuteScript(Dirs.ScriptArchive, kvp.Value);
+                    }
+                }
+
+                if (Directory.Exists(Dirs.ExtractPath))
+                    Directory.Delete(Dirs.ExtractPath, true);
+                if (File.Exists(Dirs.ModsText))
+                    File.Delete(Dirs.ModsText);
             }
         }
 
@@ -368,8 +379,7 @@ namespace BFBC2ModLoader.Functions
                     {
                         if (Directory.EnumerateFileSystemEntries(kvp.Value).Any())
                         {
-                            var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptArchive + "\" \"" + kvp.Value + "\"");
-                            await Task.Run(() => process.WaitForExit());
+                            await Python.ExecuteScript(Dirs.ScriptArchive, kvp.Value);
                         }
                     }
                 }

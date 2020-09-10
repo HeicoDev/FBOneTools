@@ -8,6 +8,7 @@ using MahApps.Metro.Controls;
 using BFBC2Toolkit.Data;
 using BFBC2Toolkit.Tools;
 using BFBC2Shared.Functions;
+using BFBC2Shared.Data;
 
 namespace BFBC2Toolkit.Windows
 {
@@ -87,8 +88,7 @@ namespace BFBC2Toolkit.Windows
                 }
                 else if (filePath.EndsWith(".dbx") || filePath.EndsWith(".xml"))
                 {
-                    var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptDBX + "\" \"" + filePath + "\"");
-                    await Task.Run(() => process.WaitForExit());
+                    await Python.ExecuteScript(Dirs.ScriptDBX, filePath);
 
                     if (copyToOutputEnabled)
                     {
@@ -132,13 +132,12 @@ namespace BFBC2Toolkit.Windows
                 }
                 else if (filePath.EndsWith(".swfmovie"))
                 {
-                    string targetFilePath = Path.GetDirectoryName(filePath);
+                    string destFilePath = Path.GetDirectoryName(filePath);
 
                     if (copyToOutputEnabled)
-                        targetFilePath = Dirs.OutputSwfMovie;
+                        destFilePath = Dirs.OutputSwfMovie;
 
-                    var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptSwfMovie + "\" \"" + filePath + "\" \"" + targetFilePath + "\"");
-                    await Task.Run(() => process.WaitForExit());
+                    await Python.ExecuteScript(Dirs.ScriptSwfMovie, filePath, destFilePath);
                 }
                 else
                 {

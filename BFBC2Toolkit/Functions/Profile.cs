@@ -4,7 +4,6 @@ using System.Windows;
 using System.Xml;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Diagnostics;
 using Microsoft.Win32;
 using BFBC2Toolkit.Data;
 using BFBC2Shared.Functions;
@@ -72,8 +71,7 @@ namespace BFBC2Toolkit.Functions
 
                             Log.Write("Extracting fbrb archive " + filesCountB + " of " + filesCountA + "...");
 
-                            var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptArchive + "\" \"" + file.Replace(@"\", @"\\") + "\"");
-                            await Task.Run(() => process.WaitForExit());
+                            await Python.ExecuteScript(Dirs.ScriptArchive, file);
 
                             await Task.Run(() => Directory.CreateDirectory(Dirs.Games + @"\" + gameId + @"\" + kvp.Value));
 

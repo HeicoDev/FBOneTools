@@ -2,6 +2,8 @@
 using System.Windows;
 using MahApps.Metro.Controls;
 using BFBC2Toolkit.Data;
+using BFBC2Shared.Data;
+using BFBC2Shared.Functions;
 
 namespace BFBC2Toolkit.Windows
 {
@@ -16,7 +18,7 @@ namespace BFBC2Toolkit.Windows
 
         private void SettingsWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            txtBoxPathToPython.Text = Settings.PathToPython;
+            txtBoxPathToPython.Text = SharedSettings.PathToPython;
 
             chkBoxHighlightSyntax.IsChecked = Settings.TxtEdHighlightSyntax;
             chkBoxHighlightCurrentLine.IsChecked = Settings.TxtEdHighlightCurrentLine;
@@ -110,7 +112,7 @@ namespace BFBC2Toolkit.Windows
 
         private void BtnSelectPathToPython_Click(object sender, RoutedEventArgs e)
         {
-            string path = SettingsHandler.ChangePythonPath();
+            string path = Python.ChangePath();
 
             if (path == String.Empty)
                 MessageBox.Show("Unable to locate pythonw.exe!", "Error");            

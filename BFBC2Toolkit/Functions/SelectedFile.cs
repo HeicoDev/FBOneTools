@@ -84,8 +84,7 @@ namespace BFBC2Toolkit.Functions
                 }
                 else if (selectedFilePath.EndsWith(".swfmovie"))
                 {
-                    var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptSwfMovie + "\" \"" + selectedFilePath + "\" \"" + Dirs.OutputSwfMovie + "\"");
-                    await Task.Run(() => process.WaitForExit());
+                    await Python.ExecuteScript(Dirs.ScriptSwfMovie, selectedFilePath, Dirs.OutputSwfMovie);
                 }
 
                 return false;
@@ -139,8 +138,7 @@ namespace BFBC2Toolkit.Functions
 
                         await Task.Run(() => File.Copy(ofd.FileName, path));
 
-                        var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptDBX + "\" \"" + path.Replace(@"\", @"\\") + "\"");
-                        await Task.Run(() => process.WaitForExit());
+                        await Python.ExecuteScript(Dirs.ScriptDBX, path);
 
                         UIElements.TextEditor.Text = await Task.Run(() => File.ReadAllText(path));
                         UIElements.TextEditor.ScrollToHome();

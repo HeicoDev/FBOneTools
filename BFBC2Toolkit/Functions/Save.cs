@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using BFBC2Toolkit.Data;
 using BFBC2Shared.Functions;
@@ -28,8 +27,7 @@ namespace BFBC2Toolkit.Functions
 
                     await Task.Run(() => File.WriteAllText(path, textEditorText));
 
-                    var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptDBX + "\" \"" + path.Replace(@"\", @"\\") + "\"");
-                    await Task.Run(() => process.WaitForExit());
+                    await Python.ExecuteScript(Dirs.ScriptDBX, path);
                 }
                 else if (selectedFilePath.EndsWith(".dbmanifest") || selectedFilePath.EndsWith(".ini") || selectedFilePath.EndsWith(".txt"))
                 {

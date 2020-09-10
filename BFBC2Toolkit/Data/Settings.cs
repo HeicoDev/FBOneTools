@@ -1,9 +1,8 @@
 ﻿using System;
-using System.IO;
 using System.Windows;
 using System.Xml;
-using Microsoft.Win32;
 using BFBC2Shared.Functions;
+using BFBC2Shared.Data;
 
 namespace BFBC2Toolkit.Data
 {
@@ -17,8 +16,6 @@ namespace BFBC2Toolkit.Data
         public static bool TxtEdShowTabs { get; set; } = false;
         public static bool TxtEdCodeFolding { get; set; } = true;
         public static bool TxtEdCodeCompletion { get; set; } = true;
-
-        public static string PathToPython { get; set; } = @"C:\Python27\pythonw.exe";
     }
 
     public class SettingsHandler
@@ -60,7 +57,7 @@ namespace BFBC2Toolkit.Data
                             nodeList[i].Attributes["Value"].Value = Settings.TxtEdCodeCompletion.ToString();
                             break;
                         case "PathToPython":
-                            nodeList[i].Attributes["Value"].Value = Settings.PathToPython;
+                            nodeList[i].Attributes["Value"].Value = SharedSettings.PathToPython;
                             break;
                     }
                 }
@@ -115,7 +112,7 @@ namespace BFBC2Toolkit.Data
                             Settings.TxtEdCodeCompletion = Convert.ToBoolean(nodeList[i].Attributes["Value"].Value);
                             break;
                         case "PathToPython":
-                            Settings.PathToPython = nodeList[i].Attributes["Value"].Value;
+                            SharedSettings.PathToPython = nodeList[i].Attributes["Value"].Value;
                             break;
                     }
                 }
@@ -128,51 +125,6 @@ namespace BFBC2Toolkit.Data
                 MessageBox.Show("Unable to load settings! See error.log", "error");
 
                 return true;
-            }
-        }
-
-        public static string ChangePythonPath()
-        {
-            try
-            {
-                var ofd = new OpenFileDialog();
-                ofd.Filter = "exe file (.exe)|*.exe";
-                ofd.Title = "Select pythonw.exe...";
-
-                if (ofd.ShowDialog() == true)
-                {
-                    string path = ofd.FileName;
-
-                    if (path.EndsWith("pythonw.exe"))
-                    {
-                        Settings.PathToPython = path;
-
-                        return path;
-                    }
-                    else
-                    {
-                        path = Path.GetDirectoryName(path) + @"\pythonw.exe";
-
-                        if (File.Exists(path))
-                        {
-                            Settings.PathToPython = path;
-
-                            return path;
-                        }
-                        else
-                        {
-                            return String.Empty;
-                        }
-                    }
-                }
-
-                return String.Empty;
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex.ToString());
-
-                return String.Empty;
             }
         }
     }

@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using System.Xml;
 using BFBC2ModLoader.Data;
 using BFBC2ModLoader.Data.Bindings;
+using BFBC2Shared.Data;
 using BFBC2Shared.Functions;
 
 namespace BFBC2ModLoader.Functions
@@ -163,7 +163,7 @@ namespace BFBC2ModLoader.Functions
                                     Settings.IsAutoUpdateCheckEnabled = Convert.ToBoolean(xr.Value);
                                     break;
                                 case "pathToPython":
-                                    Settings.PathToPython = xr.Value;
+                                    SharedSettings.PathToPython = xr.Value;
                                     break;
                             }
                         }
@@ -290,9 +290,7 @@ namespace BFBC2ModLoader.Functions
                                     using (var sw = new StreamWriter(Dirs.TempServer))
                                         sw.WriteLine(sIP + Environment.NewLine + sPort);
 
-                                    var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptServer + "\"");
-                                    await Task.Run(() => process.WaitForExit());
-                                    process.Close();
+                                    await Python.ExecuteScript(Dirs.ScriptServer);
 
                                     if (File.Exists(Dirs.ServerInfo))
                                     {

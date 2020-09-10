@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-using System.Diagnostics;
 using Microsoft.Win32;
 using BFBC2Toolkit.Data;
 using BFBC2Toolkit.Helpers;
@@ -20,8 +19,7 @@ namespace BFBC2Toolkit.Functions
                 if (Directory.Exists(Dirs.FilesPathData) && !Globals.IsGameProfile)
                     await Task.Run(() => Directory.Delete(Dirs.FilesPathData, true));
 
-                var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptArchive + "\" \"" + ofd.FileName.Replace(@"\", @"\\") + "\"");
-                await Task.Run(() => process.WaitForExit());
+                await Python.ExecuteScript(Dirs.ScriptArchive, ofd.FileName);
 
                 Dirs.FilesPathData = ofd.FileName.Replace(".fbrb", " FbRB");
 
@@ -51,8 +49,7 @@ namespace BFBC2Toolkit.Functions
             {
                 await MediaStream.Dispose();
 
-                var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptArchive + "\" \"" + Dirs.FilesPathData.Replace(@"\", @"\\") + "\"");
-                await Task.Run(() => process.WaitForExit());
+                await Python.ExecuteScript(Dirs.ScriptArchive, Dirs.FilesPathData);
 
                 return false;
             }

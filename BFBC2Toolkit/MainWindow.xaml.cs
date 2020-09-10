@@ -383,8 +383,7 @@ namespace BFBC2Toolkit
                     {
                         if (!File.Exists(selectedFilePath.Replace(selectedFileExtension, ".xml")))
                         {
-                            var process = Process.Start(Settings.PathToPython, "\"" + Dirs.ScriptDBX + "\" \"" + selectedFilePath + "\"");
-                            await Task.Run(() => process.WaitForExit());
+                            await Python.ExecuteScript(Dirs.ScriptDBX, selectedFilePath);
                         }
 
                         if (Settings.TxtEdHighlightSyntax)
@@ -1093,11 +1092,11 @@ namespace BFBC2Toolkit
                 Globals.SetSharedVars();
                 Globals.SetFbrbFiles();
 
-                if (!File.Exists(Settings.PathToPython))
+                if (!File.Exists(SharedSettings.PathToPython))
                 {
                     MessageBox.Show("Unable to locate Python 2.7 installation!\nPlease select pythonw.exe...", "Error");
 
-                    string path = SettingsHandler.ChangePythonPath();
+                    string path = Python.ChangePath();
 
                     if (path == String.Empty)
                     {
