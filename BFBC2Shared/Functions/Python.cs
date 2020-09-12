@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
-using System.Windows;
 using BFBC2Shared.Data;
 using Microsoft.Win32;
 
@@ -12,23 +11,20 @@ namespace BFBC2Shared.Functions
     {
         public static async Task ExecuteScript(string script)
         {
-            var process = Process.Start(SharedSettings.PathToPython, "\"" + script + "\"");
-            await Task.Run(() => process.WaitForExit());
-            process.Close();
+            using (var process = Process.Start(SharedSettings.PathToPython, "\"" + script + "\""))
+                await Task.Run(() => process.WaitForExit());
         }
 
         public static async Task ExecuteScript(string script, string target)
         {
-            var process = Process.Start(SharedSettings.PathToPython, "\"" + script + "\" \"" + target + "\"");
-            await Task.Run(() => process.WaitForExit());
-            process.Close();
+            using (var process = Process.Start(SharedSettings.PathToPython, "\"" + script + "\" \"" + target + "\""))
+                await Task.Run(() => process.WaitForExit());
         }
 
         public static async Task ExecuteScript(string script, string target, string destination)
         {
-            var process = Process.Start(SharedSettings.PathToPython, "\"" + script + "\" \"" + target + "\" \"" + destination + "\"");
-            await Task.Run(() => process.WaitForExit());
-            process.Close();
+            using (var process = Process.Start(SharedSettings.PathToPython, "\"" + script + "\" \"" + target + "\" \"" + destination + "\""))
+                await Task.Run(() => process.WaitForExit());
         }
 
         public static string ChangePath()
