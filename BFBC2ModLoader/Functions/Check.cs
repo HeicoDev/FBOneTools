@@ -17,7 +17,7 @@ namespace BFBC2ModLoader.Functions
             {
                 string versionServerOld = Globals.VersionServer;
 
-                using (WebClient wc = new WebClient())
+                using (var wc = new WebClient())
                 {
                     wc.DownloadFile("https://raw.githubusercontent.com/HeicoDev/FBOneTools/master/BFBC2ModLoader/BFBC2ModLoader/Config/update.config", Dirs.ModsCommon + @"\tempUpdate.config");
 

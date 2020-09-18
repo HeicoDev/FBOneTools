@@ -15,7 +15,7 @@ namespace BFBC2ModLoader.Data
         public static void SetSharedVars()
         {
             SharedGlobals.ClientName = "BFBC2 Mod Loader";
-            SharedGlobals.ClientVersion = "2.0.1";
+            SharedGlobals.ClientVersion = "2.0.2";
         }
     }
 }
