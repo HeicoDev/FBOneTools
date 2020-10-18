@@ -373,7 +373,7 @@ namespace BFBC2Toolkit.Functions
 
                 await Task.Run(() => File.Copy(Dirs.SelectedFilePathData, filePathMod));
 
-                Tree.Populate(UIElements.TreeViewModExplorer, Dirs.FilesPathMod);
+                await Tree.Populate(UIElements.TreeViewModExplorer, Dirs.FilesPathMod);
 
                 return false;
             }

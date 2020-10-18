@@ -27,7 +27,7 @@ namespace BFBC2Toolkit.Functions
 
                 await Task.Run(() => CleanUp.FilesAndDirs(Dirs.FilesPathData));
 
-                Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.FilesPathData);
+                await Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.FilesPathData);
 
                 Globals.IsDataAvailable = true;
                 Globals.IsGameProfile = false;

@@ -24,7 +24,7 @@ namespace BFBC2Toolkit.Functions
 
                 Dirs.ModName = iniFile.Read("Name", "ModInfo");
 
-                Tree.Populate(UIElements.TreeViewModExplorer, Dirs.FilesPathMod);
+                await Tree.Populate(UIElements.TreeViewModExplorer, Dirs.FilesPathMod);
 
                 Globals.IsModAvailable = true;
 
@@ -93,7 +93,7 @@ namespace BFBC2Toolkit.Functions
                             if (File.Exists(tempFile))
                                 await Task.Run(() => File.Delete(tempFile));
 
-                            Tree.Populate(UIElements.TreeViewModExplorer, path);
+                            await Tree.Populate(UIElements.TreeViewModExplorer, path);
 
                             Dirs.FilesPathMod = path;
                             Dirs.ModName = name;

@@ -142,42 +142,42 @@ namespace BFBC2Toolkit.Functions
 
                 if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "PC")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC2-PC");
+                    await Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC2-PC");
                     Dirs.FilesPathData = Dirs.Games + @"\BFBC2-PC";
                 }
                 else if (profile.Name == "Battlefield Bad Company 2 Server" && profile.Platform == "PC")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC2-Server-PC");
+                    await Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC2-Server-PC");
                     Dirs.FilesPathData = Dirs.Games + @"\BFBC2-Server-PC";
                 }
                 else if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "PS3")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC2-PS3");
+                    await Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC2-PS3");
                     Dirs.FilesPathData = Dirs.Games + @"\BFBC2-PS3";
                 }
                 else if (profile.Name == "Battlefield Bad Company 2" && profile.Platform == "Xbox")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC2-Xbox");
+                    await Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC2-Xbox");
                     Dirs.FilesPathData = Dirs.Games + @"\BFBC2-Xbox";
                 }
                 else if (profile.Name == "Battlefield Bad Company" && profile.Platform == "PS3")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC-PS3");
+                    await Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC-PS3");
                     Dirs.FilesPathData = Dirs.Games + @"\BFBC-PS3";
                 }
                 else if (profile.Name == "Battlefield Bad Company" && profile.Platform == "Xbox")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC-Xbox");
+                    await Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BFBC-Xbox");
                     Dirs.FilesPathData = Dirs.Games + @"\BFBC-Xbox";
                 }
                 else if (profile.Name == "Battlefield 1943" && profile.Platform == "PS3")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BF1943-PS3");
+                    await Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BF1943-PS3");
                     Dirs.FilesPathData = Dirs.Games + @"\BF1943-PS3";
                 }
                 else if (profile.Name == "Battlefield 1943" && profile.Platform == "Xbox")
                 {
-                    Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BF1943-Xbox");
+                    await Tree.Populate(UIElements.TreeViewDataExplorer, Dirs.Games + @"\BF1943-Xbox");
                     Dirs.FilesPathData = Dirs.Games + @"\BF1943-Xbox";
                 }
 

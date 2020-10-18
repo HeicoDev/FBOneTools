@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Controls;
 using BFBC2Toolkit.Data;
 
@@ -12,13 +13,13 @@ namespace BFBC2Toolkit.Functions
                               fileSupported = "No",
                               fileArchive = "Unknown";
 
-        public static void Populate(TreeView treeView, string path)
+        public static async Task Populate(TreeView treeView, string path)
         {
             treeView.Items.Clear();
 
             var directoryInfo = new DirectoryInfo(path);
 
-            treeView.Items.Add(CreateDirectoryNode(directoryInfo));
+            treeView.Items.Add(await Task.Run(() => CreateDirectoryNode(directoryInfo)));
         }
 
         private static CustomTreeViewItem CreateDirectoryNode(DirectoryInfo directoryInfo)

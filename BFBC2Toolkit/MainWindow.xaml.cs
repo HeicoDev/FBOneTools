@@ -570,7 +570,7 @@ namespace BFBC2Toolkit
                 mediaElement.Volume = slider.Value;
         }                
 
-        private void BtnDataRefresh_Click(object sender, RoutedEventArgs e)
+        private async void BtnDataRefresh_Click(object sender, RoutedEventArgs e)
         {
             if (!treeViewDataExplorer.HasItems)
                 return;
@@ -585,7 +585,7 @@ namespace BFBC2Toolkit
 
             try
             {               
-                Tree.Populate(treeViewDataExplorer, Dirs.FilesPathData);
+                await Tree.Populate(treeViewDataExplorer, Dirs.FilesPathData);
             }
             catch (Exception ex)
             {
@@ -603,7 +603,7 @@ namespace BFBC2Toolkit
                 Log.Write("", "done");
         }
 
-        private void BtnModRefresh_Click(object sender, RoutedEventArgs e)
+        private async void BtnModRefresh_Click(object sender, RoutedEventArgs e)
         {
             if (!treeViewModExplorer.HasItems)
                 return;
@@ -618,7 +618,7 @@ namespace BFBC2Toolkit
 
             try
             {
-                Tree.Populate(treeViewModExplorer, Dirs.FilesPathMod);
+                await Tree.Populate(treeViewModExplorer, Dirs.FilesPathMod);
             }
             catch (Exception ex)
             {
