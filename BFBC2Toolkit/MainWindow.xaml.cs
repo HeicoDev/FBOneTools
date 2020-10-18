@@ -505,7 +505,7 @@ namespace BFBC2Toolkit
 
         private async void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (Globals.IsGameProfile)
+            if (Globals.IsGameProfile && Globals.IsDataTreeView)
             {
                 Log.Write("You can't edit a file from a game profile!", "warning");
                 return;
