@@ -209,7 +209,6 @@ namespace BFBC2ModLoader
 
         private async void BtnInstallMod_Click(object sender, RoutedEventArgs e)
         {
-            //Choose mod (zip)
             var ofd = new OpenFileDialog();
             ofd.Filter = "zip file (.zip)|*.zip";
             ofd.Title = "Select mod...";
@@ -238,7 +237,6 @@ namespace BFBC2ModLoader
 
         private void BtnEnableMods_Click(object sender, RoutedEventArgs e)
         {
-            //Enable mods
             try
             {
                 if (File.Exists(Dirs.MftRoot))
@@ -271,7 +269,6 @@ namespace BFBC2ModLoader
 
         private void BtnDisableMods_Click(object sender, RoutedEventArgs e)
         {
-            //Disable mods
             try
             {
                 if (File.Exists(Dirs.MftRoot))
@@ -306,9 +303,8 @@ namespace BFBC2ModLoader
             }
         }
 
-        private void BtnDelAllMods_Click(object sender, RoutedEventArgs e)
+        private async void BtnDelAllMods_Click(object sender, RoutedEventArgs e)
         {
-            //Delete mods
             try
             {
                 Log.Write("Deleting mods...");
@@ -319,7 +315,7 @@ namespace BFBC2ModLoader
                 {
                     EnableAllButtons(false);
 
-                    Delete.Mods();
+                    await Delete.Mods();
 
                     EnableAllButtons(true);
 
@@ -339,7 +335,6 @@ namespace BFBC2ModLoader
 
         private void BtnUp_Click(object sender, RoutedEventArgs e)
         {
-            //Up
             try
             {
                 EnableAllButtons(false);
@@ -375,7 +370,6 @@ namespace BFBC2ModLoader
 
         private void BtnDown_Click(object sender, RoutedEventArgs e)
         {
-            //Down
             try
             {
                 EnableAllButtons(false);
@@ -411,7 +405,6 @@ namespace BFBC2ModLoader
 
         private async void BtnApply_Click(object sender, RoutedEventArgs e)
         {
-            //Apply
             try
             {
                 Log.Write("This may take a while. Do NOT close the application!");
@@ -446,7 +439,6 @@ namespace BFBC2ModLoader
 
         private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
-            //Reset
             try
             {
                 Log.Write("Resetting changes, please wait...");
@@ -485,7 +477,7 @@ namespace BFBC2ModLoader
                 {
                     if (dataGridModManager.Items.Count < 2)
                     {
-                        Delete.Mods();
+                        await Delete.Mods();
                     }
                     else
                     {
@@ -502,14 +494,14 @@ namespace BFBC2ModLoader
 
                         dataGridModManager.Items.RemoveAt(dataGridModManager.Items.IndexOf(item));
                         if (Directory.Exists(Dirs.ModsFolder + "\\" + modName))
-                            Directory.Delete(Dirs.ModsFolder + "\\" + modName, true);
+                            await Task.Run(() => Directory.Delete(Dirs.ModsFolder + "\\" + modName, true));
 
                         if (modType.Contains("map"))
                         {
                             if (Directory.Exists(Dirs.LevelsPathPackage + "\\" + mapName))
-                                Directory.Delete(Dirs.LevelsPathPackage + "\\" + mapName, true);
+                                await Task.Run(() => Directory.Delete(Dirs.LevelsPathPackage + "\\" + mapName, true));
                             if (Directory.Exists(Dirs.LevelsPathDist + "\\" + mapName))
-                                Directory.Delete(Dirs.LevelsPathDist + "\\" + mapName, true);
+                                await Task.Run(() => Directory.Delete(Dirs.LevelsPathDist + "\\" + mapName, true));
                         }
                         else
                             await Install.Mods();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using BFBC2ModLoader.Data;
 using BFBC2ModLoader.Data.Bindings;
 using BFBC2Shared.Data;
@@ -10,7 +11,7 @@ namespace BFBC2ModLoader.Functions
 {
     public class Delete
     {
-        public static void Mods()
+        public static async Task Mods()
         {
             try
             {
@@ -25,26 +26,26 @@ namespace BFBC2ModLoader.Functions
                         string mapName = mapInfo.Read("MapID", "ModInfo");
 
                         if (Directory.Exists(Dirs.LevelsPathPackage + "\\" + mapName))
-                            Directory.Delete(Dirs.LevelsPathPackage + "\\" + mapName, true);
+                            await Task.Run(() => Directory.Delete(Dirs.LevelsPathPackage + "\\" + mapName, true));
                         if (Directory.Exists(Dirs.LevelsPathDist + "\\" + mapName))
-                            Directory.Delete(Dirs.LevelsPathDist + "\\" + mapName, true);
+                            await Task.Run(() => Directory.Delete(Dirs.LevelsPathDist + "\\" + mapName, true));
                     }
                 }
 
                 foreach (KeyValuePair<string, string> kvp in Dirs.FbrbDirs)
                 {
                     if (Directory.Exists(kvp.Value))
-                        Directory.Delete(kvp.Value, true);
+                        await Task.Run(() => Directory.Delete(kvp.Value, true));
                 }
 
                 foreach (KeyValuePair<string, string> kvp in Dirs.FbrbFiles)
                 {
                     if (File.Exists(kvp.Value))
-                        File.Delete(kvp.Value);
+                        await Task.Run(() => File.Delete(kvp.Value));
                 }
 
                 if (Directory.Exists(Dirs.ModsFolder))
-                    Directory.Delete(Dirs.ModsFolder, true);
+                    await Task.Run(() => Directory.Delete(Dirs.ModsFolder, true));
 
                 if (File.Exists(Dirs.MftRoot))
                     File.Delete(Dirs.MftRoot);
@@ -64,18 +65,18 @@ namespace BFBC2ModLoader.Functions
             }
         }
 
-        public static void TempFiles()
+        public static async Task TempFiles()
         {
             try
             {
                 if (Directory.Exists(Dirs.ExtractPath))
-                    Directory.Delete(Dirs.ExtractPath, true);
+                    await Task.Run(() => Directory.Delete(Dirs.ExtractPath, true));
                 if (File.Exists(Dirs.TempText))
-                    File.Delete(Dirs.TempText);
+                    await Task.Run(() => File.Delete(Dirs.TempText));
                 if (File.Exists(Dirs.ModsText))
-                    File.Delete(Dirs.ModsText);
+                    await Task.Run(() => File.Delete(Dirs.ModsText));
                 if (File.Exists(Dirs.MapZIP))
-                    File.Delete(Dirs.MapZIP);
+                    await Task.Run(() => File.Delete(Dirs.MapZIP));
             }
             catch (Exception ex)
             {
@@ -84,24 +85,24 @@ namespace BFBC2ModLoader.Functions
             }
         }
 
-        public static void Cleanup(string modName, string archivePath)
+        public static async Task Cleanup(string modName, string archivePath)
         {
             try
             {
                 if (Directory.Exists(Dirs.ModsFolder + "\\" + modName + @"\_Docs"))
-                    Directory.Delete(Dirs.ModsFolder + "\\" + modName + @"\_Docs", true);
+                    await Task.Run(() => Directory.Delete(Dirs.ModsFolder + "\\" + modName + @"\_Docs", true));
                 if (Directory.Exists(Dirs.ModsFolder + "\\" + modName + @"\Docs"))
-                    Directory.Delete(Dirs.ModsFolder + "\\" + modName + @"\Docs", true);
+                    await Task.Run(() => Directory.Delete(Dirs.ModsFolder + "\\" + modName + @"\Docs", true));
                 if (Directory.Exists(archivePath + @"\_Docs"))
-                    Directory.Delete(archivePath + @"\_Docs", true);
+                    await Task.Run(() => Directory.Delete(archivePath + @"\_Docs", true));
                 if (Directory.Exists(archivePath + @"\Docs"))
-                    Directory.Delete(archivePath + @"\Docs", true);
+                    await Task.Run(() => Directory.Delete(archivePath + @"\Docs", true));
                 if (File.Exists(archivePath + @"\ModInfo.ini"))
-                    File.Delete(archivePath + @"\ModInfo.ini");
+                    await Task.Run(() => File.Delete(archivePath + @"\ModInfo.ini"));
                 if (File.Exists(Dirs.TempText))
-                    File.Delete(Dirs.TempText);
+                    await Task.Run(() => File.Delete(Dirs.TempText));
                 if (File.Exists(Dirs.MapZIP))
-                    File.Delete(Dirs.MapZIP);
+                    await Task.Run(() => File.Delete(Dirs.MapZIP));
             }
             catch (Exception ex)
             {

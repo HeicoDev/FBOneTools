@@ -49,7 +49,7 @@ namespace BFBC2ModLoader.Functions
                 //Check if valid mod/ModInfo.ini exists & directories correct
                 if (!File.Exists(Dirs.ExtractPath + @"\ModInfo.ini"))
                 {
-                    Delete.TempFiles();
+                    await Delete.TempFiles();
 
                     Log.Write("Not a valid BFBC2 mod. Aborted installation!", "warning");
 
@@ -73,7 +73,7 @@ namespace BFBC2ModLoader.Functions
 
                 if (!validDirExists)
                 {
-                    Delete.TempFiles();
+                    await Delete.TempFiles();
 
                     Log.Write("Not a valid BFBC2 mod. Aborted installation!", "warning");
 
@@ -93,7 +93,7 @@ namespace BFBC2ModLoader.Functions
 
                 if (modName == String.Empty || modType == String.Empty)
                 {
-                    Delete.TempFiles();
+                    await Delete.TempFiles();
 
                     Log.Write("Not a valid BFBC2 mod. Aborted installation!", "warning");
 
@@ -185,7 +185,7 @@ namespace BFBC2ModLoader.Functions
                     //Clean up if no overwrite/installation
                     else if (result == MessageBoxResult.No)
                     {
-                        Delete.TempFiles();
+                        await Delete.TempFiles();
 
                         Log.Write("Click 'Install Mod' to select the mod you want to install.");
                     }
@@ -197,7 +197,7 @@ namespace BFBC2ModLoader.Functions
 
                 Misc.OrderNumber();
                 Save.ModsXML();
-                Delete.TempFiles();
+                await Delete.TempFiles();
             }
             catch (Exception ex)
             {
@@ -272,12 +272,12 @@ namespace BFBC2ModLoader.Functions
                 File.Delete(Dirs.BundleManiRoot);
             File.Copy(Dirs.BundleManiModded, Dirs.BundleManiRoot);
 
-            Delete.Cleanup(modName, archivePath);
+            await Delete.Cleanup(modName, archivePath);
 
             //Create archive or not depending on the info in ModInfo.ini
             if (modType.Contains("map"))
             {
-                Delete.TempFiles();
+                await Delete.TempFiles();
             }
             else
             {
