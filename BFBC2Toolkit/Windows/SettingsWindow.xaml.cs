@@ -2,6 +2,7 @@
 using System.Windows;
 using MahApps.Metro.Controls;
 using BFBC2Toolkit.Data;
+using BFBC2Toolkit.Functions;
 using BFBC2Shared.Data;
 using BFBC2Shared.Functions;
 
@@ -135,6 +136,15 @@ namespace BFBC2Toolkit.Windows
                     MessageBox.Show("Incorrect version of Python detected!\nIt must be version 2.7!", "Error");
                 }
             }
+        }
+
+        private void BtnCheckUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Log.Write("Checking for updates...");
+
+            Check.Update();
+
+            Log.Write("", "done");
         }
 
         private void BtnSaveClose_Click(object sender, RoutedEventArgs e)
