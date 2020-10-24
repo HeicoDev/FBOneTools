@@ -31,7 +31,6 @@ namespace BFBC2ModLoader.Functions
                     if (SharedGlobals.ClientVersion != Globals.VersionClientNew)
                     {
                         Log.Write("An update for BFBC2 Mod Loader is available.");
-
                         MessageBox.Show("An update for BFBC2 Mod Loader is available.\nVisit Nexus Mods to download the latest version.", "Update available");
                     }
 
@@ -118,7 +117,7 @@ namespace BFBC2ModLoader.Functions
             catch (Exception ex)
             {
                 Log.Error(ex.ToString());
-                Log.Write("Update failed! No internet connection? See error.log", "error");
+                MessageBox.Show("Update failed! No internet connection? See error.log", "Error");
             }
         }
 

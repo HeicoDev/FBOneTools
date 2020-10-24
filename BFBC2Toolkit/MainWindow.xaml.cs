@@ -1144,7 +1144,7 @@ namespace BFBC2Toolkit
                         Environment.Exit(0);
                     }
                 }
-            }            
+            }           
 
             image.Margin = new Thickness(0, 31, 0, 27);
             mediaElement.Margin = new Thickness(0, 31, 0, 27);
@@ -1189,6 +1189,8 @@ namespace BFBC2Toolkit
 
             txtBoxEventLog.Document.Blocks.Clear();
             txtBoxInformation.Document.Blocks.Clear();
+
+            Check.Update();
         }
 
         private void ResetGridSizes()

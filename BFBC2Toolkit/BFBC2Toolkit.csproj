@@ -122,6 +122,7 @@
     <Compile Include="Data\GameProfile.cs" />
     <Compile Include="Data\UIElements.cs" />
     <Compile Include="Data\Settings.cs" />
+    <Compile Include="Functions\Check.cs" />
     <Compile Include="Helpers\BitmapHelper.cs" />
     <Compile Include="Functions\Create.cs" />
     <Compile Include="Helpers\MediaStreamHelper.cs" />

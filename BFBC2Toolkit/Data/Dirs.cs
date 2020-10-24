@@ -35,9 +35,11 @@ namespace BFBC2Toolkit.Data
         public static string ScriptDBX { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts\dbx.pyw";
         public static string ScriptSwfMovie { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Scripts\swfmovie.pyw";
         public static string SyntaxXML { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\SyntaxXML.Config";
-        public static string SyntaxINI { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\SyntaxINI.Config";
+        public static string SyntaxINI { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\SyntaxINI.Config";       
+        public static string ConfigUpdate { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\update.config";
         public static string ConfigGames { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\games.Config";
         public static string ConfigSettings { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config\settings.Config";
+        public static string Config { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Config";
         public static string Logs { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Logs";
         public static string Projects { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Projects";
         public static string Games { get; } = Environment.CurrentDirectory + @"\BFBC2Toolkit\Games";
