@@ -129,7 +129,7 @@ If you enjoy my work and want to provide support, you can do so by reporting bug
 ## Disclaimer
 
 I'm not affiliated, associated, authorized, endorsed by, or in any way officially connected with Electronic Arts or DICE, or any of its subsidiaries or its affiliates.
-The names Electronic Arts and DICE as well as related emblems, images, marks and names a such as Battlefield and Frostbite are registered trademarks of their respective owners.
+The names Electronic Arts and DICE as well as related emblems, images, marks and names such as Battlefield and Frostbite are registered trademarks of their respective owners.
 
 Game files or any other form of copyrighted materials will NOT be shipped with these tools! Everybody must provide the game files on his own.
 I do NOT support piracy in any way, so if you face issues, first make sure that you own a legal copy of the game!
