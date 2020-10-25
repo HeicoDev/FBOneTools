@@ -1190,7 +1190,8 @@ namespace BFBC2Toolkit
             txtBoxEventLog.Document.Blocks.Clear();
             txtBoxInformation.Document.Blocks.Clear();
 
-            Check.Update();
+            if (Settings.IsAutoUpdateCheckEnabled)
+                Check.Update();
         }
 
         private void ResetGridSizes()

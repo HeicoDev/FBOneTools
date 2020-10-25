@@ -16,6 +16,7 @@ namespace BFBC2Toolkit.Data
         public static bool TxtEdShowTabs { get; set; } = false;
         public static bool TxtEdCodeFolding { get; set; } = true;
         public static bool TxtEdCodeCompletion { get; set; } = true;
+        public static bool IsAutoUpdateCheckEnabled { get; set; } = true;
     }
 
     public class SettingsHandler
@@ -58,6 +59,9 @@ namespace BFBC2Toolkit.Data
                             break;
                         case "PathToPython":
                             nodeList[i].Attributes["Value"].Value = SharedSettings.PathToPython;
+                            break;
+                        case "IsAutoUpdateCheckEnabled":
+                            nodeList[i].Attributes["Value"].Value = Settings.IsAutoUpdateCheckEnabled.ToString();
                             break;
                     }
                 }
@@ -113,6 +117,9 @@ namespace BFBC2Toolkit.Data
                             break;
                         case "PathToPython":
                             SharedSettings.PathToPython = nodeList[i].Attributes["Value"].Value;
+                            break;
+                        case "IsAutoUpdateCheckEnabled":
+                            Settings.IsAutoUpdateCheckEnabled = Convert.ToBoolean(nodeList[i].Attributes["Value"].Value);
                             break;
                     }
                 }

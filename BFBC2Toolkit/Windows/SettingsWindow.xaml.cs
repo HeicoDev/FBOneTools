@@ -29,6 +29,7 @@ namespace BFBC2Toolkit.Windows
             chkBoxShowTabs.IsChecked = Settings.TxtEdShowTabs;
             chkBoxCodeFolding.IsChecked = Settings.TxtEdCodeFolding;
             chkBoxCodeCompletion.IsChecked = Settings.TxtEdCodeCompletion;
+            chkBoxAutoCheckUpdates.IsChecked = Settings.IsAutoUpdateCheckEnabled;
         }
 
         private void ChkBoxHighlightSyntax_Checked(object sender, RoutedEventArgs e)
@@ -109,6 +110,16 @@ namespace BFBC2Toolkit.Windows
         private void ChkBoxCodeCompletion_Unchecked(object sender, RoutedEventArgs e)
         {
             Settings.TxtEdCodeCompletion = false;
+        }
+
+        private void ChkBoxAutoCheckUpdates_Checked(object sender, RoutedEventArgs e)
+        {
+            Settings.IsAutoUpdateCheckEnabled = true;
+        }
+
+        private void ChkBoxAutoCheckUpdates_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Settings.IsAutoUpdateCheckEnabled = false;
         }
 
         private void BtnSelectPathToPython_Click(object sender, RoutedEventArgs e)

@@ -18,6 +18,7 @@
                     <Label x:Name="lblPathToPython" Content="Path To Python:" HorizontalAlignment="Left" Margin="6,10,0,0" VerticalAlignment="Top" Foreground="#FFE2E2E2" FontSize="11"/>
                     <Button x:Name="btnSelectPathToPython" BorderBrush="#FF707070" Background="#FF454545" Content="Select" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontSize="11" HorizontalAlignment="Left" Height="21" Margin="328,12,0,0" Width="88" Style="{DynamicResource ButtonStyle1}" ToolTip="Select path to pythonw.exe" VerticalAlignment="Top" Click="BtnSelectPathToPython_Click"/>
                     <Button x:Name="btnCheckUpdate" Background="#FF454545" Content="Check for Updates" Controls:ButtonHelper.CornerRadius="3" Foreground="#FFE2E2E2" FontWeight="Bold" FontSize="11" HorizontalAlignment="Left" Margin="8,0,0,8" Width="108" BorderBrush="#FF707070" Style="{DynamicResource ButtonStyle1}" VerticalAlignment="Bottom" Height="21" ToolTip="Check for application updates" Click="BtnCheckUpdate_Click"/>
+                    <CheckBox x:Name="chkBoxAutoCheckUpdates" Content="Automatic Update Check" HorizontalAlignment="Left" Margin="123,0,0,11" VerticalAlignment="Bottom" Foreground="#FFE2E2E2" Background="#FF454545" BorderBrush="#FF454545" ToolTip="Automatically check for application and map updates on startup" Checked="ChkBoxAutoCheckUpdates_Checked" Unchecked="ChkBoxAutoCheckUpdates_Unchecked" />
                 </Grid>
             </TabItem>
 
