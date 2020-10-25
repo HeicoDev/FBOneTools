@@ -1078,6 +1078,12 @@ namespace BFBC2Toolkit
 
         private async Task InitializeStartup()
         {
+            Opacity = 0;
+
+            var splashscreen = new SplashscreenWindow();
+            splashscreen.Owner = this;
+            splashscreen.Show();
+
             SharedUIElements.TxtBoxEventLog = txtBoxEventLog;
             UIElements.TxtBoxInformation = txtBoxInformation;
             UIElements.TextEditor = textEditor;
@@ -1192,6 +1198,10 @@ namespace BFBC2Toolkit
 
             if (Settings.IsAutoUpdateCheckEnabled)
                 Check.Update();
+
+            splashscreen.Close();
+            Opacity = 100;
+            Activate();
         }
 
         private void ResetGridSizes()
