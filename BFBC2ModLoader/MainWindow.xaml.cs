@@ -67,10 +67,11 @@ namespace BFBC2ModLoader
 
         private async Task InitializeStartup()
         {
-            Opacity = 0;
+            WindowState = WindowState.Minimized;
 
             var windowStartup = new WindowStartup();
             windowStartup.Owner = this;
+            windowStartup.Topmost = true;
             windowStartup.Show();            
 
             UIElements.SetElements(txtBoxEventLog, txtBoxModInfo, txtBoxServerInfo, txtBoxMapInfo, dataGridModManager, dataGridServerBrowser, dataGridMapBrowser);            
@@ -105,8 +106,15 @@ namespace BFBC2ModLoader
                 Log.Write("BFBC2 Mod Loader is not installed correctly!", "warning");
 
                 windowStartup.Close();
-                Opacity = 100;
+                WindowState = WindowState.Normal;
+
+                //On some systems the window will be stuck behind other windows on startup
+                //Workaround: This will hopefully bring the window to the foreground on different OS's 
+                Show();
                 Activate();
+                Topmost = true;
+                Topmost = false;
+                Focus();
 
                 return;
             }
@@ -203,8 +211,15 @@ namespace BFBC2ModLoader
             }
 
             windowStartup.Close();
-            Opacity = 100;
+            WindowState = WindowState.Normal;
+
+            //On some systems the window will be stuck behind other windows on startup
+            //Workaround: This will hopefully bring the window to the foreground on different OS's 
+            Show();
             Activate();
+            Topmost = true;
+            Topmost = false;
+            Focus();
         }
 
         private async void BtnInstallMod_Click(object sender, RoutedEventArgs e)

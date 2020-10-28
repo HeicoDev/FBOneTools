@@ -1078,10 +1078,11 @@ namespace BFBC2Toolkit
 
         private async Task InitializeStartup()
         {
-            Opacity = 0;
+            WindowState = WindowState.Minimized;
 
             var splashscreen = new SplashscreenWindow();
             splashscreen.Owner = this;
+            splashscreen.Topmost = true;
             splashscreen.Show();
 
             SharedUIElements.TxtBoxEventLog = txtBoxEventLog;
@@ -1200,7 +1201,7 @@ namespace BFBC2Toolkit
                 Check.Update();
 
             splashscreen.Close();
-            Opacity = 100;
+            WindowState = WindowState.Normal;
 
             //On some systems the window will be stuck behind other windows on startup
             //Workaround: This will hopefully bring the window to the foreground on different OS's 
@@ -1208,7 +1209,7 @@ namespace BFBC2Toolkit
             Activate();
             Topmost = true;
             Topmost = false;
-            Focus();
+            Focus();           
         }
 
         private void ResetGridSizes()

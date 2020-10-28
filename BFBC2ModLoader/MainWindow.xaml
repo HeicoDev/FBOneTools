@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BFBC2ModLoader"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="BFBC2 Mod Loader" Height="271" Width="600" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterScreen" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" Loaded="MainWindow_Loaded" MinWidth="600" MinHeight="400" Closing="MainWindow_Closing" AllowsTransparency="True">
+        Title="BFBC2 Mod Loader" Height="271" Width="600" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterScreen" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" Loaded="MainWindow_Loaded" MinWidth="600" MinHeight="400" Closing="MainWindow_Closing">
 
     <!--Controls:MetroWindow.IconTemplate>
         <DataTemplate>
