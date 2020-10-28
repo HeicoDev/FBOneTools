@@ -1201,7 +1201,14 @@ namespace BFBC2Toolkit
 
             splashscreen.Close();
             Opacity = 100;
+
+            //On some systems the window will be stuck behind other windows on startup
+            //Workaround: This will hopefully bring the window to the foreground on different OS's 
+            Show();
             Activate();
+            Topmost = true;
+            Topmost = false;
+            Focus();
         }
 
         private void ResetGridSizes()

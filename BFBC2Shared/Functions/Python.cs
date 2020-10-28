@@ -75,7 +75,7 @@ namespace BFBC2Shared.Functions
         public static bool CheckVersion()
         {
             var processInfo = new ProcessStartInfo();
-            processInfo.FileName = @"cmd.exe"; // Specify exe name.
+            processInfo.FileName = @"cmd.exe"; 
             processInfo.Arguments = String.Format(@"/c {0}\{1} ", Path.GetDirectoryName(SharedSettings.PathToPython), "python --version");
             processInfo.UseShellExecute = false;
             processInfo.RedirectStandardOutput = false;
