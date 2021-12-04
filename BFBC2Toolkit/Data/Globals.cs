@@ -24,9 +24,9 @@ namespace BFBC2Toolkit.Data
                                                         "dx11pixelshader", "grannymodel", "ragdollresource", "grannyanimation",
                                                         "weathersystem", "dx11vertexshader", "terrain", "impulseresponse",
                                                         "binkmemory", "deltaanimation", "dx10shaderdatabase", "meshdata",
-                                                        "xenonpixelshader", "xenonvertexshader", "xenontexture", "ps3pixelshader",
-                                                        "ps3vertexshader", "ps3texture", "pathdatadefinition", "dbxdeleted", "resdeleted",
-                                                        "nonres", "dbx", "bin", "dbmanifest", "ini", "txt" };
+                                                        "xenonpixelshader", "xenonvertexshader", "xenonshaderdatabase", "xenontexture", "ps3pixelshader",
+                                                        "ps3vertexshader", "ps3shaderdatabase", "ps3texture", "pathdatadefinition", "dbxdeleted", "resdeleted",
+                                                        "nonres", "res", "dbx", "bin", "dbmanifest", "ini", "txt" };
         
         public static string[] GameIds { get; } = { "BFBC2-PC", "BFBC2-Server-PC", "BFBC2-PS3", "BFBC2-Xbox", "BFBC-PS3", "BFBC-Xbox",
                                                     "BF1943-PS3", "BF1943-Xbox" };
