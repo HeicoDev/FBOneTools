@@ -1132,7 +1132,7 @@ namespace BFBC2Toolkit
                     Environment.Exit(0);
                 }
                 else
-                {
+                {                    
                     bool isCorrectPythonVersion = Python.CheckVersion();
 
                     if (!isCorrectPythonVersion)
@@ -1140,13 +1140,14 @@ namespace BFBC2Toolkit
                         MessageBox.Show("Incorrect version of Python detected!\nIt must be version 2.7!\nPress 'OK' to close the app.", "Error");
 
                         Environment.Exit(0);
-                    }
+                    }                    
+                    
 
                     bool hasErrorOccurredOnSave = SettingsHandler.Save();
 
                     if (hasErrorOccurredOnSave)
                     {
-                        MessageBox.Show("Unable to load settings.config! See error.log\nPress 'OK' to close the app.", "Error");
+                        MessageBox.Show("Unable to save settings.config! See error.log\nPress 'OK' to close the app.", "Error");
 
                         Environment.Exit(0);
                     }
