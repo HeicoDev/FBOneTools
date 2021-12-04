@@ -78,8 +78,8 @@ dx11pixelshader='Dx11PixelShader',grannymodel='GrannyModel',ragdollresource='Rag
 grannyanimation='GrannyAnimation',weathersystem='WeatherSystem',dx11vertexshader='Dx11VertexShader',terrain='Terrain',
 impulseresponse='ImpulseResponse',binkmemory='BinkMemory',deltaanimation='DeltaAnimation',
 dx10shaderdatabase='Dx10ShaderDatabase',meshdata='MeshData',xenonpixelshader='XenonPixelShader',
-xenonvertexshader='XenonVertexShader',xenontexture='XenonTexture',ps3pixelshader='Ps3PixelShader',
-ps3vertexshader='Ps3VertexShader',ps3texture='Ps3Texture',pathdatadefinition='PathDataDefinition',
+xenonvertexshader='XenonVertexShader',xenonshaderdatabase='XenonShaderDatabase',xenontexture='XenonTexture',ps3pixelshader='Ps3PixelShader',
+ps3vertexshader='Ps3VertexShader',ps3shaderdatabase='Ps3ShaderDatabase',ps3texture='Ps3Texture',pathdatadefinition='PathDataDefinition',
 nonres='<non-resource>',dbx='<non-resource>',dbxdeleted='*deleted*',resdeleted='*deleted*',bin='<non-resource>',
 dbmanifest='<non-resource>')
 
