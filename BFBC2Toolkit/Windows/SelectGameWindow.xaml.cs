@@ -62,7 +62,11 @@ namespace BFBC2Toolkit.Windows
         {
             if (dataGrid.SelectedItem != null)
             {
-                progressRing.IsActive = true;                
+                progressRing.IsActive = true;  
+                btnCancel.IsEnabled = false;
+                btnDeleteGame.IsEnabled = false;
+                btnSelectGame.IsEnabled = false;
+                IsCloseButtonEnabled = false;
 
                 var selectedProfile = dataGrid.SelectedItem as GameProfile;
 
