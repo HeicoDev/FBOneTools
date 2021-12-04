@@ -41,7 +41,7 @@ namespace BFBC2Toolkit
             InitializeComponent();
 
             //textEditor.TextArea.TextEntering += TextEditor_TextEntering;
-            textEditor.TextArea.TextEntered += TextEditor_TextEntered;
+            textEditor.TextArea.TextEntered += TextEditor_TextEntered;           
            
             AppDomain.CurrentDomain.UnhandledException += (sender, arguments) =>
             {
@@ -1194,6 +1194,7 @@ namespace BFBC2Toolkit
             textEditor.Options.EnableEmailHyperlinks = false;
             textEditor.Options.EnableHyperlinks = true;
             textEditor.Options.RequireControlModifierForHyperlinkClick = false;
+            textEditor.FontFamily = new FontFamily("Consolas");
 
             txtBoxEventLog.Document.Blocks.Clear();
             txtBoxInformation.Document.Blocks.Clear();
