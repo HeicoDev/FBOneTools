@@ -16,6 +16,7 @@ namespace BFBC2Toolkit.Data
         public static bool TxtEdShowTabs { get; set; } = false;
         public static bool TxtEdCodeFolding { get; set; } = true;
         public static bool TxtEdCodeCompletion { get; set; } = true;
+        public static string PathToPython { get; set; } = @"C:\Python27\pythonw.exe";
         public static bool IsAutoUpdateCheckEnabled { get; set; } = true;
     }
 
