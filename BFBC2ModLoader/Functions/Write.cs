@@ -37,17 +37,25 @@ namespace BFBC2ModLoader.Functions
             UIElements.TxtBoxModInfo.Document.Blocks.Add(para);
             UIElements.TxtBoxModInfo.ScrollToHome();
 
-            if (item.ModLink != String.Empty)
+            try
             {
-                var link = new Hyperlink();
-                link.IsEnabled = true;
-                link.Inlines.Add(item.ModLink);
-                link.NavigateUri = new Uri(item.ModLink);
-                link.Click += new RoutedEventHandler(Link_Click);
-                para.Inlines.Add(link);
+                if (item.ModLink != String.Empty)
+                {
+                    var link = new Hyperlink();
+                    link.IsEnabled = true;
+                    link.Inlines.Add(item.ModLink);
+                    link.NavigateUri = new Uri(item.ModLink);
+                    link.Click += new RoutedEventHandler(Link_Click);
+                    para.Inlines.Add(link);
 
-                ModLink = item.ModLink;
+                    ModLink = item.ModLink;
+                }
             }
+            catch (Exception ex)
+            {
+                Log.Error(ex.ToString());
+            }
+            
         }
 
         private static void Link_Click(object sender, RoutedEventArgs e)

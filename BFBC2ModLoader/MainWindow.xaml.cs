@@ -1055,7 +1055,7 @@ namespace BFBC2ModLoader
             catch (Exception ex)
             {
                 Log.Error(ex.ToString());
-                Log.Write("Unable to load preview image! See error.log", "error");
+                Log.Write("Unable to load default preview image! See error.log", "error");
             }
         }
 
@@ -1086,8 +1086,17 @@ namespace BFBC2ModLoader
 
             var item = dataGridModManager.SelectedItem as ModManagerItem;
 
-            if (item.ModImage != "")
-                imgBoxModManager.Source = new BitmapImage(new Uri(item.ModImage));
+            try
+            {
+                if (item.ModImage != "")
+                    imgBoxModManager.Source = new BitmapImage(new Uri(item.ModImage));
+            }           
+            catch (Exception ex)
+            {
+                Log.Error(ex.ToString());
+
+                ShowLogo("ModManager");
+            }
 
             Write.ToModInfo();
         }
@@ -1102,8 +1111,17 @@ namespace BFBC2ModLoader
 
             var item = dataGridMapBrowser.SelectedItem as MapBrowserItem;
 
-            if (item.MapImage != "")
-                imgBoxMapBrowser.Source = new BitmapImage(new Uri(item.MapImage));
+            try
+            {
+                if (item.MapImage != "")
+                    imgBoxMapBrowser.Source = new BitmapImage(new Uri(item.MapImage));
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex.ToString());
+
+                ShowLogo("MapBrowser");
+            }
 
             EnableInstallMapButton();
         }
@@ -1134,7 +1152,17 @@ namespace BFBC2ModLoader
 
                             if (xr.Name == "Image" && xr.Value != String.Empty && b == true)
                             {
-                                imgBoxServerBrowser.Source = new BitmapImage(new Uri(xr.Value));
+                                try
+                                {
+                                    imgBoxServerBrowser.Source = new BitmapImage(new Uri(xr.Value));
+                                }
+                                catch (Exception ex)
+                                {
+                                    Log.Error(ex.ToString());
+
+                                    ShowLogo("ServerBrowser");
+                                }
+
                                 b = false;
                             }
                         }
