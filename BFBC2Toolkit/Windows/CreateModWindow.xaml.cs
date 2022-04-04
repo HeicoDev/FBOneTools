@@ -77,11 +77,6 @@ namespace BFBC2Toolkit
             EnableCreateModButton();
         }
 
-        private void TxtBoxSummary_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            EnableCreateModButton();
-        }
-
         private void TxtBoxAuthor_TextChanged(object sender, TextChangedEventArgs e)
         {
             EnableCreateModButton();
@@ -94,8 +89,8 @@ namespace BFBC2Toolkit
 
         private void EnableCreateModButton()
         {
-            if (txtBoxName.Text.Length > 2 && txtBoxSummary.Text.Length > 2 && txtBoxAuthor.Text.Length > 2 && txtBoxVersion.Text.Length > 0)
-                if (txtBoxName.Text.StartsWith(" ") || txtBoxSummary.Text.StartsWith(" ") || txtBoxAuthor.Text.StartsWith(" ") || txtBoxVersion.Text.StartsWith(" "))
+            if (txtBoxName.Text.Length > 2 && txtBoxAuthor.Text.Length > 2 && txtBoxVersion.Text.Length > 0)
+                if (txtBoxName.Text.StartsWith(" ") || txtBoxAuthor.Text.StartsWith(" ") || txtBoxVersion.Text.StartsWith(" "))
                     btnCreateMod.IsEnabled = false;
                 else
                     btnCreateMod.IsEnabled = true;
