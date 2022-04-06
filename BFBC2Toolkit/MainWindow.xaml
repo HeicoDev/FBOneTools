@@ -40,8 +40,8 @@
                 </ToggleButton.Content>
                 <ToggleButton.ContextMenu>
                     <ContextMenu Closed="ContextMenu_Closed">
-                        <MenuItem x:Name="menuItemFileConverter" Header=" File Converter" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" Width="160" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" Click="MenuItemFileConverter_Click" />
-                        <MenuItem x:Name="menuItemFilePorter" Header=" File Porter" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" Width="160" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" Click="MenuItemFilePorter_Click" />
+                        <MenuItem x:Name="menuItemFileConverter" Header=" File Converter" BorderBrush="#FF292929" Background="#FF292929" Foreground="#FFE2E2E2" FontSize="11" Height="26" Width="160" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" Click="MenuItemFileConverter_Click" />
+                        <MenuItem x:Name="menuItemFilePorter" Header=" File Porter" BorderBrush="#FF292929" Background="#FF292929" Foreground="#FFE2E2E2" FontSize="11" Height="26" Width="160" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" Click="MenuItemFilePorter_Click" />
                         <!--MenuItem x:Name="menuItemCustomizer" Header=" Customizer" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" Width="160" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" Click="MenuItemCustomizer_Click" /-->
                     </ContextMenu>
                 </ToggleButton.ContextMenu>
@@ -144,9 +144,9 @@
                     </FlowDocument>
                     <RichTextBox.ContextMenu>
                         <ContextMenu>
-                            <MenuItem Command="Cut" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
-                            <MenuItem Command="Copy" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
-                            <MenuItem Command="Paste" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                            <MenuItem Command="Cut" BorderThickness="0.5" BorderBrush="#FF292929" Background="#FF292929" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                            <MenuItem Command="Copy" BorderThickness="0.5" BorderBrush="#FF292929" Background="#FF292929" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                            <MenuItem Command="Paste" BorderThickness="0.5" BorderBrush="#FF292929" Background="#FF292929" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
                         </ContextMenu>
                     </RichTextBox.ContextMenu>
                 </RichTextBox>
@@ -166,9 +166,9 @@
                         </FlowDocument>
                         <RichTextBox.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Command="Cut" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
-                                <MenuItem Command="Copy" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
-                                <MenuItem Command="Paste" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                                <MenuItem Command="Cut" BorderThickness="0.5" BorderBrush="#FF292929" Background="#FF292929" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                                <MenuItem Command="Copy" BorderThickness="0.5" BorderBrush="#FF292929" Background="#FF292929" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                                <MenuItem Command="Paste" BorderThickness="0.5" BorderBrush="#FF292929" Background="#FF292929" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
                             </ContextMenu>
                         </RichTextBox.ContextMenu>
                     </RichTextBox>
@@ -218,12 +218,12 @@
                     <avalonedit:TextEditor x:Name="textEditor" SyntaxHighlighting="XML" Margin="650,111,-500,97" Foreground="#FFE2E2E2" Background="#FF454545" FontSize="11" HorizontalScrollBarVisibility="Auto" ShowLineNumbers="True" VerticalScrollBarVisibility="Auto" LineNumbersForeground="#FFE2E2E2" TextChanged="TextEditor_TextChanged">
                         <avalonedit:TextEditor.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Command="Cut" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
-                                <MenuItem Command="Copy" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
-                                <MenuItem Command="Paste" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                                <MenuItem Command="Cut" BorderThickness="0.5" BorderBrush="#FF292929" Background="#FF292929" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                                <MenuItem Command="Copy" BorderThickness="0.5" BorderBrush="#FF292929" Background="#FF292929" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                                <MenuItem Command="Paste" BorderThickness="0.5" BorderBrush="#FF292929" Background="#FF292929" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
                                 <!--Separator/-->
-                                <MenuItem Command="Undo" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
-                                <MenuItem Command="Redo" BorderThickness="0.5" BorderBrush="#FF707070" Background="#FF454545" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                                <MenuItem Command="Undo" BorderThickness="0.5" BorderBrush="#FF292929" Background="#FF292929" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
+                                <MenuItem Command="Redo" BorderThickness="0.5" BorderBrush="#FF292929" Background="#FF292929" Foreground="#FFE2E2E2" FontSize="11" Height="26" VerticalContentAlignment="Center" Style="{DynamicResource MenuItemStyle1}" FontWeight="Bold" />
                             </ContextMenu>
                         </avalonedit:TextEditor.ContextMenu>
                     </avalonedit:TextEditor>
