@@ -8,7 +8,7 @@
         xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         xmlns:data="clr-namespace:BFBC2Toolkit.Data"
         mc:Ignorable="d"
-        Title="BFBC2 Toolkit" Height="450" Width="800" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterScreen" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" Loaded="MainWindow_Loaded" MinWidth="800" MinHeight="450" ScrollViewer.VerticalScrollBarVisibility="Disabled" KeyDown="MainWindow_KeyDown" StateChanged="MainWindow_StateChanged" SizeChanged="MainWindow_SizeChanged" >
+        Title="BFBC2 Toolkit" Height="450" Width="800" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterScreen" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" Loaded="MainWindow_Loaded" MinWidth="800" MinHeight="450" ScrollViewer.VerticalScrollBarVisibility="Disabled" KeyDown="MainWindow_KeyDown" StateChanged="MainWindow_StateChanged" SizeChanged="MainWindow_SizeChanged" Closing="MainWindow_Closing" >
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>

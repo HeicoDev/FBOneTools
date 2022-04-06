@@ -18,6 +18,12 @@ namespace BFBC2Toolkit.Data
         public static bool TxtEdCodeCompletion { get; set; } = true;
         public static string PathToPython { get; set; } = @"C:\Python27\pythonw.exe";
         public static bool IsAutoUpdateCheckEnabled { get; set; } = true;
+
+        public static string MainWindowState { get; set; } = "Normal";
+
+        public static double MainWindowWidth { get; set; } = 800;
+
+        public static double MainWindowHeight { get; set; } = 450;
     }
 
     public class SettingsHandler
@@ -63,6 +69,15 @@ namespace BFBC2Toolkit.Data
                             break;
                         case "IsAutoUpdateCheckEnabled":
                             nodeList[i].Attributes["Value"].Value = Settings.IsAutoUpdateCheckEnabled.ToString();
+                            break;
+                        case "MainWindowState":
+                            nodeList[i].Attributes["Value"].Value = Settings.MainWindowState;
+                            break;
+                        case "MainWindowWidth":
+                            nodeList[i].Attributes["Value"].Value = Settings.MainWindowWidth.ToString();
+                            break;
+                        case "MainWindowHeight":
+                            nodeList[i].Attributes["Value"].Value = Settings.MainWindowHeight.ToString();
                             break;
                     }
                 }
@@ -121,6 +136,15 @@ namespace BFBC2Toolkit.Data
                             break;
                         case "IsAutoUpdateCheckEnabled":
                             Settings.IsAutoUpdateCheckEnabled = Convert.ToBoolean(nodeList[i].Attributes["Value"].Value);
+                            break;
+                        case "MainWindowState":
+                            Settings.MainWindowState = nodeList[i].Attributes["Value"].Value;
+                            break;
+                        case "MainWindowWidth": 
+                            Settings.MainWindowWidth = Convert.ToDouble(nodeList[i].Attributes["Value"].Value);
+                            break;
+                        case "MainWindowHeight":
+                            Settings.MainWindowHeight = Convert.ToDouble(nodeList[i].Attributes["Value"].Value);
                             break;
                     }
                 }

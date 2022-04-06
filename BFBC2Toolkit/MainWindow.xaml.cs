@@ -59,6 +59,19 @@ namespace BFBC2Toolkit
             await InitializeStartup();
         }
 
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+                Settings.MainWindowState = "Maximized";
+            else
+                Settings.MainWindowState = "Normal";
+
+            Settings.MainWindowWidth = Width;
+            Settings.MainWindowHeight = Height;
+
+            SettingsHandler.Save();
+        }
+
         private void MainWindow_StateChanged(object sender, EventArgs e)
         {
             if (WindowState == WindowState.Normal)
@@ -1203,7 +1216,18 @@ namespace BFBC2Toolkit
                 Check.Update();
 
             splashscreen.Close();
-            WindowState = WindowState.Normal;
+
+            Width = Settings.MainWindowWidth;
+            Height = Settings.MainWindowHeight;
+
+            if (Settings.MainWindowState == "Maximized")
+            {
+                WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                WindowState = WindowState.Normal;                
+            }
 
             //On some systems the window will be stuck behind other windows on startup
             //Workaround: This will hopefully bring the window to the foreground on different OS's 
@@ -1228,7 +1252,7 @@ namespace BFBC2Toolkit
 
             gridPreviewProp.ColumnDefinitions[0].Width = new GridLength(500, GridUnitType.Star);
             gridPreviewProp.ColumnDefinitions[2].Width = new GridLength(182, GridUnitType.Star);
-        }       
+        }      
     }
 }
 
