@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Media;
 using System.Media;
 using MahApps.Metro.Controls;
 using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.Document;
+using System.Collections.ObjectModel;
+using System.Windows.Controls.Primitives;
+using System.Windows.Controls;
 
 namespace BFBC2Toolkit.Windows
 {
@@ -20,6 +24,9 @@ namespace BFBC2Toolkit.Windows
 
         private TextEditor editor;
 
+        private static ObservableCollection<string> searchHistoryItems = new ObservableCollection<string>();
+        private static ObservableCollection<string> replaceHistoryItems = new ObservableCollection<string>();
+
         public FindAndReplaceWindow(TextEditor editor)
         {
             InitializeComponent();
@@ -34,7 +41,10 @@ namespace BFBC2Toolkit.Windows
             cbRegex.IsChecked = useRegex;
             cbWildcards.IsChecked = useWildcards;
             cbSearchUp.IsChecked = searchUp;
-        }
+            txtFind.ItemsSource = searchHistoryItems;
+            txtFind2.ItemsSource = searchHistoryItems;
+            txtReplace.ItemsSource = replaceHistoryItems;            
+        }       
 
         private void FindAndReplaceWindow_Closed(object sender, EventArgs e)
         {
@@ -62,6 +72,9 @@ namespace BFBC2Toolkit.Windows
 
         private void ReplaceClick(object sender, RoutedEventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(txtReplace.Text))
+                UpdateReplaceHistory();
+
             Regex regex = GetRegEx(txtFind2.Text);
             string input = editor.Text.Substring(editor.SelectionStart, editor.SelectionLength);
             Match match = regex.Match(input);
@@ -78,6 +91,9 @@ namespace BFBC2Toolkit.Windows
 
         private void ReplaceAllClick(object sender, RoutedEventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(txtReplace.Text))
+                UpdateReplaceHistory();
+
             if (MessageBox.Show("Are you sure you want to Replace All occurences of \"" +
             txtFind2.Text + "\" with \"" + txtReplace.Text + "\"?",
                 "Replace All", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
@@ -98,6 +114,9 @@ namespace BFBC2Toolkit.Windows
 
         private bool FindNext(string textToFind)
         {
+            if (!string.IsNullOrWhiteSpace(textToFind))
+                UpdateSearchHistory(textToFind);
+
             Regex regex = GetRegEx(textToFind);
             int start = regex.Options.HasFlag(RegexOptions.RightToLeft) ?
             editor.SelectionStart : editor.SelectionStart + editor.SelectionLength;
@@ -121,6 +140,65 @@ namespace BFBC2Toolkit.Windows
             return match.Success;
         }
 
+        private void UpdateSearchHistory(string textToFind)
+        {
+            if (!searchHistoryItems.Contains(textToFind))
+            {
+                searchHistoryItems.Insert(0, textToFind);
+            }
+            else
+            {
+                int index = 0;
+
+                foreach (var item in searchHistoryItems)
+                    if (item.ToString() == textToFind)
+                        index = searchHistoryItems.IndexOf(item);
+
+                if (index != 0)
+                {
+                    searchHistoryItems.RemoveAt(index);
+                    searchHistoryItems.Insert(0, textToFind);
+                }
+            }
+
+            txtFind.ItemsSource = searchHistoryItems;
+            txtFind.Text = textToFind;
+            txtFind.SelectedIndex = 0;
+            txtFind.Focus();
+            txtFind2.ItemsSource = searchHistoryItems;
+            txtFind2.Text = textToFind;
+            txtFind2.SelectedIndex = 0;
+            txtFind2.Focus();
+        }
+
+        private void UpdateReplaceHistory()
+        {
+            string text = txtReplace.Text;
+
+            if (!replaceHistoryItems.Contains(text))
+            {
+                replaceHistoryItems.Insert(0, text);
+            }
+            else
+            {
+                int index = 0;
+
+                foreach (var item in replaceHistoryItems)
+                    if (item.ToString() == text)
+                        index = replaceHistoryItems.IndexOf(item);
+
+                if (index != 0)
+                {
+                    replaceHistoryItems.RemoveAt(index);
+                    replaceHistoryItems.Insert(0, text);
+                }
+            }
+
+            txtReplace.ItemsSource = replaceHistoryItems;
+            txtReplace.Text = text;
+            txtReplace.Focus();
+        }
+
         private Regex GetRegEx(string textToFind, bool leftToRight = false)
         {
             RegexOptions options = RegexOptions.None;
@@ -142,7 +220,7 @@ namespace BFBC2Toolkit.Windows
                     pattern = "\\b" + pattern + "\\b";
                 return new Regex(pattern, options);
             }
-        }
+        }       
 
         private static FindAndReplaceWindow theDialog = null;
 
@@ -164,24 +242,69 @@ namespace BFBC2Toolkit.Windows
             if (!editor.TextArea.Selection.IsMultiline)
             {
                 theDialog.txtFind.Text = theDialog.txtFind2.Text = editor.TextArea.Selection.GetText();
-                theDialog.txtFind.SelectAll();
-                theDialog.txtFind2.SelectAll();
+                //theDialog.txtFind.SelectAll();
+                //theDialog.txtFind2.SelectAll();
                 theDialog.txtFind2.Focus();
             }
-        }
+        }        
 
         private void txtFind_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.KeyboardDevice.IsKeyDown(System.Windows.Input.Key.Enter))
                 if (!FindNext(txtFind.Text))
                     SystemSounds.Beep.Play();
-        }
+        }        
 
         private void txtFind2_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.KeyboardDevice.IsKeyDown(System.Windows.Input.Key.Enter))
                 if (!FindNext(txtFind2.Text))
                     SystemSounds.Beep.Play();
+        }
+
+        private void txtFind_Loaded(object sender, RoutedEventArgs e)
+        {
+            //Popup popup = FindVisualChildByName<Popup>((sender as DependencyObject), "PART_Popup");
+            //Border border = FindVisualChildByName<Border>(popup.Child, "PopupBorder");
+            //border.CornerRadius = new CornerRadius(2);
+        }
+
+        private void txtFind2_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = FindVisualChildByName<TextBox>((sender as DependencyObject), "PART_EditableTextBox");
+            textBox.SelectionBrush = new SolidColorBrush(Color.FromRgb(182, 182, 182));
+            Popup popup = FindVisualChildByName<Popup>((sender as DependencyObject), "PART_Popup");
+            Border border = FindVisualChildByName<Border>(popup.Child, "PopupBorder");
+            border.CornerRadius = new CornerRadius(2);
+        }
+
+        private void txtReplace_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = FindVisualChildByName<TextBox>((sender as DependencyObject), "PART_EditableTextBox");
+            textBox.SelectionBrush = new SolidColorBrush(Color.FromRgb(182, 182, 182));
+            Popup popup = FindVisualChildByName<Popup>((sender as DependencyObject), "PART_Popup");
+            Border border = FindVisualChildByName<Border>(popup.Child, "PopupBorder");
+            border.CornerRadius = new CornerRadius(2);
+        }
+
+        private T FindVisualChildByName<T>(DependencyObject parent, string name) where T : DependencyObject
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+                string controlName = child.GetValue(Control.NameProperty) as string;
+                if (controlName == name)
+                {
+                    return child as T;
+                }
+                else
+                {
+                    T result = FindVisualChildByName<T>(child, name);
+                    if (result != null)
+                        return result;
+                }
+            }
+            return null;
         }
     }
 }
