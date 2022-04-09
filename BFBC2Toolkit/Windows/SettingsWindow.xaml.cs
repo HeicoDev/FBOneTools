@@ -29,7 +29,9 @@ namespace BFBC2Toolkit.Windows
             chkBoxShowTabs.IsChecked = Settings.TxtEdShowTabs;
             chkBoxCodeFolding.IsChecked = Settings.TxtEdCodeFolding;
             chkBoxCodeCompletion.IsChecked = Settings.TxtEdCodeCompletion;
-            chkBoxAutoCheckUpdates.IsChecked = Settings.IsAutoUpdateCheckEnabled;
+            chkBoxShowEventLog.IsChecked = Settings.ShowEventLog;
+            chkBoxShowProperties.IsChecked = Settings.ShowProperties;
+            chkBoxAutoCheckUpdates.IsChecked = Settings.IsAutoUpdateCheckEnabled;           
         }
 
         private void ChkBoxHighlightSyntax_Checked(object sender, RoutedEventArgs e)
@@ -112,6 +114,26 @@ namespace BFBC2Toolkit.Windows
             Settings.TxtEdCodeCompletion = false;
         }
 
+        private void ChkBoxShowEventLog_Checked(object sender, RoutedEventArgs e)
+        {
+            Settings.ShowEventLog = true;
+        }
+
+        private void ChkBoxShowEventLog_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Settings.ShowEventLog= false;
+        }
+
+        private void ChkBoxShowProperties_Checked(object sender, RoutedEventArgs e)
+        {
+            Settings.ShowProperties = true;
+        }
+
+        private void ChkBoxShowProperties_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Settings.ShowProperties= false;
+        }
+
         private void ChkBoxAutoCheckUpdates_Checked(object sender, RoutedEventArgs e)
         {
             Settings.IsAutoUpdateCheckEnabled = true;
@@ -187,9 +209,31 @@ namespace BFBC2Toolkit.Windows
             UIElements.TextEditor.ShowLineNumbers = Settings.TxtEdShowLineNumbers;
             UIElements.TextEditor.Options.EnableHyperlinks = Settings.TxtEdClickableHyperlinks;
             UIElements.TextEditor.Options.HideCursorWhileTyping = Settings.TxtEdHideCursorWhileTyping;
-            UIElements.TextEditor.Options.ShowTabs = Settings.TxtEdShowTabs;
+            UIElements.TextEditor.Options.ShowTabs = Settings.TxtEdShowTabs;  
+            
+            if (Settings.ShowEventLog)
+            {
+                UIElements.GridPreviewLogProp.RowDefinitions[2].MinHeight = 80;
+                UIElements.GridPreviewLogProp.RowDefinitions[2].Height = new GridLength(121, GridUnitType.Star);
+            }
+            else
+            {
+                UIElements.GridPreviewLogProp.RowDefinitions[2].MinHeight = 0;
+                UIElements.GridPreviewLogProp.RowDefinitions[2].Height = new GridLength(0, GridUnitType.Star);
+            }
+
+            if (Settings.ShowProperties)
+            {
+                UIElements.GridPreviewProp.ColumnDefinitions[2].MinWidth = 100;
+                UIElements.GridPreviewProp.ColumnDefinitions[2].Width = new GridLength(182, GridUnitType.Star);
+            }
+            else
+            {
+                UIElements.GridPreviewProp.ColumnDefinitions[2].MinWidth = 0;
+                UIElements.GridPreviewProp.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Star);
+            }
 
             SettingsHandler.Save();
-        }        
+        }       
     }
 }

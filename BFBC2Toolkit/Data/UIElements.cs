@@ -14,5 +14,7 @@ namespace BFBC2Toolkit.Data
         public static MediaElement MediaElement { get; set; }
         public static Image ImageElement { get; set; }
         public static CompletionWindow CodeComWindow { get; set; }
+        public static Grid GridPreviewLogProp { get; set; }
+        public static Grid GridPreviewProp { get; set; }
     }
 }

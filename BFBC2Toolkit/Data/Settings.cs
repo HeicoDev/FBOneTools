@@ -17,12 +17,11 @@ namespace BFBC2Toolkit.Data
         public static bool TxtEdCodeFolding { get; set; } = true;
         public static bool TxtEdCodeCompletion { get; set; } = true;
         public static string PathToPython { get; set; } = @"C:\Python27\pythonw.exe";
+        public static bool ShowEventLog { get; set; } = true;
+        public static bool ShowProperties { get; set; } = true;
         public static bool IsAutoUpdateCheckEnabled { get; set; } = true;
-
         public static string MainWindowState { get; set; } = "Normal";
-
         public static double MainWindowWidth { get; set; } = 800;
-
         public static double MainWindowHeight { get; set; } = 450;
     }
 
@@ -66,6 +65,12 @@ namespace BFBC2Toolkit.Data
                             break;
                         case "PathToPython":
                             nodeList[i].Attributes["Value"].Value = SharedSettings.PathToPython;
+                            break;
+                        case "ShowEventLog":
+                            nodeList[i].Attributes["Value"].Value = Settings.ShowEventLog.ToString();
+                            break;
+                        case "ShowProperties":
+                            nodeList[i].Attributes["Value"].Value = Settings.ShowProperties.ToString();
                             break;
                         case "IsAutoUpdateCheckEnabled":
                             nodeList[i].Attributes["Value"].Value = Settings.IsAutoUpdateCheckEnabled.ToString();
@@ -133,6 +138,12 @@ namespace BFBC2Toolkit.Data
                             break;
                         case "PathToPython":
                             SharedSettings.PathToPython = nodeList[i].Attributes["Value"].Value;
+                            break;
+                        case "ShowEventLog":
+                            Settings.ShowEventLog = Convert.ToBoolean(nodeList[i].Attributes["Value"].Value);
+                            break;
+                        case "ShowProperties":
+                            Settings.ShowProperties = Convert.ToBoolean(nodeList[i].Attributes["Value"].Value);
                             break;
                         case "IsAutoUpdateCheckEnabled":
                             Settings.IsAutoUpdateCheckEnabled = Convert.ToBoolean(nodeList[i].Attributes["Value"].Value);

@@ -1105,6 +1105,8 @@ namespace BFBC2Toolkit
             UIElements.TreeViewModExplorer = treeViewModExplorer;
             UIElements.MediaElement = mediaElement;
             UIElements.ImageElement = image;
+            UIElements.GridPreviewLogProp = gridPreviewLogProp;
+            UIElements.GridPreviewProp = gridPreviewProp;
 
             Dirs.SetSharedVars();
             Globals.SetSharedVars();
@@ -1212,6 +1214,8 @@ namespace BFBC2Toolkit
             txtBoxEventLog.Document.Blocks.Clear();
             txtBoxInformation.Document.Blocks.Clear();
 
+            ResetGridSizes();
+
             if (Settings.IsAutoUpdateCheckEnabled)
                 Check.Update();
 
@@ -1248,10 +1252,30 @@ namespace BFBC2Toolkit
             gridData.RowDefinitions[2].Height = new GridLength(147, GridUnitType.Star);
 
             gridPreviewLogProp.RowDefinitions[0].Height = new GridLength(274, GridUnitType.Star);
-            gridPreviewLogProp.RowDefinitions[2].Height = new GridLength(121, GridUnitType.Star);
 
-            gridPreviewProp.ColumnDefinitions[0].Width = new GridLength(500, GridUnitType.Star);
-            gridPreviewProp.ColumnDefinitions[2].Width = new GridLength(182, GridUnitType.Star);
+            if (Settings.ShowEventLog)
+            {
+                gridPreviewLogProp.RowDefinitions[2].MinHeight = 80;
+                gridPreviewLogProp.RowDefinitions[2].Height = new GridLength(121, GridUnitType.Star);
+            }
+            else
+            {
+                gridPreviewLogProp.RowDefinitions[2].MinHeight = 0;
+                gridPreviewLogProp.RowDefinitions[2].Height = new GridLength(0, GridUnitType.Star);
+            }
+
+            gridPreviewProp.ColumnDefinitions[0].Width = new GridLength(500, GridUnitType.Star);         
+
+            if (Settings.ShowProperties)
+            {
+                gridPreviewProp.ColumnDefinitions[2].MinWidth = 100;
+                gridPreviewProp.ColumnDefinitions[2].Width = new GridLength(182, GridUnitType.Star);
+            }
+            else
+            {
+                gridPreviewProp.ColumnDefinitions[2].MinWidth = 0;
+                gridPreviewProp.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Star);
+            }
         }      
     }
 }
