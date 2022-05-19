@@ -251,20 +251,29 @@ namespace BFBC2Toolkit
 
         private async void BtnArchiveFbrb_Click(object sender, RoutedEventArgs e)
         {
-            Log.Write("This may take a while. Archiving fbrb archive, please wait...");
+            var result = MessageBox.Show("Are you sure that you want to modify fbrb archive?\nNote: it's not recommended to modify game files directly.", "Warning", MessageBoxButton.YesNo);
 
-            EnableInterface(false);
+            if (result == MessageBoxResult.No)
+            {
+                return;
+            }
+            else
+            {
+                Log.Write("This may take a while. Archiving fbrb archive, please wait...");
 
-            progressRing.IsActive = true;
+                EnableInterface(false);
 
-            bool hasErrorOccurred = await Fbrb.Archive();
+                progressRing.IsActive = true;
 
-            progressRing.IsActive = false;
+                bool hasErrorOccurred = await Fbrb.Archive();
 
-            EnableInterface(true);
+                progressRing.IsActive = false;
 
-            if (!hasErrorOccurred)
-                Log.Write("", "done");
+                EnableInterface(true);
+
+                if (!hasErrorOccurred)
+                    Log.Write("", "done");
+            }
         }
 
         private async void BtnCopyToMod_Click(object sender, RoutedEventArgs e)
