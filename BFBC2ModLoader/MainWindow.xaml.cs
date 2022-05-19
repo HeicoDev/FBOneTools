@@ -84,16 +84,20 @@ namespace BFBC2ModLoader
             if (File.Exists(Environment.CurrentDirectory + @"\BFBC2Game.exe"))
             {
                 Title += " (Client)";
+                Icon = new BitmapImage(new Uri(@"BFBC2ModLoader\Resources\BFBC2ModLoaderC.ico", UriKind.Relative));
                 Globals.IsClient = true;
             }
             else if (File.Exists(Environment.CurrentDirectory + @"\Frost.Game.Main_Win32_Final.exe"))
             {
                 Title += " (Server)";
+                Icon = new BitmapImage(new Uri(@"BFBC2ModLoader\Resources\BFBC2ModLoaderS.ico", UriKind.Relative));
                 Globals.IsClient = false;
                 Dirs.SwitchToServer();
             }
             else
             {
+                Icon = new BitmapImage(new Uri(@"BFBC2ModLoader\Resources\BFBC2ModLoaderN.ico", UriKind.Relative));
+
                 EnableAllButtons(false);
                
                 btnStartGame.IsEnabled = false;
@@ -118,6 +122,8 @@ namespace BFBC2ModLoader
 
                 return;
             }
+
+            ShowIconOnTitleBar = false;
             
             Delete.OldVersion();
             Delete.LogFiles();
