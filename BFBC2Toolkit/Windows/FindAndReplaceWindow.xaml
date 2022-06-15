@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BFBC2Toolkit.Windows"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="Find and Replace" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterOwner" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="300" SizeToContent="Height" WindowStyle="ToolWindow" ResizeMode="NoResize" Closed="FindAndReplaceWindow_Closed" Topmost="True">
+        Title="Find and Replace" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterOwner" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="300" SizeToContent="Height" WindowStyle="ToolWindow" ResizeMode="NoResize" Closed="FindAndReplaceWindow_Closed">
 
     <Grid Margin="0,4">
         <Grid.RowDefinitions>
