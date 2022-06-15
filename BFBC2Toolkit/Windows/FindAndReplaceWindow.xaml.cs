@@ -93,6 +93,10 @@ namespace BFBC2Toolkit.Windows
             btnFindNext.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
             btnFindNext2.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
             btnFindNext2.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            btnFindPrev.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
+            btnFindPrev.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            btnFindPrev2.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
+            btnFindPrev2.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
             btnReplace.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
             btnReplace.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
             btnReplaceAll.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
@@ -111,12 +115,32 @@ namespace BFBC2Toolkit.Windows
 
         private void FindNextClick(object sender, RoutedEventArgs e)
         {
+            cbSearchUp.IsChecked = false;
+
             if (!FindNext(txtFind.Text))
                 SystemSounds.Beep.Play();
         }
 
         private void FindNext2Click(object sender, RoutedEventArgs e)
         {
+            cbSearchUp.IsChecked = false;
+
+            if (!FindNext(txtFind2.Text))
+                SystemSounds.Beep.Play();
+        }
+
+        private void FindPrevClick(object sender, RoutedEventArgs e)
+        {
+            cbSearchUp.IsChecked = true;
+
+            if (!FindNext(txtFind.Text))
+                SystemSounds.Beep.Play();
+        }
+
+        private void FindPrev2Click(object sender, RoutedEventArgs e)
+        {
+            cbSearchUp.IsChecked = true;
+
             if (!FindNext(txtFind2.Text))
                 SystemSounds.Beep.Play();
         }
@@ -301,6 +325,8 @@ namespace BFBC2Toolkit.Windows
 
         private void txtFind_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
+            cbSearchUp.IsChecked = false;
+
             if (e.KeyboardDevice.IsKeyDown(System.Windows.Input.Key.Enter))
                 if (!FindNext(txtFind.Text))
                     SystemSounds.Beep.Play();
@@ -308,10 +334,12 @@ namespace BFBC2Toolkit.Windows
 
         private void txtFind2_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
+            cbSearchUp.IsChecked = false;
+
             if (e.KeyboardDevice.IsKeyDown(System.Windows.Input.Key.Enter))
                 if (!FindNext(txtFind2.Text))
                     SystemSounds.Beep.Play();
-        }
+        }       
 
         private void txtFind_Loaded(object sender, RoutedEventArgs e)
         {

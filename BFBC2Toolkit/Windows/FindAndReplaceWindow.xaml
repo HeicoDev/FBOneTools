@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BFBC2Toolkit.Windows"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="Find and Replace" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterOwner" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="300" SizeToContent="Height" WindowStyle="None" ResizeMode="NoResize" Closed="FindAndReplaceWindow_Closed" AllowsTransparency="True" Activated="FindAndReplaceWindow_Activated" Deactivated="FindAndReplaceWindow_Deactivated">
+        Title="Find and Replace" WindowTitleBrush="#FF1F1F1F" Background="#FF292929" TitleForeground="#FFE2E2E2" BorderBrush="#FF141414" WindowStartupLocation="CenterOwner" ResizeBorderThickness="2,3,2,2" TitlebarHeight="20" TitleCaps="False" TitleCharacterCasing="Normal" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="386" SizeToContent="Height" WindowStyle="None" ResizeMode="NoResize" Closed="FindAndReplaceWindow_Closed" AllowsTransparency="True" Activated="FindAndReplaceWindow_Activated" Deactivated="FindAndReplaceWindow_Deactivated">
 
     <Grid Margin="0,4">
         <Grid.RowDefinitions>
@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
 
         <TabControl Name="tabMain" Height="Auto" Grid.ColumnSpan="2" BorderBrush="#FF707070" Background="#FF292929" Foreground="#FFE2E2E2">
-            <TabItem Header="Find" Background="#FF454545" BorderBrush="#FFE2E2E2" Foreground="#FFE2E2E2" FontSize="11">
+            <TabItem Header="Find" BorderBrush="#FFE2E2E2" Foreground="#FFE2E2E2" FontSize="11">
                 <StackPanel>
                     <TextBlock Name="lblFind" Margin="3">Find:</TextBlock>
                     <ComboBox ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" MaxDropDownHeight="150" Margin="3" Name="txtFind" Background="#FF454545" BorderBrush="#FF454545" Foreground="#FFE2E2E2" FontSize="11" IsEditable="True" KeyDown="txtFind_KeyDown" Loaded="txtFind_Loaded">
@@ -30,10 +30,13 @@
                             <SolidColorBrush x:Key="WhiteBrush" Color="#FF292929"/>
                         </ComboBox.Resources>
                     </ComboBox>
-                    <Button Name="btnFindNext" Margin="11,5,0,5" HorizontalAlignment="Left" Background="#FF454545" Foreground="#FFE2E2E2" Width="80" Content="Find Next" Click="FindNextClick" Style="{DynamicResource ButtonStyle1}" FontSize="11" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,11,0" Width="360">
+                        <Button Name="btnFindNext" Margin="5" HorizontalAlignment="Left" Background="#FF454545" Foreground="#FFE2E2E2" Width="80" Content="Find Next" Click="FindNextClick" Style="{DynamicResource ButtonStyle1}" FontSize="11" />
+                        <Button Name="btnFindPrev" Margin="5" HorizontalAlignment="Left" Background="#FF454545" Foreground="#FFE2E2E2" Width="80" Content="Find Prev" Click="FindPrevClick" Style="{DynamicResource ButtonStyle1}" FontSize="11" />
+                    </StackPanel>
                 </StackPanel>
             </TabItem>
-            <TabItem Header="Replace" Background="#FF454545" BorderBrush="#FFE2E2E2" Foreground="#FFE2E2E2" FontSize="11">
+            <TabItem Header="Replace" BorderBrush="#FFE2E2E2" Foreground="#FFE2E2E2" FontSize="11">
                 <StackPanel>
                     <TextBlock Name="lblFind2" Margin="3">Find:</TextBlock>
                     <ComboBox ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" MaxDropDownHeight="150" Margin="3" Name="txtFind2" Background="#FF454545" BorderBrush="#FF454545" Foreground="#FFE2E2E2" Height="26" FontSize="11" IsEditable="True" KeyDown="txtFind2_KeyDown" Loaded="txtFind2_Loaded">
@@ -49,10 +52,11 @@
                             <SolidColorBrush x:Key="WhiteBrush" Color="#FF292929"/>
                         </ComboBox.Resources>
                     </ComboBox>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,11,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,11,0" Width="360">
                         <Button Name="btnFindNext2" Margin="5" HorizontalAlignment="Right" Background="#FF454545" Foreground="#FFE2E2E2" Width="80" Content="Find Next" Click="FindNext2Click" Style="{DynamicResource ButtonStyle1}" FontSize="11" />
+                        <Button Name="btnFindPrev2" Margin="5" HorizontalAlignment="Right" Background="#FF454545" Foreground="#FFE2E2E2" Width="80" Content="Find Prev" Click="FindPrev2Click" Style="{DynamicResource ButtonStyle1}" FontSize="11" />
                         <Button Name="btnReplace" Margin="5" HorizontalAlignment="Right" Background="#FF454545" Foreground="#FFE2E2E2" Width="80" Content="Replace" Click="ReplaceClick" Style="{DynamicResource ButtonStyle1}" FontSize="11" />
-                        <Button Name="btnReplaceAll" Margin="5" HorizontalAlignment="Right" Background="#FF454545" Foreground="#FFE2E2E2" Width="80" Content="Replace All" Click="ReplaceAllClick" Style="{DynamicResource ButtonStyle1}" FontSize="11" />
+                        <Button Name="btnReplaceAll" Margin="5" Background="#FF454545" Foreground="#FFE2E2E2" Width="80" Content="Replace All" Click="ReplaceAllClick" Style="{DynamicResource ButtonStyle1}" FontSize="11" />
                     </StackPanel>
                 </StackPanel>
             </TabItem>
@@ -62,6 +66,6 @@
         <CheckBox Grid.Row="2" Grid.Column="0" Margin="10,4,10,0" Name="cbWholeWord" Content="Match whole word" Foreground="#FFE2E2E2" FontSize="11" Background="#FF454545" BorderBrush="#FF707070" />
         <CheckBox Grid.Row="1" Grid.Column="1" Margin="10,4,10,0" Name="cbRegex" Content="Regular Expression" Foreground="#FFE2E2E2" FontSize="11" Background="#FF454545" BorderBrush="#FF707070" />
         <CheckBox Grid.Row="2" Grid.Column="1" Margin="10,4,10,0" Name="cbWildcards" Content="Wildcards" Foreground="#FFE2E2E2" FontSize="11" Background="#FF454545" BorderBrush="#FF707070" />
-        <CheckBox Grid.Row="3" Grid.Column="1" Margin="10,4,10,0" Name="cbSearchUp" Content="Search up" Foreground="#FFE2E2E2" FontSize="11" Background="#FF454545" BorderBrush="#FF707070" />
+        <CheckBox Grid.Row="3" Grid.Column="1" Margin="10,4,10,0" Name="cbSearchUp" Content="Search up" Foreground="#FFE2E2E2" FontSize="11" Background="#FF454545" BorderBrush="#FF707070" Visibility="Collapsed" />
     </Grid>
 </Controls:MetroWindow>
