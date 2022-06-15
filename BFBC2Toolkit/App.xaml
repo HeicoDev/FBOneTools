@@ -597,7 +597,7 @@
                         <ControlTemplate TargetType="{x:Type CheckBox}">
                             <BulletDecorator Background="Transparent">
                                 <BulletDecorator.Bullet>
-                                    <Border x:Name="Border" Width="15" Height="15" CornerRadius="2" Background="#FF454545" BorderThickness="0">
+                                    <Border x:Name="Border" Width="15" Height="15" CornerRadius="2" Background="{TemplateBinding Background}" BorderThickness="0">
                                         <Path Width="9" Height="9" x:Name="CheckMark" SnapsToDevicePixels="False" Stroke="#FFE2E2E2" StrokeThickness="2" Data="M 0 4 L 3 8 8 0" />
                                     </Border>
                                 </BulletDecorator.Bullet>

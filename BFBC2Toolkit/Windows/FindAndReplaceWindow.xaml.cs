@@ -33,7 +33,7 @@ namespace BFBC2Toolkit.Windows
 
             this.editor = editor;
 
-            Owner = GetWindow(Application.Current.MainWindow);
+            Owner = GetWindow(Application.Current.MainWindow);           
 
             txtFind.Text = txtFind2.Text = textToFind;
             cbCaseSensitive.IsChecked = caseSensitive;
@@ -56,6 +56,57 @@ namespace BFBC2Toolkit.Windows
             searchUp = (cbSearchUp.IsChecked == true);
 
             theDialog = null;
+        }
+
+        private void FindAndReplaceWindow_Activated(object sender, EventArgs e)
+        {
+            IsTransparent(false);
+        }
+
+        private void FindAndReplaceWindow_Deactivated(object sender, EventArgs e)
+        {
+            IsTransparent(true);
+        }
+
+        private void IsTransparent(bool isTransparent)
+        {
+            byte transparency = 255;
+
+            if (isTransparent)
+                transparency = 100;
+
+            Background = new SolidColorBrush(Color.FromArgb(transparency, 41, 41, 41));
+            //Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            //WindowTitleBrush = new SolidColorBrush(Color.FromArgb(transparency, 31, 31, 31));
+            //BorderBrush = new SolidColorBrush(Color.FromArgb(transparency, 31, 31, 31));
+            tabMain.Background = new SolidColorBrush(Color.FromArgb(transparency, 41, 41, 41));
+            lblFind.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            lblFind2.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            lblReplace.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            txtFind.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
+            txtFind.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            txtFind2.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
+            txtFind2.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            txtReplace.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
+            txtReplace.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            btnFindNext.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
+            btnFindNext.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            btnFindNext2.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
+            btnFindNext2.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            btnReplace.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
+            btnReplace.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            btnReplaceAll.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
+            btnReplaceAll.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            cbCaseSensitive.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
+            cbCaseSensitive.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            cbWholeWord.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
+            cbWholeWord.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            cbRegex.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
+            cbRegex.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            cbWildcards.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
+            cbWildcards.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
+            cbSearchUp.Background = new SolidColorBrush(Color.FromArgb(transparency, 69, 69, 69));
+            cbSearchUp.Foreground = new SolidColorBrush(Color.FromArgb(transparency, 226, 226, 226));
         }
 
         private void FindNextClick(object sender, RoutedEventArgs e)
