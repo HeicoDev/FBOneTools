@@ -31,6 +31,7 @@ namespace BFBC2Toolkit.Windows
             chkBoxCodeCompletion.IsChecked = Settings.TxtEdCodeCompletion;
             chkBoxShowEventLog.IsChecked = Settings.ShowEventLog;
             chkBoxShowProperties.IsChecked = Settings.ShowProperties;
+            chkBoxShowArchiveFbrbPrompt.IsChecked = Settings.ShowArchiveFbrbPrompt;
             chkBoxAutoCheckUpdates.IsChecked = Settings.IsAutoUpdateCheckEnabled;           
         }
 
@@ -134,6 +135,16 @@ namespace BFBC2Toolkit.Windows
             Settings.ShowProperties= false;
         }
 
+        private void chkBoxShowArchiveFbrbPrompt_Checked(object sender, RoutedEventArgs e)
+        {
+            Settings.ShowArchiveFbrbPrompt = true;
+        }
+
+        private void chkBoxShowArchiveFbrbPrompt_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Settings.ShowArchiveFbrbPrompt= false;
+        }
+
         private void ChkBoxAutoCheckUpdates_Checked(object sender, RoutedEventArgs e)
         {
             Settings.IsAutoUpdateCheckEnabled = true;
@@ -234,6 +245,6 @@ namespace BFBC2Toolkit.Windows
             }
 
             SettingsHandler.Save();
-        }       
+        }      
     }
 }

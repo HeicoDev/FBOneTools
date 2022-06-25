@@ -251,7 +251,12 @@ namespace BFBC2Toolkit
 
         private async void BtnArchiveFbrb_Click(object sender, RoutedEventArgs e)
         {
-            var result = MessageBox.Show("Are you sure that you want to modify fbrb archive?\nNote: it's not recommended to modify game files directly.", "Warning", MessageBoxButton.YesNo);
+            MessageBoxResult result = MessageBoxResult.Yes;
+
+            if (Settings.ShowArchiveFbrbPrompt)
+            {
+                result = MessageBox.Show("Are you sure that you want to modify fbrb archive?\nNote: it's not recommended to modify game files directly.", "Warning", MessageBoxButton.YesNo);
+            }
 
             if (result == MessageBoxResult.No)
             {

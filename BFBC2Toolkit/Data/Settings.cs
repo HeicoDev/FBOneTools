@@ -19,6 +19,7 @@ namespace BFBC2Toolkit.Data
         public static string PathToPython { get; set; } = @"C:\Python27\pythonw.exe";
         public static bool ShowEventLog { get; set; } = true;
         public static bool ShowProperties { get; set; } = true;
+        public static bool ShowArchiveFbrbPrompt { get; set; } = true;
         public static bool IsAutoUpdateCheckEnabled { get; set; } = true;
         public static string MainWindowState { get; set; } = "Normal";
         public static double MainWindowWidth { get; set; } = 800;
@@ -71,6 +72,9 @@ namespace BFBC2Toolkit.Data
                             break;
                         case "ShowProperties":
                             nodeList[i].Attributes["Value"].Value = Settings.ShowProperties.ToString();
+                            break;
+                        case "ShowArchiveFbrbPrompt":
+                            nodeList[i].Attributes["Value"].Value = Settings.ShowArchiveFbrbPrompt.ToString();
                             break;
                         case "IsAutoUpdateCheckEnabled":
                             nodeList[i].Attributes["Value"].Value = Settings.IsAutoUpdateCheckEnabled.ToString();
@@ -144,6 +148,9 @@ namespace BFBC2Toolkit.Data
                             break;
                         case "ShowProperties":
                             Settings.ShowProperties = Convert.ToBoolean(nodeList[i].Attributes["Value"].Value);
+                            break;
+                        case "ShowArchiveFbrbPrompt":
+                            Settings.ShowArchiveFbrbPrompt = Convert.ToBoolean(nodeList[i].Attributes["Value"].Value);
                             break;
                         case "IsAutoUpdateCheckEnabled":
                             Settings.IsAutoUpdateCheckEnabled = Convert.ToBoolean(nodeList[i].Attributes["Value"].Value);
