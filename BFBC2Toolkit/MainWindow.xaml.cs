@@ -92,7 +92,19 @@ namespace BFBC2Toolkit
                     FindAndReplaceWindow.ShowForReplace(textEditor);
 
                 if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.KeyboardDevice.IsKeyDown(Key.S))
+                {
+                    if (Globals.IsGameProfile && Globals.IsDataTreeView)
+                    {
+                        Log.Write("You can't edit a file from a game profile!", "warning");
+                        return;
+                    }
+
+                    Log.Write("Saving file...");
+
                     await Save.TextEditorChanges();
+
+                    Log.Write("", "done");
+                }                   
             }
         }
 

@@ -12,6 +12,7 @@ using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.Document;
 using BFBC2Toolkit.Data;
 using BFBC2Toolkit.Functions;
+using BFBC2Shared.Functions;
 
 namespace BFBC2Toolkit.Windows
 {
@@ -79,7 +80,19 @@ namespace BFBC2Toolkit.Windows
             if (UIElements.TextEditor.Visibility == Visibility.Visible)
             {
                 if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.KeyboardDevice.IsKeyDown(Key.S))
+                {
+                    if (Globals.IsGameProfile && Globals.IsDataTreeView)
+                    {
+                        Log.Write("You can't edit a file from a game profile!", "warning");
+                        return;
+                    }
+
+                    Log.Write("Saving file...");
+
                     await Save.TextEditorChanges();
+
+                    Log.Write("", "done");
+                }
             }
         }
 
