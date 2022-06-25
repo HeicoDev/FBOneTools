@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using System.Media;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Media;
-using System.Media;
+using System.Windows.Controls.Primitives;
+using System.Windows.Controls;
+using System.Windows.Input;
 using MahApps.Metro.Controls;
 using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.Document;
-using System.Collections.ObjectModel;
-using System.Windows.Controls.Primitives;
-using System.Windows.Controls;
+using BFBC2Toolkit.Data;
+using BFBC2Toolkit.Functions;
 
 namespace BFBC2Toolkit.Windows
 {
@@ -66,6 +69,15 @@ namespace BFBC2Toolkit.Windows
         private void FindAndReplaceWindow_Deactivated(object sender, EventArgs e)
         {
             IsTransparent(true);
+        }
+
+        private async void FindAndReplaceWindow_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (UIElements.TextEditor.Visibility == Visibility.Visible)
+            {
+                if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.KeyboardDevice.IsKeyDown(Key.S))
+                    await Save.TextEditorChanges();
+            }
         }
 
         private void IsTransparent(bool isTransparent)
@@ -339,7 +351,7 @@ namespace BFBC2Toolkit.Windows
             if (e.KeyboardDevice.IsKeyDown(System.Windows.Input.Key.Enter))
                 if (!FindNext(txtFind2.Text))
                     SystemSounds.Beep.Play();
-        }       
+        }
 
         private void txtFind_Loaded(object sender, RoutedEventArgs e)
         {
