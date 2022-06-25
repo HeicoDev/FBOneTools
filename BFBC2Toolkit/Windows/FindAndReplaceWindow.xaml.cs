@@ -73,6 +73,9 @@ namespace BFBC2Toolkit.Windows
 
         private async void FindAndReplaceWindow_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
+            if (e.KeyboardDevice.IsKeyDown(Key.Escape))
+                Close();
+
             if (UIElements.TextEditor.Visibility == Visibility.Visible)
             {
                 if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.KeyboardDevice.IsKeyDown(Key.S))
