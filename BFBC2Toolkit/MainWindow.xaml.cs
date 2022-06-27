@@ -874,6 +874,8 @@ namespace BFBC2Toolkit
                 {
                     textEditor.FontSize++;
 
+                    Settings.TxtFontSize = textEditor.FontSize;
+
                     Log.Write("Increased font size to: " + textEditor.FontSize);
                 }
             }
@@ -886,6 +888,8 @@ namespace BFBC2Toolkit
                 else
                 {
                     textEditor.FontSize--;
+
+                    Settings.TxtFontSize = textEditor.FontSize;
 
                     Log.Write("Reduced font size to: " + textEditor.FontSize);
                 }
@@ -1288,6 +1292,8 @@ namespace BFBC2Toolkit
             {
                 WindowState = WindowState.Normal;                
             }
+
+            textEditor.FontSize = Settings.TxtFontSize;
 
             //On some systems the window will be stuck behind other windows on startup
             //Workaround: This will hopefully bring the window to the foreground on different OS's 

@@ -16,6 +16,7 @@ namespace BFBC2Toolkit.Data
         public static bool TxtEdShowTabs { get; set; } = false;
         public static bool TxtEdCodeFolding { get; set; } = true;
         public static bool TxtEdCodeCompletion { get; set; } = true;
+        public static double TxtFontSize { get; set; } = 11;
         public static string PathToPython { get; set; } = @"C:\Python27\pythonw.exe";
         public static bool ShowEventLog { get; set; } = true;
         public static bool ShowProperties { get; set; } = true;
@@ -63,6 +64,9 @@ namespace BFBC2Toolkit.Data
                             break;
                         case "TxtEdCodeCompletion":
                             nodeList[i].Attributes["Value"].Value = Settings.TxtEdCodeCompletion.ToString();
+                            break;
+                        case "TxtFontSize":
+                            nodeList[i].Attributes["Value"].Value = Settings.TxtFontSize.ToString();
                             break;
                         case "PathToPython":
                             nodeList[i].Attributes["Value"].Value = SharedSettings.PathToPython;
@@ -139,6 +143,9 @@ namespace BFBC2Toolkit.Data
                             break;
                         case "TxtEdCodeCompletion":
                             Settings.TxtEdCodeCompletion = Convert.ToBoolean(nodeList[i].Attributes["Value"].Value);
+                            break;
+                        case "TxtFontSize":
+                            Settings.TxtFontSize = Convert.ToDouble(nodeList[i].Attributes["Value"].Value);
                             break;
                         case "PathToPython":
                             SharedSettings.PathToPython = nodeList[i].Attributes["Value"].Value;
