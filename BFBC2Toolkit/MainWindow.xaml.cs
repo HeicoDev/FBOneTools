@@ -87,7 +87,7 @@ namespace BFBC2Toolkit
         private async void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
             if (textEditor.Visibility == Visibility.Visible)
-            {
+            {               
                 if (e.KeyboardDevice.IsKeyDown(Key.LeftCtrl) && e.KeyboardDevice.IsKeyDown(Key.F))
                     FindAndReplaceWindow.ShowForReplace(textEditor);
 
@@ -104,7 +104,7 @@ namespace BFBC2Toolkit
                     await Save.TextEditorChanges();
 
                     Log.Write("", "done");
-                }                   
+                }
             }
         }
 
@@ -862,6 +862,36 @@ namespace BFBC2Toolkit
                 foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
         }
 
+        private void TextEditor_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && e.Delta > 0)
+            {
+                if (textEditor.FontSize == 100)
+                {
+                    Log.Write("Reached max font site!", "warning");
+                }
+                else
+                {
+                    textEditor.FontSize++;
+
+                    Log.Write("Increased font size to: " + textEditor.FontSize);
+                }
+            }
+            else if (Keyboard.IsKeyDown(Key.LeftCtrl) && e.Delta < 0)
+            {
+                if (textEditor.FontSize == 2)
+                {
+                    Log.Write("Reached min font size!", "warning");
+                }
+                else
+                {
+                    textEditor.FontSize--;
+
+                    Log.Write("Reduced font size to: " + textEditor.FontSize);
+                }
+            }
+        }
+
         private void ApplyCodeFolding()
         {
             if (foldingManager != null)
@@ -1302,7 +1332,7 @@ namespace BFBC2Toolkit
                 gridPreviewProp.ColumnDefinitions[2].MinWidth = 0;
                 gridPreviewProp.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Star);
             }
-        }      
+        }       
     }
 }
 
