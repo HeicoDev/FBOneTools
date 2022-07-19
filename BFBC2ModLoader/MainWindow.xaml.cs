@@ -216,6 +216,9 @@ namespace BFBC2ModLoader
                 lblModsDisabled.Visibility = Visibility.Hidden;
             }
 
+            //Workaround for disabled mods triggering enabled/disabled state changed when out of view
+            dataGridModManager.EnableRowVirtualization = false;
+
             windowStartup.Close();
             WindowState = WindowState.Normal;
 
