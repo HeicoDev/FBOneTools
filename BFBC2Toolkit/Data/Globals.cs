@@ -34,7 +34,7 @@ namespace BFBC2Toolkit.Data
         public static void SetSharedVars()
         {
             SharedGlobals.ClientName = "BFBC2 Toolkit";
-            SharedGlobals.ClientVersion = "1.0.2";
+            SharedGlobals.ClientVersion = "1.0.3";
         }
 
         public static void SetFbrbFiles()
