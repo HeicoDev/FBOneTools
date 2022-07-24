@@ -84,7 +84,7 @@ namespace BFBC2Toolkit.Windows
                 {
                     string[] file = { filePath };
 
-                    await Task.Run(() => TextureConverter.ConvertFile(file, copyToOutputEnabled, true));
+                    await Task.Run(() => TextureConverter.ConvertFile(file, copyToOutputEnabled, true, "")); //TODO: add option to convert to .ps3texture and .xenontexture
                 }
                 else if (filePath.EndsWith(".dbx") || filePath.EndsWith(".xml"))
                 {

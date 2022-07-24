@@ -167,7 +167,85 @@ namespace BFBC2Toolkit.Functions
 
                         string[] file = { path };
 
-                        await Task.Run(() => TextureConverter.ConvertFile(file, false, false));
+                        await Task.Run(() => TextureConverter.ConvertFile(file, false, false, ""));
+
+                        try
+                        {
+                            UIElements.ImageElement.Source = BitmapHelper.LoadImage(path);
+                        }
+                        catch
+                        {
+                            UIElements.ImageElement.Visibility = Visibility.Hidden;
+
+                            Log.Write("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
+                        }
+
+                        Write.ToInfoBox(ctvi);
+                    }
+                    else
+                    {
+                        Log.Write("Importing aborted.");
+
+                        return true;
+                    }
+                }
+                else if (selectedFilePath.EndsWith(".ps3texture")) //TODO: refactor
+                {
+                    var ofd = new OpenFileDialog();
+                    ofd.Filter = "dds file (.dds)|*.dds";
+                    ofd.Title = "Select dds file...";
+
+                    if (ofd.ShowDialog() == true)
+                    {
+                        string path = selectedFilePath.Replace(".ps3texture", ".dds");
+
+                        if (File.Exists(path))
+                            await Task.Run(() => File.Delete(path));
+
+                        await Task.Run(() => File.Copy(ofd.FileName, path));
+
+                        string[] file = { path };
+
+                        await Task.Run(() => TextureConverter.ConvertFile(file, false, false, "PS3"));
+
+                        try
+                        {
+                            UIElements.ImageElement.Source = BitmapHelper.LoadImage(path);
+                        }
+                        catch
+                        {
+                            UIElements.ImageElement.Visibility = Visibility.Hidden;
+
+                            Log.Write("Unable to load texture preview! Exporting and importing should still work fine.", "warning");
+                        }
+
+                        Write.ToInfoBox(ctvi);
+                    }
+                    else
+                    {
+                        Log.Write("Importing aborted.");
+
+                        return true;
+                    }
+                }
+                else if (selectedFilePath.EndsWith(".xenontexture"))
+                {
+                    var ofd = new OpenFileDialog();
+                    ofd.Filter = "dds file (.dds)|*.dds";
+                    ofd.Title = "Select dds file...";
+
+                    if (ofd.ShowDialog() == true)
+                    {
+                        string path = selectedFilePath.Replace(".xenontexture", ".dds");
+
+                        if (File.Exists(path))
+                            await Task.Run(() => File.Delete(path));
+
+                        await Task.Run(() => File.Copy(ofd.FileName, path));
+
+                        string[] file = { path };
+
+                        await Task.Run(() => TextureConverter.ConvertFile(file, false, false, "Xenon"));
 
                         try
                         {

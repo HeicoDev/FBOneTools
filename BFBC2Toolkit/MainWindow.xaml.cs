@@ -469,7 +469,7 @@ namespace BFBC2Toolkit
                     {                        
                         string[] file = { selectedFilePath };
 
-                        await Task.Run(() => TextureConverter.ConvertFile(file, false, false));
+                        await Task.Run(() => TextureConverter.ConvertFile(file, false, false, ""));
 
                         try
                         {
@@ -487,7 +487,7 @@ namespace BFBC2Toolkit
                     {                                              
                         string[] file = { selectedFilePath };
 
-                        await Task.Run(() => TextureConverter.ConvertFile(file, false, false));
+                        await Task.Run(() => TextureConverter.ConvertFile(file, false, false, ""));
 
                         try
                         {                            
@@ -1101,7 +1101,7 @@ namespace BFBC2Toolkit
             {
                 if (Globals.IsDataTreeView && Globals.IsGameProfile)
                     btnImport.IsEnabled = false;
-                else if (format == ".itexture")
+                else if (format == ".itexture" || format == ".ps3texture" || format == ".xenontexture")
                     btnImport.IsEnabled = true;
                 else
                     btnImport.IsEnabled = false;

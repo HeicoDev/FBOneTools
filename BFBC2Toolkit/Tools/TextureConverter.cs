@@ -10,21 +10,37 @@ namespace BFBC2Toolkit.Tools
 {
     public class TextureConverter
     {
-        public static void ConvertFile(string[] fileNames, bool copyToOutputFolder, bool isStandalone)
+        public static void ConvertFile(string[] fileNames, bool copyToOutputFolder, bool isStandalone, string consoleType) 
         {
             foreach (string file in fileNames)
             {
-                if (file.EndsWith(".dds"))
+                if (file.EndsWith(".dds")) //TODO: refactor
                 {
-                    string fileName = Path.GetFileName(file.Replace(".dds", ".itexture")),
-                           fileLocation = file.Replace(".dds", ".itexture");
+                    string fileName;
+                    string fileLocation;
+
+                    if (consoleType == "PS3")
+                    {
+                        fileName = Path.GetFileName(file.Replace(".dds", ".ps3texture"));
+                        fileLocation = file.Replace(".dds", ".ps3texture");
+                    }
+                    else if (consoleType == "Xenon")
+                    {
+                        fileName = Path.GetFileName(file.Replace(".dds", ".xenontexture"));
+                        fileLocation = file.Replace(".dds", ".xenontexture");
+                    }
+                    else
+                    {
+                        fileName = Path.GetFileName(file.Replace(".dds", ".itexture"));
+                        fileLocation = file.Replace(".dds", ".itexture");
+                    }
 
                     if (copyToOutputFolder)
                         fileLocation = Dirs.OutputiTexture + @"\" + fileName;
 
                     File.Copy(file, fileLocation, true);
 
-                    ConvertFileToITexture(fileLocation, isStandalone);
+                    ConvertFileToITexture(fileLocation, isStandalone, consoleType);
                 }
                 else if (file.EndsWith(".itexture"))
                 {
@@ -77,7 +93,7 @@ namespace BFBC2Toolkit.Tools
             }
         }
 
-        private static void ConvertFileToITexture(string fileLocation, bool isStandalone)
+        private static void ConvertFileToITexture(string fileLocation, bool isStandalone, string consoleType)
         {
             byte[] hexHeader = { };
             byte[] hexMain = { };
@@ -167,6 +183,9 @@ namespace BFBC2Toolkit.Tools
 
                     offset += 4;
                 }
+
+                if (consoleType != String.Empty)
+                    ReverseHeader(hexHeader, 92);
 
                 hexMain = hexMain.Skip(headerLength).ToArray();
                 hexMain = hexHeader.Concat(hexMain).ToArray();
