@@ -115,6 +115,7 @@ namespace BFBC2Toolkit
             var ofd = new OpenFileDialog();
             ofd.Filter = "exe file (.exe)|*.exe";
             ofd.Title = "Select game or server executable...";
+            ofd.InitialDirectory = Environment.CurrentDirectory;
 
             if (ofd.ShowDialog() == true)
             {
@@ -194,9 +195,12 @@ namespace BFBC2Toolkit
             var ofd = new OpenFileDialog();
             ofd.Filter = "zip file (.zip)|*.zip";
             ofd.Title = "Select zip archive...";
+            ofd.InitialDirectory = Dirs.OfdLatestDirModExtract;
 
             if (ofd.ShowDialog() == true)
             {
+                Dirs.OfdLatestDirModExtract = Path.GetDirectoryName(ofd.FileName);
+
                 Log.Write("Extracting mod archive...");
 
                 EnableInterface(false);
@@ -239,9 +243,12 @@ namespace BFBC2Toolkit
             var ofd = new OpenFileDialog();
             ofd.Filter = "fbrb file (.fbrb)|*.fbrb";
             ofd.Title = "Select fbrb archive...";
+            ofd.InitialDirectory = Dirs.OfdLatestDirFbrbExtract;
 
             if (ofd.ShowDialog() == true)
             {
+                Dirs.OfdLatestDirFbrbExtract = Path.GetDirectoryName(ofd.FileName);
+
                 Log.Write("This may take a while. Extracting fbrb archive, please wait...");
 
                 EnableInterface(false);

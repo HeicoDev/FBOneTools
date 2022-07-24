@@ -17,6 +17,9 @@ namespace BFBC2Toolkit.Data
         public static string FilesPathMod { get; set; }
         public static string SelectedFilePathMod { get; set; }
         public static string SelectedFileNameMod { get; set; }
+        public static string OfdLatestDirImport { get; set; } = Environment.CurrentDirectory;
+        public static string OfdLatestDirFbrbExtract { get; set; } = Environment.CurrentDirectory;
+        public static string OfdLatestDirModExtract { get; set; } = Environment.CurrentDirectory;
 
         /// <summary>
         /// Persistent Directories

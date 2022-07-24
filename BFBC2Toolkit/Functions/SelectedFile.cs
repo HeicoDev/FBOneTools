@@ -128,9 +128,12 @@ namespace BFBC2Toolkit.Functions
                     var ofd = new OpenFileDialog();
                     ofd.Filter = "xml file (.xml)|*.xml";
                     ofd.Title = "Select xml file...";
+                    ofd.InitialDirectory = Dirs.OfdLatestDirImport;
 
                     if (ofd.ShowDialog() == true)
                     {
+                        Dirs.OfdLatestDirImport = Path.GetDirectoryName(ofd.FileName);
+
                         string path = selectedFilePath.Replace(".dbx", ".xml");
 
                         if (File.Exists(path))
@@ -155,9 +158,12 @@ namespace BFBC2Toolkit.Functions
                     var ofd = new OpenFileDialog();
                     ofd.Filter = "dds file (.dds)|*.dds";
                     ofd.Title = "Select dds file...";
+                    ofd.InitialDirectory = Dirs.OfdLatestDirImport;
 
                     if (ofd.ShowDialog() == true)
                     {
+                        Dirs.OfdLatestDirImport = Path.GetDirectoryName(ofd.FileName);
+
                         string path = selectedFilePath.Replace(".itexture", ".dds");
 
                         if (File.Exists(path))
@@ -194,9 +200,12 @@ namespace BFBC2Toolkit.Functions
                     var ofd = new OpenFileDialog();
                     ofd.Filter = "dds file (.dds)|*.dds";
                     ofd.Title = "Select dds file...";
+                    ofd.InitialDirectory = Dirs.OfdLatestDirImport;
 
                     if (ofd.ShowDialog() == true)
                     {
+                        Dirs.OfdLatestDirImport = Path.GetDirectoryName(ofd.FileName);
+
                         string path = selectedFilePath.Replace(".ps3texture", ".dds");
 
                         if (File.Exists(path))
@@ -233,9 +242,12 @@ namespace BFBC2Toolkit.Functions
                     var ofd = new OpenFileDialog();
                     ofd.Filter = "dds file (.dds)|*.dds";
                     ofd.Title = "Select dds file...";
+                    ofd.InitialDirectory = Dirs.OfdLatestDirImport;
 
                     if (ofd.ShowDialog() == true)
                     {
+                        Dirs.OfdLatestDirImport = Path.GetDirectoryName(ofd.FileName);
+
                         string path = selectedFilePath.Replace(".xenontexture", ".dds");
 
                         if (File.Exists(path))
@@ -272,9 +284,12 @@ namespace BFBC2Toolkit.Functions
                     var ofd = new OpenFileDialog();
                     ofd.Filter = "bik file (.bik)|*.bik";
                     ofd.Title = "Select bik file...";
+                    ofd.InitialDirectory = Dirs.OfdLatestDirImport;
 
                     if (ofd.ShowDialog() == true)
                     {
+                        Dirs.OfdLatestDirImport = Path.GetDirectoryName(ofd.FileName);
+
                         await RenameToBik();
 
                         string path = selectedFilePath.Replace(".binkmemory", ".mp4");
