@@ -21,6 +21,7 @@ using BFBC2Toolkit.Tools;
 using BFBC2Toolkit.Helpers;
 using BFBC2Shared.Data;
 using BFBC2Shared.Functions;
+using System.Linq;
 
 /// <summary>
 /// BFBC2 Toolkit 
@@ -82,7 +83,7 @@ namespace BFBC2Toolkit
         {
             if (e.PreviousSize.Height > e.NewSize.Height || e.PreviousSize.Width > e.NewSize.Width)
                 ResetGridSizes();
-        }        
+        }
 
         private async void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
@@ -238,6 +239,18 @@ namespace BFBC2Toolkit
                 Log.Write("", "done");
         }
 
+        private async void BtnExtractFbrb_Drop(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
+            var droppedFiles = e.Data.GetData(DataFormats.FileDrop) as string[];
+            if (!(droppedFiles?.Length > 0)) return;
+
+            var firstFbrb = droppedFiles.FirstOrDefault(x => x.EndsWith(".fbrb", StringComparison.CurrentCultureIgnoreCase));
+            if (firstFbrb is null) return;
+
+            await PerformExtractFbrb(firstFbrb);
+        }
+
         private async void BtnExtractFbrb_Click(object sender, RoutedEventArgs e)
         {
             var ofd = new OpenFileDialog();
@@ -247,25 +260,28 @@ namespace BFBC2Toolkit
 
             if (ofd.ShowDialog() == true)
             {
-                Dirs.OfdLatestDirFbrbExtract = Path.GetDirectoryName(ofd.FileName);
-
-                Log.Write("This may take a while. Extracting fbrb archive, please wait...");
-
-                EnableInterface(false);
-
-                progressRing.IsActive = true;
-
-                bool hasErrorOccurred = await Fbrb.Extract(ofd);
-
-                btnArchiveFbrb.IsEnabled = true;
-
-                progressRing.IsActive = false;
-
-                EnableInterface(true);
-
-                if (!hasErrorOccurred)
-                    Log.Write("", "done");
+                await PerformExtractFbrb(ofd.FileName);
             }
+        }
+
+        private async Task PerformExtractFbrb(string filePath)
+        {
+            Dirs.OfdLatestDirFbrbExtract = Path.GetDirectoryName(filePath);
+
+            Log.Write("This may take a while. Extracting fbrb archive, please wait...");
+
+            EnableInterface(false);
+            progressRing.IsActive = true;
+
+            bool hasErrorOccurred = await Fbrb.Extract(filePath);
+
+            btnArchiveFbrb.IsEnabled = true;
+            progressRing.IsActive = false;
+
+            EnableInterface(true);
+
+            if (!hasErrorOccurred)
+                Log.Write("", "done");
         }
 
         private async void BtnArchiveFbrb_Click(object sender, RoutedEventArgs e)
@@ -1345,7 +1361,8 @@ namespace BFBC2Toolkit
                 gridPreviewProp.ColumnDefinitions[2].MinWidth = 0;
                 gridPreviewProp.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Star);
             }
-        }       
+        }
+
     }
 }
 

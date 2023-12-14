@@ -10,7 +10,7 @@ namespace BFBC2Toolkit.Functions
 {
     public class Fbrb
     {
-        public static async Task<bool> Extract(OpenFileDialog ofd)
+        public static async Task<bool> Extract(string filePath)
         {
             try
             {
@@ -19,9 +19,9 @@ namespace BFBC2Toolkit.Functions
                 if (Directory.Exists(Dirs.FilesPathData) && !Globals.IsGameProfile)
                     await Task.Run(() => Directory.Delete(Dirs.FilesPathData, true));
 
-                await Python.ExecuteScript(Dirs.ScriptFbrb, ofd.FileName);
+                await Python.ExecuteScript(Dirs.ScriptFbrb, filePath);
 
-                Dirs.FilesPathData = ofd.FileName.Replace(".fbrb", " FbRB");
+                Dirs.FilesPathData = filePath.Replace(".fbrb", " FbRB");
 
                 Log.Write("Cleaning up files, please wait...");
 
